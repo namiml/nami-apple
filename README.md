@@ -60,7 +60,7 @@ In your AppDelegate code, comment out the line that reads `@UIApplicationMain`. 
 
 ### 4. Add *main.swift* To Your Project
 
-You’ll need to add a new file to your project with the name *main.swift,* then add this code*:*
+You’ll need to add a new file to your project with the name *main.swift,* then add this code:
 
 ```
 import Foundation
