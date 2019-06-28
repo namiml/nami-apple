@@ -152,3 +152,7 @@ Try building again to make sure all is well, then you are set up and ready to ma
 ## Updating Nami Framework
 
 When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - after it is copied in place, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
+
+## Advanced Functionality and Support
+
+For more details on using the SDK, checkout our help documentation at https://help.namiml.com/collections/1534886-nami-sdk-for-ios.
