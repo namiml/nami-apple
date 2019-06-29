@@ -21,7 +21,7 @@ When complete, you can verify the Nami framework has been added properly by addi
 
 ## Setup Nami Code
 
-There are three code changes that need to be made to the application to finish adding Nami:
+With just a few steps you'll be up and running with Nami in your app.
 
 ### 1. Add Nami to Your Application Delegate
 
@@ -72,7 +72,7 @@ _ = Nami.shared
 _ = UIApplicationMain(CommandLine.argc, CommandLine.unsafeArgv, NSStringFromClass(NamiApplication.self), NSStringFromClass(AppDelegate.self))
 ```
 
-## 5. Add Run Script for Distribution
+### 5. Add Run Script for Distribution
 
 Lastly, because Nami is distributed as a Universal Framework, it contains binaries for both simulators and devices.  In order to submit app store or test flight builds, the simulator binaries need to be removed from the framework.  This requirement will go away with Xcode 11 which understands how to work with universal frameworks.
 
