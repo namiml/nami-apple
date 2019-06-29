@@ -27,7 +27,7 @@ With just a few steps you'll be up and running with Nami in your app.
 
 In your application delegate, the Nami SDK is configured and passed your unique app ID, which is embedded in the code snippet below.  You can also find the app ID on the App Settings screen in the General section under Nami App ID.
 
-```
+```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
   // Configure Nami
@@ -54,7 +54,7 @@ As Nami provides a custom UIApplication class, we'll need to disable the default
 
 In your AppDelegate code, comment out the line that reads `@UIApplicationMain`. The Nami SDK provides a UIApplicationMain subclass that you will enable in the next step.
 
-```
+```swift
 // @UIApplicationMain
 ```
 
@@ -62,7 +62,7 @@ In your AppDelegate code, comment out the line that reads `@UIApplicationMain`. 
 
 You’ll need to add a new file to your project with the name *main.swift,* then add this code:
 
-```
+```swift
 import Foundation
 import UIKit
 import Nami
@@ -82,7 +82,7 @@ In order to do that, you need to create a new Run Script for your project that s
 
 Once in the run script, paste in the following script to clean frameworks of embedded binaries for platforms the app does not require (again, this script will be able to be removed as of Xcode 11 with a Nami XCFramework build).  If you use other third party libraries you may already have a similar script installed, if so you can just use what you have existing.
 
-```
+```shell
 ################################################################################
 #
 # Copyright 2015 Realm Inc.
