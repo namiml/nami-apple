@@ -1,3 +1,15 @@
+![Nami SDK logo](https://nami-brand.s3.amazonaws.com/images/Nami.SDK.RGB.Color.120x120.png)
+
+# Nami SDK for iOS
+
+## Why Nami?
+
+Nami is on a mission to help app developers make more money. 
+
+With Nami you can focus on your app, not integrating and testing StoreKit or building mobile paywall screens. Our platform moves the paywall to the cloud so you can control your in-app subscription sales experience with making app updates.
+
+If your iOS app offers in-app subscriptions, [sign-up here](https://www.nami.ml/request) to give Nami a try.
+
 ## Requirements
 
 - iOS 11+
