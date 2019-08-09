@@ -13,6 +13,7 @@ If your iOS app offers in-app subscriptions, [sign-up here](https://www.nami.ml/
 ## Requirements
 
 - iOS 11+
+- **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
 
 ## Get the code
 Clone or download this repository!
