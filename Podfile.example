@@ -1,0 +1,16 @@
+# Example Podfile to include Nami SDK.  Note the use_frameworks!.
+
+target 'MyApp' do
+  use_frameworks!
+
+  source 'https://github.com/namiml/nami-ios'
+
+  # Pods for MyApp
+  pod 'nami', '~> 1.3.0'
+
+  target 'MyAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
