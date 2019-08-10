@@ -22,7 +22,7 @@ See https://nami.ml for more details and to request an account.
   s.homepage         = 'https://github.com/namiml/nami-ios'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
   s.author           = { 'nami' => 'Kendall.Gelner@namiml.com' }
-  s.source           = { :http => 'https://raw.githubusercontent.com/nami/nami-ios/master/Nami.framework.zip' }
+  s.source           = { :http => 'https://github.com/namiml/nami-ios/blob/master/Nami.framework.zip?raw=true' }
 
 #  Removed until Cocopods parses new Twitter correctly
 #  s.social_media_url = 'https://twitter.com/HelloNamiML'
