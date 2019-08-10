@@ -27,9 +27,11 @@ See https://nami.ml for more details and to request an account.
 #  Removed until Cocopods parses new Twitter correctly
 #  s.social_media_url = 'https://twitter.com/HelloNamiML'
 
-  s.platform              = :ios
+  s.platform              = :ios, "10.3"
   s.ios.deployment_target = '10.3'
 
-  s.ios.vendored_frameworks = 'Nami.framework'  
+  s.public_header_files = "Nami.Framework/Headers/*.h"
+
+  s.ios.vendored_frameworks = 'Nami/Nami.framework'  
   s.frameworks = 'UIKit', 'StoreKit'
 end
