@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'nami'
+  s.name             = 'Nami'
   s.version          = '1.3.0'
   s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
 
@@ -30,8 +30,8 @@ See https://nami.ml for more details and to request an account.
   s.platform              = :ios, "10.3"
   s.ios.deployment_target = '10.3'
 
-  s.public_header_files = "Nami.Framework/Headers/*.h"
+#  s.public_header_files = "Nami.Framework/Headers/*.h"
 
-  s.ios.vendored_frameworks = 'Nami/Nami.framework'  
+  s.ios.vendored_frameworks = 'Nami.framework'  
   s.frameworks = 'UIKit', 'StoreKit'
 end
