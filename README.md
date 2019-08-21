@@ -8,7 +8,7 @@ Nami is on a mission to help app developers make more money.
 
 With Nami you can focus on your app, not integrating and testing StoreKit or building mobile paywall screens. Our platform moves the paywall to the cloud so you can control your in-app subscription sales experience with making app updates.
 
-If your iOS app offers in-app subscriptions, [sign-up here](https://www.nami.ml/request) to give Nami a try.
+If you are considering in-app subscriptions for your iOS app, [get started for free](https://app.namiml.com/join/).
 
 ## Requirements
 
