@@ -7,12 +7,14 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'nami'
+  s.name             = 'Nami'
   s.version          = '1.3.0'
-  s.summary          = 'Nami ML SDK, helps with StoreKit management/testing and definition of dynamic paywalls.'
+  s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
 
   s.description      = <<-DESC
-This library when installed and assigned an activated Nami account, helps manage StoreKit operations for you and provides the ability to build dynamic paywalls for your application along with rules around presentation of paywalls.
+This library helps manage StoreKit operations, allow cloud based controls of your paywall to change images, text, and products.  Adds cloud based control of rules for how your users see your paywall.
+
+Requires an account with Nami ML.  Platform includes a free tier to get you up and running with subscriptions and paywalls in your app.
 
 See https://nami.ml for more details and to request an account.
                        DESC
@@ -20,13 +22,15 @@ See https://nami.ml for more details and to request an account.
   s.homepage         = 'https://github.com/namiml/nami-ios'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
   s.author           = { 'nami' => 'Kendall.Gelner@namiml.com' }
-  s.source           = { :http => 'https://raw.githubusercontent.com/KiGi/nami-ios/master/Nami.framework.zip' }
+  s.source           = { :http => 'https://github.com/namiml/nami-ios/blob/master/Nami.framework.zip?raw=true' }
 
 #  Removed until Cocopods parses new Twitter correctly
 #  s.social_media_url = 'https://twitter.com/HelloNamiML'
 
-  s.platform              = :ios
+  s.platform              = :ios, "10.3"
   s.ios.deployment_target = '10.3'
+
+#  s.public_header_files = "Nami.Framework/Headers/*.h"
 
   s.ios.vendored_frameworks = 'Nami.framework'  
   s.frameworks = 'UIKit', 'StoreKit'

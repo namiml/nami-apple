@@ -1,6 +1,6 @@
 ![Nami SDK logo](https://nami-brand.s3.amazonaws.com/images/Nami.SDK.RGB.Color.120x120.png)
 
-# Nami SDK for iOS
+# Nami SDK [![Platform](http://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Cocoapod](http://img.shields.io/cocoapods/v/Nami.svg?style=flat)](http://cocoapods.org/pods/Nami/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Why Nami?
 
@@ -8,11 +8,12 @@ Nami is on a mission to help app developers make more money.
 
 With Nami you can focus on your app, not integrating and testing StoreKit or building mobile paywall screens. Our platform moves the paywall to the cloud so you can control your in-app subscription sales experience with making app updates.
 
-If your iOS app offers in-app subscriptions, [sign-up here](https://www.nami.ml/request) to give Nami a try.
+If you are considering offering in-app subscriptions in your iOS app, [get started for free](https://app.namiml.com/join/).
 
 ## Requirements
 
 - iOS 11+
+- **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
 
 ## Get the code
 Clone or download this repository!
