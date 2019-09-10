@@ -22,6 +22,21 @@ For Xcode 11, you an use the Swift Package Manager to attach the framework to yo
 
 ## Add the Nami Framework
 
+### Carthage 
+
+Add the following line to your `Carthage` file.
+
+```
+github "namiml/nami-ios" ~> 1.3.0
+```
+
+Then run the following command.
+
+```
+carthage update
+```
+
+### Manually
 After downloading the Nami framework from GitHub, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the Embedded Binaries section, and drag Nami.Framework form the finder into this area:
 
 A dialog will come up to verify, opt to "copy" the framework into the project so that your application has  a copy of the framework to check into source control:
