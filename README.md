@@ -22,6 +22,20 @@ For Xcode 11, you an use the Swift Package Manager to attach the framework to yo
 
 ## Add the Nami Framework
 
+### CocoaPods
+
+Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
+
+```
+pod "Nami", "1.3.0"
+```
+
+Then run the command
+
+```
+pod install
+```
+
 ### Carthage 
 
 Add the following line to your `Carthage` file.
