@@ -225,6 +225,37 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 
 
 
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, closed) {
+  NamiAnalyticsActionTypePaywallRaise = 0,
+  NamiAnalyticsActionTypePaywallClosed = 1,
+  NamiAnalyticsActionTypePaywallRaiseBlocked = 2,
+  NamiAnalyticsActionTypePurchaseActivity = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami17NamiAnalyticsKeys")
+@interface NamiAnalyticsKeys : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, closed) {
+  NamiAnalyticsPurchaseActivityTypeNewPurchase = 0,
+  NamiAnalyticsPurchaseActivityTypeCancelled = 1,
+  NamiAnalyticsPurchaseActivityTypeResubscribe = 2,
+  NamiAnalyticsPurchaseActivityTypeRestored = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
+@interface NamiAnalyticsSupport : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
++ (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
++ (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
+@property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
++ (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIEvent;
 
 SWIFT_CLASS("_TtC4Nami15NamiApplication")
@@ -256,6 +287,27 @@ SWIFT_CLASS("_TtC4Nami25NamiCommunicationsManager")
 - (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
 - (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didFinishDownloadingToURL:(NSURL * _Nonnull)location;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
+@interface NamiConfiguration : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
++ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setMlEnabled:(BOOL)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
++ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setAnalyticsEnabled:(BOOL)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSCoder;
+
+SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
+@interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSHTTPURLResponse;
@@ -301,6 +353,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
++ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
@@ -308,7 +361,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 @end
 
 @class UITextView;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 @interface NamiPaywallTextFieldCell : UICollectionViewCell <UITextViewDelegate>
@@ -690,6 +742,37 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 
 
 
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, closed) {
+  NamiAnalyticsActionTypePaywallRaise = 0,
+  NamiAnalyticsActionTypePaywallClosed = 1,
+  NamiAnalyticsActionTypePaywallRaiseBlocked = 2,
+  NamiAnalyticsActionTypePurchaseActivity = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami17NamiAnalyticsKeys")
+@interface NamiAnalyticsKeys : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, closed) {
+  NamiAnalyticsPurchaseActivityTypeNewPurchase = 0,
+  NamiAnalyticsPurchaseActivityTypeCancelled = 1,
+  NamiAnalyticsPurchaseActivityTypeResubscribe = 2,
+  NamiAnalyticsPurchaseActivityTypeRestored = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
+@interface NamiAnalyticsSupport : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
++ (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
++ (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
+@property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
++ (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIEvent;
 
 SWIFT_CLASS("_TtC4Nami15NamiApplication")
@@ -721,6 +804,27 @@ SWIFT_CLASS("_TtC4Nami25NamiCommunicationsManager")
 - (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
 - (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didFinishDownloadingToURL:(NSURL * _Nonnull)location;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
+@interface NamiConfiguration : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
++ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setMlEnabled:(BOOL)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
++ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setAnalyticsEnabled:(BOOL)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSCoder;
+
+SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
+@interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSHTTPURLResponse;
@@ -766,6 +870,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
++ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
@@ -773,7 +878,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 @end
 
 @class UITextView;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 @interface NamiPaywallTextFieldCell : UICollectionViewCell <UITextViewDelegate>
@@ -1153,6 +1257,37 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 
 
 
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, closed) {
+  NamiAnalyticsActionTypePaywallRaise = 0,
+  NamiAnalyticsActionTypePaywallClosed = 1,
+  NamiAnalyticsActionTypePaywallRaiseBlocked = 2,
+  NamiAnalyticsActionTypePurchaseActivity = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami17NamiAnalyticsKeys")
+@interface NamiAnalyticsKeys : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, closed) {
+  NamiAnalyticsPurchaseActivityTypeNewPurchase = 0,
+  NamiAnalyticsPurchaseActivityTypeCancelled = 1,
+  NamiAnalyticsPurchaseActivityTypeResubscribe = 2,
+  NamiAnalyticsPurchaseActivityTypeRestored = 3,
+};
+
+
+SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
+@interface NamiAnalyticsSupport : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
++ (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
++ (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
+@property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
++ (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIEvent;
 
 SWIFT_CLASS("_TtC4Nami15NamiApplication")
@@ -1184,6 +1319,27 @@ SWIFT_CLASS("_TtC4Nami25NamiCommunicationsManager")
 - (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
 - (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
 - (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didFinishDownloadingToURL:(NSURL * _Nonnull)location;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
+@interface NamiConfiguration : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
++ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setMlEnabled:(BOOL)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
++ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setAnalyticsEnabled:(BOOL)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSCoder;
+
+SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
+@interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSHTTPURLResponse;
@@ -1229,6 +1385,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
++ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
@@ -1236,7 +1393,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 @end
 
 @class UITextView;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 @interface NamiPaywallTextFieldCell : UICollectionViewCell <UITextViewDelegate>
