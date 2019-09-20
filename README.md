@@ -41,7 +41,7 @@ pod install
 Add the following line to your `Carthage` file.
 
 ```
-github "namiml/nami-ios" ~> 1.3.0
+github "namiml/nami-apple" ~> 1.3.0
 ```
 
 Then run the following command.
@@ -197,4 +197,4 @@ When a new version of the Nami framework is released, just drag it over your old
 
 ## Advanced Functionality and Support
 
-For more details on using the SDK, check out our help documentation at https://help.namiml.com/collections/1534886-nami-sdk-for-ios.
+For more details on using the SDK, check out our help documentation at https://help.namiml.com/en/collections/1534886-nami-sdk-for-apple.
