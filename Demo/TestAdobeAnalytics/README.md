@@ -15,4 +15,4 @@ To get started
 
 ![Adobe App ID](https://nami-public-web.s3.us-east-2.amazonaws.com/adobe_setup.png)
 
-For more details on how to configure your analytics intergation, please see https://help.namiml.com/some_article.
+For more details on how to configure your analytics intergation, please see https://help.namiml.com/en/articles/3344401-analytics-integrations.
