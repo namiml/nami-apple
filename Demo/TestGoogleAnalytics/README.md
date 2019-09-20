@@ -11,4 +11,4 @@ To get started
 3. `$ open TestProducts.xcworkspace`
 4. Download your Firebase config file (`GoogleService-Info.plist`) and add it to the project.  See Google's instructions [here](https://support.google.com/firebase/answer/7015592).
 
-For more details on how to configure your analytics intergation, please see https://help.namiml.com/some_article.
+For more details on how to configure your analytics intergation, please see https://help.namiml.com/en/articles/3344401-analytics-integrations.
