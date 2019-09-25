@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '1.3.0'
+  s.version          = '1.4.0'
   s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
 
   s.description      = <<-DESC
@@ -22,7 +22,7 @@ See https://nami.ml for more details and to request an account.
   s.homepage         = 'https://github.com/namiml/nami-ios'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
   s.author           = { 'nami' => 'Kendall.Gelner@namiml.com' }
-  s.source           = { :http => 'https://github.com/namiml/nami-ios/blob/master/Nami.framework.zip?raw=true' }
+  s.source           = { :http => 'https://github.com/namiml/nami-apple/blob/master/Nami.framework.zip?raw=true' }
 
 #  Removed until Cocopods parses new Twitter correctly
 #  s.social_media_url = 'https://twitter.com/HelloNamiML'
