@@ -321,14 +321,19 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
+@property (nonatomic, copy) NSString * _Nonnull paywallID;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SKProduct;
 @class NamiMetaPurchase;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 @interface NamiMetaProduct : NSObject
+@property (nonatomic, strong) SKProduct * _Nonnull product;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiProductInfoDict;
 @property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
 @property (nonatomic, readonly) BOOL isPurchased;
 @property (nonatomic, readonly, strong) NamiMetaPurchase * _Nullable productPurchase;
@@ -336,10 +341,18 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum NamiPurchaseSource : NSInteger;
 
 /// Class that represents a purchase that has been made
 SWIFT_CLASS("_TtC4Nami16NamiMetaPurchase")
 @interface NamiMetaPurchase : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
+@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
+@property (nonatomic) BOOL isSubscription;
+@property (nonatomic, copy) NSDate * _Nullable subscriptionExpirationDate;
+@property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic, strong) NamiMetaProduct * _Nullable metaProduct;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -368,6 +381,22 @@ SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, closed) {
+  NamiPurchaseResultPurchased = 0,
+  NamiPurchaseResultRenewed = 1,
+  NamiPurchaseResultDeferred = 2,
+  NamiPurchaseResultRetrying = 3,
+  NamiPurchaseResultCanceled = 4,
+  NamiPurchaseResultBlocked = 5,
+  NamiPurchaseResultFailed = 6,
+};
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, closed) {
+  NamiPurchaseSourceExternal = 0,
+  NamiPurchaseSourceNamiPaywall = 1,
+  NamiPurchaseSourceApplication = 2,
+};
 
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, closed) {
   NamiPurchaseStatePending = 0,
@@ -838,14 +867,19 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
+@property (nonatomic, copy) NSString * _Nonnull paywallID;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SKProduct;
 @class NamiMetaPurchase;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 @interface NamiMetaProduct : NSObject
+@property (nonatomic, strong) SKProduct * _Nonnull product;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiProductInfoDict;
 @property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
 @property (nonatomic, readonly) BOOL isPurchased;
 @property (nonatomic, readonly, strong) NamiMetaPurchase * _Nullable productPurchase;
@@ -853,10 +887,18 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum NamiPurchaseSource : NSInteger;
 
 /// Class that represents a purchase that has been made
 SWIFT_CLASS("_TtC4Nami16NamiMetaPurchase")
 @interface NamiMetaPurchase : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
+@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
+@property (nonatomic) BOOL isSubscription;
+@property (nonatomic, copy) NSDate * _Nullable subscriptionExpirationDate;
+@property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic, strong) NamiMetaProduct * _Nullable metaProduct;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -885,6 +927,22 @@ SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, closed) {
+  NamiPurchaseResultPurchased = 0,
+  NamiPurchaseResultRenewed = 1,
+  NamiPurchaseResultDeferred = 2,
+  NamiPurchaseResultRetrying = 3,
+  NamiPurchaseResultCanceled = 4,
+  NamiPurchaseResultBlocked = 5,
+  NamiPurchaseResultFailed = 6,
+};
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, closed) {
+  NamiPurchaseSourceExternal = 0,
+  NamiPurchaseSourceNamiPaywall = 1,
+  NamiPurchaseSourceApplication = 2,
+};
 
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, closed) {
   NamiPurchaseStatePending = 0,
@@ -1353,14 +1411,19 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
+@property (nonatomic, copy) NSString * _Nonnull paywallID;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SKProduct;
 @class NamiMetaPurchase;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 @interface NamiMetaProduct : NSObject
+@property (nonatomic, strong) SKProduct * _Nonnull product;
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiProductInfoDict;
 @property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
 @property (nonatomic, readonly) BOOL isPurchased;
 @property (nonatomic, readonly, strong) NamiMetaPurchase * _Nullable productPurchase;
@@ -1368,10 +1431,18 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum NamiPurchaseSource : NSInteger;
 
 /// Class that represents a purchase that has been made
 SWIFT_CLASS("_TtC4Nami16NamiMetaPurchase")
 @interface NamiMetaPurchase : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
+@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
+@property (nonatomic) BOOL isSubscription;
+@property (nonatomic, copy) NSDate * _Nullable subscriptionExpirationDate;
+@property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic, strong) NamiMetaProduct * _Nullable metaProduct;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1400,6 +1471,22 @@ SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, closed) {
+  NamiPurchaseResultPurchased = 0,
+  NamiPurchaseResultRenewed = 1,
+  NamiPurchaseResultDeferred = 2,
+  NamiPurchaseResultRetrying = 3,
+  NamiPurchaseResultCanceled = 4,
+  NamiPurchaseResultBlocked = 5,
+  NamiPurchaseResultFailed = 6,
+};
+
+typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, closed) {
+  NamiPurchaseSourceExternal = 0,
+  NamiPurchaseSourceNamiPaywall = 1,
+  NamiPurchaseSourceApplication = 2,
+};
 
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, closed) {
   NamiPurchaseStatePending = 0,

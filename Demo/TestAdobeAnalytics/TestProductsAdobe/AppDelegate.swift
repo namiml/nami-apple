@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func namiSetup() {
-        // For Internal use only, delete before pushing ot public repo.
-        NamiCommand.performCommand("useStagingAPI")
-        
+    func namiSetup() {        
         // For testing we'll bypass StoreKit, so you don't have to run the app on a device to test purchases.
         // You may want to include some ability to toggle this on for testers of your applcaition.
         NamiStoreKitHelper.shared.bypassStoreKit(bypass: true)
@@ -35,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NamiStoreKitHelper.shared.clearBypassStoreKitPurchases()
         
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
-        Nami.shared.configure(appID: "2dc699a5-43c6-4e3a-9166-957e1640741b")
+        Nami.shared.configure(appID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         
         
         NamiAnalyticsSupport.registerAnalyticsHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
@@ -110,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func adobeSetup() {
         ACPCore.setLogLevel(.debug)
-        ACPCore.configure(withAppId: "1af0a5fed197/f070bc4764d7/launch-a8e2492e8ff8")
+        ACPCore.configure(withAppId: "")
    
         ACPAnalytics.registerExtension()
         ACPUserProfile.registerExtension()

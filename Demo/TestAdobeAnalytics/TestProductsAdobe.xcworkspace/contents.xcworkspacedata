@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/kendall/projects/Clients/NamiML/omaha-TestApps/analytics-test-apps/TestAdobeAnalytics/TestProductsAdobe.xcodeproj">
+      location = "group:TestProductsAdobe.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
