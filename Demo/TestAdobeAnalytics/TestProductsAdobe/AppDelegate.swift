@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func namiSetup() {        
+    func namiSetup() {
         // For testing we'll bypass StoreKit, so you don't have to run the app on a device to test purchases.
         // You may want to include some ability to toggle this on for testers of your applcaition.
         NamiStoreKitHelper.shared.bypassStoreKit(bypass: true)
@@ -32,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NamiStoreKitHelper.shared.clearBypassStoreKitPurchases()
         
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
-        Nami.shared.configure(appID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
-        
+        Nami.shared.configure(appID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")        
         
         NamiAnalyticsSupport.registerAnalyticsHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
 

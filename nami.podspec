@@ -19,7 +19,7 @@ Requires an account with Nami ML.  Platform includes a free tier to get you up a
 See https://nami.ml for more details and to request an account.
                        DESC
 
-  s.homepage         = 'https://github.com/namiml/nami-ios'
+  s.homepage         = 'https://github.com/namiml/nami-apple'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
   s.author           = { 'nami' => 'Kendall.Gelner@namiml.com' }
   s.source           = { :http => 'https://github.com/namiml/nami-apple/blob/master/Nami.framework.zip?raw=true' }
