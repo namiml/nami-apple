@@ -8,11 +8,11 @@ Nami is on a mission to help app developers make more money.
 
 With Nami you can focus on your core app experience, not integrating and testing StoreKit and building mobile upsell screens. Our platform moves the critical elements to the cloud so you can control your in-app subscription sales experience without making app updates.
 
-If you are considering offering in-app subscriptions in your iOS app, [get started for free](https://app.namiml.com/join/).
+If you are considering offering in-app subscriptions in your iOS or iPadOS app, [get started for free](https://app.namiml.com/join/).
 
 ## Requirements
 
-- iOS 11+
+- iOS 11+, iPadOS 13+
 - **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
 - Now includes Xcode 11 build as well, look for Nami.xcframework in Xcode11 folder.
 
