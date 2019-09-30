@@ -4,29 +4,26 @@
 
 ## Why Nami?
 
-Nami is on a mission to help app developers make more money. 
+Nami is on a mission to help app developers make more money by providing you tools to successfully sell your apps, not your users.
 
-With Nami you can focus on your core app experience, not integrating and testing StoreKit and building mobile upsell screens. Our platform moves the critical elements to the cloud so you can control your in-app subscription sales experience without making app updates.
+With Nami you can focus on your core app experience, not integrating and testing StoreKit and building in-app purchase or subscription offer screens. Our platform moves the critical elements to the cloud so you can make changes without making app updates.
 
-If you are considering offering in-app subscriptions in your iOS or iPadOS app, [get started for free](https://app.namiml.com/join/).
+## 1. Create your Nami account
 
-## Requirements
+[Get started now](https://app.namiml.com/join/) to create your free account.
 
+## 2. Download the Nami Framework
+
+Clone or download this repository!
+
+### Requirements
 - iOS 11+, iPadOS 13+
 - **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
 - Now includes Xcode 11 build as well, look for Nami.xcframework in Xcode11 folder.
 
-## Get the code
-Clone or download this repository!
+## 3. Add the Nami Framework to your Xcode project
 
-## Add the Nami Framework
-
-### Xcode 11
-
-For Xcode 11, you can copy the Nami.xcframework file into your project dicrectory, then simply drag into the project "Frameworks and Libraries" section (General tab of project settings).
-
-
-### CocoaPods
+### Using CocoaPods
 
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
@@ -40,7 +37,7 @@ Then run the command
 pod install
 ```
 
-### Carthage 
+### Using Carthage 
 
 Add the following line to your `Carthage` file.
 
@@ -54,7 +51,7 @@ Then run the following command.
 carthage update
 ```
 
-### Manually
+### Add Manually
 After downloading the Nami framework from GitHub, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the Embedded Binaries section, and drag Nami.Framework form the finder into this area:
 
 A dialog will come up to verify, opt to "copy" the framework into the project so that your application has  a copy of the framework to check into source control:
@@ -65,19 +62,26 @@ A dialog will come up to verify, opt to "copy" the framework into the project so
 
 When complete, you can verify the Nami framework has been added properly by adding `import Nami` to the `AppDelegate.swift` file and then compiling your project.  If everything is configured properly, the app will build and link with the Nami library. If you receive errors, try cleaning the build folder or removing the Nami framework from your project and try re-adding it.
 
-## Setup Nami Code
+#### Note: Xcode 11
 
-With just a few steps you'll be up and running with Nami in your app.
+For Xcode 11, you can copy the Nami.xcframework file into your project directory, then simply drag into the project "Frameworks and Libraries" section (General tab of project settings).
 
-### 1. Add Nami to Your Application Delegate
+#### Note: Updating the Nami Framework
 
-In your application delegate, the Nami SDK is configured and passed your unique app ID, which is embedded in the code snippet below.  You can also find the app ID on the App Settings screen in the General section under Nami App ID.
+When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - make sure to select "replace" instead of "merge".  After the framework has been copied over the old one, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
+
+## 4. Setup the Nami Framework in your App
+
+### a) Add Nami to Your Application Delegate
+
+In your application delegate, the Nami SDK is configured and passed your unique app ID,
+You can find the Nami App ID under the Developer tab of the Nami Control Center's [App Settings](https://app.namiml.com/app-settings/) section.
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
   // Configure Nami
-  Nami.shared.configure(appID: "APP_ID")
+  Nami.shared.configure(appID: "YOUR_APP_ID_GOES_HERE")
 
   return true
 }
@@ -85,16 +89,16 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 It is recommended that you move the Nami setup code to its own method if you start adding other configuration calls (we'll cover these other possible calls later).  Also if you have existing code in the `didFinishLaunchingWithOptions` method, please call the Nami configure method as soon as possible to help the system initialize quickly and be ready for purchases.
 
-### 2. Switch to NamiApplication
+### b) Switch to NamiApplication
 
 The Nami SDK provides a NamiApplication class, a subclass of UIApplicationMain.
 
 NamiApplication allows Nami to do two things automatically:
 
-1. Track metrics about key button and control interactions that relate to your paid features
-2. Monitor StoreKit callbacks, which are used for paywall analytics and billing
+1. Track metrics about app interactions that relate to your paid features
+2. Monitor StoreKit callbacks, which are used for analytics and billing
 
-### 3. Comment Out UIApplicationMain
+### c) Comment Out UIApplicationMain
 
 As Nami provides a custom UIApplication class, we'll need to disable the default UIApplicationMain code that is normally generated for you.
 
@@ -104,7 +108,7 @@ In your AppDelegate code, comment out the line that reads `@UIApplicationMain`. 
 // @UIApplicationMain
 ```
 
-### 4. Add *main.swift* To Your Project
+### d) Add *main.swift* To Your Project
 
 You’ll need to add a new file to your project with the name *main.swift,* then add this code:
 
@@ -118,7 +122,7 @@ _ = Nami.shared
 _ = UIApplicationMain(CommandLine.argc, CommandLine.unsafeArgv, NSStringFromClass(NamiApplication.self), NSStringFromClass(AppDelegate.self))
 ```
 
-### 5. Add Run Script for Distribution
+### e) Add Run Script for Distribution
 
 Note: This step is not required for Xcode 11 and later, only for Xcode 10.3 and 10.2 builds.
 
@@ -194,13 +198,34 @@ fi
 fi
 done
 ```
+Try building again to make sure all is well, then you are set up and ready to move to the next step.
 
-Try building again to make sure all is well, then you are set up and ready to make use of Nami for working with paywalls and payments!
+## 5. Add Products
 
-## Updating Nami Framework
+Add your App Store in-app purchase products to the Nami platform to use them from your cloud-baesd paywalls.
 
-When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - make sure to select "replace" instead of "merge".  After the framework has been copied over the old one, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
+Products are managed from the [Nami Control Center > Products](https://app.namiml.com/products/)
 
-## Advanced Functionality and Support
+Learn more about [adding products](https://help.namiml.com/en/articles/3109443-getting-started-with-products).
+
+## 6. Add Your First Cloud-Controlled Paywall
+
+The Nami framework supplies the views and view controllers you need to offer your products to your users. Since these Nami-powered screens are managed in the cloud, you can make changes without app updates.
+
+Paywalls are managed from [Nami Control Center > Paywalls](https://app.namiml.com/paywalls/)
+
+Learn more about [adding a paywall](https://help.namiml.com/en/articles/3109428-getting-started-with-paywalls).
+
+## 7. Create a Campaign
+
+How and when you present paywalls to your users are governed by business rules specified in a campaign.
+
+Campaigns are managed from [Nami Control Center > Campaigns](https://app.namiml.com/campaigns/)
+
+Learn more about [creating a campaign](https://help.namiml.com/en/articles/3114737-getting-started-with-campaigns).
+
+Take your campaign live and you will see your paywall presented once business rule conditions are met.
+
+## Next Steps: Dive Into Additional Functionality
 
 For more details on using the SDK, check out our help documentation at https://help.namiml.com/en/collections/1534886-nami-sdk-for-apple.
