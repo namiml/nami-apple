@@ -9,6 +9,7 @@ import CoreServices
 import CoreTelephony
 import Foundation
 import MediaPlayer
+import Messages
 import MobileCoreServices
 import MultipeerConnectivity
 @_exported import Nami
@@ -200,6 +201,14 @@ public enum StoreKitEnvironment : Swift.String {
 extension NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class NamiExtensionManager : ObjectiveC.NSObject {
+  @objc public static var shared: NamiExtensionManager
+  @objc public var requestFullScreenPaywalls: Swift.Bool
+  @objc public func startupNamiFromMessageExtension(messageViewController: Messages.MSMessagesAppViewController, applicationGroupName: Swift.String?)
+  @objc public func extensionDidResign()
+  @objc override dynamic public init()
+  @objc deinit
 }
 public typealias NamiVerifyReceiptHandler = (NamiReceiptWrapper?) -> ()
 @objc public class ProductOptionCell : UIKit.UICollectionViewCell {

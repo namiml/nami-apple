@@ -321,6 +321,19 @@ SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class MSMessagesAppViewController;
+
+SWIFT_CLASS("_TtC4Nami20NamiExtensionManager")
+@interface NamiExtensionManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiExtensionManager * _Nonnull shared;)
++ (NamiExtensionManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
++ (void)setShared:(NamiExtensionManager * _Nonnull)value;
+@property (nonatomic) BOOL requestFullScreenPaywalls;
+- (void)startupNamiFromMessageExtensionWithMessageViewController:(MSMessagesAppViewController * _Nonnull)messageViewController applicationGroupName:(NSString * _Nullable)applicationGroupName;
+- (void)extensionDidResign;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSHTTPURLResponse;
 
 SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
