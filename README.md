@@ -12,7 +12,13 @@ With Nami you can focus on your core app experience, not integrating and testing
 
 [Get started now](https://app.namiml.com/join/) to create your free account.
 
-## 2. Download the Nami Framework
+## 2. Add your App to Nami
+
+After creating your account, add your app to the [Nami Control Center](https://app.namiml.com).
+
+[Watch a walkthrough video](https://vimeo.com/366322931) or read a [step-by-step guide](http://help.namiml.com/en/articles/3412517-add-an-app) for adding your app.
+
+## 3. Download the Nami Framework
 
 Clone or download this repository!
 
@@ -21,7 +27,7 @@ Clone or download this repository!
 - **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
 - Now includes Xcode 11 build as well, look for Nami.xcframework in Xcode11 folder.
 
-## 3. Add the Nami Framework to your Xcode project
+## 4. Add the Nami Framework to your Xcode project
 
 ### Using CocoaPods
 
@@ -70,7 +76,7 @@ For Xcode 11, you can copy the Nami.xcframework file into your project directory
 
 When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - make sure to select "replace" instead of "merge".  After the framework has been copied over the old one, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
 
-## 4. Setup the Nami Framework in your App
+## 5. Setup the Nami Framework in your App
 
 ### a) Add Nami to Your Application Delegate
 
@@ -200,7 +206,7 @@ done
 ```
 Try building again to make sure all is well, then you are set up and ready to move to the next step.
 
-## 5. Add Products
+## 6. Add Products
 
 Add your App Store in-app purchase products to the Nami platform to use them from your cloud-based paywalls.
 
@@ -208,7 +214,7 @@ Products are managed from the [Nami Control Center > Products](https://app.namim
 
 [Watch a walkthrough video](https://vimeo.com/366345023) or read a [step-by-step guide](https://help.namiml.com/en/articles/3109443-getting-started-with-products) for adding products.
 
-## 6. Add Your First Cloud-Controlled Paywall
+## 7. Add Your First Cloud-Controlled Paywall
 
 The Nami framework supplies the views and view controllers you need to offer your products to your users. Since these Nami-powered screens are managed in the cloud, you can make changes without app updates.
 
@@ -216,7 +222,7 @@ Paywalls are managed from [Nami Control Center > Paywalls](https://app.namiml.co
 
 Learn more about [adding a paywall](https://help.namiml.com/en/articles/3109428-getting-started-with-paywalls).
 
-## 7. Create a Campaign
+## 8. Create a Campaign
 
 How and when you present paywalls to your users are governed by business rules specified in a campaign.
 
