@@ -202,11 +202,11 @@ Try building again to make sure all is well, then you are set up and ready to mo
 
 ## 5. Add Products
 
-Add your App Store in-app purchase products to the Nami platform to use them from your cloud-baesd paywalls.
+Add your App Store in-app purchase products to the Nami platform to use them from your cloud-based paywalls.
 
 Products are managed from the [Nami Control Center > Products](https://app.namiml.com/products/)
 
-Learn more about [adding products](https://help.namiml.com/en/articles/3109443-getting-started-with-products).
+[Watch a walkthrough video](https://vimeo.com/366345023) or read a [step-by-step guide](https://help.namiml.com/en/articles/3109443-getting-started-with-products) for adding products.
 
 ## 6. Add Your First Cloud-Controlled Paywall
 
