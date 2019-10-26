@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.1 (swiftlang-1100.0.274.1 clang-1100.0.33.9)
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
 // swift-module-flags: -target arm64-apple-ios10.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Nami
 import AVFoundation
 import AudioUnit
@@ -14,6 +14,7 @@ import MobileCoreServices
 import MultipeerConnectivity
 @_exported import Nami
 import SafariServices
+import Security
 import StoreKit
 import Swift
 import UIKit
@@ -44,7 +45,7 @@ public class NamiSignalManager {
   public static var shared: Nami.NamiSignalManager
   public func signalPlayingState(playingState: Swift.String)
   public func addHandler(forSignal signal: Nami.NamiSignals, handler: Nami.NamiSignalCallback?)
-  public func buyScreenComplete(purchaseSuccess: Swift.Bool, productID: Swift.String, purchaseInfo: [Swift.AnyHashable : Any])
+  public func buyScreenComplete(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: Nami.NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   @objc deinit
 }
 public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
@@ -169,6 +170,10 @@ public enum StoreKitEnvironment : Swift.String {
   public static func canMakePayments() -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
+}
+@objc extension SKProduct {
+  @objc dynamic public func namiInfoDict() -> [Swift.String : Any]
+  @objc dynamic public func namiInfoDict(withPurchaseSource purchaseSource: Nami.NamiPurchaseSource) -> [Swift.String : Any]
 }
 @objc extension SKProduct {
   @objc public static var priceFormatter: Foundation.NumberFormatter
@@ -372,10 +377,10 @@ extension KeyedDecodingContainer {
   @objc override dynamic public init()
   @objc deinit
 }
+public typealias NamiWorker = () -> Swift.Void
 @objc public class Nami : ObjectiveC.NSObject {
   @objc public static var shared: Nami.Nami
-  public typealias NamiWorker = () -> Swift.Void
-  @objc public func doConfigBasedWork(worker: @escaping Nami.Nami.NamiWorker)
+  @objc public func doConfigBasedWork(worker: @escaping Nami.NamiWorker)
   @objc public var smartPaywall: Swift.Bool {
     @objc get
     @objc set
@@ -462,6 +467,7 @@ public enum NamiMetaPaywallKeys : Swift.String {
   case sign_in_control
   case restore_control
   case purchase_terms
+  case allow_closing
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get

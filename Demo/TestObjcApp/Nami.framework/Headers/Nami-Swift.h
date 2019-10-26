@@ -499,6 +499,12 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface SKProduct (SWIFT_EXTENSION(Nami))
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSNumberFormatter;
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
@@ -1058,6 +1064,12 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface SKProduct (SWIFT_EXTENSION(Nami))
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSNumberFormatter;
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
@@ -1613,6 +1625,12 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 @property (nonatomic) BOOL maskBottomCorners;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SKProduct (SWIFT_EXTENSION(Nami))
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSNumberFormatter;
