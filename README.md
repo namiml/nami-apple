@@ -24,8 +24,7 @@ Clone or download this repository!
 
 ### Requirements
 - iOS 11+, iPadOS 13+
-- **Built for Xcode 10.3, if you still use Xcode 10.2 use framework located in Xcode10-2 folder.**
-- Now includes Xcode 11 build as well, look for Nami.xcframework in Xcode11 folder.
+- **Built for Xcode 11, if you still use Xcode 10.3 use the framework located in Xcode10-3 folder.**
 
 ## 4. Add the Nami Framework to your Xcode project
 
