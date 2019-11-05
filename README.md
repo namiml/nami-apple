@@ -58,13 +58,9 @@ carthage update
 ```
 
 ### Add Manually
-After downloading the Nami framework from GitHub, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the Embedded Binaries section, and drag Nami.Framework form the finder into this area:
+After downloading the Nami framework from GitHub, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the Embedded Binaries section, and drag Nami.Framework from the finder into this area.
 
-A dialog will come up to verify, opt to "copy" the framework into the project so that your application has  a copy of the framework to check into source control:
-
-[](https://www.notion.so/b5df16527b064f38a921eaa3c75e77d4#1376cfc102c74ce0a8ef22aac7349a9c)
-
-[](https://www.notion.so/b5df16527b064f38a921eaa3c75e77d4#981e9b4605c34d64a15140fc9aea410d)
+A dialog will come up to verify, opt to "copy" the framework into the project so that your application has a copy of the framework to check into source control.
 
 When complete, you can verify the Nami framework has been added properly by adding `import Nami` to the `AppDelegate.swift` file and then compiling your project.  If everything is configured properly, the app will build and link with the Nami library. If you receive errors, try cleaning the build folder or removing the Nami framework from your project and try re-adding it.
 
