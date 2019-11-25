@@ -16,7 +16,7 @@ With Nami you can focus on your core app experience, not integrating and testing
 
 After creating your account, add your app to the [Nami Control Center](https://app.namiml.com).
 
-[Watch a walkthrough video](https://vimeo.com/366322931) or read a [step-by-step guide](http://help.namiml.com/en/articles/3412517-add-an-app) for adding your app.
+[Watch a walkthrough video](https://vimeo.com/366322931) or read a [step-by-step guide](https://docs.namiml.com/docs/add-app) for adding your app.
 
 ## 3. Download the Nami Framework
 
@@ -131,8 +131,6 @@ Lastly, because Nami is distributed as a Universal Framework, it contains binari
 
 In order to do that, you need to create a new Run Script for your project that strips out unused binaries from frameworks.  Go to your application target in Xcode, then to the **Build Phases** tab, then hit the "+" symbol to add a new phase - choose **New Run Script Phase.**
 
-[](https://www.notion.so/b5df16527b064f38a921eaa3c75e77d4#bf8d0e1b3d1f435da174a018501bb007)
-
 Once in the run script, paste in the following script to clean frameworks of embedded binaries for platforms the app does not require (again, this script will be able to be removed as of Xcode 11 with a Nami XCFramework build).  If you use other third party libraries you may already have a similar script installed, if so you can just use what you have existing.
 
 ```shell
@@ -207,7 +205,7 @@ Add your App Store in-app purchase products to the Nami platform to use them fro
 
 Products are managed from the [Nami Control Center > Products](https://app.namiml.com/products/)
 
-[Watch a walkthrough video](https://vimeo.com/366345023) or read a [step-by-step guide](https://help.namiml.com/en/articles/3109443-getting-started-with-products) for adding products.
+[Watch a walkthrough video](https://vimeo.com/366345023) or read a [step-by-step guide](https://docs.namiml.com/docs/add-product) for adding products.
 
 ## 7. Add Your First Cloud-Controlled Paywall
 
@@ -215,7 +213,7 @@ The Nami framework supplies the views and view controllers you need to offer you
 
 Paywalls are managed from [Nami Control Center > Paywalls](https://app.namiml.com/paywalls/)
 
-Learn more about [adding a paywall](https://help.namiml.com/en/articles/3109428-getting-started-with-paywalls).
+Learn more about [adding a paywall](https://docs.namiml.com/docs/add-paywall).
 
 ## 8. Create a Campaign
 
@@ -223,10 +221,10 @@ How and when you present paywalls to your users are governed by business rules s
 
 Campaigns are managed from [Nami Control Center > Campaigns](https://app.namiml.com/campaigns/)
 
-Learn more about [creating a campaign](https://help.namiml.com/en/articles/3114737-getting-started-with-campaigns).
+Learn more about [creating a campaign](https://docs.namiml.com/docs/add-campaign).
 
 Take your campaign live and you will see your paywall presented once business rule conditions are met.
 
 ## Next Steps: Dive Into Additional Functionality
 
-For more details on using the SDK, check out our help documentation at https://help.namiml.com/en/collections/1534886-nami-sdk-for-apple.
+For more details on using the SDK, check out our help documentation at [https://docs.namiml.com/](https://docs.namiml.com/).
