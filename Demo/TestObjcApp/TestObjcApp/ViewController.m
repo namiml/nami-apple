@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <Nami/Nami.h>
+#import <Nami/Nami-Swift.h>
 
 @interface ViewController ()
 
@@ -23,7 +23,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[NamiPaywallManager shared] presentLivePaywallFromVC:nil];
+    [[NamiPaywallManager shared] raisePaywallFromVC:nil];
+    [Nami enterCoreContentWithLabel:@"visitingPage"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [Nami exitCoreContentWithLabel:@"visitingPage"];
 }
 
 

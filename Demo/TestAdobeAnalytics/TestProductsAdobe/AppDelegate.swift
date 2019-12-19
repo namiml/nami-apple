@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For testing we'll bypass StoreKit, so you don't have to run the app on a device to test purchases.
         // You may want to include some ability to toggle this on for testers of your applcaition.
         NamiStoreKitHelper.shared.bypassStoreKit(bypass: true)
-        
         // Makes sure when the app is re-run that any stored bypass purchases are cleared out so we can retry purchases
         // Notes this cannot clear out StoreKit sandbox or regular purchaes, which Apple controls.
         // This only clears out purchases made when bypassStoreKit is enabled.

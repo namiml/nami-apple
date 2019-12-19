@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB003A5723AB11F600ED50CC /* Nami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB003A5623AB11F600ED50CC /* Nami.framework */; };
+		EB003A5823AB11F600ED50CC /* Nami.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB003A5623AB11F600ED50CC /* Nami.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB04E83822C07E81002E79E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E83722C07E81002E79E7 /* AppDelegate.m */; };
 		EB04E83B22C07E81002E79E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E83A22C07E81002E79E7 /* ViewController.m */; };
 		EB04E83E22C07E81002E79E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB04E83C22C07E81002E79E7 /* Main.storyboard */; };
 		EB04E84022C07E81002E79E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB04E83F22C07E81002E79E7 /* Assets.xcassets */; };
 		EB04E84322C07E81002E79E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB04E84122C07E81002E79E7 /* LaunchScreen.storyboard */; };
 		EB04E84622C07E81002E79E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E84522C07E81002E79E7 /* main.m */; };
-		EBED285B233D34D500D0C658 /* Nami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBED285A233D34D500D0C658 /* Nami.framework */; };
-		EBED285C233D34D500D0C658 /* Nami.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBED285A233D34D500D0C658 /* Nami.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EBED285C233D34D500D0C658 /* Nami.framework in Embed Frameworks */,
+				EB003A5823AB11F600ED50CC /* Nami.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB003A5623AB11F600ED50CC /* Nami.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nami.framework; sourceTree = "<group>"; };
 		EB04E83322C07E81002E79E7 /* TestObjcApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestObjcApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB04E83622C07E81002E79E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB04E83722C07E81002E79E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		EB04E84222C07E81002E79E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB04E84422C07E81002E79E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB04E84522C07E81002E79E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EBED285A233D34D500D0C658 /* Nami.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nami.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,19 +50,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBED285B233D34D500D0C658 /* Nami.framework in Frameworks */,
+				EB003A5723AB11F600ED50CC /* Nami.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB003A5223AB10F200ED50CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB003A5623AB11F600ED50CC /* Nami.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB04E82A22C07E81002E79E7 = {
 			isa = PBXGroup;
 			children = (
-				EBED285A233D34D500D0C658 /* Nami.framework */,
 				EB04E83522C07E81002E79E7 /* TestObjcApp */,
 				EB04E83422C07E81002E79E7 /* Products */,
+				EB003A5223AB10F200ED50CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

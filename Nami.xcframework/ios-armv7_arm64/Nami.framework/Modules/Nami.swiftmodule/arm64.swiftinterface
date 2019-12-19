@@ -45,7 +45,9 @@ public class NamiSignalManager {
   public static var shared: NamiSignalManager
   public func signalPlayingState(playingState: Swift.String)
   public func addHandler(forSignal signal: NamiSignals, handler: NamiSignalCallback?)
+  public func paywallRaisedImpression(paywallSource: NamiPurchaseSource)
   public func buyScreenComplete(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
+  public func buyScreenCompleteTransactionDelayed(impressionUUID: Swift.String, productID: Swift.String, transactionID: Swift.String, purchaseSource: NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   public func buyScreenCompleteDelayed(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   @objc deinit
 }
@@ -123,6 +125,7 @@ public enum StoreKitEnvironment : Swift.String {
   }
 }
 @objc public enum SandboxAccelerationItemUnit : Swift.Int {
+  case hour
   case week
   case month
   case sixMonth
@@ -136,7 +139,6 @@ public enum StoreKitEnvironment : Swift.String {
 @objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
   @objc public static let shared: NamiStoreKitHelper
   @objc public static let noProductIdentifier: Swift.String
-  @objc public static let mockTransactionIdentifier: Swift.String
   public var bypassStoreKit: Swift.Bool {
     get
     }
@@ -148,7 +150,7 @@ public enum StoreKitEnvironment : Swift.String {
     }
   public var storeKitEnvironment: StoreKitEnvironment {
     get
-  }
+    }
   @objc public func bypassStoreKit(bypass: Swift.Bool)
   public func bypassStoreKit(bypass: Swift.Bool, customAccellerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
   @objc public func clearBypassStoreKitPurchases()
@@ -372,6 +374,7 @@ extension KeyedDecodingContainer {
 @objc public class NamiMetaPaywall : ObjectiveC.NSObject {
   @objc public var paywallID: Swift.String
   @objc public var namiPaywallInfoDict: [Swift.String : Any]
+  @objc public var backgroundImage: UIKit.UIImage?
   public func paywallValue<T>(forKey key: Swift.String) -> T?
   public func paywallValue<T>(forKey key: NamiMetaPaywallKeys) -> T?
   public func attributedTextFromPaywallConfig(key: NamiMetaPaywallConfigKeys, baseFont: UIKit.UIFont) -> Foundation.NSAttributedString?
@@ -390,9 +393,9 @@ public typealias NamiWorker = () -> Swift.Void
   @objc public func registerNamiLogger(logger: NamiLogger)
   @objc public func configure(appID: Swift.String)
   @objc public static func configure(appID: Swift.String)
-  @objc public static func enteringCoreContent(contentDeveloperLabel: Swift.String)
-  @objc public static func exitedCoreContent(contentDeveloperLabel: Swift.String)
-  @objc public static func coreUserAction(contentDeveloperLabel: Swift.String)
+  @objc public static func enterCoreContent(label: Swift.String)
+  @objc public static func exitCoreContent(label: Swift.String)
+  @objc public static func coreAction(label: Swift.String)
   @objc deinit
 }
 @objc public class NamiApplication : UIKit.UIApplication {
@@ -400,7 +403,7 @@ public typealias NamiWorker = () -> Swift.Void
   @objc deinit
 }
 @objc public class NamiCommand : ObjectiveC.NSObject {
-  public static func performCommand(_ commandString: Swift.String)
+  @objc public static func performCommand(_ commandString: Swift.String)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -527,14 +530,15 @@ public struct NamiPurchaseTransaction {
 }
 public typealias NamiPaywallProvider = (UIKit.UIViewController?, [NamiMetaProduct]?, Swift.String, NamiMetaPaywall) -> ()
 public typealias NamiSignInProvider = (UIKit.UIViewController?, Swift.String, NamiMetaPaywall) -> ()
-public typealias NamiPaywallGate = () -> Swift.Bool
+public typealias NamiAutoRaisePaywallBlocker = () -> Swift.Bool
 @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc public static var shared: NamiPaywallManager
-  @objc public static func registerPaywallGate(_ applicationPaywallGate: NamiPaywallGate?)
+  @objc public static func registerApplicationAutoRaisePaywallBlocker(_ applicationAutoRaisePaywallBlocker: NamiAutoRaisePaywallBlocker?)
   @objc public static func register(applicationPaywallProvider: NamiPaywallProvider?)
   @objc public static func register(applicationSignInProvider: NamiSignInProvider?)
-  @objc public func presentLivePaywall(fromVC: UIKit.UIViewController?)
-  @objc public func presentLivePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
+  @objc public func canRaisePaywall() -> Swift.Bool
+  @objc public func raisePaywall(fromVC: UIKit.UIViewController?)
+  @objc public func raisePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
   @objc deinit
 }
 extension NamiPurchaseSource : Swift.Codable {
