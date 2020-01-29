@@ -339,6 +339,9 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -382,7 +385,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
 + (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
@@ -907,6 +912,9 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -950,7 +958,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
 + (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
@@ -1473,6 +1483,9 @@ SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1516,7 +1529,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
 + (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
 - (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;

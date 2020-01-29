@@ -152,7 +152,7 @@ public enum StoreKitEnvironment : Swift.String {
     get
     }
   @objc public func bypassStoreKit(bypass: Swift.Bool)
-  public func bypassStoreKit(bypass: Swift.Bool, customAccellerationToMinutesMap: [Nami.SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
+  public func bypassStoreKit(bypass: Swift.Bool, customAccelerationToMinutesMap: [Nami.SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
   @objc public func clearBypassStoreKitPurchases()
   @objc public func buyProduct(_ metaProduct: Nami.NamiMetaProduct, fromPaywall paywall: Nami.NamiMetaPaywall? = .none, responseHandler: @escaping Nami.NamiPurchaseResponseHandler)
   @objc public func verifyReceipt(completion: @escaping Nami.NamiVerifyReceiptHandler)
@@ -375,6 +375,15 @@ extension KeyedDecodingContainer {
   @objc public var paywallID: Swift.String
   @objc public var namiPaywallInfoDict: [Swift.String : Any]
   @objc public var backgroundImage: UIKit.UIImage?
+  @objc public var developerPaywallID: Swift.String {
+    @objc get
+  }
+  @objc public var title: Swift.String {
+    @objc get
+  }
+  @objc public var body: Swift.String {
+    @objc get
+  }
   public func paywallValue<T>(forKey key: Swift.String) -> T?
   public func paywallValue<T>(forKey key: Nami.NamiMetaPaywallKeys) -> T?
   public func attributedTextFromPaywallConfig(key: Nami.NamiMetaPaywallConfigKeys, baseFont: UIKit.UIFont) -> Foundation.NSAttributedString?
@@ -529,11 +538,14 @@ public enum NamiMetaPaywallConfigKeys : Swift.String {
 public struct NamiPurchaseTransaction {
 }
 public typealias NamiPaywallProvider = (UIKit.UIViewController?, [Nami.NamiMetaProduct]?, Swift.String, Nami.NamiMetaPaywall) -> ()
+public typealias NamiCustomPaywallHandler = ([Nami.NamiMetaProduct]?, Swift.String, Nami.NamiMetaPaywall?) -> ()
 public typealias NamiSignInProvider = (UIKit.UIViewController?, Swift.String, Nami.NamiMetaPaywall) -> ()
 public typealias NamiAutoRaisePaywallBlocker = () -> Swift.Bool
 @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc public static var shared: Nami.NamiPaywallManager
+  @objc public func presentNamiPaywall(fromVC: UIKit.UIViewController?, products: [Nami.NamiMetaProduct]?, paywallMetadata: Nami.NamiMetaPaywall, backgroundImage: UIKit.UIImage?, forNami: Swift.Bool)
   @objc public static func registerApplicationAutoRaisePaywallBlocker(_ applicationAutoRaisePaywallBlocker: Nami.NamiAutoRaisePaywallBlocker?)
+  @objc public static func fetchCustomPaywallMetaForDeveloperID(_ developerPaywallID: Swift.String, _ namiCustomPaywallHandler: @escaping Nami.NamiCustomPaywallHandler)
   @objc public static func register(applicationPaywallProvider: Nami.NamiPaywallProvider?)
   @objc public static func register(applicationSignInProvider: Nami.NamiSignInProvider?)
   @objc public func canRaisePaywall() -> Swift.Bool

@@ -218,9 +218,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 - (void)registerNamiLoggerWithLogger:(id <NamiLogger> _Nonnull)logger;
 - (void)configureWithAppID:(NSString * _Nonnull)appID;
 + (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)enteringCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)exitedCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)coreUserActionWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
++ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)coreActionWithLabel:(NSString * _Nonnull)label;
 @end
 
 
@@ -268,6 +268,7 @@ SWIFT_CLASS("_TtC4Nami15NamiApplication")
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -331,11 +332,16 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 - (void)logMessage:(NSString * _Nonnull)message;
 @end
 
+@class UIImage;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
+@property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -379,11 +385,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
++ (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+- (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
 @end
 
 @class UITextView;
@@ -454,8 +463,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKit
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull mockTransactionIdentifier;)
-+ (NSString * _Nonnull)mockTransactionIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (void)bypassStoreKitWithBypass:(BOOL)bypass;
 - (void)clearBypassStoreKitPurchases;
 - (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
@@ -519,10 +526,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _N
 @end
 
 typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, closed) {
-  SandboxAccelerationItemUnitWeek = 0,
-  SandboxAccelerationItemUnitMonth = 1,
-  SandboxAccelerationItemUnitSixMonth = 2,
-  SandboxAccelerationItemUnitYear = 3,
+  SandboxAccelerationItemUnitHour = 0,
+  SandboxAccelerationItemUnitWeek = 1,
+  SandboxAccelerationItemUnitMonth = 2,
+  SandboxAccelerationItemUnitSixMonth = 3,
+  SandboxAccelerationItemUnitYear = 4,
 };
 
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, closed) {
@@ -783,9 +791,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 - (void)registerNamiLoggerWithLogger:(id <NamiLogger> _Nonnull)logger;
 - (void)configureWithAppID:(NSString * _Nonnull)appID;
 + (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)enteringCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)exitedCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)coreUserActionWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
++ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)coreActionWithLabel:(NSString * _Nonnull)label;
 @end
 
 
@@ -833,6 +841,7 @@ SWIFT_CLASS("_TtC4Nami15NamiApplication")
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -896,11 +905,16 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 - (void)logMessage:(NSString * _Nonnull)message;
 @end
 
+@class UIImage;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
+@property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -944,11 +958,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
++ (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+- (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
 @end
 
 @class UITextView;
@@ -1019,8 +1036,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKit
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull mockTransactionIdentifier;)
-+ (NSString * _Nonnull)mockTransactionIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (void)bypassStoreKitWithBypass:(BOOL)bypass;
 - (void)clearBypassStoreKitPurchases;
 - (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
@@ -1084,10 +1099,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _N
 @end
 
 typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, closed) {
-  SandboxAccelerationItemUnitWeek = 0,
-  SandboxAccelerationItemUnitMonth = 1,
-  SandboxAccelerationItemUnitSixMonth = 2,
-  SandboxAccelerationItemUnitYear = 3,
+  SandboxAccelerationItemUnitHour = 0,
+  SandboxAccelerationItemUnitWeek = 1,
+  SandboxAccelerationItemUnitMonth = 2,
+  SandboxAccelerationItemUnitSixMonth = 3,
+  SandboxAccelerationItemUnitYear = 4,
 };
 
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, closed) {
@@ -1346,9 +1362,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 - (void)registerNamiLoggerWithLogger:(id <NamiLogger> _Nonnull)logger;
 - (void)configureWithAppID:(NSString * _Nonnull)appID;
 + (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)enteringCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)exitedCoreContentWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
-+ (void)coreUserActionWithContentDeveloperLabel:(NSString * _Nonnull)contentDeveloperLabel;
++ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
++ (void)coreActionWithLabel:(NSString * _Nonnull)label;
 @end
 
 
@@ -1396,6 +1412,7 @@ SWIFT_CLASS("_TtC4Nami15NamiApplication")
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1459,11 +1476,16 @@ SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
 - (void)logMessage:(NSString * _Nonnull)message;
 @end
 
+@class UIImage;
 
 SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
 @interface NamiMetaPaywall : NSObject
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
+@property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+@property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1507,11 +1529,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _
 + (void)setShared:(NamiPaywallManager * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-+ (void)registerPaywallGate:(BOOL (^ _Nullable)(void))applicationPaywallGate;
+- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
++ (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
 + (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC;
-- (void)presentLivePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+- (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
+- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
 @end
 
 @class UITextView;
@@ -1582,8 +1607,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKit
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull mockTransactionIdentifier;)
-+ (NSString * _Nonnull)mockTransactionIdentifier SWIFT_WARN_UNUSED_RESULT;
 - (void)bypassStoreKitWithBypass:(BOOL)bypass;
 - (void)clearBypassStoreKitPurchases;
 - (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
@@ -1647,10 +1670,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _N
 @end
 
 typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, closed) {
-  SandboxAccelerationItemUnitWeek = 0,
-  SandboxAccelerationItemUnitMonth = 1,
-  SandboxAccelerationItemUnitSixMonth = 2,
-  SandboxAccelerationItemUnitYear = 3,
+  SandboxAccelerationItemUnitHour = 0,
+  SandboxAccelerationItemUnitWeek = 1,
+  SandboxAccelerationItemUnitMonth = 2,
+  SandboxAccelerationItemUnitSixMonth = 3,
+  SandboxAccelerationItemUnitYear = 4,
 };
 
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, closed) {
