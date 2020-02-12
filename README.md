@@ -33,7 +33,7 @@ Clone or download this repository!
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "1.10.0"
+pod "Nami", "1.10.1"
 ```
 
 Then run the command
@@ -47,7 +47,7 @@ pod install
 Add the following line to your `Carthage` file.
 
 ```
-github "namiml/nami-apple" ~> 1.10.0
+github "namiml/nami-apple" ~> 1.10.1
 ```
 
 Then run the following command.
