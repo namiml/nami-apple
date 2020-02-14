@@ -456,9 +456,11 @@ enum StoreKitEnvironmentObjC : NSInteger;
 
 SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @interface NamiReceiptWrapper : NSObject
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull receiptJSONDict;
 @property (nonatomic, readonly) BOOL hasReceiptData;
 @property (nonatomic, readonly) NSInteger statusCode;
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
+- (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NamiReceiptIAPWrapper *> * _Nonnull)sortedIAPItems SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -478,6 +480,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (void)clearBypassStoreKitPurchases;
 - (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
+- (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isProductPurchased:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)anyProductPurchased:(NSArray<NSString *> * _Nonnull)productIDs SWIFT_WARN_UNUSED_RESULT;
 - (NamiMetaPurchase * _Nullable)currentPurchaseRecordsForProductWithProductID:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;

@@ -156,6 +156,8 @@ public enum StoreKitEnvironment : Swift.String {
   @objc public func clearBypassStoreKitPurchases()
   @objc public func buyProduct(_ metaProduct: Nami.NamiMetaProduct, fromPaywall paywall: Nami.NamiMetaPaywall? = .none, responseHandler: @escaping Nami.NamiPurchaseResponseHandler)
   @objc public func verifyReceipt(completion: @escaping Nami.NamiVerifyReceiptHandler)
+  @objc public func isOriginalVersion(_ originalVersion: Swift.String, lowerThanVersion otherVersion: Swift.String) -> Swift.Bool
+  @objc public func currentAppVersion() -> Swift.String
   @objc public func isProductPurchased(_ productID: Nami.ProductIdentifier) -> Swift.Bool
   @objc public func anyProductPurchased(_ productIDs: [Nami.ProductIdentifier]) -> Swift.Bool
   @objc public func currentPurchaseRecordsForProduct(productID: Nami.ProductIdentifier) -> Nami.NamiMetaPurchase?
@@ -593,6 +595,7 @@ public enum StoreKitReceiptKeys : Swift.String {
   case in_app
   case pending_renewal_info
   case latest_receipt_info
+  case original_application_version
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
@@ -651,6 +654,7 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   public init?(rawValue: Swift.Int)
 }
 @objc public class NamiReceiptWrapper : ObjectiveC.NSObject {
+  @objc public var receiptJSONDict: [Swift.String : Any]
   @objc public var hasReceiptData: Swift.Bool {
     @objc get
   }
@@ -663,6 +667,7 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   public var storeKitEnvironment: Nami.StoreKitEnvironment {
     get
   }
+  @objc public func originalApplicationVersion() -> Swift.String?
   @objc public func latestReceiptInfoDict() -> [[Swift.String : Any]]?
   @objc public func sortedIAPItems() -> [Nami.NamiReceiptIAPWrapper]
   @objc override dynamic public init()
