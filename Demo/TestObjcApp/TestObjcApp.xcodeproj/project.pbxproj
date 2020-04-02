@@ -3,28 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB003A5723AB11F600ED50CC /* Nami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB003A5623AB11F600ED50CC /* Nami.framework */; };
-		EB003A5823AB11F600ED50CC /* Nami.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB003A5623AB11F600ED50CC /* Nami.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB04E83822C07E81002E79E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E83722C07E81002E79E7 /* AppDelegate.m */; };
 		EB04E83B22C07E81002E79E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E83A22C07E81002E79E7 /* ViewController.m */; };
 		EB04E83E22C07E81002E79E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB04E83C22C07E81002E79E7 /* Main.storyboard */; };
 		EB04E84022C07E81002E79E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB04E83F22C07E81002E79E7 /* Assets.xcassets */; };
 		EB04E84322C07E81002E79E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB04E84122C07E81002E79E7 /* LaunchScreen.storyboard */; };
 		EB04E84622C07E81002E79E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB04E84522C07E81002E79E7 /* main.m */; };
+		EB7E6F0E242E62FB00F80217 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F0D242E62FB00F80217 /* Nami.xcframework */; };
+		EB7E6F0F242E62FB00F80217 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F0D242E62FB00F80217 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EB04E85022C07EAB002E79E7 /* Embed Frameworks */ = {
+		EB7E6F10242E62FB00F80217 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB003A5823AB11F600ED50CC /* Nami.framework in Embed Frameworks */,
+				EB7E6F0F242E62FB00F80217 /* Nami.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,7 +32,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EB003A5623AB11F600ED50CC /* Nami.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nami.framework; sourceTree = "<group>"; };
 		EB04E83322C07E81002E79E7 /* TestObjcApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestObjcApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB04E83622C07E81002E79E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB04E83722C07E81002E79E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		EB04E84222C07E81002E79E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB04E84422C07E81002E79E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB04E84522C07E81002E79E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB7E6F0D242E62FB00F80217 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB003A5723AB11F600ED50CC /* Nami.framework in Frameworks */,
+				EB7E6F0E242E62FB00F80217 /* Nami.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +60,7 @@
 		EB003A5223AB10F200ED50CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB003A5623AB11F600ED50CC /* Nami.framework */,
+				EB7E6F0D242E62FB00F80217 /* Nami.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 				EB04E82F22C07E81002E79E7 /* Sources */,
 				EB04E83022C07E81002E79E7 /* Frameworks */,
 				EB04E83122C07E81002E79E7 /* Resources */,
-				EB04E85022C07EAB002E79E7 /* Embed Frameworks */,
+				EB7E6F10242E62FB00F80217 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

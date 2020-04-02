@@ -7,21 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB41D1082370EE8B00AF011A /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB41D1072370EE8B00AF011A /* Nami.xcframework */; };
-		EB41D1092370EE8B00AF011A /* Nami.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB41D1072370EE8B00AF011A /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EB41D10A2370EE9D00AF011A /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB41D1072370EE8B00AF011A /* Nami.xcframework */; };
-		EB41D10B2370EE9D00AF011A /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB41D1072370EE8B00AF011A /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284622BD9AAE00FB12CE /* AppDelegate.swift */; };
 		EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284822BD9AAE00FB12CE /* ViewController.swift */; };
 		EB55284C22BD9AAE00FB12CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284A22BD9AAE00FB12CE /* Main.storyboard */; };
 		EB55284E22BD9AAF00FB12CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55284D22BD9AAF00FB12CE /* Assets.xcassets */; };
 		EB55285122BD9AAF00FB12CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */; };
+		EB7E6F12242E68BC00F80217 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
+		EB7E6F13242E68BC00F80217 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EB7E6F15242E696000F80217 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
+		EB7E6F16242E696000F80217 /* Nami.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
 		EBC76448234FC25A00215C15 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB811E1A234F91FC00D24D73 /* Messages.framework */; };
 		EBC7644B234FC25A00215C15 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7644A234FC25A00215C15 /* MessagesViewController.swift */; };
 		EBC7644E234FC25A00215C15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC7644C234FC25A00215C15 /* MainInterface.storyboard */; };
 		EBC76450234FC25A00215C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC7644F234FC25A00215C15 /* Assets.xcassets */; };
 		EBC76454234FC25A00215C15 /* TestProductsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EBC76447234FC25A00215C15 /* TestProductsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEA3B622C6AE5F00BADDB8 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		EB7E6F14242E68BC00F80217 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB7E6F13242E68BC00F80217 /* Nami.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB811E2B234F91FE00D24D73 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,31 +56,19 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBC76440234FBE9900215C15 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EB41D10B2370EE9D00AF011A /* Nami.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EBC76459234FC26A00215C15 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB41D1092370EE8B00AF011A /* Nami.xcframework in CopyFiles */,
+				EB7E6F16242E696000F80217 /* Nami.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EB41D1072370EE8B00AF011A /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Nami.xcframework; sourceTree = "<group>"; };
 		EB55284322BD9AAE00FB12CE /* TestProducts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProducts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB55284622BD9AAE00FB12CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB55284822BD9AAE00FB12CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,14 +76,13 @@
 		EB55284D22BD9AAF00FB12CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB55285022BD9AAF00FB12CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB7E6F11242E68BC00F80217 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 		EB811E1A234F91FC00D24D73 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		EB811E2C234F920800D24D73 /* Nami.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nami.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC76447234FC25A00215C15 /* TestProductsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TestProductsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC7644A234FC25A00215C15 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		EBC7644D234FC25A00215C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EBC7644F234FC25A00215C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBC76451234FC25A00215C15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBFEA3B622C6AE5F00BADDB8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB41D10A2370EE9D00AF011A /* Nami.xcframework in Frameworks */,
+				EB7E6F12242E68BC00F80217 /* Nami.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB41D1082370EE8B00AF011A /* Nami.xcframework in Frameworks */,
+				EB7E6F15242E696000F80217 /* Nami.xcframework in Frameworks */,
 				EBC76448234FC25A00215C15 /* Messages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				EB55284622BD9AAE00FB12CE /* AppDelegate.swift */,
-				EBFEA3B622C6AE5F00BADDB8 /* main.swift */,
 				EB55284822BD9AAE00FB12CE /* ViewController.swift */,
 				EB55284A22BD9AAE00FB12CE /* Main.storyboard */,
 				EB55284D22BD9AAF00FB12CE /* Assets.xcassets */,
@@ -145,8 +141,7 @@
 		EBA286D222C416D3004EA2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB41D1072370EE8B00AF011A /* Nami.xcframework */,
-				EB811E2C234F920800D24D73 /* Nami.framework */,
+				EB7E6F11242E68BC00F80217 /* Nami.xcframework */,
 				EB811E1A234F91FC00D24D73 /* Messages.framework */,
 			);
 			name = Frameworks;
@@ -174,7 +169,7 @@
 				EB55284022BD9AAE00FB12CE /* Frameworks */,
 				EB55284122BD9AAE00FB12CE /* Resources */,
 				EB811E2B234F91FE00D24D73 /* Embed App Extensions */,
-				EBC76440234FBE9900215C15 /* Embed Frameworks */,
+				EB7E6F14242E68BC00F80217 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,7 +265,6 @@
 			files = (
 				EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */,
 				EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */,
-				EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

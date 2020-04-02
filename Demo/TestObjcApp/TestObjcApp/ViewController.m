@@ -23,13 +23,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [[NamiPaywallManager shared] raisePaywallFromVC:nil];
-    [Nami enterCoreContentWithLabel:@"visitingPage"];
+    [NamiPaywallManager raisePaywallFromVC:nil];
+    [NamiMLManager enterCoreContentWithLabel:@"visitingPage"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [Nami exitCoreContentWithLabel:@"visitingPage"];
+    [NamiMLManager exitCoreContentWithLabel:@"visitingPage"];
 }
 
 

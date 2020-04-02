@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,19 +13,18 @@
 		EB55284C22BD9AAE00FB12CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284A22BD9AAE00FB12CE /* Main.storyboard */; };
 		EB55284E22BD9AAF00FB12CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55284D22BD9AAF00FB12CE /* Assets.xcassets */; };
 		EB55285122BD9AAF00FB12CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */; };
-		EBF3027E232ABB3D00B132F5 /* Nami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF3027D232ABB3D00B132F5 /* Nami.framework */; };
-		EBF3027F232ABB3D00B132F5 /* Nami.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBF3027D232ABB3D00B132F5 /* Nami.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEA3B622C6AE5F00BADDB8 /* main.swift */; };
+		EB56C0932432590C00BA274A /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB56C0922432590C00BA274A /* Nami.xcframework */; };
+		EB56C0942432590C00BA274A /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB56C0922432590C00BA274A /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EB43962D22C18B3A000088D9 /* Embed Frameworks */ = {
+		EB56C0952432590C00BA274A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EBF3027F232ABB3D00B132F5 /* Nami.framework in Embed Frameworks */,
+				EB56C0942432590C00BA274A /* Nami.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,9 +44,8 @@
 		EB55284D22BD9AAF00FB12CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB55285022BD9AAF00FB12CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBF302772328142D00B132F5 /* Nami.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nami.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB56C0922432590C00BA274A /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 		EBF3027D232ABB3D00B132F5 /* Nami.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nami.framework; sourceTree = "<group>"; };
-		EBFEA3B622C6AE5F00BADDB8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF3027E232ABB3D00B132F5 /* Nami.framework in Frameworks */,
+				EB56C0932432590C00BA274A /* Nami.xcframework in Frameworks */,
 				01A3A35F1AB1741C27EAF27E /* Pods_TestProductsGoogle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				EB55284622BD9AAE00FB12CE /* AppDelegate.swift */,
-				EBFEA3B622C6AE5F00BADDB8 /* main.swift */,
 				EB55284822BD9AAE00FB12CE /* ViewController.swift */,
 				EB55284A22BD9AAE00FB12CE /* Main.storyboard */,
 				EB55284D22BD9AAF00FB12CE /* Assets.xcassets */,
@@ -110,7 +107,7 @@
 		EBA286D222C416D3004EA2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EBF302772328142D00B132F5 /* Nami.framework */,
+				EB56C0922432590C00BA274A /* Nami.xcframework */,
 				3BCE3DD486A7EEE1F6C36CC0 /* Pods_TestProductsGoogle.framework */,
 			);
 			name = Frameworks;
@@ -127,9 +124,8 @@
 				EB55283F22BD9AAE00FB12CE /* Sources */,
 				EB55284022BD9AAE00FB12CE /* Frameworks */,
 				EB55284122BD9AAE00FB12CE /* Resources */,
-				EB43962D22C18B3A000088D9 /* Embed Frameworks */,
-				EBA286D822C427BB004EA2AE /* ShellScript */,
 				D8C2E329701120640BEB96E6 /* [CP] Embed Pods Frameworks */,
+				EB56C0952432590C00BA274A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,23 +222,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestProductsGoogle/Pods-TestProductsGoogle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBA286D822C427BB004EA2AE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n# Use the current code_sign_identitiy\necho \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\necho \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,7 +231,6 @@
 			files = (
 				EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */,
 				EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */,
-				EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +376,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 523480F67EB719D6B0C7FB69 /* Pods-TestProductsGoogle.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -425,7 +402,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60499E8D92FA8C0DE5F20970 /* Pods-TestProductsGoogle.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

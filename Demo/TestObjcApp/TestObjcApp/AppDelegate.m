@@ -26,15 +26,17 @@
 
     // This AppID is specific to Nami TestProducts applications.  You should contact
     // Nami to obtain an AppID you can use with your own appliciations.
-    [[Nami shared] configureWithAppID:@"002e2c49-7f66-4d22-a05c-1dc9f2b7f2af"];
+    NamiConfiguration *namiConfig = [NamiConfiguration configurationForAppPlatformID: @"002e2c49-7f66-4d22-a05c-1dc9f2b7f2af"];
     
+    [Nami configureWithNamiConfig:namiConfig];
+        
     // If you activate this, you can simualte purchases in the simulator for testing, and on device
     // purchases will not go through the sandbox.
-    [[NamiStoreKitHelper shared] bypassStoreKitWithBypass:true];
+    [NamiPurchaseManager bypassStoreWithBypass:true];
     
-    [Nami coreActionWithLabel:@"Shared Item"];
+    [NamiMLManager coreActionWithLabel:@"Shared Item"];
     
-    [NamiPaywallManager registerWithApplicationPaywallProvider:^(UIViewController * _Nullable fromVC, NSArray<NamiMetaProduct *> * _Nullable products, NSString * _Nonnull developerPaywallID, NamiMetaPaywall * _Nonnull paywallMetadata) {
+    [NamiPaywallManager registerWithApplicationPaywallProvider:^(UIViewController * _Nullable fromVC, NSArray<NamiSKU *> * _Nullable products, NSString * _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
         // If you wanted to write your own custom view controller, you would add code here to build and present a view controller
         // Nami would call this block when it determined an applicatio-based paywall needed to be raised.
     }];
@@ -54,7 +56,7 @@
         }
     }];
     
-    [NamiPaywallManager registerWithApplicationSignInProvider:^(UIViewController * _Nullable fromVC, NSString *  _Nonnull developerPaywallID, NamiMetaPaywall * _Nonnull paywallMetadata) {
+    [NamiPaywallManager registerWithApplicationSignInProvider:^(UIViewController * _Nullable fromVC, NSString *  _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
         // If you opt to add a sign-in link to your paywall, this block would be called to present the UI for sign-in.
     }];
     
@@ -62,12 +64,12 @@
                 return [self shouldAllowPaywallRaise];
     }];
     
-    [[NamiStoreKitHelper shared] registerWithPurchasesChangedHandler:^(NSArray<NamiMetaPurchase *> * _Nonnull purchases, enum NamiPurchaseState purchaseState, NSError * _Nullable error) {
+    [[NamiStoreKitHelper shared] registerWithPurchasesChangedHandler:^(NSArray<NamiPurchase *> * _Nonnull purchases, enum NamiPurchaseState purchaseState, NSError * _Nullable error) {
         // This block would react to any purchase changes, it will give you any purchases made or canceled.  Generallt you would check
         // the purcahse state, if it is
         if (purchaseState == NamiPurchaseStatePurchased) {
-            for (NamiMetaPurchase *purchase in purchases) {
-                NSString *productIdentifier = purchase.productIdentifier;
+            for (NamiPurchase *purchase in purchases) {
+                NSString *productIdentifier = purchase.skuID;
                 // Now do whatever you would like knowing this product has been purchased.
                 // If it was a consumable produst, you should use it then call:
                 // [[NamiStoreKitHelper shared] consumePurchasedProductWithProductID:productIdentifier];

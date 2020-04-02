@@ -6,14 +6,13 @@
 //  Copyright © 2019 Nami ML, Inc. All rights reserved.
 //
 
-// An applciation that demonstrates some common uses of the Nami API.
+// An application that demonstrates some common uses of the Nami API.
 
 import UIKit
 import Nami
 import Firebase
 
-// For Nami, we comment out this line and add our own application main in main.swift.
-//@UIApplicationMain
+@UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -22,15 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func namiSetup() {
         // For testing we'll bypass StoreKit, so you don't have to run the app on a device to test purchases.
         // You may want to include some ability to toggle this on for testers of your applcaition.
-        NamiStoreKitHelper.shared.bypassStoreKit(bypass: true)
+        NamiPurchaseManager.bypassStore(bypass: true)
         
         // Makes sure when the app is re-run that any stored bypass purchases are cleared out so we can retry purchases
         // Notes this cannot clear out StoreKit sandbox or regular purchaes, which Apple controls.
         // This only clears out purchases made when bypassStoreKit is enabled.
-        NamiStoreKitHelper.shared.clearBypassStoreKitPurchases()
-        
+        NamiPurchaseManager.clearBypassStorePurchases()
+
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
-        Nami.shared.configure(appID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        namiConfig.logLevel = .warn
+        Nami.configure(namiConfig: namiConfig )
         
         NamiAnalyticsSupport.registerAnalyticsHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
 
@@ -39,12 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .paywallRaise:
                 var googleData : [String:String] = [:]
                 
-                if let products = analyticsItems["paywallProducts"] as? [NamiMetaProduct] {
+                if let products = analyticsItems["paywallProducts"] as? [NamiSKU] {
                     let productList : String = products.reduce("", { (result, product) -> String in
                         if result.isEmpty {
-                            return product.productIdentifier
+                            return product.platformID
                         } else {
-                            return result + "," + product.productIdentifier
+                            return result + "," + product.platformID
                         }
                     })
                     googleData["paywallProducts"] = productList
@@ -67,9 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let paywallType = analyticsItems[NamiAnalyticsKeys.paywallType] as? String {
                     googleData["paywallYype"] = paywallType
                 }
-                if let campaignType = analyticsItems[NamiAnalyticsKeys.campaignType] as? String {
-                    googleData["campaignType"] = campaignType
-                }
                 
                 if let namiTriggered = analyticsItems[NamiAnalyticsKeys.namiTriggered] as? String {
                     googleData["namiTriggered"] = namiTriggered
@@ -83,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 break;
             case .purchaseActivity:
                 var purchaseData : [String:String] = [:]
-                if let product = analyticsItems[NamiAnalyticsKeys.purchasedProduct_NamiMetaProduct] as? NamiMetaProduct {
-                    purchaseData["purchaseProduct"] = product.productIdentifier
-                    if let regionCode = product.product.priceLocale.regionCode {
+                if let product: NamiSKU = analyticsItems[NamiAnalyticsKeys.purchasedSKU_NamiSKU] as? NamiSKU {
+                    purchaseData["purchaseProduct"] = product.platformID
+                    if let regionCode = product.product?.priceLocale.regionCode {
                         purchaseData["purchaseLocale"] = regionCode
                     }
                 }
-                if let purchasePrice = analyticsItems[NamiAnalyticsKeys.purchasedProductPrice] as? Double {
+                if let purchasePrice = analyticsItems[NamiAnalyticsKeys.purchasedSKUPrice] as? Double {
                     purchaseData["purchasePrice"] = "\(purchasePrice)"
                 }
                 

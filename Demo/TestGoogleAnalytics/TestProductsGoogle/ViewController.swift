@@ -40,9 +40,8 @@ class ViewController: UIViewController {
     
     private func configureSubscriptionButtons() {
         
-        // We'll check all of the subscription products to see if any have been purchased, using the set of known product identifiers.
-
-        if NamiStoreKitHelper.shared.anyProductPurchased(subscriptionProducts) {
+        // We'll check for an "entitlement", or permission, from Nami which indicates if any products in a subscrption group have been purchased.
+        if NamiEntitlementManager.isEntitlementActive("TestProductSubscription") {
             // One of the subscription products has been purchased, indicate the subscription is live and the button to subscribe can be used to change the subscription period.
             subscribeButton?.setTitle("Change Subscription", for: .normal)
             subscriptionActiveLabel?.text = "Active"
@@ -59,7 +58,7 @@ class ViewController: UIViewController {
     
     @IBAction func subscribeTapped(_ sender: Any) {
         // Tell Nami to raise whatever the current live subscription paywall may be, so the user can select an option.
-        NamiPaywallManager.shared.presentLivePaywall(fromVC: nil)
+        NamiPaywallManager.raisePaywall(fromVC: nil)
     }
     
     

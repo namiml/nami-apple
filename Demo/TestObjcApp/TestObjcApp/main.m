@@ -8,16 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import <Nami/Nami.h>
-
 
 int main(int argc, char * argv[]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wunused-result"
-    [Nami shared];
-#pragma clang diagnostic pop
-
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, NSStringFromClass([NamiApplication class]), NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, NSStringFromClass([UIApplication class]), NSStringFromClass([AppDelegate class]));
     }
 }

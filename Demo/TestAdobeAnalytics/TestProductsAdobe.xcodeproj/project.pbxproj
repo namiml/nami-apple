@@ -3,29 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C5546F46C21DDB40346BCF15 /* Pods_TestProductsAdobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E755BF135F5BFE4263676CA /* Pods_TestProductsAdobe.framework */; };
-		EB0262E9233313DA00AB9449 /* Nami.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0262E8233313DA00AB9449 /* Nami.framework */; };
-		EB0262EA233313DA00AB9449 /* Nami.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0262E8233313DA00AB9449 /* Nami.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284622BD9AAE00FB12CE /* AppDelegate.swift */; };
 		EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284822BD9AAE00FB12CE /* ViewController.swift */; };
 		EB55284C22BD9AAE00FB12CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284A22BD9AAE00FB12CE /* Main.storyboard */; };
 		EB55284E22BD9AAF00FB12CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55284D22BD9AAF00FB12CE /* Assets.xcassets */; };
 		EB55285122BD9AAF00FB12CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */; };
-		EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEA3B622C6AE5F00BADDB8 /* main.swift */; };
+		EB56C09724325F0500BA274A /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB56C09624325F0500BA274A /* Nami.xcframework */; };
+		EB56C09824325F0500BA274A /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB56C09624325F0500BA274A /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EB0262EB233313DA00AB9449 /* Embed Frameworks */ = {
+		EB56C09924325F0500BA274A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB0262EA233313DA00AB9449 /* Nami.framework in Embed Frameworks */,
+				EB56C09824325F0500BA274A /* Nami.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +45,7 @@
 		EB55284D22BD9AAF00FB12CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB55285022BD9AAF00FB12CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBFEA3B622C6AE5F00BADDB8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EB56C09624325F0500BA274A /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56C09724325F0500BA274A /* Nami.xcframework in Frameworks */,
 				C5546F46C21DDB40346BCF15 /* Pods_TestProductsAdobe.framework in Frameworks */,
-				EB0262E9233313DA00AB9449 /* Nami.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				EB55284622BD9AAE00FB12CE /* AppDelegate.swift */,
-				EBFEA3B622C6AE5F00BADDB8 /* main.swift */,
 				EB55284822BD9AAE00FB12CE /* ViewController.swift */,
 				EB55284A22BD9AAE00FB12CE /* Main.storyboard */,
 				EB55284D22BD9AAF00FB12CE /* Assets.xcassets */,
@@ -109,6 +107,7 @@
 		EBA286D222C416D3004EA2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB56C09624325F0500BA274A /* Nami.xcframework */,
 				7E755BF135F5BFE4263676CA /* Pods_TestProductsAdobe.framework */,
 			);
 			name = Frameworks;
@@ -125,8 +124,7 @@
 				EB55283F22BD9AAE00FB12CE /* Sources */,
 				EB55284022BD9AAE00FB12CE /* Frameworks */,
 				EB55284122BD9AAE00FB12CE /* Resources */,
-				EBA286D822C427BB004EA2AE /* ShellScript */,
-				EB0262EB233313DA00AB9449 /* Embed Frameworks */,
+				EB56C09924325F0500BA274A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,23 +204,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBA286D822C427BB004EA2AE /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n# Use the current code_sign_identitiy\necho \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\necho \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\necho \"Stripping frameworks\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -232,7 +213,6 @@
 			files = (
 				EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */,
 				EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */,
-				EBFEA3B722C6AE5F00BADDB8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

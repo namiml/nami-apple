@@ -208,6 +208,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+/// For use when byapassStore is on, a trasnsaction that is not a real StoreKit object.
 SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 @interface MockPaymentTransaction : SKPaymentTransaction
 @property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
@@ -216,8 +217,8 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 
 
 
-@protocol NamiLogger;
 
+/// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC4Nami4Nami")
 @interface Nami : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared;)
@@ -225,19 +226,43 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 + (void)setShared:(Nami * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)doConfigBasedWorkWithWorker:(void (^ _Nonnull)(void))worker;
-@property (nonatomic) BOOL smartPaywall;
-@property (nonatomic) BOOL mlEnabled;
-- (void)registerNamiLoggerWithLogger:(id <NamiLogger> _Nonnull)logger;
-- (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
-+ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
-+ (void)coreActionWithLabel:(NSString * _Nonnull)label;
 @end
 
 
 
+@class NamiConfiguration;
+@protocol NamiLoggerClient;
+enum NamiExternalIdentifierType : NSInteger;
+enum NamiLogLevel : NSInteger;
+
+@interface Nami (SWIFT_EXTENSION(Nami))
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).  It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+///
++ (void)configureWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
+/// Normal Nami logging goes to stdout, however if desired you can provide a callback to receive Nami log messages to route to somewhere else.
+/// \param logger Logging callback delegate to handle SDK logging calls.
+///
++ (void)registerNamiLoggerWithLogger:(id <NamiLoggerClient> _Nonnull)logger;
+/// This method is passed a callback, that is activated as soon as a Nami config update is received - it makes sure that whatever is in the callback happens only after a valid Nami configuration is received with the latest updates.  Use with items like fetching paywall metadata.
+/// \param worker Callback that has no parameters, is called as soon as Nami app configuration is complete.
+///
++ (void)doConfigBasedWorkWithWorker:(void (^ _Nonnull)(void))worker;
+/// Registers etither a SHA256 or UUID unique identifier to link this device to a customer profile across devices or platforms.
+/// \param externalIdentifier A SHA256 or UUID you generate, that represents the current user.
+///
+/// \param type Either .sha256 or.uuid, from NamiExternalIdentifierType.
+///
++ (void)setExternalIdentiferWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
+/// Returns the currently defined external identifer for this device, if any.
++ (NSString * _Nullable)getExternalIdentifer SWIFT_WARN_UNUSED_RESULT;
+/// Clears out any external identifiers set.
++ (void)clearExternalIdentifer;
+/// Allows for dynamic re-adjustment of SDK log levesl if desired.
++ (void)setLogLevel:(enum NamiLogLevel)logLevel;
+@end
+
+/// The various types of analyitcs data that may be sent to an analytics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
   NamiAnalyticsActionTypePaywallRaise = 0,
   NamiAnalyticsActionTypePaywallClosed = 1,
@@ -246,11 +271,13 @@ typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
 };
 
 
+/// Keys to help obtain values from various dictioanries of data sent to analyics handlers.
 SWIFT_CLASS("_TtC4Nami17NamiAnalyticsKeys")
 @interface NamiAnalyticsKeys : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// A type related to some purcahse activity being sent to the analyics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, open) {
   NamiAnalyticsPurchaseActivityTypeNewPurchase = 0,
   NamiAnalyticsPurchaseActivityTypeCancelled = 1,
@@ -259,60 +286,49 @@ typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, open) {
 };
 
 
+/// Class to help provide Nami related data to analyitcs pacakges.
 SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
 @interface NamiAnalyticsSupport : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
 + (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
+/// An applciation provided analytics handler.
 @property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
+/// The mechanism by whuch an application registers a callback handler for analyitcis data.
 + (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIEvent;
-
-SWIFT_CLASS("_TtC4Nami15NamiApplication")
-@interface NamiApplication : UIApplication
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)sendEvent:(UIEvent * _Nonnull)event;
 @end
 
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
 + (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSURLSession;
-@class NSURLSessionTask;
-@class NSURLSessionDataTask;
-@class NSCachedURLResponse;
-@class NSURLSessionDownloadTask;
 
-SWIFT_CLASS("_TtC4Nami25NamiCommunicationsManager")
-@interface NamiCommunicationsManager : NSObject <NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
-- (void)URLSession:(NSURLSession * _Nonnull)session taskIsWaitingForConnectivity:(NSURLSessionTask * _Nonnull)task;
-- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
-- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
-- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
-- (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didFinishDownloadingToURL:(NSURL * _Nonnull)location;
-@end
-
-
+/// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
 @interface NamiConfiguration : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
-+ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setMlEnabled:(BOOL)value;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
-+ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setAnalyticsEnabled:(BOOL)value;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Alternate form of constructing a NamiConfiguration object, primarily used by ObjectiveC clients that cannot access the initializer.
+/// \param appPlatformID The App Platform  ID for this app, obtained from the Control Center App Settings screen.
+///
++ (NamiConfiguration * _Nonnull)configurationForAppPlatformID:(NSString * _Nonnull)appPlatformID SWIFT_WARN_UNUSED_RESULT;
+/// The Nami App Platform ID to use for this app.
+@property (nonatomic, readonly, copy) NSString * _Nonnull appPlatformID;
+/// If set to true, Nami will run in a data collection mode and will no longer be responsible for transactions or invoking paywalls.
+@property (nonatomic) BOOL passiveMode;
+/// If set to true, Nami will cease handling StoreKit transactions and go into monitoring only mode - it will not call finishTransaction for any transaction.
+@property (nonatomic) BOOL applicationHandlesTransactions;
+/// Defines what level of logging output that is desired from the Nami SDK.  Default is error.
+@property (nonatomic) enum NamiLogLevel logLevel;
+/// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
+@property (nonatomic) BOOL bypassStore;
+/// Used to activate internal features of the SDK not generally used by Nami clients.
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSCoder;
@@ -324,88 +340,228 @@ SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+/// Entitlements grant access to features, content, or other aspects of your app.  Manage your entitlements in the Nami Control Center. Entitlements are associated with Product SKUs which are the specific in-app purchase products that grant an entitlement.
+SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
+@interface NamiEntitlement : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
+@interface NamiEntitlementManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NamiEntitlementSetter;
+
+@interface NamiEntitlementManager (SWIFT_EXTENSION(Nami))
+/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitements. To see only active entitements use activeEntitlments().
+///
+/// returns:
+/// array of all NamiEntitlement objects defined in the Control Center
++ (NSArray<NamiEntitlement *> * _Nonnull)getEntitlements SWIFT_WARN_UNUSED_RESULT;
+/// Returns a list of all active entitlements.  Nami checks entitlements across all platforms you have set up in the Control Center.  Use active entitlements to control access to different features in your app.
+///
+/// returns:
+/// list of active NamiEntitlement objects.
++ (NSArray<NamiEntitlement *> * _Nonnull)activeEntitlements SWIFT_WARN_UNUSED_RESULT;
+/// Check if a specific entitlement ID is active.
+/// \param id Entitlement ID to check.  Defined in the Control Center.
+///
+///
+/// returns:
+/// true if the entitlement matching the passed in ID is active, false otherwise.
++ (BOOL)isEntitlementActive:(NSString * _Nonnull)referenceID SWIFT_WARN_UNUSED_RESULT;
+/// Provides the Nami SDK with a set of entitlemnets your application knows are granted from sources outside the users current device.  Please ensure the entitlement names match the ones you define in the Nami Control Center for your applcation.  Any entitlement IDs that do not match will be discarded.
+/// All entitlements passed in will become and stay active until you pass in a new set of entitlements. Any call that sets entitlements will also clear out any previously set entitlements.
+/// Pass in an empty array to clear out any entitlements set, or call clearAllEntitlments()
+/// \param entitlements array of NamiEntitlementSetter objects describing any entitlements this device should be granted that were purchased on another platform. See description of NamiEntitlementSetter for more detail on what to pass in.
+///
++ (void)setEntitlements:(NSArray<NamiEntitlementSetter *> * _Nonnull)entitlements;
+/// Clears all active entitlements on this device.  If the Nami Platform is aware of any trusted entitlements tied to this device, they may be restored.
++ (void)clearAllEntitlements;
+@end
+
+enum NamiPlatformType : NSInteger;
+
+/// Object used to pass data to the SDK about an entitlement purchased on another platform.  Used with setEntitlements to grant access to an entitlement in the SDK.
+SWIFT_CLASS("_TtC4Nami21NamiEntitlementSetter")
+@interface NamiEntitlementSetter : NSObject
+/// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the platform is Apple, the purchaseSKUId and expiration are empty.
+/// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id;
+/// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the purchaseSKUId and expiration are empty.
+/// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
+///
+/// \param platform The platform a purchase was made on to activate this entitlement.
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id platform:(enum NamiPlatformType)platform;
+/// Constructor that passes in all details needed by the Nami SDK to understand which entitlements are currently active.  Optional fields improve Nami’s ability to manage cross-platform entitlements.
+/// \param id The ID of the entitlement that you want to activate.  Entitlement ID comes from the Control Center.
+///
+/// \param purchasedSKUid Optional SKU ID of purchase that activated this entitlement, if known.
+///
+/// \param expires Optional subscription expiration date, if any exists and is known.
+///
+/// \param platform Optional platform where the purchase was made to activate this entitlement.
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id platform:(enum NamiPlatformType)platform purchasedSKUid:(NSString * _Nullable)purchasedSKUid expires:(NSDate * _Nullable)expires OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class MSMessagesAppViewController;
 
+/// Class for helpiing Nami work with extensions.
 SWIFT_CLASS("_TtC4Nami20NamiExtensionManager")
 @interface NamiExtensionManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiExtensionManager * _Nonnull shared;)
 + (NamiExtensionManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(NamiExtensionManager * _Nonnull)value;
+/// Determines if the paywalls Nami raises should attempt to go full-screen or not.
 @property (nonatomic) BOOL requestFullScreenPaywalls;
+/// The way for extensions to start up Nami so that it can manage trsansactions and raise paywalls properly within an extension.  Normally Nami hooks into applcaition state to determine when to wake or sleep, those are not availauble to extensions.
 - (void)startupNamiFromMessageExtensionWithMessageViewController:(MSMessagesAppViewController * _Nonnull)messageViewController applicationGroupName:(NSString * _Nullable)applicationGroupName;
+/// Tells Nami to shut down as an extension is closing.
 - (void)extensionDidResign;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The type of external identifier you’ll be providing to Nami .  To prevent the collection of PII, Nami only accepts SHA256 hashes or UUIDs.
+typedef SWIFT_ENUM(NSInteger, NamiExternalIdentifierType, open) {
+  NamiExternalIdentifierTypeSha256 = 0,
+  NamiExternalIdentifierTypeUuid = 1,
+};
+
+/// Defiens various logging levels possible to see Nami SDK output - default is “error”, which means only erorrs will be displayed.  Set to “debug” to see as much logging as possible from the SDK.
+typedef SWIFT_ENUM(NSInteger, NamiLogLevel, open) {
+  NamiLogLevelError = 0,
+  NamiLogLevelWarn = 1,
+  NamiLogLevelInfo = 2,
+  NamiLogLevelDebug = 3,
+};
+
 @class NSHTTPURLResponse;
 
-SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
-@protocol NamiLogger <NSObject>
+/// Class to let an application be able to ingest logging messages from Nami.
+SWIFT_PROTOCOL("_TtP4Nami16NamiLoggerClient_")
+@protocol NamiLoggerClient <NSObject>
 - (void)logHTTPWithRequest:(NSURLRequest * _Nonnull)request response:(NSHTTPURLResponse * _Nonnull)response responseData:(NSData * _Nullable)responseData message:(NSString * _Nonnull)message;
 - (void)logMessage:(NSString * _Nonnull)message;
 @end
 
+
+SWIFT_CLASS("_TtC4Nami13NamiMLManager")
+@interface NamiMLManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NamiMLManager (SWIFT_EXTENSION(Nami))
+/// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.  Use when your content has a natural hierarchy of tags such as [“images”, “clouds”, “cirrus”]
+/// \param labels Set of keywords describing the section of the application entered.
+///
++ (void)enterCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
+/// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.
+/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://docs.namiml.com for best practices.
+///
++ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
+/// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContentPath(labels:) call.
+/// \param labels Keywords describing the portion of the app exited, matching labels passed in previously.
+///
++ (void)exitCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
+/// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContent(labels:) call.
+/// \param label Keyword describing the portion of the app exited, matching the label passed in previously.
+///
++ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
+/// Labeling method for training machine learning.  Called whenver the user triggers some key action or event within your application.
+/// \param label Keyword describing the action triggered by the user.
+///
++ (void)coreActionWithLabel:(NSString * _Nonnull)label;
+@end
+
 @class UIImage;
 
-SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
-@interface NamiMetaPaywall : NSObject
+/// Class representing a paywall in the SDK.
+SWIFT_CLASS("_TtC4Nami11NamiPaywall")
+@interface NamiPaywall : NSObject
+/// The Nami ID for the paywall defined on the Nami Control Center.
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
+/// The raw dictionary defining the paywall from the Nami Control Center.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
+/// A pre-cached background image for the paywall, if one is availaible.  Nami will attempt to pre-load paywall assets so there is no delay presenting paywalls.
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+/// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the applciation is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
 @property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+/// The title value for the paywall, entered in the Nami Control Center.
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
+/// The body value for the paywall, entered in the Nami Control Center.
 @property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class SKProduct;
-@class NamiMetaPurchase;
 
-SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
-@interface NamiMetaProduct : NSObject
-@property (nonatomic, strong) SKProduct * _Nonnull product;
-@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiProductInfoDict;
-@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
-@property (nonatomic, readonly) BOOL isPurchased;
-@property (nonatomic, readonly, strong) NamiMetaPurchase * _Nullable productPurchase;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-enum NamiPurchaseSource : NSInteger;
-
-/// Class that represents a purchase that has been made
-SWIFT_CLASS("_TtC4Nami16NamiMetaPurchase")
-@interface NamiMetaPurchase : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
-@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
-@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
-@property (nonatomic) BOOL isSubscription;
-@property (nonatomic, copy) NSDate * _Nullable subscriptionExpirationDate;
-@property (nonatomic) enum NamiPurchaseSource purchaseSource;
-@property (nonatomic, strong) NamiMetaProduct * _Nullable metaProduct;
+SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
+@interface NamiPaywallManager : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UIViewController;
+@class NamiSKU;
 
-SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
-@interface NamiPaywallManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _Nonnull shared;)
-+ (NamiPaywallManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShared:(NamiPaywallManager * _Nonnull)value;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
+@interface NamiPaywallManager (SWIFT_EXTENSION(Nami))
+/// For use in passive mode only. Tells Nami that a paywall has been raised.  Call any time a user encounters a paywall.
+/// \param developerID The developerID for the paywall being raised from the Control Center.
+///
++ (void)paywallImpressionWithDeveloperID:(NSString * _Nonnull)developerID;
+/// Present a paywall using the Nami SDK paywall UI, using the various paywall componets passed in.
+/// \param fromVC The view controller, if any, that the paywall was raised from. Can be null.
+///
+/// \param products Set of NamiSKU objects that represent platform products.  Any non-apple NamiSKU objects will be ignored.
+///
+/// \param paywallMetadata Paywall metadata from the Nami server that defines paywall elements such as title and body text, along with products to display.
+///
+/// \param backgroundImage background image to use in displaying the paywall.
+///
++ (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiSKU *> * _Nullable)products paywallMetadata:(NamiPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
+/// Provides Nami a callback that can override any automated attempt to raise a paywall, such as when the application is in a critical section where the screen should not be obscured.
+/// \param applicationAutoRaisePaywallBlocker A callback that wil be called at a time Nami is planning to auto-raise a paywall. if it is OK to auto-raise a paywall.  Return false to block the current paywall raise attempt, true to allow it.
+///
 + (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
-+ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
-+ (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
-+ (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
-- (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
-- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
-- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+/// Loads information needed for a paywall specified by the developerID, such as local products and paywall backgrounds, then provides any loaded assets along with paywall metadata from Nami to the provided callback.  If the developerPaywallID does not match any existing paywalls, the callback will be activated with the metadata and products left empty.
+/// \param developerPaywallID The developer ID specified in the Control Center for the paywall you would like metadata and infomation for.
+///
+/// \param namiCustomPaywallHandler After product details and any background images have been loaded by the system, this will be called with requested metadata.
+///
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiSKU *> * _Nullable, NSString * _Nonnull, NamiPaywall * _Nullable))namiCustomPaywallHandler;
+/// Provides Nami a callback that is called when a paywall is to be raised, and the current paywall defintiion is a linked paywall.  The callback is given all of the metadata that Nami has on the paywall, along with pre-loaded assets like products and the paywall background.  When this method is called, the intent is for a paywall to the displayed for the user at that time.
+/// \param applicationPaywallProvider A callback that wil be called at a time Nami wishes the app to raise a paywall.
+///
++ (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiSKU *> * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationPaywallProvider;
+/// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
+/// \param applicationSignInProvider A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
+///
++ (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationSignInProvider;
+/// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+/// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
+/// \param fromVC A view controller to present the paywall from if desired, can be null.
+///
++ (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
+/// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
+/// \param fromVC A view controller to present the paywall from if desired, can be null.
+///
+/// \param forNami true if the paywall is being raised for the NamiSDK, false if from a user request.
+///
++ (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
 @end
 
 @class UITextView;
@@ -415,6 +571,89 @@ SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 - (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Represents the platform a SKU purchase was made on to activate an entitlement.
+typedef SWIFT_ENUM(NSInteger, NamiPlatformType, open) {
+  NamiPlatformTypeOther = 0,
+  NamiPlatformTypeAndroid = 1,
+  NamiPlatformTypeApple = 2,
+  NamiPlatformTypeRoku = 3,
+  NamiPlatformTypeWeb = 4,
+};
+
+enum NamiPurchaseSource : NSInteger;
+
+SWIFT_CLASS("_TtC4Nami12NamiPurchase")
+@interface NamiPurchase : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
+@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
+@property (nonatomic, copy) NSDate * _Nullable exipres;
+@property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum NamiPurchaseState : NSInteger;
+
+/// Class to work with and manage purchases on the device.
+SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
+@interface NamiPurchaseManager : NSObject
+/// Tell the SDK to purchase a specific SKU.  To obtain a NamiSKU object, see the skusForSKUIDs(skuIDs, producthandler) call.
+/// \param sku The NamiSKU to purchase, a wrapper around a native StoreKit product.
+///
+/// \param fromPaywall Optional, If you are using a Nami defined paywall (either linked or cloud created) provide it here to capture details around which paywall an item was purchased from.
+///
+/// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
+///
++ (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
+/// Puts the SDK into a mode where it no longer runs purchases through Apple’s StoreKit on device, so you no longer require a testing account to test purchase and activation flows.  It also allows resetting of purchases unlike StoreKit which requires time to pass before purchases expire.  It replicates the same time acceleration that StoreKit sandbox purchases have, where a day long purchase lasts five minutes, etc.  Note this mode is automaticly enabled when running in the iOS simulator, and cannot be activated when in a production (App Store) build.
+/// \param bypass true if you wish to bypass StoreKit purchases for testing, false otherwise.
+///
++ (void)bypassStoreWithBypass:(BOOL)bypass;
+/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
++ (void)clearBypassStorePurchases;
+/// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
+/// \param skuID ID of SKU you wish to check for purchase status
+///
+///
+/// returns:
+/// true if the SKU has been purchased, false otherwise.
++ (BOOL)isSKUIDPurchased:(NSString * _Nonnull)skuID SWIFT_WARN_UNUSED_RESULT;
+/// Checks to see if a SKUID (product app for Apple devices) has been purchased, and returns the purchase record if found (holds things like purchase and expiration date if known).
+/// \param skuID ID of SKU you wish to check for purchase status
+///
+///
+/// returns:
+/// NamiPurchase if found, .none otherwise.
++ (NamiPurchase * _Nullable)currentPurchaseRecordsForSKUWithSkuID:(NSString * _Nonnull)skuID SWIFT_WARN_UNUSED_RESULT;
+/// Takes in a set of SKUIDs (productIDs for Apple) and loads NamiSKU objects with StoreKIt and other metadata, so that you can examine product details or use for other calls.  If you pass in SKUIDs the system does not recognize, they will be returned as invalid and no NamiSKU objects will be returned for those IDs.
+/// \param skuIDs ID of SKU you wish to check for purchase status
+///
+/// \param productHandler A callback to be given the loaded NamiSKU objects from the IDs you passed in, along with an array of invalid IDs the system could not load.
+///
++ (void)skusForSKUIDsWithSkuIDs:(NSArray<NSString *> * _Nonnull)skuIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+/// Returns all known purchases for the current device.
+///
+/// returns:
+/// NamiPurchase objects if any purchases are found, an empty array otherwise.
++ (NSArray<NamiPurchase *> * _Nonnull)allPurchases SWIFT_WARN_UNUSED_RESULT;
+/// Registers a callback that will be activated when any purchase activity occurs - either purchases or expiration.
+///
+/// returns:
+/// NamiPurchase objects if any purchases are found, an empty array otherwise.
++ (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
+/// Activates the system restore purchases feature, which replays all prior purchase transactions to determine which purchases are active.  This may trigger an app store password prompt if called, so only call this at the request of the user.  Generally this is not needed if your Nami account supports receipt validation, as a receipt is checked for on first launch and can determine active purchases that way.
+/// \param handler A callback called when the restore process is complete, with all known purchases found.
+///
++ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler;
+/// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your applciation has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
+/// \param skuID The ID (product ID for Apple) of the product you wish to consume - note that it must be purchased or this call will do nothing.
+///
+- (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, open) {
@@ -427,12 +666,15 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, open) {
   NamiPurchaseResultFailed = 6,
 };
 
+/// The source a purcahse comes from - either externally, through nami, or from your own paywall.
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, open) {
   NamiPurchaseSourceExternal = 0,
   NamiPurchaseSourceNamiPaywall = 1,
   NamiPurchaseSourceApplication = 2,
+  NamiPurchaseSourceUnknown = 3,
 };
 
+/// The various states a purcahse can be in depending on what is happening in StoreKit.   Of note is that “purchasedNotValidated” means that validation failed, but StoreKit considers the item purchased .
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStatePending = 0,
   NamiPurchaseStatePurchased = 1,
@@ -447,9 +689,11 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
 };
 
 
+/// Wimple wrapper around IAP JSON from an Apple parsed StoreKit receipt.  Note you can always get the original IAP product dict from the parsed receipt via the iapJSONDict property.
 SWIFT_CLASS("_TtC4Nami21NamiReceiptIAPWrapper")
 @interface NamiReceiptIAPWrapper : NSObject
-- (nonnull instancetype)initWithJsonDict:(NSDictionary<NSString *, id> * _Nonnull)jsonDict OBJC_DESIGNATED_INITIALIZER;
+/// The orignal JSON values from the Apple receipt data.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull iapJSONDict;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -458,43 +702,96 @@ enum StoreKitEnvironmentObjC : NSInteger;
 
 SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @interface NamiReceiptWrapper : NSObject
+/// The raw JSON data returned from Apple processing the receipt data sent from yoru device.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull receiptJSONDict;
+/// Lets you know if there’s any receupt data to lok at, in cases of varous errors or passive mode, you’ll not have receipt data from a validation call.
 @property (nonatomic, readonly) BOOL hasReceiptData;
+/// The status code for this attempt at receipt validation.
 @property (nonatomic, readonly) NSInteger statusCode;
+/// The current StoreKit environment, for objective C.
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
+/// The original applicatino version when the user first purchased/downloaded your applciation, so you know when they started using your applcation.
 - (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
+/// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
+/// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
 - (NSArray<NamiReceiptIAPWrapper *> * _Nonnull)sortedIAPItems SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SKProduct;
+enum NamiSKUType : NSInteger;
 
+/// Object that wraps the native product (when availaible for the platform you are on).  It holds metadata, if any, from the Nami Control Center.
+SWIFT_CLASS("_TtC4Nami7NamiSKU")
+@interface NamiSKU : NSObject
+/// The Platform speciifc ID, or productIdentifier for Apple platforms.
+@property (nonatomic, copy) NSString * _Nonnull platformID;
+/// If vailaible, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
+@property (nonatomic, strong) SKProduct * _Nullable product;
+/// Metadata for the product from the Nami Control Center.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable productMetadata;
+/// Platform (such as Apple or Android) this product applies to.
+@property (nonatomic) enum NamiPlatformType platform;
+/// Type of product - basically subscription, or non-one_time_purchase.  Is unknownn on versions of iOS prior to 11.2, which introduced a subscription related values to product.
+@property (nonatomic) enum NamiSKUType type;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// The possible types of products for Apple devices - either one time purchase (consumable/nonconsumable) or subscription.
+typedef SWIFT_ENUM(NSInteger, NamiSKUType, open) {
+  NamiSKUTypeUnknown = 0,
+  NamiSKUTypeOne_time_purchase = 1,
+  NamiSKUTypeSubscription = 2,
+};
+
+
+/// Holds values that represent if specific Nami application account features are active.
+SWIFT_CLASS("_TtC4Nami23NamiServerConfiguration")
+@interface NamiServerConfiguration : NSObject
+/// If true, the Nami SDK will use machine learning aspects of system to analyze and act on user behaviour
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
++ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setMlEnabled:(BOOL)value;
+/// Determines if analytics are supported for this account
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
++ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setAnalyticsEnabled:(BOOL)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// Class to help with some aspects of direct StoreKit access.
 SWIFT_CLASS("_TtC4Nami18NamiStoreKitHelper")
 @interface NamiStoreKitHelper : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKitHelper * _Nonnull shared;)
 + (NamiStoreKitHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Identifier for times when the system needs to return a namiSKU, but there’s no real product behind that wrapper.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
-- (void)bypassStoreKitWithBypass:(BOOL)bypass;
-- (void)clearBypassStoreKitPurchases;
-- (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
+/// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
-- (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isProductPurchased:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)anyProductPurchased:(NSArray<NSString *> * _Nonnull)productIDs SWIFT_WARN_UNUSED_RESULT;
-- (NamiMetaPurchase * _Nullable)currentPurchaseRecordsForProductWithProductID:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;
-- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiMetaProduct *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
-- (NSArray<NamiMetaPurchase *> * _Nonnull)allPurchasedProducts SWIFT_WARN_UNUSED_RESULT;
-- (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
-/// Returns all products for either s+ubscriptions or purchaes *
+/// A simple way to ask for SKProducts directly from StoreKit.
+- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+- (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
 + (NSData * _Nullable)appReceiptData SWIFT_WARN_UNUSED_RESULT;
+/// Last app receipt json obtained, if any.
 + (NSDictionary<NSString *, id> * _Nonnull)appReceiptJSON SWIFT_WARN_UNUSED_RESULT;
-+ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler;
-- (void)consumePurchasedProductWithProductID:(NSString * _Nonnull)productID;
+@end
+
+
+/// Utilities for working with version numbers of the form 1.2.2, to compare and onbtain app versions.
+SWIFT_CLASS("_TtC4Nami16NamiVersionUtils")
+@interface NamiVersionUtils : NSObject
+/// Compare version strings to see if one is lower than the other.  Usually used to compre one application versino to another.
++ (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
+/// Returns the current appliation version.
++ (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class RoundedView;
@@ -525,6 +822,7 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
+/// Builds a simple dictionary for a product that holds price, locale, and currency values for this product.
 - (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
 - (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -532,16 +830,20 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 @class NSNumberFormatter;
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
+/// Numebr formatter for the users current locale, used to display price values.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _Nonnull priceFormatter;)
 + (NSNumberFormatter * _Nonnull)priceFormatter SWIFT_WARN_UNUSED_RESULT;
 + (void)setPriceFormatter:(NSNumberFormatter * _Nonnull)value;
+/// The current price as a string, with the formatter applied that adds currency symbols.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedPrice;
+/// The price multiplied by any subscritpion units, so for example a monthly subscription lasting six months would return the total value for all six months, with currency symbol added.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedMultipliedPrice;
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDuration SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationNoPer SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationSingular SWIFT_AVAILABILITY(ios,introduced=11.2);
 @end
 
+/// This enum represents the possible time units for adjusting simulated sandbox accelleration - the reduction of real-world time into smaller units for testing purposes when bypassStore is enabled.
 typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitHour = 0,
   SandboxAccelerationItemUnitWeek = 1,
@@ -550,6 +852,7 @@ typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitYear = 4,
 };
 
+/// Objective-C enum for store kit environments as there are no String enums in Objective-C.
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, open) {
   StoreKitEnvironmentObjCProduction = 0,
   StoreKitEnvironmentObjCSandbox = 1,
@@ -563,6 +866,7 @@ SWIFT_CLASS("_TtC4Nami19StoreKitQueueHelper")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// Possuble status codes from StoreKit.  The msot likley one to be seen is 21004, which measns Nami does not have the shared sescret it needs to send your receipts to Apple.  Add in the Nami Control Center developer tab.
 typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesStatusOK = 0,
   StoreKitStatusCodesUnreadableJSON = 21000,
@@ -575,8 +879,6 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
-
-
 
 
 
@@ -798,6 +1100,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+/// For use when byapassStore is on, a trasnsaction that is not a real StoreKit object.
 SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 @interface MockPaymentTransaction : SKPaymentTransaction
 @property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
@@ -806,8 +1109,8 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 
 
 
-@protocol NamiLogger;
 
+/// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC4Nami4Nami")
 @interface Nami : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared;)
@@ -815,19 +1118,43 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared
 + (void)setShared:(Nami * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)doConfigBasedWorkWithWorker:(void (^ _Nonnull)(void))worker;
-@property (nonatomic) BOOL smartPaywall;
-@property (nonatomic) BOOL mlEnabled;
-- (void)registerNamiLoggerWithLogger:(id <NamiLogger> _Nonnull)logger;
-- (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)configureWithAppID:(NSString * _Nonnull)appID;
-+ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
-+ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
-+ (void)coreActionWithLabel:(NSString * _Nonnull)label;
 @end
 
 
 
+@class NamiConfiguration;
+@protocol NamiLoggerClient;
+enum NamiExternalIdentifierType : NSInteger;
+enum NamiLogLevel : NSInteger;
+
+@interface Nami (SWIFT_EXTENSION(Nami))
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).  It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+///
++ (void)configureWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
+/// Normal Nami logging goes to stdout, however if desired you can provide a callback to receive Nami log messages to route to somewhere else.
+/// \param logger Logging callback delegate to handle SDK logging calls.
+///
++ (void)registerNamiLoggerWithLogger:(id <NamiLoggerClient> _Nonnull)logger;
+/// This method is passed a callback, that is activated as soon as a Nami config update is received - it makes sure that whatever is in the callback happens only after a valid Nami configuration is received with the latest updates.  Use with items like fetching paywall metadata.
+/// \param worker Callback that has no parameters, is called as soon as Nami app configuration is complete.
+///
++ (void)doConfigBasedWorkWithWorker:(void (^ _Nonnull)(void))worker;
+/// Registers etither a SHA256 or UUID unique identifier to link this device to a customer profile across devices or platforms.
+/// \param externalIdentifier A SHA256 or UUID you generate, that represents the current user.
+///
+/// \param type Either .sha256 or.uuid, from NamiExternalIdentifierType.
+///
++ (void)setExternalIdentiferWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
+/// Returns the currently defined external identifer for this device, if any.
++ (NSString * _Nullable)getExternalIdentifer SWIFT_WARN_UNUSED_RESULT;
+/// Clears out any external identifiers set.
++ (void)clearExternalIdentifer;
+/// Allows for dynamic re-adjustment of SDK log levesl if desired.
++ (void)setLogLevel:(enum NamiLogLevel)logLevel;
+@end
+
+/// The various types of analyitcs data that may be sent to an analytics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
   NamiAnalyticsActionTypePaywallRaise = 0,
   NamiAnalyticsActionTypePaywallClosed = 1,
@@ -836,11 +1163,13 @@ typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
 };
 
 
+/// Keys to help obtain values from various dictioanries of data sent to analyics handlers.
 SWIFT_CLASS("_TtC4Nami17NamiAnalyticsKeys")
 @interface NamiAnalyticsKeys : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// A type related to some purcahse activity being sent to the analyics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, open) {
   NamiAnalyticsPurchaseActivityTypeNewPurchase = 0,
   NamiAnalyticsPurchaseActivityTypeCancelled = 1,
@@ -849,60 +1178,49 @@ typedef SWIFT_ENUM(NSInteger, NamiAnalyticsPurchaseActivityType, open) {
 };
 
 
+/// Class to help provide Nami related data to analyitcs pacakges.
 SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
 @interface NamiAnalyticsSupport : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
 + (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
+/// An applciation provided analytics handler.
 @property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
+/// The mechanism by whuch an application registers a callback handler for analyitcis data.
 + (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIEvent;
-
-SWIFT_CLASS("_TtC4Nami15NamiApplication")
-@interface NamiApplication : UIApplication
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)sendEvent:(UIEvent * _Nonnull)event;
 @end
 
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
 + (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSURLSession;
-@class NSURLSessionTask;
-@class NSURLSessionDataTask;
-@class NSCachedURLResponse;
-@class NSURLSessionDownloadTask;
 
-SWIFT_CLASS("_TtC4Nami25NamiCommunicationsManager")
-@interface NamiCommunicationsManager : NSObject <NSURLSessionDataDelegate, NSURLSessionDownloadDelegate>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (void)URLSession:(NSURLSession * _Nonnull)session didBecomeInvalidWithError:(NSError * _Nullable)error;
-- (void)URLSession:(NSURLSession * _Nonnull)session taskIsWaitingForConnectivity:(NSURLSessionTask * _Nonnull)task;
-- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession * _Nonnull)session;
-- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
-- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
-- (void)URLSession:(NSURLSession * _Nonnull)session downloadTask:(NSURLSessionDownloadTask * _Nonnull)downloadTask didFinishDownloadingToURL:(NSURL * _Nonnull)location;
-@end
-
-
+/// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
 @interface NamiConfiguration : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
-+ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setMlEnabled:(BOOL)value;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
-+ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setAnalyticsEnabled:(BOOL)value;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Alternate form of constructing a NamiConfiguration object, primarily used by ObjectiveC clients that cannot access the initializer.
+/// \param appPlatformID The App Platform  ID for this app, obtained from the Control Center App Settings screen.
+///
++ (NamiConfiguration * _Nonnull)configurationForAppPlatformID:(NSString * _Nonnull)appPlatformID SWIFT_WARN_UNUSED_RESULT;
+/// The Nami App Platform ID to use for this app.
+@property (nonatomic, readonly, copy) NSString * _Nonnull appPlatformID;
+/// If set to true, Nami will run in a data collection mode and will no longer be responsible for transactions or invoking paywalls.
+@property (nonatomic) BOOL passiveMode;
+/// If set to true, Nami will cease handling StoreKit transactions and go into monitoring only mode - it will not call finishTransaction for any transaction.
+@property (nonatomic) BOOL applicationHandlesTransactions;
+/// Defines what level of logging output that is desired from the Nami SDK.  Default is error.
+@property (nonatomic) enum NamiLogLevel logLevel;
+/// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
+@property (nonatomic) BOOL bypassStore;
+/// Used to activate internal features of the SDK not generally used by Nami clients.
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSCoder;
@@ -914,88 +1232,228 @@ SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+/// Entitlements grant access to features, content, or other aspects of your app.  Manage your entitlements in the Nami Control Center. Entitlements are associated with Product SKUs which are the specific in-app purchase products that grant an entitlement.
+SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
+@interface NamiEntitlement : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
+@interface NamiEntitlementManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NamiEntitlementSetter;
+
+@interface NamiEntitlementManager (SWIFT_EXTENSION(Nami))
+/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitements. To see only active entitements use activeEntitlments().
+///
+/// returns:
+/// array of all NamiEntitlement objects defined in the Control Center
++ (NSArray<NamiEntitlement *> * _Nonnull)getEntitlements SWIFT_WARN_UNUSED_RESULT;
+/// Returns a list of all active entitlements.  Nami checks entitlements across all platforms you have set up in the Control Center.  Use active entitlements to control access to different features in your app.
+///
+/// returns:
+/// list of active NamiEntitlement objects.
++ (NSArray<NamiEntitlement *> * _Nonnull)activeEntitlements SWIFT_WARN_UNUSED_RESULT;
+/// Check if a specific entitlement ID is active.
+/// \param id Entitlement ID to check.  Defined in the Control Center.
+///
+///
+/// returns:
+/// true if the entitlement matching the passed in ID is active, false otherwise.
++ (BOOL)isEntitlementActive:(NSString * _Nonnull)referenceID SWIFT_WARN_UNUSED_RESULT;
+/// Provides the Nami SDK with a set of entitlemnets your application knows are granted from sources outside the users current device.  Please ensure the entitlement names match the ones you define in the Nami Control Center for your applcation.  Any entitlement IDs that do not match will be discarded.
+/// All entitlements passed in will become and stay active until you pass in a new set of entitlements. Any call that sets entitlements will also clear out any previously set entitlements.
+/// Pass in an empty array to clear out any entitlements set, or call clearAllEntitlments()
+/// \param entitlements array of NamiEntitlementSetter objects describing any entitlements this device should be granted that were purchased on another platform. See description of NamiEntitlementSetter for more detail on what to pass in.
+///
++ (void)setEntitlements:(NSArray<NamiEntitlementSetter *> * _Nonnull)entitlements;
+/// Clears all active entitlements on this device.  If the Nami Platform is aware of any trusted entitlements tied to this device, they may be restored.
++ (void)clearAllEntitlements;
+@end
+
+enum NamiPlatformType : NSInteger;
+
+/// Object used to pass data to the SDK about an entitlement purchased on another platform.  Used with setEntitlements to grant access to an entitlement in the SDK.
+SWIFT_CLASS("_TtC4Nami21NamiEntitlementSetter")
+@interface NamiEntitlementSetter : NSObject
+/// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the platform is Apple, the purchaseSKUId and expiration are empty.
+/// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id;
+/// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the purchaseSKUId and expiration are empty.
+/// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
+///
+/// \param platform The platform a purchase was made on to activate this entitlement.
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id platform:(enum NamiPlatformType)platform;
+/// Constructor that passes in all details needed by the Nami SDK to understand which entitlements are currently active.  Optional fields improve Nami’s ability to manage cross-platform entitlements.
+/// \param id The ID of the entitlement that you want to activate.  Entitlement ID comes from the Control Center.
+///
+/// \param purchasedSKUid Optional SKU ID of purchase that activated this entitlement, if known.
+///
+/// \param expires Optional subscription expiration date, if any exists and is known.
+///
+/// \param platform Optional platform where the purchase was made to activate this entitlement.
+///
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id platform:(enum NamiPlatformType)platform purchasedSKUid:(NSString * _Nullable)purchasedSKUid expires:(NSDate * _Nullable)expires OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class MSMessagesAppViewController;
 
+/// Class for helpiing Nami work with extensions.
 SWIFT_CLASS("_TtC4Nami20NamiExtensionManager")
 @interface NamiExtensionManager : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiExtensionManager * _Nonnull shared;)
 + (NamiExtensionManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(NamiExtensionManager * _Nonnull)value;
+/// Determines if the paywalls Nami raises should attempt to go full-screen or not.
 @property (nonatomic) BOOL requestFullScreenPaywalls;
+/// The way for extensions to start up Nami so that it can manage trsansactions and raise paywalls properly within an extension.  Normally Nami hooks into applcaition state to determine when to wake or sleep, those are not availauble to extensions.
 - (void)startupNamiFromMessageExtensionWithMessageViewController:(MSMessagesAppViewController * _Nonnull)messageViewController applicationGroupName:(NSString * _Nullable)applicationGroupName;
+/// Tells Nami to shut down as an extension is closing.
 - (void)extensionDidResign;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The type of external identifier you’ll be providing to Nami .  To prevent the collection of PII, Nami only accepts SHA256 hashes or UUIDs.
+typedef SWIFT_ENUM(NSInteger, NamiExternalIdentifierType, open) {
+  NamiExternalIdentifierTypeSha256 = 0,
+  NamiExternalIdentifierTypeUuid = 1,
+};
+
+/// Defiens various logging levels possible to see Nami SDK output - default is “error”, which means only erorrs will be displayed.  Set to “debug” to see as much logging as possible from the SDK.
+typedef SWIFT_ENUM(NSInteger, NamiLogLevel, open) {
+  NamiLogLevelError = 0,
+  NamiLogLevelWarn = 1,
+  NamiLogLevelInfo = 2,
+  NamiLogLevelDebug = 3,
+};
+
 @class NSHTTPURLResponse;
 
-SWIFT_PROTOCOL("_TtP4Nami10NamiLogger_")
-@protocol NamiLogger <NSObject>
+/// Class to let an application be able to ingest logging messages from Nami.
+SWIFT_PROTOCOL("_TtP4Nami16NamiLoggerClient_")
+@protocol NamiLoggerClient <NSObject>
 - (void)logHTTPWithRequest:(NSURLRequest * _Nonnull)request response:(NSHTTPURLResponse * _Nonnull)response responseData:(NSData * _Nullable)responseData message:(NSString * _Nonnull)message;
 - (void)logMessage:(NSString * _Nonnull)message;
 @end
 
+
+SWIFT_CLASS("_TtC4Nami13NamiMLManager")
+@interface NamiMLManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NamiMLManager (SWIFT_EXTENSION(Nami))
+/// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.  Use when your content has a natural hierarchy of tags such as [“images”, “clouds”, “cirrus”]
+/// \param labels Set of keywords describing the section of the application entered.
+///
++ (void)enterCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
+/// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.
+/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://docs.namiml.com for best practices.
+///
++ (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
+/// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContentPath(labels:) call.
+/// \param labels Keywords describing the portion of the app exited, matching labels passed in previously.
+///
++ (void)exitCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
+/// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContent(labels:) call.
+/// \param label Keyword describing the portion of the app exited, matching the label passed in previously.
+///
++ (void)exitCoreContentWithLabel:(NSString * _Nonnull)label;
+/// Labeling method for training machine learning.  Called whenver the user triggers some key action or event within your application.
+/// \param label Keyword describing the action triggered by the user.
+///
++ (void)coreActionWithLabel:(NSString * _Nonnull)label;
+@end
+
 @class UIImage;
 
-SWIFT_CLASS("_TtC4Nami15NamiMetaPaywall")
-@interface NamiMetaPaywall : NSObject
+/// Class representing a paywall in the SDK.
+SWIFT_CLASS("_TtC4Nami11NamiPaywall")
+@interface NamiPaywall : NSObject
+/// The Nami ID for the paywall defined on the Nami Control Center.
 @property (nonatomic, copy) NSString * _Nonnull paywallID;
+/// The raw dictionary defining the paywall from the Nami Control Center.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
+/// A pre-cached background image for the paywall, if one is availaible.  Nami will attempt to pre-load paywall assets so there is no delay presenting paywalls.
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+/// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the applciation is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
 @property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
+/// The title value for the paywall, entered in the Nami Control Center.
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
+/// The body value for the paywall, entered in the Nami Control Center.
 @property (nonatomic, readonly, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class SKProduct;
-@class NamiMetaPurchase;
 
-SWIFT_CLASS("_TtC4Nami15NamiMetaProduct")
-@interface NamiMetaProduct : NSObject
-@property (nonatomic, strong) SKProduct * _Nonnull product;
-@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiProductInfoDict;
-@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
-@property (nonatomic, readonly) BOOL isPurchased;
-@property (nonatomic, readonly, strong) NamiMetaPurchase * _Nullable productPurchase;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-enum NamiPurchaseSource : NSInteger;
-
-/// Class that represents a purchase that has been made
-SWIFT_CLASS("_TtC4Nami16NamiMetaPurchase")
-@interface NamiMetaPurchase : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
-@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
-@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
-@property (nonatomic) BOOL isSubscription;
-@property (nonatomic, copy) NSDate * _Nullable subscriptionExpirationDate;
-@property (nonatomic) enum NamiPurchaseSource purchaseSource;
-@property (nonatomic, strong) NamiMetaProduct * _Nullable metaProduct;
+SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
+@interface NamiPaywallManager : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UIViewController;
+@class NamiSKU;
 
-SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
-@interface NamiPaywallManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiPaywallManager * _Nonnull shared;)
-+ (NamiPaywallManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShared:(NamiPaywallManager * _Nonnull)value;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-- (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiMetaProduct *> * _Nullable)products paywallMetadata:(NamiMetaPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
+@interface NamiPaywallManager (SWIFT_EXTENSION(Nami))
+/// For use in passive mode only. Tells Nami that a paywall has been raised.  Call any time a user encounters a paywall.
+/// \param developerID The developerID for the paywall being raised from the Control Center.
+///
++ (void)paywallImpressionWithDeveloperID:(NSString * _Nonnull)developerID;
+/// Present a paywall using the Nami SDK paywall UI, using the various paywall componets passed in.
+/// \param fromVC The view controller, if any, that the paywall was raised from. Can be null.
+///
+/// \param products Set of NamiSKU objects that represent platform products.  Any non-apple NamiSKU objects will be ignored.
+///
+/// \param paywallMetadata Paywall metadata from the Nami server that defines paywall elements such as title and body text, along with products to display.
+///
+/// \param backgroundImage background image to use in displaying the paywall.
+///
++ (void)presentNamiPaywallFromVC:(UIViewController * _Nullable)fromVC products:(NSArray<NamiSKU *> * _Nullable)products paywallMetadata:(NamiPaywall * _Nonnull)paywallMetadata backgroundImage:(UIImage * _Nullable)backgroundImage forNami:(BOOL)forNami;
+/// Provides Nami a callback that can override any automated attempt to raise a paywall, such as when the application is in a critical section where the screen should not be obscured.
+/// \param applicationAutoRaisePaywallBlocker A callback that wil be called at a time Nami is planning to auto-raise a paywall. if it is OK to auto-raise a paywall.  Return false to block the current paywall raise attempt, true to allow it.
+///
 + (void)registerApplicationAutoRaisePaywallBlocker:(BOOL (^ _Nullable)(void))applicationAutoRaisePaywallBlocker;
-+ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nullable))namiCustomPaywallHandler;
-+ (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiMetaProduct *> * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationPaywallProvider;
-+ (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiMetaPaywall * _Nonnull))applicationSignInProvider;
-- (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
-- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
-- (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+/// Loads information needed for a paywall specified by the developerID, such as local products and paywall backgrounds, then provides any loaded assets along with paywall metadata from Nami to the provided callback.  If the developerPaywallID does not match any existing paywalls, the callback will be activated with the metadata and products left empty.
+/// \param developerPaywallID The developer ID specified in the Control Center for the paywall you would like metadata and infomation for.
+///
+/// \param namiCustomPaywallHandler After product details and any background images have been loaded by the system, this will be called with requested metadata.
+///
++ (void)fetchCustomPaywallMetaForDeveloperID:(NSString * _Nonnull)developerPaywallID :(void (^ _Nonnull)(NSArray<NamiSKU *> * _Nullable, NSString * _Nonnull, NamiPaywall * _Nullable))namiCustomPaywallHandler;
+/// Provides Nami a callback that is called when a paywall is to be raised, and the current paywall defintiion is a linked paywall.  The callback is given all of the metadata that Nami has on the paywall, along with pre-loaded assets like products and the paywall background.  When this method is called, the intent is for a paywall to the displayed for the user at that time.
+/// \param applicationPaywallProvider A callback that wil be called at a time Nami wishes the app to raise a paywall.
+///
++ (void)registerWithApplicationPaywallProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSArray<NamiSKU *> * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationPaywallProvider;
+/// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
+/// \param applicationSignInProvider A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
+///
++ (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationSignInProvider;
+/// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+/// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
+/// \param fromVC A view controller to present the paywall from if desired, can be null.
+///
++ (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC;
+/// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
+/// \param fromVC A view controller to present the paywall from if desired, can be null.
+///
+/// \param forNami true if the paywall is being raised for the NamiSDK, false if from a user request.
+///
++ (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
 @end
 
 @class UITextView;
@@ -1005,6 +1463,89 @@ SWIFT_CLASS("_TtC4Nami24NamiPaywallTextFieldCell")
 - (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+/// Represents the platform a SKU purchase was made on to activate an entitlement.
+typedef SWIFT_ENUM(NSInteger, NamiPlatformType, open) {
+  NamiPlatformTypeOther = 0,
+  NamiPlatformTypeAndroid = 1,
+  NamiPlatformTypeApple = 2,
+  NamiPlatformTypeRoku = 3,
+  NamiPlatformTypeWeb = 4,
+};
+
+enum NamiPurchaseSource : NSInteger;
+
+SWIFT_CLASS("_TtC4Nami12NamiPurchase")
+@interface NamiPurchase : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
+@property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
+@property (nonatomic, copy) NSDate * _Nullable exipres;
+@property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum NamiPurchaseState : NSInteger;
+
+/// Class to work with and manage purchases on the device.
+SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
+@interface NamiPurchaseManager : NSObject
+/// Tell the SDK to purchase a specific SKU.  To obtain a NamiSKU object, see the skusForSKUIDs(skuIDs, producthandler) call.
+/// \param sku The NamiSKU to purchase, a wrapper around a native StoreKit product.
+///
+/// \param fromPaywall Optional, If you are using a Nami defined paywall (either linked or cloud created) provide it here to capture details around which paywall an item was purchased from.
+///
+/// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
+///
++ (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
+/// Puts the SDK into a mode where it no longer runs purchases through Apple’s StoreKit on device, so you no longer require a testing account to test purchase and activation flows.  It also allows resetting of purchases unlike StoreKit which requires time to pass before purchases expire.  It replicates the same time acceleration that StoreKit sandbox purchases have, where a day long purchase lasts five minutes, etc.  Note this mode is automaticly enabled when running in the iOS simulator, and cannot be activated when in a production (App Store) build.
+/// \param bypass true if you wish to bypass StoreKit purchases for testing, false otherwise.
+///
++ (void)bypassStoreWithBypass:(BOOL)bypass;
+/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
++ (void)clearBypassStorePurchases;
+/// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
+/// \param skuID ID of SKU you wish to check for purchase status
+///
+///
+/// returns:
+/// true if the SKU has been purchased, false otherwise.
++ (BOOL)isSKUIDPurchased:(NSString * _Nonnull)skuID SWIFT_WARN_UNUSED_RESULT;
+/// Checks to see if a SKUID (product app for Apple devices) has been purchased, and returns the purchase record if found (holds things like purchase and expiration date if known).
+/// \param skuID ID of SKU you wish to check for purchase status
+///
+///
+/// returns:
+/// NamiPurchase if found, .none otherwise.
++ (NamiPurchase * _Nullable)currentPurchaseRecordsForSKUWithSkuID:(NSString * _Nonnull)skuID SWIFT_WARN_UNUSED_RESULT;
+/// Takes in a set of SKUIDs (productIDs for Apple) and loads NamiSKU objects with StoreKIt and other metadata, so that you can examine product details or use for other calls.  If you pass in SKUIDs the system does not recognize, they will be returned as invalid and no NamiSKU objects will be returned for those IDs.
+/// \param skuIDs ID of SKU you wish to check for purchase status
+///
+/// \param productHandler A callback to be given the loaded NamiSKU objects from the IDs you passed in, along with an array of invalid IDs the system could not load.
+///
++ (void)skusForSKUIDsWithSkuIDs:(NSArray<NSString *> * _Nonnull)skuIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+/// Returns all known purchases for the current device.
+///
+/// returns:
+/// NamiPurchase objects if any purchases are found, an empty array otherwise.
++ (NSArray<NamiPurchase *> * _Nonnull)allPurchases SWIFT_WARN_UNUSED_RESULT;
+/// Registers a callback that will be activated when any purchase activity occurs - either purchases or expiration.
+///
+/// returns:
+/// NamiPurchase objects if any purchases are found, an empty array otherwise.
++ (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
+/// Activates the system restore purchases feature, which replays all prior purchase transactions to determine which purchases are active.  This may trigger an app store password prompt if called, so only call this at the request of the user.  Generally this is not needed if your Nami account supports receipt validation, as a receipt is checked for on first launch and can determine active purchases that way.
+/// \param handler A callback called when the restore process is complete, with all known purchases found.
+///
++ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler;
+/// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your applciation has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
+/// \param skuID The ID (product ID for Apple) of the product you wish to consume - note that it must be purchased or this call will do nothing.
+///
+- (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, open) {
@@ -1017,12 +1558,15 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, open) {
   NamiPurchaseResultFailed = 6,
 };
 
+/// The source a purcahse comes from - either externally, through nami, or from your own paywall.
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, open) {
   NamiPurchaseSourceExternal = 0,
   NamiPurchaseSourceNamiPaywall = 1,
   NamiPurchaseSourceApplication = 2,
+  NamiPurchaseSourceUnknown = 3,
 };
 
+/// The various states a purcahse can be in depending on what is happening in StoreKit.   Of note is that “purchasedNotValidated” means that validation failed, but StoreKit considers the item purchased .
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStatePending = 0,
   NamiPurchaseStatePurchased = 1,
@@ -1037,9 +1581,11 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
 };
 
 
+/// Wimple wrapper around IAP JSON from an Apple parsed StoreKit receipt.  Note you can always get the original IAP product dict from the parsed receipt via the iapJSONDict property.
 SWIFT_CLASS("_TtC4Nami21NamiReceiptIAPWrapper")
 @interface NamiReceiptIAPWrapper : NSObject
-- (nonnull instancetype)initWithJsonDict:(NSDictionary<NSString *, id> * _Nonnull)jsonDict OBJC_DESIGNATED_INITIALIZER;
+/// The orignal JSON values from the Apple receipt data.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull iapJSONDict;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1048,43 +1594,96 @@ enum StoreKitEnvironmentObjC : NSInteger;
 
 SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @interface NamiReceiptWrapper : NSObject
+/// The raw JSON data returned from Apple processing the receipt data sent from yoru device.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull receiptJSONDict;
+/// Lets you know if there’s any receupt data to lok at, in cases of varous errors or passive mode, you’ll not have receipt data from a validation call.
 @property (nonatomic, readonly) BOOL hasReceiptData;
+/// The status code for this attempt at receipt validation.
 @property (nonatomic, readonly) NSInteger statusCode;
+/// The current StoreKit environment, for objective C.
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
+/// The original applicatino version when the user first purchased/downloaded your applciation, so you know when they started using your applcation.
 - (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
+/// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
+/// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
 - (NSArray<NamiReceiptIAPWrapper *> * _Nonnull)sortedIAPItems SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class SKProduct;
+enum NamiSKUType : NSInteger;
 
+/// Object that wraps the native product (when availaible for the platform you are on).  It holds metadata, if any, from the Nami Control Center.
+SWIFT_CLASS("_TtC4Nami7NamiSKU")
+@interface NamiSKU : NSObject
+/// The Platform speciifc ID, or productIdentifier for Apple platforms.
+@property (nonatomic, copy) NSString * _Nonnull platformID;
+/// If vailaible, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
+@property (nonatomic, strong) SKProduct * _Nullable product;
+/// Metadata for the product from the Nami Control Center.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable productMetadata;
+/// Platform (such as Apple or Android) this product applies to.
+@property (nonatomic) enum NamiPlatformType platform;
+/// Type of product - basically subscription, or non-one_time_purchase.  Is unknownn on versions of iOS prior to 11.2, which introduced a subscription related values to product.
+@property (nonatomic) enum NamiSKUType type;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+/// The possible types of products for Apple devices - either one time purchase (consumable/nonconsumable) or subscription.
+typedef SWIFT_ENUM(NSInteger, NamiSKUType, open) {
+  NamiSKUTypeUnknown = 0,
+  NamiSKUTypeOne_time_purchase = 1,
+  NamiSKUTypeSubscription = 2,
+};
+
+
+/// Holds values that represent if specific Nami application account features are active.
+SWIFT_CLASS("_TtC4Nami23NamiServerConfiguration")
+@interface NamiServerConfiguration : NSObject
+/// If true, the Nami SDK will use machine learning aspects of system to analyze and act on user behaviour
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
++ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setMlEnabled:(BOOL)value;
+/// Determines if analytics are supported for this account
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
++ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
++ (void)setAnalyticsEnabled:(BOOL)value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// Class to help with some aspects of direct StoreKit access.
 SWIFT_CLASS("_TtC4Nami18NamiStoreKitHelper")
 @interface NamiStoreKitHelper : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKitHelper * _Nonnull shared;)
 + (NamiStoreKitHelper * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Identifier for times when the system needs to return a namiSKU, but there’s no real product behind that wrapper.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
-- (void)bypassStoreKitWithBypass:(BOOL)bypass;
-- (void)clearBypassStoreKitPurchases;
-- (void)buyProduct:(NamiMetaProduct * _Nonnull)metaProduct fromPaywall:(NamiMetaPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
+/// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
-- (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isProductPurchased:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)anyProductPurchased:(NSArray<NSString *> * _Nonnull)productIDs SWIFT_WARN_UNUSED_RESULT;
-- (NamiMetaPurchase * _Nullable)currentPurchaseRecordsForProductWithProductID:(NSString * _Nonnull)productID SWIFT_WARN_UNUSED_RESULT;
-- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiMetaProduct *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
-- (NSArray<NamiMetaPurchase *> * _Nonnull)allPurchasedProducts SWIFT_WARN_UNUSED_RESULT;
-- (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiMetaPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
-/// Returns all products for either s+ubscriptions or purchaes *
+/// A simple way to ask for SKProducts directly from StoreKit.
+- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+- (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
 + (NSData * _Nullable)appReceiptData SWIFT_WARN_UNUSED_RESULT;
+/// Last app receipt json obtained, if any.
 + (NSDictionary<NSString *, id> * _Nonnull)appReceiptJSON SWIFT_WARN_UNUSED_RESULT;
-+ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler;
-- (void)consumePurchasedProductWithProductID:(NSString * _Nonnull)productID;
+@end
+
+
+/// Utilities for working with version numbers of the form 1.2.2, to compare and onbtain app versions.
+SWIFT_CLASS("_TtC4Nami16NamiVersionUtils")
+@interface NamiVersionUtils : NSObject
+/// Compare version strings to see if one is lower than the other.  Usually used to compre one application versino to another.
++ (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
+/// Returns the current appliation version.
++ (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class RoundedView;
@@ -1115,6 +1714,7 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
+/// Builds a simple dictionary for a product that holds price, locale, and currency values for this product.
 - (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
 - (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -1122,16 +1722,20 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 @class NSNumberFormatter;
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
+/// Numebr formatter for the users current locale, used to display price values.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _Nonnull priceFormatter;)
 + (NSNumberFormatter * _Nonnull)priceFormatter SWIFT_WARN_UNUSED_RESULT;
 + (void)setPriceFormatter:(NSNumberFormatter * _Nonnull)value;
+/// The current price as a string, with the formatter applied that adds currency symbols.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedPrice;
+/// The price multiplied by any subscritpion units, so for example a monthly subscription lasting six months would return the total value for all six months, with currency symbol added.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedMultipliedPrice;
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDuration SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationNoPer SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationSingular SWIFT_AVAILABILITY(ios,introduced=11.2);
 @end
 
+/// This enum represents the possible time units for adjusting simulated sandbox accelleration - the reduction of real-world time into smaller units for testing purposes when bypassStore is enabled.
 typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitHour = 0,
   SandboxAccelerationItemUnitWeek = 1,
@@ -1140,6 +1744,7 @@ typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitYear = 4,
 };
 
+/// Objective-C enum for store kit environments as there are no String enums in Objective-C.
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, open) {
   StoreKitEnvironmentObjCProduction = 0,
   StoreKitEnvironmentObjCSandbox = 1,
@@ -1153,6 +1758,7 @@ SWIFT_CLASS("_TtC4Nami19StoreKitQueueHelper")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// Possuble status codes from StoreKit.  The msot likley one to be seen is 21004, which measns Nami does not have the shared sescret it needs to send your receipts to Apple.  Add in the Nami Control Center developer tab.
 typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesStatusOK = 0,
   StoreKitStatusCodesUnreadableJSON = 21000,
@@ -1165,8 +1771,6 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
-
-
 
 
 

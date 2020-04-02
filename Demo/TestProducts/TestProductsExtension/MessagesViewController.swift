@@ -16,9 +16,9 @@ class MessagesViewController: MSMessagesAppViewController {
         super.viewDidLoad()
         
         // Test of displaying a paywall after a small delay.  You can remove this and put a paywall display somewhere it makes more sense for your application.
-        Nami.shared.doConfigBasedWork {
+        Nami.doConfigBasedWork {
             DispatchQueue.main.asyncAfter(deadline: .now()+4 ) {
-                NamiPaywallManager.shared.raisePaywall(fromVC: self)
+                NamiPaywallManager.raisePaywall(fromVC: self)
             }
         }
     }
@@ -28,8 +28,10 @@ class MessagesViewController: MSMessagesAppViewController {
     override func willBecomeActive(with conversation: MSConversation) {
         super.willBecomeActive(with: conversation)
    
+        let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        
         // Just like in an application, we need to pass Nami the application ID the paywalls are built for.
-        Nami.shared.configure(appID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        Nami.configure(namiConfig: namiConfig )
         
        // This call activates the Nami system for an extension.
     NamiExtensionManager.shared.startupNamiFromMessageExtension(messageViewController: self, applicationGroupName: nil)
