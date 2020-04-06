@@ -253,11 +253,11 @@ enum NamiLogLevel : NSInteger;
 ///
 /// \param type Either .sha256 or.uuid, from NamiExternalIdentifierType.
 ///
-+ (void)setExternalIdentiferWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
-/// Returns the currently defined external identifer for this device, if any.
-+ (NSString * _Nullable)getExternalIdentifer SWIFT_WARN_UNUSED_RESULT;
++ (void)setExternalIdentifierWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
+/// Returns the currently defined external identifier for this device, if any.
++ (NSString * _Nullable)getExternalIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// Clears out any external identifiers set.
-+ (void)clearExternalIdentifer;
++ (void)clearExternalIdentifier;
 /// Allows for dynamic re-adjustment of SDK log levesl if desired.
 + (void)setLogLevel:(enum NamiLogLevel)logLevel;
 @end
@@ -776,7 +776,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
 /// A simple way to ask for SKProducts directly from StoreKit.
-- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+- (void)productsForProductIdentifiersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
 - (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
 + (NSData * _Nullable)appReceiptData SWIFT_WARN_UNUSED_RESULT;
 /// Last app receipt json obtained, if any.
@@ -1145,11 +1145,11 @@ enum NamiLogLevel : NSInteger;
 ///
 /// \param type Either .sha256 or.uuid, from NamiExternalIdentifierType.
 ///
-+ (void)setExternalIdentiferWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
-/// Returns the currently defined external identifer for this device, if any.
-+ (NSString * _Nullable)getExternalIdentifer SWIFT_WARN_UNUSED_RESULT;
++ (void)setExternalIdentifierWithExternalIdentifier:(NSString * _Nullable)externalIdentifier type:(enum NamiExternalIdentifierType)type;
+/// Returns the currently defined external identifier for this device, if any.
++ (NSString * _Nullable)getExternalIdentifier SWIFT_WARN_UNUSED_RESULT;
 /// Clears out any external identifiers set.
-+ (void)clearExternalIdentifer;
++ (void)clearExternalIdentifier;
 /// Allows for dynamic re-adjustment of SDK log levesl if desired.
 + (void)setLogLevel:(enum NamiLogLevel)logLevel;
 @end
@@ -1668,7 +1668,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
 /// A simple way to ask for SKProducts directly from StoreKit.
-- (void)productsForProductIdentifersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
+- (void)productsForProductIdentifiersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
 - (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
 + (NSData * _Nullable)appReceiptData SWIFT_WARN_UNUSED_RESULT;
 /// Last app receipt json obtained, if any.

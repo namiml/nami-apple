@@ -318,7 +318,7 @@ public enum StoreKitEnvironment : Swift.String {
     }
   public func bypassStoreKit(bypass: Swift.Bool, customAccelerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
   @objc public func verifyReceipt(completion: @escaping NamiVerifyReceiptHandler)
-  @objc public func productsForProductIdentifers(productIDs: [StoreID], productHandler: @escaping SKUsRequestCompletionHandler)
+  @objc public func productsForProductIdentifiers(productIDs: [StoreID], productHandler: @escaping SKUsRequestCompletionHandler)
   @objc public func register(purchasesChangedHandler changeHandler: NamiPurchaseResponseHandler?)
   @objc public static func appReceiptData() -> Foundation.Data?
   @objc public static func appReceiptJSON() -> [Swift.String : Any]
@@ -503,9 +503,9 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static func configure(namiConfig: NamiConfiguration)
   @objc public static func registerNamiLogger(logger: NamiLoggerClient)
   @objc public static func doConfigBasedWork(worker: @escaping NamiWorker)
-  @objc public static func setExternalIdentifer(externalIdentifier: Swift.String?, type: NamiExternalIdentifierType)
-  @objc public static func getExternalIdentifer() -> Swift.String?
-  @objc public static func clearExternalIdentifer()
+  @objc public static func setExternalIdentifier(externalIdentifier: Swift.String?, type: NamiExternalIdentifierType)
+  @objc public static func getExternalIdentifier() -> Swift.String?
+  @objc public static func clearExternalIdentifier()
   @objc public static func setLogLevel(_ logLevel: NamiLogLevel)
 }
 @objc public class Nami : ObjectiveC.NSObject {

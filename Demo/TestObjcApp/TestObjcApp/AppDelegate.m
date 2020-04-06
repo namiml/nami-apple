@@ -27,6 +27,7 @@
     // This AppID is specific to Nami TestProducts applications.  You should contact
     // Nami to obtain an AppID you can use with your own appliciations.
     NamiConfiguration *namiConfig = [NamiConfiguration configurationForAppPlatformID: @"002e2c49-7f66-4d22-a05c-1dc9f2b7f2af"];
+    [namiConfig setLogLevel:NamiLogLevelInfo];
     
     [Nami configureWithNamiConfig:namiConfig];
         
