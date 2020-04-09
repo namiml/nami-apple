@@ -84,6 +84,7 @@ public class NamiStoreKitTesting {
   @objc public var applicationHandlesTransactions: Swift.Bool
   @objc public var logLevel: Nami.NamiLogLevel
   @objc public var bypassStore: Swift.Bool
+  @objc public var developmentMode: Swift.Bool
   @objc public var namiCommands: [Swift.String]
   @objc override dynamic public init()
   @objc deinit

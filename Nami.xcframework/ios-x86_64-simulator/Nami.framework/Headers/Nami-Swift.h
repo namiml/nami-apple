@@ -323,6 +323,8 @@ SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
 @property (nonatomic) enum NamiLogLevel logLevel;
 /// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
 @property (nonatomic) BOOL bypassStore;
+/// When activated will turn off use of background queues.
+@property (nonatomic) BOOL developmentMode;
 /// Used to activate internal features of the SDK not generally used by Nami clients.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
