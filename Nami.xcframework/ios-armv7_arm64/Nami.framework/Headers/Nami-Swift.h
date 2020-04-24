@@ -221,9 +221,8 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 /// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC4Nami4Nami")
 @interface Nami : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Nami * _Nonnull shared;)
 + (Nami * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShared:(Nami * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -342,10 +341,26 @@ SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NamiSKU;
+@class NamiPurchase;
 
 /// Entitlements grant access to features, content, or other aspects of your app.  Manage your entitlements in the Nami Control Center. Entitlements are associated with Product SKUs which are the specific in-app purchase products that grant an entitlement.
 SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
 @interface NamiEntitlement : NSObject
+/// Developer friendly name of entitlement
+@property (nonatomic, copy) NSString * _Nullable name;
+/// Description of entitlement
+@property (nonatomic, copy) NSString * _Nullable desc;
+/// The Nami ID of the entitlement.
+@property (nonatomic, copy) NSString * _Nullable namiID;
+/// The unique ID of the entitlement, use this to refer to the system when referencing an entitlements.
+@property (nonatomic, copy) NSString * _Nonnull referenceID;
+/// All SKU’s (StoreKit products or other) that grant this entitlement on purchase on this app platform.
+@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull relatedSKUs;
+/// List of NamiSKU objects that have been purchased and grant this entitlement.
+@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull purchasedSKUs;
+/// Purchase records for any purchased SKU.  Purchase records hold details like date of purchase, or subscription expiration.
+@property (nonatomic, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -514,7 +529,6 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 @end
 
 @class UIViewController;
-@class NamiSKU;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(Nami))
 /// For use in passive mode only. Tells Nami that a paywall has been raised.  Call any time a user encounters a paywall.
@@ -821,6 +835,8 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))
@@ -1115,9 +1131,8 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 /// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC4Nami4Nami")
 @interface Nami : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) Nami * _Nonnull shared;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Nami * _Nonnull shared;)
 + (Nami * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-+ (void)setShared:(Nami * _Nonnull)value;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1236,10 +1251,26 @@ SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NamiSKU;
+@class NamiPurchase;
 
 /// Entitlements grant access to features, content, or other aspects of your app.  Manage your entitlements in the Nami Control Center. Entitlements are associated with Product SKUs which are the specific in-app purchase products that grant an entitlement.
 SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
 @interface NamiEntitlement : NSObject
+/// Developer friendly name of entitlement
+@property (nonatomic, copy) NSString * _Nullable name;
+/// Description of entitlement
+@property (nonatomic, copy) NSString * _Nullable desc;
+/// The Nami ID of the entitlement.
+@property (nonatomic, copy) NSString * _Nullable namiID;
+/// The unique ID of the entitlement, use this to refer to the system when referencing an entitlements.
+@property (nonatomic, copy) NSString * _Nonnull referenceID;
+/// All SKU’s (StoreKit products or other) that grant this entitlement on purchase on this app platform.
+@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull relatedSKUs;
+/// List of NamiSKU objects that have been purchased and grant this entitlement.
+@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull purchasedSKUs;
+/// Purchase records for any purchased SKU.  Purchase records hold details like date of purchase, or subscription expiration.
+@property (nonatomic, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1408,7 +1439,6 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 @end
 
 @class UIViewController;
-@class NamiSKU;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(Nami))
 /// For use in passive mode only. Tells Nami that a paywall has been raised.  Call any time a user encounters a paywall.
@@ -1715,6 +1745,8 @@ SWIFT_CLASS("_TtC4Nami11RoundedView")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
 
 
 @interface SKProduct (SWIFT_EXTENSION(Nami))

@@ -29,6 +29,9 @@
     NamiConfiguration *namiConfig = [NamiConfiguration configurationForAppPlatformID: @"002e2c49-7f66-4d22-a05c-1dc9f2b7f2af"];
     [namiConfig setLogLevel:NamiLogLevelInfo];
     
+    NamiSKU *fred;
+    [NamiPurchaseManager buySKU:<#(NamiSKU * _Nonnull)#> fromPaywall:<#(NamiPaywall * _Nullable)#> responseHandler:<#^(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable)responseHandler#>]
+    
     [Nami configureWithNamiConfig:namiConfig];
         
     // If you activate this, you can simualte purchases in the simulator for testing, and on device
