@@ -668,7 +668,7 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your applciation has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
 /// \param skuID The ID (product ID for Apple) of the product you wish to consume - note that it must be purchased or this call will do nothing.
 ///
-- (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
++ (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1578,7 +1578,7 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your applciation has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
 /// \param skuID The ID (product ID for Apple) of the product you wish to consume - note that it must be purchased or this call will do nothing.
 ///
-- (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
++ (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

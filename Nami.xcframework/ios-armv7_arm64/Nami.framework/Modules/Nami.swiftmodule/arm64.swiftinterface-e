@@ -376,7 +376,7 @@ public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPu
   @objc public static func allPurchases() -> [Nami.NamiPurchase]
   @objc public static func register(purchasesChangedHandler changeHandler: Nami.NamiPurchaseManager.NamiPurchaseResponseHandler?)
   @objc public static func restorePurchases(handler: @escaping Nami.RestorePurchaseCompleteHandler)
-  @objc public func consumePurchasedSKU(skuID: Nami.StoreID)
+  @objc public static func consumePurchasedSKU(skuID: Nami.StoreID)
   @objc override dynamic public init()
   @objc deinit
 }
