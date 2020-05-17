@@ -220,6 +220,10 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   }
 }
 @objc public class NamiEntitlementSetter : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let referenceID: Swift.String
+  @objc public var purchasedSKUid: Swift.String?
+  @objc public var expires: Foundation.Date?
+  @objc public var platform: NamiPlatformType
   @objc convenience public init(id: Swift.String)
   @objc convenience public init(id: Swift.String, platform: NamiPlatformType)
   @objc public init(id: Swift.String, platform: NamiPlatformType, purchasedSKUid: Swift.String?, expires: Foundation.Date?)
@@ -291,6 +295,7 @@ public enum StoreKitEnvironment : Swift.String {
   case deferred
   case failed
   case cancelled
+  case purchasedAndValidated
   case unknown
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
@@ -313,7 +318,7 @@ public enum StoreKitEnvironment : Swift.String {
 @objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
   @objc public static let shared: NamiStoreKitHelper
   @objc public static let noProductIdentifier: Swift.String
-  public var bypassStoreKit: Swift.Bool {
+  @objc public var bypassStoreKit: Swift.Bool {
     get
     }
   public var subscriptionAccelerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] {
@@ -323,6 +328,9 @@ public enum StoreKitEnvironment : Swift.String {
     get
     }
   public var storeKitEnvironment: StoreKitEnvironment {
+    get
+    }
+  @objc public var objCStoreKitEnvironment: Swift.String {
     get
     }
   public func bypassStoreKit(bypass: Swift.Bool, customAccelerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
@@ -490,7 +498,10 @@ extension String {
   }
 }
 @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable {
-  @objc public var platformID: Swift.String
+  @objc public var platformID: Swift.String {
+    @objc get
+  }
+  @objc public var storeID: Swift.String
   @objc public var product: StoreKit.SKProduct?
   @objc public var productMetadata: [Swift.String : Any]?
   @objc public var platform: NamiPlatformType
@@ -605,8 +616,38 @@ extension NamiPurchaseSource : Swift.Codable {
     @objc get
   }
 }
-@objc public class MockPaymentTransaction : StoreKit.SKPaymentTransaction {
+@objc public class MockPaymentTransactionPending : StoreKit.SKPaymentTransaction {
   @objc override dynamic public var transactionIdentifier: Swift.String? {
+    @objc get
+  }
+  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
+    @objc get
+  }
+  @objc override dynamic public var transactionDate: Foundation.Date? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class MockPaymentTransactionFailed : MockPaymentTransactionPending {
+  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class MockPaymentTransaction : MockPaymentTransactionPending {
+  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
+    @objc get
+  }
+  @objc override dynamic public var payment: StoreKit.SKPayment {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class MockPayment : StoreKit.SKPayment {
+  @objc override dynamic public var productIdentifier: Swift.String {
     @objc get
   }
   @objc override dynamic public init()

@@ -208,12 +208,38 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-/// For use when byapassStore is on, a trasnsaction that is not a real StoreKit object.
-SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
-@interface MockPaymentTransaction : SKPaymentTransaction
-@property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
+SWIFT_CLASS("_TtC4Nami11MockPayment")
+@interface MockPayment : SKPayment
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+/// For use when byapassStore is on, a transaction that is not a real StoreKit object.
+SWIFT_CLASS("_TtC4Nami29MockPaymentTransactionPending")
+@interface MockPaymentTransactionPending : SKPaymentTransaction
+@property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, copy) NSDate * _Nullable transactionDate;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// For use when bypassStore is on, a transaction that is not a real StoreKit object.
+SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
+@interface MockPaymentTransaction : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami28MockPaymentTransactionFailed")
+@interface MockPaymentTransactionFailed : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 
@@ -406,6 +432,10 @@ enum NamiPlatformType : NSInteger;
 /// Object used to pass data to the SDK about an entitlement purchased on another platform.  Used with setEntitlements to grant access to an entitlement in the SDK.
 SWIFT_CLASS("_TtC4Nami21NamiEntitlementSetter")
 @interface NamiEntitlementSetter : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull referenceID;
+@property (nonatomic, copy) NSString * _Nullable purchasedSKUid;
+@property (nonatomic, copy) NSDate * _Nullable expires;
+@property (nonatomic) enum NamiPlatformType platform;
 /// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the platform is Apple, the purchaseSKUId and expiration are empty.
 /// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
 ///
@@ -701,7 +731,8 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStateDeferred = 6,
   NamiPurchaseStateFailed = 7,
   NamiPurchaseStateCancelled = 8,
-  NamiPurchaseStateUnknown = 9,
+  NamiPurchaseStatePurchasedAndValidated = 9,
+  NamiPurchaseStateUnknown = 10,
 };
 
 
@@ -743,8 +774,10 @@ enum NamiSKUType : NSInteger;
 SWIFT_CLASS("_TtC4Nami7NamiSKU")
 @interface NamiSKU : NSObject
 /// The Platform speciifc ID, or productIdentifier for Apple platforms.
-@property (nonatomic, copy) NSString * _Nonnull platformID;
-/// If vailaible, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
+@property (nonatomic, readonly, copy) NSString * _Nonnull platformID;
+/// The Store ID, or productIdentifier for Apple platforms.
+@property (nonatomic, copy) NSString * _Nonnull storeID;
+/// If available, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
 @property (nonatomic, strong) SKProduct * _Nullable product;
 /// Metadata for the product from the Nami Control Center.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable productMetadata;
@@ -789,6 +822,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKit
 /// Identifier for times when the system needs to return a namiSKU, but there’s no real product behind that wrapper.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL bypassStoreKit;
+@property (nonatomic, readonly, copy) NSString * _Nonnull objCStoreKitEnvironment;
 /// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
 /// A simple way to ask for SKProducts directly from StoreKit.
@@ -1118,12 +1153,38 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-/// For use when byapassStore is on, a trasnsaction that is not a real StoreKit object.
-SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
-@interface MockPaymentTransaction : SKPaymentTransaction
-@property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
+SWIFT_CLASS("_TtC4Nami11MockPayment")
+@interface MockPayment : SKPayment
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+/// For use when byapassStore is on, a transaction that is not a real StoreKit object.
+SWIFT_CLASS("_TtC4Nami29MockPaymentTransactionPending")
+@interface MockPaymentTransactionPending : SKPaymentTransaction
+@property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, copy) NSDate * _Nullable transactionDate;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// For use when bypassStore is on, a transaction that is not a real StoreKit object.
+SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
+@interface MockPaymentTransaction : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami28MockPaymentTransactionFailed")
+@interface MockPaymentTransactionFailed : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 
@@ -1316,6 +1377,10 @@ enum NamiPlatformType : NSInteger;
 /// Object used to pass data to the SDK about an entitlement purchased on another platform.  Used with setEntitlements to grant access to an entitlement in the SDK.
 SWIFT_CLASS("_TtC4Nami21NamiEntitlementSetter")
 @interface NamiEntitlementSetter : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull referenceID;
+@property (nonatomic, copy) NSString * _Nullable purchasedSKUid;
+@property (nonatomic, copy) NSDate * _Nullable expires;
+@property (nonatomic) enum NamiPlatformType platform;
 /// Constructor that passes in details needed by the Nami SDK to understand the active entitlement details.  Using this constructor will assume the platform is Apple, the purchaseSKUId and expiration are empty.
 /// \param id The ID of the entitlement that is actve, such as “PremiumSubscription”
 ///
@@ -1611,7 +1676,8 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStateDeferred = 6,
   NamiPurchaseStateFailed = 7,
   NamiPurchaseStateCancelled = 8,
-  NamiPurchaseStateUnknown = 9,
+  NamiPurchaseStatePurchasedAndValidated = 9,
+  NamiPurchaseStateUnknown = 10,
 };
 
 
@@ -1653,8 +1719,10 @@ enum NamiSKUType : NSInteger;
 SWIFT_CLASS("_TtC4Nami7NamiSKU")
 @interface NamiSKU : NSObject
 /// The Platform speciifc ID, or productIdentifier for Apple platforms.
-@property (nonatomic, copy) NSString * _Nonnull platformID;
-/// If vailaible, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
+@property (nonatomic, readonly, copy) NSString * _Nonnull platformID;
+/// The Store ID, or productIdentifier for Apple platforms.
+@property (nonatomic, copy) NSString * _Nonnull storeID;
+/// If available, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
 @property (nonatomic, strong) SKProduct * _Nullable product;
 /// Metadata for the product from the Nami Control Center.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable productMetadata;
@@ -1699,6 +1767,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NamiStoreKit
 /// Identifier for times when the system needs to return a namiSKU, but there’s no real product behind that wrapper.
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull noProductIdentifier;)
 + (NSString * _Nonnull)noProductIdentifier SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL bypassStoreKit;
+@property (nonatomic, readonly, copy) NSString * _Nonnull objCStoreKitEnvironment;
 /// Verifies any already local receipt the app may have by sending the receipt data to the Nami server, which calls Apple for the most recent receipt data.
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
 /// A simple way to ask for SKProducts directly from StoreKit.
