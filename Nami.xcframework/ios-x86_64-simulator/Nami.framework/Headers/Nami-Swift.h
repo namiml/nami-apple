@@ -666,6 +666,13 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// returns:
 /// true if the SKU has been purchased, false otherwise.
 + (BOOL)isSKUIDPurchased:(NSString * _Nonnull)skuID SWIFT_WARN_UNUSED_RESULT;
+/// Checks to see if any one of an array of SKUID (product app for Apple devices) has been purchased by the current device owner or not.
+/// \param skuIDs Array of IDs of SKU you wish to check for purchase status
+///
+///
+/// returns:
+/// true if any SKU in the passed in array has been purchased, false otherwise.
++ (BOOL)anySKUIDPurchased:(NSArray<NSString *> * _Nonnull)skuIDs SWIFT_WARN_UNUSED_RESULT;
 /// Checks to see if a SKUID (product app for Apple devices) has been purchased, and returns the purchase record if found (holds things like purchase and expiration date if known).
 /// \param skuID ID of SKU you wish to check for purchase status
 ///

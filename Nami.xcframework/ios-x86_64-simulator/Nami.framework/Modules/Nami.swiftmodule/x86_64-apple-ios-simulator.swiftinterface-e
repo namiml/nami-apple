@@ -379,6 +379,7 @@ public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPu
   @objc public static func bypassStore(bypass: Swift.Bool)
   @objc public static func clearBypassStorePurchases()
   @objc public static func isSKUIDPurchased(_ skuID: Nami.StoreID) -> Swift.Bool
+  @objc public static func anySKUIDPurchased(_ skuIDs: [Nami.StoreID]) -> Swift.Bool
   @objc public static func currentPurchaseRecordsForSKU(skuID: Nami.StoreID) -> Nami.NamiPurchase?
   @objc public static func skusForSKUIDs(skuIDs: [Nami.StoreID], productHandler: @escaping Nami.SKUsRequestCompletionHandler)
   @objc public static func allPurchases() -> [Nami.NamiPurchase]
