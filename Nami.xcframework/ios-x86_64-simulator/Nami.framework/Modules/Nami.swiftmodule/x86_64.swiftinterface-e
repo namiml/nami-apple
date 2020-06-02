@@ -402,6 +402,11 @@ public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPu
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
+extension NSNotification.Name {
+  public static let NamiPaywallWillAppearNotification: Foundation.Notification.Name
+  public static let NamiPaywallDidDismissNoPurcahseNotification: Foundation.Notification.Name
+  public static let NamiPaywallDidDismissAfterPurcahseNotification: Foundation.Notification.Name
+}
 public protocol NamiPaywallController {
   func preparePaywall(skus: [Nami.NamiSKU], namiPaywall: Nami.NamiPaywall)
 }
@@ -536,7 +541,9 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static let shared: Nami.Nami
   @objc deinit
 }
+public typealias NamiQueryCallback = ([Swift.AnyObject]) -> ()
 @objc public class NamiCommand : ObjectiveC.NSObject {
+  @objc public static func performQuery(_ queryString: Swift.String, callback: ([Swift.AnyObject]) -> ())
   @objc public static func performCommands(_ commands: [Swift.String])
   @objc public static func performCommand(_ commandString: Swift.String)
   @objc override dynamic public init()
@@ -618,6 +625,9 @@ extension NamiPurchaseSource : Swift.Codable {
   }
 }
 @objc public class MockPaymentTransactionPending : StoreKit.SKPaymentTransaction {
+  @objc override dynamic public var payment: StoreKit.SKPayment {
+    @objc get
+  }
   @objc override dynamic public var transactionIdentifier: Swift.String? {
     @objc get
   }
@@ -625,6 +635,13 @@ extension NamiPurchaseSource : Swift.Codable {
     @objc get
   }
   @objc override dynamic public var transactionDate: Foundation.Date? {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class MockPaymentTransactionPending2 : Nami.MockPaymentTransactionPending {
+  @objc override dynamic public var payment: StoreKit.SKPayment {
     @objc get
   }
   @objc override dynamic public init()
@@ -647,12 +664,32 @@ extension NamiPurchaseSource : Swift.Codable {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public class MockPaymentTransaction2 : Nami.MockPaymentTransactionPending {
+  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
+    @objc get
+  }
+  @objc override dynamic public var payment: StoreKit.SKPayment {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public class MockPayment : StoreKit.SKPayment {
   @objc override dynamic public var productIdentifier: Swift.String {
     @objc get
   }
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public class MockPayment2 : StoreKit.SKPayment {
+  @objc override dynamic public var productIdentifier: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension SKPaymentTransactionState {
+  public func readableString() -> Swift.String
 }
 extension NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws

@@ -215,9 +215,17 @@ SWIFT_CLASS("_TtC4Nami11MockPayment")
 @end
 
 
+SWIFT_CLASS("_TtC4Nami12MockPayment2")
+@interface MockPayment2 : SKPayment
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 /// For use when byapassStore is on, a transaction that is not a real StoreKit object.
 SWIFT_CLASS("_TtC4Nami29MockPaymentTransactionPending")
 @interface MockPaymentTransactionPending : SKPaymentTransaction
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
 @property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
 @property (nonatomic, readonly) SKPaymentTransactionState transactionState;
 @property (nonatomic, readonly, copy) NSDate * _Nullable transactionDate;
@@ -234,12 +242,27 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 @end
 
 
+SWIFT_CLASS("_TtC4Nami23MockPaymentTransaction2")
+@interface MockPaymentTransaction2 : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC4Nami28MockPaymentTransactionFailed")
 @interface MockPaymentTransactionFailed : MockPaymentTransactionPending
 @property (nonatomic, readonly) SKPaymentTransactionState transactionState;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
+SWIFT_CLASS("_TtC4Nami30MockPaymentTransactionPending2")
+@interface MockPaymentTransactionPending2 : MockPaymentTransactionPending
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 
@@ -327,6 +350,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport *
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performQuery:(NSString * _Nonnull)queryString callback:(SWIFT_NOESCAPE void (^ _Nonnull)(NSArray * _Nonnull))callback;
 + (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
 + (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1167,9 +1191,17 @@ SWIFT_CLASS("_TtC4Nami11MockPayment")
 @end
 
 
+SWIFT_CLASS("_TtC4Nami12MockPayment2")
+@interface MockPayment2 : SKPayment
+@property (nonatomic, readonly, copy) NSString * _Nonnull productIdentifier;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 /// For use when byapassStore is on, a transaction that is not a real StoreKit object.
 SWIFT_CLASS("_TtC4Nami29MockPaymentTransactionPending")
 @interface MockPaymentTransactionPending : SKPaymentTransaction
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
 @property (nonatomic, readonly, copy) NSString * _Nullable transactionIdentifier;
 @property (nonatomic, readonly) SKPaymentTransactionState transactionState;
 @property (nonatomic, readonly, copy) NSDate * _Nullable transactionDate;
@@ -1186,12 +1218,27 @@ SWIFT_CLASS("_TtC4Nami22MockPaymentTransaction")
 @end
 
 
+SWIFT_CLASS("_TtC4Nami23MockPaymentTransaction2")
+@interface MockPaymentTransaction2 : MockPaymentTransactionPending
+@property (nonatomic, readonly) SKPaymentTransactionState transactionState;
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC4Nami28MockPaymentTransactionFailed")
 @interface MockPaymentTransactionFailed : MockPaymentTransactionPending
 @property (nonatomic, readonly) SKPaymentTransactionState transactionState;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
+SWIFT_CLASS("_TtC4Nami30MockPaymentTransactionPending2")
+@interface MockPaymentTransactionPending2 : MockPaymentTransactionPending
+@property (nonatomic, readonly, strong) SKPayment * _Nonnull payment;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 
@@ -1279,6 +1326,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport *
 
 SWIFT_CLASS("_TtC4Nami11NamiCommand")
 @interface NamiCommand : NSObject
++ (void)performQuery:(NSString * _Nonnull)queryString callback:(SWIFT_NOESCAPE void (^ _Nonnull)(NSArray * _Nonnull))callback;
 + (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
 + (void)performCommand:(NSString * _Nonnull)commandString;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
