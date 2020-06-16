@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target arm64-apple-ios10.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Nami
 import CoreML
 import Foundation
@@ -12,6 +12,8 @@ import Security
 import StoreKit
 import Swift
 import UIKit
+import os.log
+import os
 public enum NamiSignals {
   case readyToBuy
   case smartPaywallActive
@@ -34,7 +36,7 @@ public enum NamiPaywallInitiationType {
   }
   public func hash(into hasher: inout Swift.Hasher)
 }
-public class NamiSignalManager {
+@_hasMissingDesignatedInitializers public class NamiSignalManager {
   public static var shared: NamiSignalManager
   public func addHandler(forSignal signal: NamiSignals, handler: NamiSignalCallback?)
   public func paywallRaisedImpression(paywallSource: NamiPurchaseSource)
@@ -43,11 +45,11 @@ public class NamiSignalManager {
   public func buyScreenCompleteDelayed(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   @objc deinit
 }
-@objc public class NamiVersionUtils : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiVersionUtils : ObjectiveC.NSObject {
   @objc public static func isOriginalVersion(_ originalVersion: Swift.String, lowerThanVersion otherVersion: Swift.String) -> Swift.Bool
   @objc public static func currentAppVersion() -> Swift.String
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
   case day
@@ -58,38 +60,38 @@ public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
     get
   }
 }
-public class NamiStoreKitTesting {
+@_hasMissingDesignatedInitializers public class NamiStoreKitTesting {
   public static func bypassAdvanceDate(bySeconds seconds: Foundation.TimeInterval?)
   @objc deinit
 }
-@objc public class NamiCorrectiveFlowLayout : UIKit.UICollectionViewFlowLayout {
+@objc @_inheritsConvenienceInitializers public class NamiCorrectiveFlowLayout : UIKit.UICollectionViewFlowLayout {
   @objc override dynamic public func shouldInvalidateLayout(forBoundsChange newBounds: CoreGraphics.CGRect) -> Swift.Bool
+  @objc deinit
   @objc override dynamic public init()
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
-@objc public class NamiServerConfiguration : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiServerConfiguration : ObjectiveC.NSObject {
   @objc public static var mlEnabled: Swift.Bool
   @objc public static var analyticsEnabled: Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @objc public class NamiConfiguration : ObjectiveC.NSObject {
   public init(appPlatformID: NamiAppPlatformID)
   @objc public static func configuration(forAppPlatformID appPlatformID: NamiAppPlatformID) -> NamiConfiguration
   @objc public var appPlatformID: NamiAppPlatformID {
     get
-    }
+  }
   @objc public var passiveMode: Swift.Bool
   @objc public var applicationHandlesTransactions: Swift.Bool
   @objc public var logLevel: NamiLogLevel
   @objc public var bypassStore: Swift.Bool
   @objc public var developmentMode: Swift.Bool
   @objc public var namiCommands: [Swift.String]
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class NamiPaywall : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc public class NamiPaywall : ObjectiveC.NSObject {
   @objc public var paywallID: Swift.String
   @objc public var namiPaywallInfoDict: [Swift.String : Any]
   @objc public var backgroundImage: UIKit.UIImage?
@@ -113,6 +115,7 @@ public enum NamiServerConfigKeys : Swift.String {
   case marketplace_app_id
   case sdk_enabled
   case skus
+  case formatted_skus
   case app
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
@@ -168,6 +171,8 @@ public enum NamiPaywallKeys : Swift.String {
   case allow_closing
   case developer_paywall_id
   case skus
+  case formatted_skus
+  case sku_ordered_metadata
   case tos_link
   case privacy_policy
   public typealias RawValue = Swift.String
@@ -190,6 +195,9 @@ public enum NamiSKUKeys : Swift.String {
   case sku_type
   case name
   case sku_nami_id
+  case presentation_position
+  case featured
+  case featured_text
   case entitlements
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
@@ -227,12 +235,12 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   @objc convenience public init(id: Swift.String)
   @objc convenience public init(id: Swift.String, platform: NamiPlatformType)
   @objc public init(id: Swift.String, platform: NamiPlatformType, purchasedSKUid: Swift.String?, expires: Foundation.Date?)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-@objc public class NamiEntitlement : ObjectiveC.NSObject, Swift.Codable {
+@_hasMissingDesignatedInitializers @objc public class NamiEntitlement : ObjectiveC.NSObject, Swift.Codable {
   @objc public var name: Swift.String?
   @objc public var desc: Swift.String?
   @objc public var namiID: Swift.String?
@@ -240,8 +248,8 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   @objc public var relatedSKUs: [NamiSKU]
   @objc public var purchasedSKUs: [NamiSKU]
   @objc public var activePurchases: [NamiPurchase]
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -252,7 +260,7 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   @objc public static func setEntitlements(_ entitlements: [NamiEntitlementSetter])
   @objc public static func clearAllEntitlements()
 }
-@objc public class NamiEntitlementManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiEntitlementManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
 }
@@ -315,24 +323,24 @@ public enum StoreKitEnvironment : Swift.String {
     get
   }
 }
-@objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
   @objc public static let shared: NamiStoreKitHelper
   @objc public static let noProductIdentifier: Swift.String
   @objc public var bypassStoreKit: Swift.Bool {
     get
-    }
+  }
   public var subscriptionAccelerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] {
     get
-    }
+  }
   public var numberOfResubscriptionsEightHours: Swift.Int {
     get
-    }
+  }
   public var storeKitEnvironment: StoreKitEnvironment {
     get
-    }
+  }
   @objc public var objCStoreKitEnvironment: Swift.String {
     get
-    }
+  }
   public func bypassStoreKit(bypass: Swift.Bool, customAccelerationToMinutesMap: [SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
   @objc public func verifyReceipt(completion: @escaping NamiVerifyReceiptHandler)
   @objc public func productsForProductIdentifiers(productIDs: [StoreID], productHandler: @escaping SKUsRequestCompletionHandler)
@@ -341,11 +349,11 @@ public enum StoreKitEnvironment : Swift.String {
   @objc public static func appReceiptJSON() -> [Swift.String : Any]
   @objc deinit
 }
-@objc open class StoreKitQueueHelper : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers open class StoreKitQueueHelper : ObjectiveC.NSObject {
   public static func buyProduct(_ product: StoreKit.SKProduct)
   public static func canMakePayments() -> Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 extension SKProduct {
   convenience public init(identifier: Swift.String, price: Swift.String, priceLocale: Foundation.Locale, subscriptionGroupIdentifier: Swift.String)
@@ -357,23 +365,23 @@ extension SKProduct {
   @objc public static func exitCoreContent(label: Swift.String)
   @objc public static func coreAction(label: Swift.String)
 }
-@objc public class NamiMLManager : ObjectiveC.NSObject {
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @objc public class NamiMLManager : ObjectiveC.NSObject {
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class NamiExtensionManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiExtensionManager : ObjectiveC.NSObject {
   @objc public static var shared: NamiExtensionManager
   @objc public var requestFullScreenPaywalls: Swift.Bool
   @objc public func startupNamiFromMessageExtension(messageViewController: Messages.MSMessagesAppViewController, applicationGroupName: Swift.String?)
   @objc public func extensionDidResign()
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public typealias NamiVerifyReceiptHandler = (NamiReceiptWrapper?) -> Swift.Void
 public typealias StoreID = Swift.String
 public typealias SKUsRequestCompletionHandler = (Swift.Bool, [NamiSKU]?, [StoreID]?, Swift.Error?) -> Swift.Void
 public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseState, Swift.Error?) -> Swift.Void
-@objc public class NamiPurchaseManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseState, Swift.Error?) -> Swift.Void
   @objc public static func buySKU(_ sku: NamiSKU, fromPaywall paywall: NamiPaywall? = .none, responseHandler: @escaping NamiPurchaseManager.NamiPurchaseResponseHandler)
   @objc public static func bypassStore(bypass: Swift.Bool)
@@ -386,10 +394,10 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
   @objc public static func register(purchasesChangedHandler changeHandler: NamiPurchaseManager.NamiPurchaseResponseHandler?)
   @objc public static func restorePurchases(handler: @escaping RestorePurchaseCompleteHandler)
   @objc public static func consumePurchasedSKU(skuID: StoreID)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class ProductOptionCell : UIKit.UICollectionViewCell {
+@objc @_inheritsConvenienceInitializers public class ProductOptionCell : UIKit.UICollectionViewCell {
   @objc @IBOutlet weak public var backgroundRoundedView: RoundedView?
   @objc @IBOutlet weak public var descriptionLabel: UIKit.UILabel?
   @objc @IBOutlet weak public var priceLabel: UIKit.UILabel?
@@ -398,9 +406,9 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
   @objc override dynamic public func awakeFromNib()
   public func populatCellFromProduct(metaProduct: NamiSKU)
   public func indicatePurchased(markPurchased: Swift.Bool)
+  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 extension NSNotification.Name {
   public static let NamiPaywallWillAppearNotification: Foundation.Notification.Name
@@ -412,21 +420,21 @@ public protocol NamiPaywallController {
 }
 public struct PaywallFeatureFlags {
 }
-@objc public class NamiPaywallTextFieldCell : UIKit.UICollectionViewCell, UIKit.UITextViewDelegate {
+@objc @_inheritsConvenienceInitializers public class NamiPaywallTextFieldCell : UIKit.UICollectionViewCell, UIKit.UITextViewDelegate {
   @objc public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 public typealias NamiAnalyticsHandler = (NamiAnalyticsActionType, [Swift.String : Any]) -> Swift.Void
-@objc public class NamiAnalyticsSupport : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiAnalyticsSupport : ObjectiveC.NSObject {
   @objc public static var shared: NamiAnalyticsSupport
   @objc public var analyticsHandler: NamiAnalyticsHandler? {
     get
-    }
+  }
   @objc public static func registerAnalyticsHandler(handler: NamiAnalyticsHandler?)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @objc public enum NamiAnalyticsActionType : Swift.Int {
   case paywallRaise
@@ -450,7 +458,7 @@ public typealias NamiAnalyticsHandler = (NamiAnalyticsActionType, [Swift.String 
     get
   }
 }
-@objc public class NamiAnalyticsKeys : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiAnalyticsKeys : ObjectiveC.NSObject {
   public static var campaignID: Swift.String
   public static var campaignName: Swift.String
   public static var paywallID: Swift.String
@@ -466,8 +474,8 @@ public typealias NamiAnalyticsHandler = (NamiAnalyticsActionType, [Swift.String 
   public static var purchasedSKUPurchaseTimestamp_Date: Swift.String
   public static var purchaseActivityType_ActivityType: Swift.String
   public static var paywallRaiseSource: Swift.String
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 extension KeyedDecodingContainer {
   public func decode(_ type: UIKit.UIImage.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> UIKit.UIImage
@@ -475,7 +483,7 @@ extension KeyedDecodingContainer {
 extension String {
   public func sanitizedForFilename() -> Swift.String?
 }
-@objc @IBDesignable public class RoundedView : UIKit.UIView {
+@objc @_inheritsConvenienceInitializers @IBDesignable public class RoundedView : UIKit.UIView {
   @objc override dynamic public func awakeFromNib()
   @objc @IBInspectable public var cornerRadius: CoreGraphics.CGFloat {
     @objc get
@@ -489,9 +497,9 @@ extension String {
     @objc get
     @objc set
   }
+  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 @objc public enum NamiSKUType : Swift.Int, Swift.Codable {
   case unknown = 0
@@ -503,7 +511,7 @@ extension String {
     get
   }
 }
-@objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable {
+@_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable {
   @objc public var platformID: Swift.String {
     @objc get
   }
@@ -537,17 +545,17 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static func clearExternalIdentifier()
   @objc public static func setLogLevel(_ logLevel: NamiLogLevel)
 }
-@objc public class Nami : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
   @objc public static let shared: Nami
   @objc deinit
 }
 public typealias NamiQueryCallback = ([Swift.AnyObject]) -> ()
-@objc public class NamiCommand : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class NamiCommand : ObjectiveC.NSObject {
   @objc public static func performQuery(_ queryString: Swift.String, callback: ([Swift.AnyObject]) -> ())
   @objc public static func performCommands(_ commands: [Swift.String])
   @objc public static func performCommand(_ commandString: Swift.String)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @objc public enum NamiPurchaseSource : Swift.Int {
   case external
@@ -592,7 +600,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?)
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
 }
-@objc public class NamiPaywallManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
 }
 extension NamiPurchaseSource : Swift.Codable {
@@ -624,7 +632,7 @@ extension NamiPurchaseSource : Swift.Codable {
     @objc get
   }
 }
-@objc public class MockPaymentTransactionPending : StoreKit.SKPaymentTransaction {
+@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionPending : StoreKit.SKPaymentTransaction {
   @objc override dynamic public var payment: StoreKit.SKPayment {
     @objc get
   }
@@ -637,56 +645,56 @@ extension NamiPurchaseSource : Swift.Codable {
   @objc override dynamic public var transactionDate: Foundation.Date? {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class MockPaymentTransactionPending2 : MockPaymentTransactionPending {
+@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionPending2 : MockPaymentTransactionPending {
   @objc override dynamic public var payment: StoreKit.SKPayment {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class MockPaymentTransactionFailed : MockPaymentTransactionPending {
+@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionFailed : MockPaymentTransactionPending {
   @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
-}
-@objc public class MockPaymentTransaction : MockPaymentTransactionPending {
-  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
-    @objc get
-  }
-  @objc override dynamic public var payment: StoreKit.SKPayment {
-    @objc get
-  }
   @objc override dynamic public init()
-  @objc deinit
 }
-@objc public class MockPaymentTransaction2 : MockPaymentTransactionPending {
+@_inheritsConvenienceInitializers @objc public class MockPaymentTransaction : MockPaymentTransactionPending {
   @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
     @objc get
   }
   @objc override dynamic public var payment: StoreKit.SKPayment {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class MockPayment : StoreKit.SKPayment {
+@_inheritsConvenienceInitializers @objc public class MockPaymentTransaction2 : MockPaymentTransactionPending {
+  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
+    @objc get
+  }
+  @objc override dynamic public var payment: StoreKit.SKPayment {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+@_inheritsConvenienceInitializers @objc public class MockPayment : StoreKit.SKPayment {
   @objc override dynamic public var productIdentifier: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
-@objc public class MockPayment2 : StoreKit.SKPayment {
+@_inheritsConvenienceInitializers @objc public class MockPayment2 : StoreKit.SKPayment {
   @objc override dynamic public var productIdentifier: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 extension SKPaymentTransactionState {
   public func readableString() -> Swift.String
@@ -756,10 +764,10 @@ public enum StoreKitReceiptInAppItemKeys : Swift.String {
   case is_trial_period
   case is_in_intro_offer_period
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
-  public init?(rawValue: Swift.String)
 }
 public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   case auto_renew_product_id
@@ -789,7 +797,7 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   }
   public init?(rawValue: Swift.Int)
 }
-@objc public class NamiReceiptWrapper : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc public class NamiReceiptWrapper : ObjectiveC.NSObject {
   @objc public var receiptJSONDict: [Swift.String : Any]
   @objc public var hasReceiptData: Swift.Bool {
     @objc get
@@ -809,10 +817,10 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc public class NamiReceiptIAPWrapper : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc public class NamiReceiptIAPWrapper : ObjectiveC.NSObject {
   @objc public var iapJSONDict: [Swift.String : Any]
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 extension NamiSignals : Swift.Equatable {}
 extension NamiSignals : Swift.Hashable {}
@@ -848,6 +856,7 @@ extension NamiPaywallMarketingContentKeys : Swift.RawRepresentable {}
 extension NamiPlatformType : Swift.Equatable {}
 extension NamiPlatformType : Swift.Hashable {}
 extension NamiPlatformType : Swift.RawRepresentable {}
+extension StoreKitEnvironment : Swift.Equatable {}
 extension StoreKitEnvironment : Swift.Hashable {}
 extension StoreKitEnvironment : Swift.RawRepresentable {}
 extension StoreKitEnvironmentObjC : Swift.Equatable {}
@@ -856,6 +865,7 @@ extension StoreKitEnvironmentObjC : Swift.RawRepresentable {}
 extension NamiPurchaseState : Swift.Equatable {}
 extension NamiPurchaseState : Swift.Hashable {}
 extension NamiPurchaseState : Swift.RawRepresentable {}
+extension SandboxAccelerationItemUnit : Swift.Equatable {}
 extension SandboxAccelerationItemUnit : Swift.Hashable {}
 extension SandboxAccelerationItemUnit : Swift.RawRepresentable {}
 extension NamiAnalyticsActionType : Swift.Equatable {}
@@ -870,6 +880,7 @@ extension NamiSKUType : Swift.RawRepresentable {}
 extension NamiExternalIdentifierType : Swift.Equatable {}
 extension NamiExternalIdentifierType : Swift.Hashable {}
 extension NamiExternalIdentifierType : Swift.RawRepresentable {}
+extension NamiPurchaseSource : Swift.Equatable {}
 extension NamiPurchaseSource : Swift.Hashable {}
 extension NamiPurchaseSource : Swift.RawRepresentable {}
 extension NamiPurchaseResult : Swift.Equatable {}
