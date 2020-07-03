@@ -169,6 +169,7 @@ public enum NamiPaywallKeys : Swift.String {
   case sign_in_control
   case restore_control
   case allow_closing
+  case show_nami_purchase_success_message
   case developer_paywall_id
   case skus
   case formatted_skus
@@ -204,6 +205,8 @@ public enum NamiSKUKeys : Swift.String {
   public var rawValue: Swift.String {
     get
   }
+}
+public struct sku_type_values {
 }
 public enum NamiPaywallMarketingContentKeys : Swift.String {
   case title
@@ -299,12 +302,11 @@ public enum StoreKitEnvironment : Swift.String {
   case consumed
   case resubscribed
   case unsubscribed
-  case purchasedNotValidated
   case deferred
   case failed
   case cancelled
-  case purchasedAndValidated
   case unknown
+  public func readableString() -> Swift.String
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
@@ -410,10 +412,31 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension NSNotification.Name {
-  public static let NamiPaywallWillAppearNotification: Foundation.Notification.Name
-  public static let NamiPaywallDidDismissNoPurcahseNotification: Foundation.Notification.Name
-  public static let NamiPaywallDidDismissAfterPurcahseNotification: Foundation.Notification.Name
+public class CustomerJourneyStateKeys {
+  @objc deinit
+}
+@objc public class CustomerJourneyState : ObjectiveC.NSObject, Foundation.NSCoding, Swift.Codable {
+  public init(formerSubscriber: Swift.Bool, inGracePeriod: Swift.Bool, inTrialPeriod: Swift.Bool, inIntroOfferPeriod: Swift.Bool)
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc public func encode(with coder: Foundation.NSCoder)
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc extension NamiCustomerManager {
+  @objc public static func currentCustomerJourneyState() -> CustomerJourneyState?
+}
+@objc public class NamiCustomerManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class PaywallLifecycleNotifications : ObjectiveC.NSObject {
+  @objc public static let NamiPaywallWillAppearNotification: Foundation.Notification.Name
+  @objc public static let NamiPaywallDidDismissNoPurchaseNotification: Foundation.Notification.Name
+  @objc public static let NamiPaywallDidDismissAfterPurchaseNotification: Foundation.Notification.Name
+  @objc override dynamic public init()
+  @objc deinit
 }
 public protocol NamiPaywallController {
   func preparePaywall(skus: [NamiSKU], namiPaywall: NamiPaywall)
@@ -513,6 +536,9 @@ extension String {
 }
 @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable {
   @objc public var platformID: Swift.String {
+    @objc get
+  }
+  @objc public var skuID: Swift.String {
     @objc get
   }
   @objc public var storeID: Swift.String
@@ -812,6 +838,7 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
     get
   }
   @objc public func originalApplicationVersion() -> Swift.String?
+  @objc public func fullIAPReceiptInfoDict() -> [[Swift.String : Any]]?
   @objc public func latestReceiptInfoDict() -> [[Swift.String : Any]]?
   @objc public func sortedIAPItems(fromDate: Foundation.Date = Date()) -> [NamiReceiptIAPWrapper]
   @objc override dynamic public init()
@@ -861,7 +888,6 @@ extension StoreKitEnvironment : Swift.RawRepresentable {}
 extension StoreKitEnvironmentObjC : Swift.Equatable {}
 extension StoreKitEnvironmentObjC : Swift.Hashable {}
 extension StoreKitEnvironmentObjC : Swift.RawRepresentable {}
-extension NamiPurchaseState : Swift.Equatable {}
 extension NamiPurchaseState : Swift.Hashable {}
 extension NamiPurchaseState : Swift.RawRepresentable {}
 extension SandboxAccelerationItemUnit : Swift.Hashable {}
@@ -878,6 +904,7 @@ extension NamiSKUType : Swift.RawRepresentable {}
 extension NamiExternalIdentifierType : Swift.Equatable {}
 extension NamiExternalIdentifierType : Swift.Hashable {}
 extension NamiExternalIdentifierType : Swift.RawRepresentable {}
+extension NamiPurchaseSource : Swift.Equatable {}
 extension NamiPurchaseSource : Swift.Hashable {}
 extension NamiPurchaseSource : Swift.RawRepresentable {}
 extension NamiPurchaseResult : Swift.Equatable {}

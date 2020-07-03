@@ -205,6 +205,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
+
+SWIFT_CLASS("_TtC4Nami20CustomerJourneyState")
+@interface CustomerJourneyState : NSObject <NSCoding>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 
 
@@ -382,13 +392,23 @@ SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSCoder;
 
 SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 @interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami19NamiCustomerManager")
+@interface NamiCustomerManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NamiCustomerManager (SWIFT_EXTENSION(Nami))
++ (CustomerJourneyState * _Nullable)currentCustomerJourneyState SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NamiSKU;
@@ -758,12 +778,10 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStateConsumed = 2,
   NamiPurchaseStateResubscribed = 3,
   NamiPurchaseStateUnsubscribed = 4,
-  NamiPurchaseStatePurchasedNotValidated = 5,
-  NamiPurchaseStateDeferred = 6,
-  NamiPurchaseStateFailed = 7,
-  NamiPurchaseStateCancelled = 8,
-  NamiPurchaseStatePurchasedAndValidated = 9,
-  NamiPurchaseStateUnknown = 10,
+  NamiPurchaseStateDeferred = 5,
+  NamiPurchaseStateFailed = 6,
+  NamiPurchaseStateCancelled = 7,
+  NamiPurchaseStateUnknown = 8,
 };
 
 
@@ -790,6 +808,8 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
 /// The original applicatino version when the user first purchased/downloaded your applciation, so you know when they started using your applcation.
 - (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
+/// Full iAP receipt dictionary values.
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)fullIAPReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
@@ -806,6 +826,8 @@ SWIFT_CLASS("_TtC4Nami7NamiSKU")
 @interface NamiSKU : NSObject
 /// The Platform speciifc ID, or productIdentifier for Apple platforms.
 @property (nonatomic, readonly, copy) NSString * _Nonnull platformID;
+/// The Platform speciifc ID, or productIdentifier for Apple platforms.
+@property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
 /// The Store ID, or productIdentifier for Apple platforms.
 @property (nonatomic, copy) NSString * _Nonnull storeID;
 /// If available, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
@@ -873,6 +895,18 @@ SWIFT_CLASS("_TtC4Nami16NamiVersionUtils")
 + (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
 /// Returns the current appliation version.
 + (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami29PaywallLifecycleNotifications")
+@interface PaywallLifecycleNotifications : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallWillAppearNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallWillAppearNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallDidDismissNoPurchaseNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallDidDismissNoPurchaseNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallDidDismissAfterPurchaseNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallDidDismissAfterPurchaseNotification SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1181,6 +1215,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSCoder;
+
+SWIFT_CLASS("_TtC4Nami20CustomerJourneyState")
+@interface CustomerJourneyState : NSObject <NSCoding>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 
 
@@ -1358,13 +1402,23 @@ SWIFT_CLASS("_TtC4Nami17NamiConfiguration")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSCoder;
 
 SWIFT_CLASS("_TtC4Nami24NamiCorrectiveFlowLayout")
 @interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami19NamiCustomerManager")
+@interface NamiCustomerManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NamiCustomerManager (SWIFT_EXTENSION(Nami))
++ (CustomerJourneyState * _Nullable)currentCustomerJourneyState SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NamiSKU;
@@ -1734,12 +1788,10 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStateConsumed = 2,
   NamiPurchaseStateResubscribed = 3,
   NamiPurchaseStateUnsubscribed = 4,
-  NamiPurchaseStatePurchasedNotValidated = 5,
-  NamiPurchaseStateDeferred = 6,
-  NamiPurchaseStateFailed = 7,
-  NamiPurchaseStateCancelled = 8,
-  NamiPurchaseStatePurchasedAndValidated = 9,
-  NamiPurchaseStateUnknown = 10,
+  NamiPurchaseStateDeferred = 5,
+  NamiPurchaseStateFailed = 6,
+  NamiPurchaseStateCancelled = 7,
+  NamiPurchaseStateUnknown = 8,
 };
 
 
@@ -1766,6 +1818,8 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
 /// The original applicatino version when the user first purchased/downloaded your applciation, so you know when they started using your applcation.
 - (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
+/// Full iAP receipt dictionary values.
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)fullIAPReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
@@ -1782,6 +1836,8 @@ SWIFT_CLASS("_TtC4Nami7NamiSKU")
 @interface NamiSKU : NSObject
 /// The Platform speciifc ID, or productIdentifier for Apple platforms.
 @property (nonatomic, readonly, copy) NSString * _Nonnull platformID;
+/// The Platform speciifc ID, or productIdentifier for Apple platforms.
+@property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
 /// The Store ID, or productIdentifier for Apple platforms.
 @property (nonatomic, copy) NSString * _Nonnull storeID;
 /// If available, the local system object for this product.  For SKU types not of the current platform, this will always be empty.
@@ -1849,6 +1905,18 @@ SWIFT_CLASS("_TtC4Nami16NamiVersionUtils")
 + (BOOL)isOriginalVersion:(NSString * _Nonnull)originalVersion lowerThanVersion:(NSString * _Nonnull)otherVersion SWIFT_WARN_UNUSED_RESULT;
 /// Returns the current appliation version.
 + (NSString * _Nonnull)currentAppVersion SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4Nami29PaywallLifecycleNotifications")
+@interface PaywallLifecycleNotifications : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallWillAppearNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallWillAppearNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallDidDismissNoPurchaseNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallDidDismissNoPurchaseNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull NamiPaywallDidDismissAfterPurchaseNotification;)
++ (NSNotificationName _Nonnull)NamiPaywallDidDismissAfterPurchaseNotification SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
