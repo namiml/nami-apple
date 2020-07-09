@@ -237,7 +237,7 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   @objc public var platform: NamiPlatformType
   @objc convenience public init(id: Swift.String)
   @objc convenience public init(id: Swift.String, platform: NamiPlatformType)
-  @objc public init(id: Swift.String, platform: NamiPlatformType, purchasedSKUid: Swift.String?, expires: Foundation.Date?)
+  @objc public init(id: Swift.String, platform: NamiPlatformType = .other, purchasedSKUid: Swift.String? = .none, expires: Foundation.Date? = .none)
   @objc override dynamic public init()
   @objc deinit
   required public init(from decoder: Swift.Decoder) throws
