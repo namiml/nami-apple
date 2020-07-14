@@ -652,6 +652,12 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param forNami true if the paywall is being raised for the NamiSDK, false if from a user request.
 ///
 + (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+/// Call in the case when you want to be sure a Nami paywall will have been dismissed if open
+/// \param animated True for standard UIKit animation of dismissal, false otherwise.
+///
+/// \param completion Completion handler to be called when paywall is dismissed, may be immediate if not presented.
+///
++ (void)dismissNamiPaywallIfOpenWithAnimated:(BOOL)animated completion:(void (^ _Nonnull)(void))completion;
 @end
 
 @class UITextView;
@@ -681,6 +687,7 @@ SWIFT_CLASS("_TtC4Nami12NamiPurchase")
 @property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
 @property (nonatomic, copy) NSDate * _Nullable exipres;
 @property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic) NSInteger consumptionCount;
 @property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -812,6 +819,8 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)fullIAPReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
+/// Latest receipt dictionary values.
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)inAppItems SWIFT_WARN_UNUSED_RESULT;
 /// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
 - (NSArray<NamiReceiptIAPWrapper *> * _Nonnull)sortedIAPItemsFromDate:(NSDate * _Nonnull)fromDate SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1662,6 +1671,12 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param forNami true if the paywall is being raised for the NamiSDK, false if from a user request.
 ///
 + (void)raisePaywallFromVC:(UIViewController * _Nullable)fromVC forNami:(BOOL)forNami;
+/// Call in the case when you want to be sure a Nami paywall will have been dismissed if open
+/// \param animated True for standard UIKit animation of dismissal, false otherwise.
+///
+/// \param completion Completion handler to be called when paywall is dismissed, may be immediate if not presented.
+///
++ (void)dismissNamiPaywallIfOpenWithAnimated:(BOOL)animated completion:(void (^ _Nonnull)(void))completion;
 @end
 
 @class UITextView;
@@ -1691,6 +1706,7 @@ SWIFT_CLASS("_TtC4Nami12NamiPurchase")
 @property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
 @property (nonatomic, copy) NSDate * _Nullable exipres;
 @property (nonatomic) enum NamiPurchaseSource purchaseSource;
+@property (nonatomic) NSInteger consumptionCount;
 @property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1822,6 +1838,8 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)fullIAPReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
 /// Latest receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)latestReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
+/// Latest receipt dictionary values.
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)inAppItems SWIFT_WARN_UNUSED_RESULT;
 /// All of the IAP items from the receipt, sorted by date so the newest onese are on top.
 - (NSArray<NamiReceiptIAPWrapper *> * _Nonnull)sortedIAPItemsFromDate:(NSDate * _Nonnull)fromDate SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

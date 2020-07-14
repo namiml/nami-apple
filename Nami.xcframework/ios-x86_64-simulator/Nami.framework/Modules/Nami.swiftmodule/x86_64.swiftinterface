@@ -625,6 +625,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func canRaisePaywall() -> Swift.Bool
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?)
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
+  @objc public static func dismissNamiPaywallIfOpen(animated: Swift.Bool, completion: @escaping () -> Swift.Void)
 }
 @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
@@ -750,6 +751,7 @@ extension NamiPurchaseState : Swift.Codable {
   @objc public var purchaseInitiatedTimestamp: Foundation.Date
   @objc public var exipres: Foundation.Date?
   @objc public var purchaseSource: NamiPurchaseSource
+  @objc public var consumptionCount: Swift.Int
   @objc public var entitlementsGranted: [NamiEntitlement] {
     @objc get
   }
@@ -766,6 +768,7 @@ public enum StoreKitReceiptKeys : Swift.String {
   case pending_renewal_info
   case latest_receipt_info
   case original_application_version
+  case receipt
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
@@ -840,6 +843,7 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   @objc public func originalApplicationVersion() -> Swift.String?
   @objc public func fullIAPReceiptInfoDict() -> [[Swift.String : Any]]?
   @objc public func latestReceiptInfoDict() -> [[Swift.String : Any]]?
+  @objc public func inAppItems() -> [[Swift.String : Any]]?
   @objc public func sortedIAPItems(fromDate: Foundation.Date = Date()) -> [NamiReceiptIAPWrapper]
   @objc override dynamic public init()
   @objc deinit
