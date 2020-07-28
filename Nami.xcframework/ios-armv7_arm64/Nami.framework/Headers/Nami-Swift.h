@@ -963,7 +963,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _N
 + (void)setPriceFormatter:(NSNumberFormatter * _Nonnull)value;
 /// The current price as a string, with the formatter applied that adds currency symbols.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedPrice;
-/// The price multiplied by any subscritpion units, so for example a monthly subscription lasting six months would return the total value for all six months, with currency symbol added.
+/// The price as is, price for six months is one set value.
+@property (nonatomic, readonly, copy) NSString * _Nullable localizedPerUnitPrice;
+/// The price as is, price for six months is one set value.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedMultipliedPrice;
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDuration SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationNoPer SWIFT_AVAILABILITY(ios,introduced=11.2);
@@ -1982,7 +1984,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSNumberFormatter * _N
 + (void)setPriceFormatter:(NSNumberFormatter * _Nonnull)value;
 /// The current price as a string, with the formatter applied that adds currency symbols.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedPrice;
-/// The price multiplied by any subscritpion units, so for example a monthly subscription lasting six months would return the total value for all six months, with currency symbol added.
+/// The price as is, price for six months is one set value.
+@property (nonatomic, readonly, copy) NSString * _Nullable localizedPerUnitPrice;
+/// The price as is, price for six months is one set value.
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedMultipliedPrice;
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDuration SWIFT_AVAILABILITY(ios,introduced=11.2);
 @property (nonatomic, readonly, copy) NSString * _Nullable localizedDurationNoPer SWIFT_AVAILABILITY(ios,introduced=11.2);

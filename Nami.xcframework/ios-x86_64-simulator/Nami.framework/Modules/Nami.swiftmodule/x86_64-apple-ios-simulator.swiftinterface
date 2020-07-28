@@ -64,6 +64,9 @@ public class NamiStoreKitTesting {
   public static func bypassAdvanceDate(bySeconds seconds: Foundation.TimeInterval?)
   @objc deinit
 }
+public class NamiAPICallStateMechine {
+  @objc deinit
+}
 @objc public class NamiCorrectiveFlowLayout : UIKit.UICollectionViewFlowLayout {
   @objc override dynamic public func shouldInvalidateLayout(forBoundsChange newBounds: CoreGraphics.CGRect) -> Swift.Bool
   @objc override dynamic public init()
@@ -641,6 +644,9 @@ extension NamiPurchaseSource : Swift.Codable {
 @objc extension SKProduct {
   @objc public static var priceFormatter: Foundation.NumberFormatter
   @objc dynamic public var localizedPrice: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public var localizedPerUnitPrice: Swift.String? {
     @objc get
   }
   @objc dynamic public var localizedMultipliedPrice: Swift.String? {
