@@ -75,10 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 Analytics.logEvent("PaywallView", parameters: googleData)
                 
-            case .paywallClosed:
-                break;
-            case .paywallRaiseBlocked:
-                break;
             case .purchaseActivity:
                 var purchaseData : [String:String] = [:]
                 if let product: NamiSKU = analyticsItems[NamiAnalyticsKeys.purchasedSKU_NamiSKU] as? NamiSKU {

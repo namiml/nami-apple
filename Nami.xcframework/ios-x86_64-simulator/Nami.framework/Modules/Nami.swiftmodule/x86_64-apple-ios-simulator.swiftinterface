@@ -64,9 +64,6 @@ public class NamiStoreKitTesting {
   public static func bypassAdvanceDate(bySeconds seconds: Foundation.TimeInterval?)
   @objc deinit
 }
-public class NamiAPICallStateMechine {
-  @objc deinit
-}
 @objc public class NamiCorrectiveFlowLayout : UIKit.UICollectionViewFlowLayout {
   @objc override dynamic public func shouldInvalidateLayout(forBoundsChange newBounds: CoreGraphics.CGRect) -> Swift.Bool
   @objc override dynamic public init()
@@ -221,6 +218,9 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   }
   public init?(rawValue: Swift.String)
 }
+extension NSNotification.Name {
+  public static let NamiEntitlementsChangedNotification: Foundation.Notification.Name
+}
 @objc public enum NamiPlatformType : Swift.Int, Swift.Codable {
   case other = 0
   case android
@@ -259,15 +259,18 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public typealias NamiEntitlementsResponseHandler = ([NamiEntitlement]) -> Swift.Void
 @objc extension NamiEntitlementManager {
   @objc public static func getEntitlements() -> [NamiEntitlement]
   @objc public static func activeEntitlements() -> [NamiEntitlement]
   @objc public static func isEntitlementActive(_ referenceID: Swift.String) -> Swift.Bool
   @objc public static func setEntitlements(_ entitlements: [NamiEntitlementSetter])
   @objc public static func clearAllEntitlements()
+  @objc public static func registerChangeHandler(entitlementsChangedHandler changeHandler: NamiEntitlementsResponseHandler?)
 }
 @objc public class NamiEntitlementManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
+  @objc public func register(entitlementsChangedHandler changeHandler: NamiEntitlementsResponseHandler?)
   @objc deinit
 }
 public let mockSubscriptionGroupID: Swift.String
@@ -389,7 +392,6 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
 @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseState, Swift.Error?) -> Swift.Void
   @objc public static func buySKU(_ sku: NamiSKU, fromPaywall paywall: NamiPaywall? = .none, responseHandler: @escaping NamiPurchaseManager.NamiPurchaseResponseHandler)
-  @objc public static func bypassStore(bypass: Swift.Bool)
   @objc public static func clearBypassStorePurchases()
   @objc public static func isSKUIDPurchased(_ skuID: StoreID) -> Swift.Bool
   @objc public static func anySKUIDPurchased(_ skuIDs: [StoreID]) -> Swift.Bool
@@ -419,7 +421,11 @@ public class CustomerJourneyStateKeys {
   @objc deinit
 }
 @objc public class CustomerJourneyState : ObjectiveC.NSObject, Foundation.NSCoding, Swift.Codable {
-  public init(formerSubscriber: Swift.Bool, inGracePeriod: Swift.Bool, inTrialPeriod: Swift.Bool, inIntroOfferPeriod: Swift.Bool)
+  @objc final public let formerSubscriber: Swift.Bool
+  @objc final public let inGracePeriod: Swift.Bool
+  @objc final public let inTrialPeriod: Swift.Bool
+  @objc final public let inIntroOfferPeriod: Swift.Bool
+  @objc public init(formerSubscriber: Swift.Bool, inGracePeriod: Swift.Bool, inTrialPeriod: Swift.Bool, inIntroOfferPeriod: Swift.Bool)
   @objc required public init(coder aDecoder: Foundation.NSCoder)
   @objc public func encode(with coder: Foundation.NSCoder)
   @objc override dynamic public init()
@@ -464,8 +470,6 @@ public typealias NamiAnalyticsHandler = (NamiAnalyticsActionType, [Swift.String 
 }
 @objc public enum NamiAnalyticsActionType : Swift.Int {
   case paywallRaise
-  case paywallClosed
-  case paywallRaiseBlocked
   case purchaseActivity
   public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
@@ -617,6 +621,7 @@ public typealias NamiPaywallProvider = (UIKit.UIViewController?, [NamiSKU]?, Swi
 public typealias NamiCustomPaywallHandler = ([NamiSKU]?, Swift.String, NamiPaywall?) -> Swift.Void
 public typealias NamiSignInProvider = (UIKit.UIViewController?, Swift.String, NamiPaywall) -> Swift.Void
 public typealias NamiAutoRaisePaywallBlocker = () -> Swift.Bool
+public typealias NamiBlockingPaywallClosedHandler = () -> ()
 public typealias NamiUUID = Swift.String
 @objc extension NamiPaywallManager {
   @objc public static func paywallImpression(developerID: Swift.String)
@@ -625,6 +630,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func fetchCustomPaywallMetaForDeveloperID(_ developerPaywallID: Swift.String, _ namiCustomPaywallHandler: @escaping NamiCustomPaywallHandler)
   @objc public static func register(applicationPaywallProvider: NamiPaywallProvider?)
   @objc public static func register(applicationSignInProvider: NamiSignInProvider?)
+  @objc public static func register(applicationBlockingPaywallClosedHandler: NamiBlockingPaywallClosedHandler?)
   @objc public static func canRaisePaywall() -> Swift.Bool
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?)
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
@@ -736,6 +742,7 @@ extension NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public func clearAllNamiStorage()
 @objc public protocol NamiLoggerClient : ObjectiveC.NSObjectProtocol {
   @objc func logHTTP(request: Foundation.URLRequest, response: Foundation.HTTPURLResponse, responseData: Foundation.Data?, message: Swift.String)
   @objc func logMessage(_ message: Swift.String)
@@ -827,10 +834,10 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   case receiptFromProdEnvironent = 21008
   case namiError = 99999
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 @objc public class NamiReceiptWrapper : ObjectiveC.NSObject {
   @objc public var receiptJSONDict: [Swift.String : Any]

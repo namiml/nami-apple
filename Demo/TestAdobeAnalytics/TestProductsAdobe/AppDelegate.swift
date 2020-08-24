@@ -78,10 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 ACPCore.trackState("PaywallView", data: adobeData)
                 break;
-            case .paywallClosed:
-                break;
-            case .paywallRaiseBlocked:
-                break;
             case .purchaseActivity:
                 var purchaseData : [String:String] = [:]
                 if let product = analyticsItems[NamiAnalyticsKeys.purchasedSKU_NamiSKU] as? NamiSKU {

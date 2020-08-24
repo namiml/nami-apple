@@ -209,6 +209,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC4Nami20CustomerJourneyState")
 @interface CustomerJourneyState : NSObject <NSCoding>
+@property (nonatomic, readonly) BOOL formerSubscriber;
+@property (nonatomic, readonly) BOOL inGracePeriod;
+@property (nonatomic, readonly) BOOL inTrialPeriod;
+@property (nonatomic, readonly) BOOL inIntroOfferPeriod;
+- (nonnull instancetype)initWithFormerSubscriber:(BOOL)formerSubscriber inGracePeriod:(BOOL)inGracePeriod inTrialPeriod:(BOOL)inTrialPeriod inIntroOfferPeriod:(BOOL)inIntroOfferPeriod OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -323,9 +328,7 @@ enum NamiLogLevel : NSInteger;
 /// The various types of analyitcs data that may be sent to an analytics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
   NamiAnalyticsActionTypePaywallRaise = 0,
-  NamiAnalyticsActionTypePaywallClosed = 1,
-  NamiAnalyticsActionTypePaywallRaiseBlocked = 2,
-  NamiAnalyticsActionTypePurchaseActivity = 3,
+  NamiAnalyticsActionTypePurchaseActivity = 1,
 };
 
 
@@ -439,6 +442,7 @@ SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
 SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
 @interface NamiEntitlementManager : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)registerWithEntitlementsChangedHandler:(void (^ _Nullable)(NSArray<NamiEntitlement *> * _Nonnull))changeHandler;
 @end
 
 @class NamiEntitlementSetter;
@@ -469,6 +473,11 @@ SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
 + (void)setEntitlements:(NSArray<NamiEntitlementSetter *> * _Nonnull)entitlements;
 /// Clears all active entitlements on this device.  If the Nami Platform is aware of any trusted entitlements tied to this device, they may be restored.
 + (void)clearAllEntitlements;
+/// Registers a callback that will be activated when any entitlement activity occurs - either added or removed.
+///
+/// returns:
+/// Active NamiEntitlement objects if any exist, an empty array otherwise.
++ (void)registerChangeHandlerWithEntitlementsChangedHandler:(void (^ _Nullable)(NSArray<NamiEntitlement *> * _Nonnull))changeHandler;
 @end
 
 enum NamiPlatformType : NSInteger;
@@ -637,6 +646,9 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param applicationSignInProvider A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
 ///
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationSignInProvider;
+/// If paywall close is disabled, this lets you allow closing while presenting an alternate UI to the user.
+/// If not set, the paywall will not allow close and the close button will not be present.
++ (void)registerWithApplicationBlockingPaywallClosedHandler:(void (^ _Nullable)(void))applicationBlockingPaywallClosedHandler;
 /// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
 ///
 /// returns:
@@ -706,10 +718,6 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
 ///
 + (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
-/// Puts the SDK into a mode where it no longer runs purchases through Apple’s StoreKit on device, so you no longer require a testing account to test purchase and activation flows.  It also allows resetting of purchases unlike StoreKit which requires time to pass before purchases expire.  It replicates the same time acceleration that StoreKit sandbox purchases have, where a day long purchase lasts five minutes, etc.  Note this mode is automaticly enabled when running in the iOS simulator, and cannot be activated when in a production (App Store) build.
-/// \param bypass true if you wish to bypass StoreKit purchases for testing, false otherwise.
-///
-+ (void)bypassStoreWithBypass:(BOOL)bypass;
 /// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
 + (void)clearBypassStorePurchases;
 /// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
@@ -1230,6 +1238,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC4Nami20CustomerJourneyState")
 @interface CustomerJourneyState : NSObject <NSCoding>
+@property (nonatomic, readonly) BOOL formerSubscriber;
+@property (nonatomic, readonly) BOOL inGracePeriod;
+@property (nonatomic, readonly) BOOL inTrialPeriod;
+@property (nonatomic, readonly) BOOL inIntroOfferPeriod;
+- (nonnull instancetype)initWithFormerSubscriber:(BOOL)formerSubscriber inGracePeriod:(BOOL)inGracePeriod inTrialPeriod:(BOOL)inTrialPeriod inIntroOfferPeriod:(BOOL)inIntroOfferPeriod OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1344,9 +1357,7 @@ enum NamiLogLevel : NSInteger;
 /// The various types of analyitcs data that may be sent to an analytics handler.
 typedef SWIFT_ENUM(NSInteger, NamiAnalyticsActionType, open) {
   NamiAnalyticsActionTypePaywallRaise = 0,
-  NamiAnalyticsActionTypePaywallClosed = 1,
-  NamiAnalyticsActionTypePaywallRaiseBlocked = 2,
-  NamiAnalyticsActionTypePurchaseActivity = 3,
+  NamiAnalyticsActionTypePurchaseActivity = 1,
 };
 
 
@@ -1460,6 +1471,7 @@ SWIFT_CLASS("_TtC4Nami15NamiEntitlement")
 SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
 @interface NamiEntitlementManager : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)registerWithEntitlementsChangedHandler:(void (^ _Nullable)(NSArray<NamiEntitlement *> * _Nonnull))changeHandler;
 @end
 
 @class NamiEntitlementSetter;
@@ -1490,6 +1502,11 @@ SWIFT_CLASS("_TtC4Nami22NamiEntitlementManager")
 + (void)setEntitlements:(NSArray<NamiEntitlementSetter *> * _Nonnull)entitlements;
 /// Clears all active entitlements on this device.  If the Nami Platform is aware of any trusted entitlements tied to this device, they may be restored.
 + (void)clearAllEntitlements;
+/// Registers a callback that will be activated when any entitlement activity occurs - either added or removed.
+///
+/// returns:
+/// Active NamiEntitlement objects if any exist, an empty array otherwise.
++ (void)registerChangeHandlerWithEntitlementsChangedHandler:(void (^ _Nullable)(NSArray<NamiEntitlement *> * _Nonnull))changeHandler;
 @end
 
 enum NamiPlatformType : NSInteger;
@@ -1658,6 +1675,9 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param applicationSignInProvider A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
 ///
 + (void)registerWithApplicationSignInProvider:(void (^ _Nullable)(UIViewController * _Nullable, NSString * _Nonnull, NamiPaywall * _Nonnull))applicationSignInProvider;
+/// If paywall close is disabled, this lets you allow closing while presenting an alternate UI to the user.
+/// If not set, the paywall will not allow close and the close button will not be present.
++ (void)registerWithApplicationBlockingPaywallClosedHandler:(void (^ _Nullable)(void))applicationBlockingPaywallClosedHandler;
 /// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
 ///
 /// returns:
@@ -1727,10 +1747,6 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
 ///
 + (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
-/// Puts the SDK into a mode where it no longer runs purchases through Apple’s StoreKit on device, so you no longer require a testing account to test purchase and activation flows.  It also allows resetting of purchases unlike StoreKit which requires time to pass before purchases expire.  It replicates the same time acceleration that StoreKit sandbox purchases have, where a day long purchase lasts five minutes, etc.  Note this mode is automaticly enabled when running in the iOS simulator, and cannot be activated when in a production (App Store) build.
-/// \param bypass true if you wish to bypass StoreKit purchases for testing, false otherwise.
-///
-+ (void)bypassStoreWithBypass:(BOOL)bypass;
 /// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
 + (void)clearBypassStorePurchases;
 /// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
