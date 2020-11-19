@@ -43,6 +43,7 @@
 		EB04E84422C07E81002E79E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB04E84522C07E81002E79E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB7E6F0D242E62FB00F80217 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
+		EBBDFE572565BC750085E62B /* TestProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestProducts.storekit; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 				EB04E84122C07E81002E79E7 /* LaunchScreen.storyboard */,
 				EB04E84422C07E81002E79E7 /* Info.plist */,
 				EB04E84522C07E81002E79E7 /* main.m */,
+				EBBDFE572565BC750085E62B /* TestProducts.storekit */,
 			);
 			path = TestObjcApp;
 			sourceTree = "<group>";

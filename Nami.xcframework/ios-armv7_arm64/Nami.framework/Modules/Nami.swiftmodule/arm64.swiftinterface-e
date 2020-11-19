@@ -42,7 +42,6 @@ public class NamiSignalManager {
   public func paywallRaisedImpression(paywallSource: Nami.NamiPurchaseSource)
   public func buyScreenComplete(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: Nami.NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   public func buyScreenCompleteTransactionDelayed(impressionUUID: Swift.String?, productID: Swift.String, transactionID: Swift.String, purchaseSource: Nami.NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
-  public func buyScreenCompleteDelayed(purchaseSuccess: Swift.Bool, productID: Swift.String, transactionID: Swift.String?, purchaseSource: Nami.NamiPurchaseSource, purchaseInfo: [Swift.AnyHashable : Any])
   @objc deinit
 }
 @objc public class NamiVersionUtils : ObjectiveC.NSObject {
@@ -91,10 +90,18 @@ public class NamiStoreKitTesting {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public class StylableSimpleTextCell : UIKit.UICollectionViewCell {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
 @objc public class NamiPaywall : ObjectiveC.NSObject {
   @objc public var paywallID: Swift.String
   @objc public var namiPaywallInfoDict: [Swift.String : Any]
   @objc public var backgroundImage: UIKit.UIImage?
+  @objc public var styleData: Nami.PaywallStyleData {
+    @objc get
+  }
   @objc public var developerPaywallID: Swift.String {
     @objc get
   }
@@ -106,7 +113,7 @@ public class NamiStoreKitTesting {
   }
   public func paywallValue<T>(forKey key: Swift.String) -> T?
   public func paywallValue<T>(forKey key: Nami.NamiPaywallKeys) -> T?
-  public func attributedTextFromPaywallConfig(key: Nami.NamiPaywallMarketingContentKeys, baseFont: UIKit.UIFont) -> Foundation.NSAttributedString?
+  public func attributedTextFromPaywallConfig(key: Nami.NamiPaywallMarketingContentKeys, baseFont: UIKit.UIFont, paywallStyle: Nami.PaywallStyleData?) -> Foundation.NSAttributedString?
   @objc override dynamic public init()
   @objc deinit
 }
@@ -141,6 +148,7 @@ public enum NamiServerConfigAppKeys : Swift.String {
   case entitlements
   case paywalls
   case campaigns
+  case paywall_styles
   public typealias RawValue = Swift.String
   public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
@@ -174,6 +182,7 @@ public enum NamiPaywallKeys : Swift.String {
   case skus
   case formatted_skus
   case sku_ordered_metadata
+  case use_bottom_overlay
   case tos_link
   case privacy_policy
   public typealias RawValue = Swift.String
@@ -217,6 +226,46 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
     get
   }
   public init?(rawValue: Swift.String)
+}
+public enum NamiPaywallStylingKeys : Swift.String {
+  case paywall_style_id
+  case body_font_size
+  case body_text_color
+  case title_font_size
+  case background_color
+  case sku_button_color
+  case featured_skus_button_color
+  case terms_link_color
+  case title_text_color
+  case body_shadow_color
+  case body_shadow_radius
+  case title_shadow_color
+  case title_shadow_radius
+  case bottom_overlay_color
+  case sku_button_text_color
+  case featured_skus_button_text_color
+  case close_button_font_size
+  case close_button_text_color
+  case signin_button_font_size
+  case signin_button_shadow_color
+  case signin_button_shadow_radius
+  case purchase_terms_font_size
+  case restore_button_font_size
+  case restore_button_shadow_color
+  case restore_button_shadow_radius
+  case signin_button_text_color
+  case close_button_shadow_color
+  case purchase_terms_text_color
+  case purchase_terms_shadow_color
+  case purchase_terms_shadow_radius
+  case restore_button_text_color
+  case close_button_shadow_radius
+  case bottom_overlay_corner_radius
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
 }
 extension NSNotification.Name {
   public static let NamiEntitlementsChangedNotification: Foundation.Notification.Name
@@ -286,10 +335,10 @@ public enum StoreKitEnvironment : Swift.String {
   case namiStoreKitBypass
   case environmentNotYetDetected
   public typealias RawValue = Swift.String
-  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
+  public init?(rawValue: Swift.String)
 }
 @objc public enum StoreKitEnvironmentObjC : Swift.Int {
   case production
@@ -393,6 +442,7 @@ public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPu
   public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPurchaseState, Swift.Error?) -> Swift.Void
   @objc public static func buySKU(_ sku: Nami.NamiSKU, fromPaywall paywall: Nami.NamiPaywall? = .none, responseHandler: @escaping Nami.NamiPurchaseManager.NamiPurchaseResponseHandler)
   @objc public static func clearBypassStorePurchases()
+  @objc public static func clearAndCheckRestoreAllPurchases()
   @objc public static func isSKUIDPurchased(_ skuID: Nami.StoreID) -> Swift.Bool
   @objc public static func anySKUIDPurchased(_ skuIDs: [Nami.StoreID]) -> Swift.Bool
   @objc public static func currentPurchaseRecordsForSKU(skuID: Nami.StoreID) -> Nami.NamiPurchase?
@@ -411,7 +461,7 @@ public typealias NamiPurchaseResponseHandler = ([Nami.NamiPurchase], Nami.NamiPu
   @objc @IBOutlet weak public var durationLabel: UIKit.UILabel?
   @objc @IBOutlet weak public var durationMultiplierLabel: UIKit.UILabel?
   @objc override dynamic public func awakeFromNib()
-  public func populatCellFromProduct(metaProduct: Nami.NamiSKU)
+  public func populatCellFromProduct(metaProduct: Nami.NamiSKU, paywallStyling: Nami.PaywallStyleData?, anySkusFeatured: Swift.Bool = false)
   public func indicatePurchased(markPurchased: Swift.Bool)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
@@ -596,10 +646,10 @@ public typealias NamiQueryCallback = ([Swift.AnyObject]) -> ()
   case application
   case unknown
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 @objc public enum NamiPurchaseResult : Swift.Int {
   case purchased
@@ -742,6 +792,42 @@ extension NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+@objc public class PaywallStyleData : ObjectiveC.NSObject {
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var bodyFontSize: CoreGraphics.CGFloat
+  @objc public var bodyTextColor: UIKit.UIColor
+  @objc public var bodyShadowColor: UIKit.UIColor
+  @objc public var bodyShadowRadius: CoreGraphics.CGFloat
+  @objc public var titleFontSize: CoreGraphics.CGFloat
+  @objc public var titleTextColor: UIKit.UIColor
+  @objc public var titleShadowColor: UIKit.UIColor
+  @objc public var titleShadowRadius: CoreGraphics.CGFloat
+  @objc public var closeButtonFontSize: CoreGraphics.CGFloat
+  @objc public var closeButtonTextColor: UIKit.UIColor
+  @objc public var closeButtonShadowColor: UIKit.UIColor
+  @objc public var closeButtonShadowRadius: CoreGraphics.CGFloat
+  @objc public var bottomOverlayColor: UIKit.UIColor
+  @objc public var bottomOverlayCornerRadius: CoreGraphics.CGFloat
+  @objc public var skuButtonColor: UIKit.UIColor
+  @objc public var skuButtonTextColor: UIKit.UIColor
+  @objc public var featuredSkusButtonColor: UIKit.UIColor
+  @objc public var featuredSkusButtonTextColor: UIKit.UIColor
+  @objc public var signinButtonFontSize: CoreGraphics.CGFloat
+  @objc public var signinButtonTextColor: UIKit.UIColor
+  @objc public var signinButtonShadowColor: UIKit.UIColor
+  @objc public var signinButtonShadowRadius: CoreGraphics.CGFloat
+  @objc public var restoreButtonFontSize: CoreGraphics.CGFloat
+  @objc public var restoreButtonTextColor: UIKit.UIColor
+  @objc public var restoreButtonShadowColor: UIKit.UIColor
+  @objc public var restoreButtonShadowRadius: CoreGraphics.CGFloat
+  @objc public var purchaseTermsFontSize: CoreGraphics.CGFloat
+  @objc public var purchaseTermsTextColor: UIKit.UIColor
+  @objc public var purchaseTermsShadowColor: UIKit.UIColor
+  @objc public var purchaseTermsShadowRadius: CoreGraphics.CGFloat
+  @objc public var termsLinkColor: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc deinit
+}
 public func clearAllNamiStorage()
 @objc public protocol NamiLoggerClient : ObjectiveC.NSObjectProtocol {
   @objc func logHTTP(request: Foundation.URLRequest, response: Foundation.HTTPURLResponse, responseData: Foundation.Data?, message: Swift.String)
@@ -762,7 +848,7 @@ public func clearAllNamiStorage()
   @objc final public let skuID: Nami.StoreID
   @objc public var transactionIdentifier: Nami.StoreID?
   @objc public var purchaseInitiatedTimestamp: Foundation.Date
-  @objc public var exipres: Foundation.Date?
+  @objc public var expires: Foundation.Date?
   @objc public var purchaseSource: Nami.NamiPurchaseSource
   @objc public var consumptionCount: Swift.Int
   @objc public var entitlementsGranted: [Nami.NamiEntitlement] {
@@ -897,9 +983,13 @@ extension Nami.NamiSKUKeys : Swift.RawRepresentable {}
 extension Nami.NamiPaywallMarketingContentKeys : Swift.Equatable {}
 extension Nami.NamiPaywallMarketingContentKeys : Swift.Hashable {}
 extension Nami.NamiPaywallMarketingContentKeys : Swift.RawRepresentable {}
+extension Nami.NamiPaywallStylingKeys : Swift.Equatable {}
+extension Nami.NamiPaywallStylingKeys : Swift.Hashable {}
+extension Nami.NamiPaywallStylingKeys : Swift.RawRepresentable {}
 extension Nami.NamiPlatformType : Swift.Equatable {}
 extension Nami.NamiPlatformType : Swift.Hashable {}
 extension Nami.NamiPlatformType : Swift.RawRepresentable {}
+extension Nami.StoreKitEnvironment : Swift.Equatable {}
 extension Nami.StoreKitEnvironment : Swift.Hashable {}
 extension Nami.StoreKitEnvironment : Swift.RawRepresentable {}
 extension Nami.StoreKitEnvironmentObjC : Swift.Equatable {}

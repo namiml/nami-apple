@@ -46,6 +46,7 @@
 		EB55285022BD9AAF00FB12CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB56C09624325F0500BA274A /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
+		EB7C06CB255F3E5000F3EDB1 /* TestProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestProducts.storekit; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 				EB55284822BD9AAE00FB12CE /* ViewController.swift */,
 				EB55284A22BD9AAE00FB12CE /* Main.storyboard */,
 				EB55284D22BD9AAF00FB12CE /* Assets.xcassets */,
+				EB7C06CB255F3E5000F3EDB1 /* TestProducts.storekit */,
 				EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */,
 				EB55285222BD9AAF00FB12CE /* Info.plist */,
 			);

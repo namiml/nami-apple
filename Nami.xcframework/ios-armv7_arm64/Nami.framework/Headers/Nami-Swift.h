@@ -584,6 +584,7 @@ SWIFT_CLASS("_TtC4Nami13NamiMLManager")
 @end
 
 @class UIImage;
+@class PaywallStyleData;
 
 /// Class representing a paywall in the SDK.
 SWIFT_CLASS("_TtC4Nami11NamiPaywall")
@@ -594,6 +595,8 @@ SWIFT_CLASS("_TtC4Nami11NamiPaywall")
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 /// A pre-cached background image for the paywall, if one is availaible.  Nami will attempt to pre-load paywall assets so there is no delay presenting paywalls.
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+/// Style data for this paywall, containing constants for paywall text and view colors and shadows and text sizes.
+@property (nonatomic, readonly, strong) PaywallStyleData * _Nonnull styleData;
 /// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the applciation is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
 @property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
 /// The title value for the paywall, entered in the Nami Control Center.
@@ -610,6 +613,8 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
 
 @class UIViewController;
 
@@ -697,7 +702,7 @@ SWIFT_CLASS("_TtC4Nami12NamiPurchase")
 @property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
 @property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
 @property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
-@property (nonatomic, copy) NSDate * _Nullable exipres;
+@property (nonatomic, copy) NSDate * _Nullable expires;
 @property (nonatomic) enum NamiPurchaseSource purchaseSource;
 @property (nonatomic) NSInteger consumptionCount;
 @property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
@@ -718,8 +723,10 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
 ///
 + (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
-/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
+/// Clears out any purchases made with bypassStore true.  There is no way to clear out StoreKit sandbox purchases prior to iOS 14.  With an iOS14 and above device, check your sandbox App Store entry to see what purchase management options are availaible.
 + (void)clearBypassStorePurchases;
+/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
++ (void)clearAndCheckRestoreAllPurchases;
 /// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
 /// \param skuID ID of SKU you wish to check for purchase status
 ///
@@ -927,6 +934,45 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIColor;
+
+SWIFT_CLASS("_TtC4Nami16PaywallStyleData")
+@interface PaywallStyleData : NSObject
+@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
+@property (nonatomic) CGFloat bodyFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull bodyTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull bodyShadowColor;
+@property (nonatomic) CGFloat bodyShadowRadius;
+@property (nonatomic) CGFloat titleFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull titleTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull titleShadowColor;
+@property (nonatomic) CGFloat titleShadowRadius;
+@property (nonatomic) CGFloat closeButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull closeButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull closeButtonShadowColor;
+@property (nonatomic) CGFloat closeButtonShadowRadius;
+@property (nonatomic, strong) UIColor * _Nonnull bottomOverlayColor;
+@property (nonatomic) CGFloat bottomOverlayCornerRadius;
+@property (nonatomic, strong) UIColor * _Nonnull skuButtonColor;
+@property (nonatomic, strong) UIColor * _Nonnull skuButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull featuredSkusButtonColor;
+@property (nonatomic, strong) UIColor * _Nonnull featuredSkusButtonTextColor;
+@property (nonatomic) CGFloat signinButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull signinButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull signinButtonShadowColor;
+@property (nonatomic) CGFloat signinButtonShadowRadius;
+@property (nonatomic) CGFloat restoreButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull restoreButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull restoreButtonShadowColor;
+@property (nonatomic) CGFloat restoreButtonShadowRadius;
+@property (nonatomic) CGFloat purchaseTermsFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull purchaseTermsTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull purchaseTermsShadowColor;
+@property (nonatomic) CGFloat purchaseTermsShadowRadius;
+@property (nonatomic, strong) UIColor * _Nonnull termsLinkColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class RoundedView;
 @class UILabel;
 
@@ -1016,6 +1062,15 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
+
+
+SWIFT_CLASS("_TtC4Nami22StylableSimpleTextCell")
+@interface StylableSimpleTextCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -1613,6 +1668,7 @@ SWIFT_CLASS("_TtC4Nami13NamiMLManager")
 @end
 
 @class UIImage;
+@class PaywallStyleData;
 
 /// Class representing a paywall in the SDK.
 SWIFT_CLASS("_TtC4Nami11NamiPaywall")
@@ -1623,6 +1679,8 @@ SWIFT_CLASS("_TtC4Nami11NamiPaywall")
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull namiPaywallInfoDict;
 /// A pre-cached background image for the paywall, if one is availaible.  Nami will attempt to pre-load paywall assets so there is no delay presenting paywalls.
 @property (nonatomic, strong) UIImage * _Nullable backgroundImage;
+/// Style data for this paywall, containing constants for paywall text and view colors and shadows and text sizes.
+@property (nonatomic, readonly, strong) PaywallStyleData * _Nonnull styleData;
 /// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the applciation is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
 @property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
 /// The title value for the paywall, entered in the Nami Control Center.
@@ -1639,6 +1697,8 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
 
 @class UIViewController;
 
@@ -1726,7 +1786,7 @@ SWIFT_CLASS("_TtC4Nami12NamiPurchase")
 @property (nonatomic, readonly, copy) NSString * _Nonnull skuID;
 @property (nonatomic, copy) NSString * _Nullable transactionIdentifier;
 @property (nonatomic, copy) NSDate * _Nonnull purchaseInitiatedTimestamp;
-@property (nonatomic, copy) NSDate * _Nullable exipres;
+@property (nonatomic, copy) NSDate * _Nullable expires;
 @property (nonatomic) enum NamiPurchaseSource purchaseSource;
 @property (nonatomic) NSInteger consumptionCount;
 @property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
@@ -1747,8 +1807,10 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// \param responseHandler Callback to provide purchase and status details around the purchase attempt.  See NamiPurchaseResponseHandler for details.
 ///
 + (void)buySKU:(NamiSKU * _Nonnull)sku fromPaywall:(NamiPaywall * _Nullable)paywall responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
-/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
+/// Clears out any purchases made with bypassStore true.  There is no way to clear out StoreKit sandbox purchases prior to iOS 14.  With an iOS14 and above device, check your sandbox App Store entry to see what purchase management options are availaible.
 + (void)clearBypassStorePurchases;
+/// Clears out any purchases made with byStore true.  There is no way to clear out StoreKit sandbox purchases.
++ (void)clearAndCheckRestoreAllPurchases;
 /// Checks to see if a SKUID (product app for Apple devices) has been purchased by the current device owner or not.
 /// \param skuID ID of SKU you wish to check for purchase status
 ///
@@ -1956,6 +2018,45 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIColor;
+
+SWIFT_CLASS("_TtC4Nami16PaywallStyleData")
+@interface PaywallStyleData : NSObject
+@property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
+@property (nonatomic) CGFloat bodyFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull bodyTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull bodyShadowColor;
+@property (nonatomic) CGFloat bodyShadowRadius;
+@property (nonatomic) CGFloat titleFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull titleTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull titleShadowColor;
+@property (nonatomic) CGFloat titleShadowRadius;
+@property (nonatomic) CGFloat closeButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull closeButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull closeButtonShadowColor;
+@property (nonatomic) CGFloat closeButtonShadowRadius;
+@property (nonatomic, strong) UIColor * _Nonnull bottomOverlayColor;
+@property (nonatomic) CGFloat bottomOverlayCornerRadius;
+@property (nonatomic, strong) UIColor * _Nonnull skuButtonColor;
+@property (nonatomic, strong) UIColor * _Nonnull skuButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull featuredSkusButtonColor;
+@property (nonatomic, strong) UIColor * _Nonnull featuredSkusButtonTextColor;
+@property (nonatomic) CGFloat signinButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull signinButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull signinButtonShadowColor;
+@property (nonatomic) CGFloat signinButtonShadowRadius;
+@property (nonatomic) CGFloat restoreButtonFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull restoreButtonTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull restoreButtonShadowColor;
+@property (nonatomic) CGFloat restoreButtonShadowRadius;
+@property (nonatomic) CGFloat purchaseTermsFontSize;
+@property (nonatomic, strong) UIColor * _Nonnull purchaseTermsTextColor;
+@property (nonatomic, strong) UIColor * _Nonnull purchaseTermsShadowColor;
+@property (nonatomic) CGFloat purchaseTermsShadowRadius;
+@property (nonatomic, strong) UIColor * _Nonnull termsLinkColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class RoundedView;
 @class UILabel;
 
@@ -2045,6 +2146,15 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
+
+
+SWIFT_CLASS("_TtC4Nami22StylableSimpleTextCell")
+@interface StylableSimpleTextCell : UICollectionViewCell
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 

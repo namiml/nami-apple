@@ -12,26 +12,9 @@
 		EB55284C22BD9AAE00FB12CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284A22BD9AAE00FB12CE /* Main.storyboard */; };
 		EB55284E22BD9AAF00FB12CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55284D22BD9AAF00FB12CE /* Assets.xcassets */; };
 		EB55285122BD9AAF00FB12CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */; };
-		EB7E6F12242E68BC00F80217 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
-		EB7E6F13242E68BC00F80217 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		EB7E6F15242E696000F80217 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
-		EB7E6F16242E696000F80217 /* Nami.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EB7E6F11242E68BC00F80217 /* Nami.xcframework */; };
-		EBC76448234FC25A00215C15 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB811E1A234F91FC00D24D73 /* Messages.framework */; };
-		EBC7644B234FC25A00215C15 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC7644A234FC25A00215C15 /* MessagesViewController.swift */; };
-		EBC7644E234FC25A00215C15 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC7644C234FC25A00215C15 /* MainInterface.storyboard */; };
-		EBC76450234FC25A00215C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC7644F234FC25A00215C15 /* Assets.xcassets */; };
-		EBC76454234FC25A00215C15 /* TestProductsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EBC76447234FC25A00215C15 /* TestProductsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EBB9C1DF2565924C000239B8 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9C1DE2565924C000239B8 /* Nami.xcframework */; };
+		EBB9C1E02565924C000239B8 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9C1DE2565924C000239B8 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EBC76452234FC25A00215C15 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB55283B22BD9AAE00FB12CE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EBC76446234FC25A00215C15;
-			remoteInfo = TestProductsExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		EB7E6F14242E68BC00F80217 /* Embed Frameworks */ = {
@@ -40,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB7E6F13242E68BC00F80217 /* Nami.xcframework in Embed Frameworks */,
+				EBB9C1E02565924C000239B8 /* Nami.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,19 +34,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				EBC76454234FC25A00215C15 /* TestProductsExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBC76459234FC26A00215C15 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EB7E6F16242E696000F80217 /* Nami.xcframework in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -76,9 +48,9 @@
 		EB55284D22BD9AAF00FB12CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB55285022BD9AAF00FB12CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB7E6F11242E68BC00F80217 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
+		EB7C06C9255F3A6E00F3EDB1 /* TestProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestProducts.storekit; sourceTree = "<group>"; };
 		EB811E1A234F91FC00D24D73 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		EBC76447234FC25A00215C15 /* TestProductsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TestProductsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBB9C1DE2565924C000239B8 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 		EBC7644A234FC25A00215C15 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		EBC7644D234FC25A00215C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EBC7644F234FC25A00215C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,16 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7E6F12242E68BC00F80217 /* Nami.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBC76444234FC25A00215C15 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB7E6F15242E696000F80217 /* Nami.xcframework in Frameworks */,
-				EBC76448234FC25A00215C15 /* Messages.framework in Frameworks */,
+				EBB9C1DF2565924C000239B8 /* Nami.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				EB55284322BD9AAE00FB12CE /* TestProducts.app */,
-				EBC76447234FC25A00215C15 /* TestProductsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +96,7 @@
 				EB55284D22BD9AAF00FB12CE /* Assets.xcassets */,
 				EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */,
 				EB55285222BD9AAF00FB12CE /* Info.plist */,
+				EB7C06C9255F3A6E00F3EDB1 /* TestProducts.storekit */,
 			);
 			path = TestProducts;
 			sourceTree = "<group>";
@@ -141,7 +104,7 @@
 		EBA286D222C416D3004EA2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB7E6F11242E68BC00F80217 /* Nami.xcframework */,
+				EBB9C1DE2565924C000239B8 /* Nami.xcframework */,
 				EB811E1A234F91FC00D24D73 /* Messages.framework */,
 			);
 			name = Frameworks;
@@ -174,30 +137,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				EBC76453234FC25A00215C15 /* PBXTargetDependency */,
 			);
 			name = TestProducts;
 			productName = TestProducts;
 			productReference = EB55284322BD9AAE00FB12CE /* TestProducts.app */;
 			productType = "com.apple.product-type.application";
-		};
-		EBC76446234FC25A00215C15 /* TestProductsExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EBC76455234FC25A00215C15 /* Build configuration list for PBXNativeTarget "TestProductsExtension" */;
-			buildPhases = (
-				EBC76443234FC25A00215C15 /* Sources */,
-				EBC76444234FC25A00215C15 /* Frameworks */,
-				EBC76445234FC25A00215C15 /* Resources */,
-				EBC76459234FC26A00215C15 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TestProductsExtension;
-			productName = TestProductsExtension;
-			productReference = EBC76447234FC25A00215C15 /* TestProductsExtension.appex */;
-			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
 
@@ -210,9 +154,6 @@
 				ORGANIZATIONNAME = "Nami ML, Inc.";
 				TargetAttributes = {
 					EB55284222BD9AAE00FB12CE = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					EBC76446234FC25A00215C15 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -231,7 +172,6 @@
 			projectRoot = "";
 			targets = (
 				EB55284222BD9AAE00FB12CE /* TestProducts */,
-				EBC76446234FC25A00215C15 /* TestProductsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -247,15 +187,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBC76445234FC25A00215C15 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EBC76450234FC25A00215C15 /* Assets.xcassets in Resources */,
-				EBC7644E234FC25A00215C15 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -268,23 +199,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBC76443234FC25A00215C15 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EBC7644B234FC25A00215C15 /* MessagesViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EBC76453234FC25A00215C15 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EBC76446234FC25A00215C15 /* TestProductsExtension */;
-			targetProxy = EBC76452234FC25A00215C15 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB55284A22BD9AAE00FB12CE /* Main.storyboard */ = {
@@ -365,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -482,56 +397,6 @@
 			};
 			name = Release;
 		};
-		EBC76456234FC25A00215C15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K6APTMK8Y8;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = TestProductsExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.TestProducts.TestProductsExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		EBC76457234FC25A00215C15 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K6APTMK8Y8;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = TestProductsExtension/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.TestProducts.TestProductsExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -549,15 +414,6 @@
 			buildConfigurations = (
 				EB55285622BD9AAF00FB12CE /* Debug */,
 				EB55285722BD9AAF00FB12CE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EBC76455234FC25A00215C15 /* Build configuration list for PBXNativeTarget "TestProductsExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EBC76456234FC25A00215C15 /* Debug */,
-				EBC76457234FC25A00215C15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

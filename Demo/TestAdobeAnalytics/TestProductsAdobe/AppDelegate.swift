@@ -22,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func namiSetup() {
-        // For testing we'll bypass StoreKit, so you don't have to run the app on a device to test purchases.
-        // You may want to include some ability to toggle this on for testers of your applcaition.
-        NamiPurchaseManager.bypassStore(bypass: true)
-        
         // Makes sure when the app is re-run that any stored bypass purchases are cleared out so we can retry purchases
         // Notes this cannot clear out StoreKit sandbox or regular purchaes, which Apple controls.
         // This only clears out purchases made when bypassStoreKit is enabled.
@@ -34,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
         let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         namiConfig.logLevel = .warn
+        
+        // For testing you can bypass StoreKit for purchases if you desire.
+        // Xcode 12 and iOS 14 simualtors now support purchases, so we'll leave this off.
+        namiConfig.bypassStore = false
+        
         Nami.configure(namiConfig: namiConfig )
         
         NamiAnalyticsSupport.registerAnalyticsHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
