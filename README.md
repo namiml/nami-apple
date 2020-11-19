@@ -1,4 +1,4 @@
-![Nami SDK logo](https://nami-brand.s3.amazonaws.com/images/Nami.SDK.RGB.Color.120x120.png)
+![Nami SDK logo](https://nami-brand.s3.amazonaws.com/images/Nami.SDK.2.0.120x137.png)
 
 # Nami SDK [![Platform](http://img.shields.io/badge/platform-iOS%20%7C%20iPadOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Cocoapod](http://img.shields.io/cocoapods/v/Nami.svg?style=flat)](http://cocoapods.org/pods/Nami/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
