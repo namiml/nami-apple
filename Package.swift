@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -17,8 +17,8 @@ let package = Package(
         // Nami is a binary XCFramework
 	.binaryTarget(
             name: "Nami",
-            url: "https://packages.namiml.com/NamiSDK/Apple/2.3.2/Nami.xcframework-2.3.2.zip",
-            checksum: "a1eebb44c6a52219d957de21a9ed4e21d9b172a63151764714cd823e22feafa0"
+            url: "https://packages.namiml.com/NamiSDK/Apple/2.4.0/Nami.xcframework-2.4.0.zip",
+            checksum: "ff23e02db2846c92351639aca79fdc1e11f065ccd8218558dfd0046448d6e834"
         )
     ]
 )
