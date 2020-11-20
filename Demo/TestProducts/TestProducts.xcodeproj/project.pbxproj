@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB2DD0B9256735FE001E9873 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2DD0B8256735FE001E9873 /* Nami.xcframework */; };
+		EB2DD0BA256735FE001E9873 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB2DD0B8256735FE001E9873 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB55284722BD9AAE00FB12CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284622BD9AAE00FB12CE /* AppDelegate.swift */; };
 		EB55284922BD9AAE00FB12CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55284822BD9AAE00FB12CE /* ViewController.swift */; };
 		EB55284C22BD9AAE00FB12CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284A22BD9AAE00FB12CE /* Main.storyboard */; };
 		EB55284E22BD9AAF00FB12CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB55284D22BD9AAF00FB12CE /* Assets.xcassets */; };
 		EB55285122BD9AAF00FB12CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB55284F22BD9AAF00FB12CE /* LaunchScreen.storyboard */; };
-		EBB9C1DF2565924C000239B8 /* Nami.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9C1DE2565924C000239B8 /* Nami.xcframework */; };
-		EBB9C1E02565924C000239B8 /* Nami.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBB9C1DE2565924C000239B8 /* Nami.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EBB9C1E02565924C000239B8 /* Nami.xcframework in Embed Frameworks */,
+				EB2DD0BA256735FE001E9873 /* Nami.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB2DD0B8256735FE001E9873 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 		EB55284322BD9AAE00FB12CE /* TestProducts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProducts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB55284622BD9AAE00FB12CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB55284822BD9AAE00FB12CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		EB55285222BD9AAF00FB12CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB7C06C9255F3A6E00F3EDB1 /* TestProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestProducts.storekit; sourceTree = "<group>"; };
 		EB811E1A234F91FC00D24D73 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		EBB9C1DE2565924C000239B8 /* Nami.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nami.xcframework; path = ../../Nami.xcframework; sourceTree = "<group>"; };
 		EBC7644A234FC25A00215C15 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		EBC7644D234FC25A00215C15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		EBC7644F234FC25A00215C15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB9C1DF2565924C000239B8 /* Nami.xcframework in Frameworks */,
+				EB2DD0B9256735FE001E9873 /* Nami.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		EBA286D222C416D3004EA2AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EBB9C1DE2565924C000239B8 /* Nami.xcframework */,
+				EB2DD0B8256735FE001E9873 /* Nami.xcframework */,
 				EB811E1A234F91FC00D24D73 /* Messages.framework */,
 			);
 			name = Frameworks;

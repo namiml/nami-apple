@@ -34,6 +34,38 @@
             endingLineNumber = "281"
             landmarkName = "clearAllEntitlements()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2BDCE309-34E6-4774-85E3-3F931858DF41 - 760f5f2988957f0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Nami.NamiEntitlementManager.clearAllEntitlements() -&gt; ()"
+                  moduleName = "Nami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kendall/projects/Clients/NamiML/omaha-TestApps/omaha-apps/NamiML/omaha-sdk-ios/Nami/NamiEntitlementManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "281"
+                  endingLineNumber = "281"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "2BDCE309-34E6-4774-85E3-3F931858DF41 - 382ad5e202c77234"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Nami.NamiEntitlementManager.clearAllEntitlements() -&gt; ()"
+                  moduleName = "Nami"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kendall/projects/Clients/NamiML/omaha-TestApps/omaha-apps/NamiML/omaha-sdk-ios/Nami/NamiEntitlementManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -50,6 +82,38 @@
             endingLineNumber = "236"
             landmarkName = "setEntitlements(_:sendToNami:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD643658-8CCF-4D32-BA1E-2A859FCEB212"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../omaha-TestApps/omaha-apps/NamiML/omaha-sdk-ios/Nami/NamiTimeStateManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "576"
+            endingLineNumber = "576"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6793450C-6CD5-4F98-8389-B29B03CAC561"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../omaha-TestApps/omaha-apps/NamiML/omaha-sdk-ios/Nami/NamiTimeStateManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
