@@ -21,8 +21,8 @@ struct OneTimePaymentColor: View {
                 ColorChangingView()               
             } else {
                 Button(action: {
-                        // When the button is pressed we'll raise the applciation paywall.
-                    NamiPaywallManager.raisePaywallForDeveloperID(developerPaywallID: "otp_paywall", fromVC: nil)
+                    // When the button is pressed we'll raise the applciation paywall.
+                    NamiPaywallManager.raisePaywall( developerPaywallID: "otp_paywall", fromVC: nil)
 
 //                    NamiPaywallManager.raisePaywall(fromVC: nil)
                 }) {

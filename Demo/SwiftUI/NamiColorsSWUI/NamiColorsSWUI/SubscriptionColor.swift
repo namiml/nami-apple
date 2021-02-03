@@ -19,7 +19,7 @@ struct SubscriptionColor: View {
             if namiDataSource.subscribed {
                 ColorChangingView()
                 Button(action: {
-                    NamiPaywallManager.raisePaywallForDeveloperID(developerPaywallID: "subscription_paywall", fromVC: nil)
+                    NamiPaywallManager.raisePaywall(developerPaywallID: "subscription_paywall", fromVC: nil)
                 }) {
                     Text("Manage Subscription")
                         .background(Color.white)
@@ -30,7 +30,7 @@ struct SubscriptionColor: View {
                 }
             } else {
                 Button(action: {
-                    NamiPaywallManager.raisePaywallForDeveloperID(developerPaywallID: "subscription_paywall", fromVC: nil)
+                    NamiPaywallManager.raisePaywall(developerPaywallID: "subscription_paywall", fromVC: nil)
                 }) {
                     Text("Subscribe for two colors!")
                         .background(Color.white)

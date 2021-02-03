@@ -21,7 +21,7 @@ struct MultiPaymentColor: View {
                 Text("This App Owned By Generous Tipper!")
                 Button(action: {
                     // When the button is pressed we'll raise the applciation paywall.
-                    NamiPaywallManager.raisePaywallForDeveloperID(developerPaywallID: "tip_paywall", fromVC: nil)
+                    NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
                 }) {
                     // Slightly more subtle text for re-tipping.
                     Text("Tip Again!")
@@ -34,7 +34,7 @@ struct MultiPaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the applciation paywall.
-                    NamiPaywallManager.raisePaywallForDeveloperID(developerPaywallID: "tip_paywall", fromVC: nil)        
+                    NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)        
                 }) {
                     // Button to tip the app owner on demand
                     Text("Tip App Owner!")

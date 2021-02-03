@@ -59,7 +59,7 @@
         // If you opt to add a sign-in link to your paywall, this block would be called to present the UI for sign-in.
     }];
     
-    [NamiPaywallManager registerApplicationAutoRaisePaywallBlocker:^BOOL{
+    [NamiPaywallManager registerAutoRaisePaywallBlocker:^BOOL{
                 return [self shouldAllowPaywallRaise];
     }];
     
