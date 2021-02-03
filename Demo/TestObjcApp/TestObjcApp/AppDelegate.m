@@ -39,7 +39,7 @@
     
     [NamiMLManager coreActionWithLabel:@"Shared Item"];
     
-    [NamiPaywallManager registerWithApplicationPaywallProvider:^(UIViewController * _Nullable fromVC, NSArray<NamiSKU *> * _Nullable products, NSString * _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
+    [NamiPaywallManager registerPaywallHandler:^(UIViewController * _Nullable fromVC, NSArray<NamiSKU *> * _Nullable products, NSString * _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
         // If you wanted to write your own custom view controller, you would add code here to build and present a view controller
         // Nami would call this block when it determined an applicatio-based paywall needed to be raised.
     }];
@@ -55,11 +55,11 @@
         }
     }];
     
-    [NamiPaywallManager registerWithApplicationSignInProvider:^(UIViewController * _Nullable fromVC, NSString *  _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
+    [NamiPaywallManager registerSignInHandler:^(UIViewController * _Nullable fromVC, NSString *  _Nonnull developerPaywallID, NamiPaywall * _Nonnull paywallMetadata) {
         // If you opt to add a sign-in link to your paywall, this block would be called to present the UI for sign-in.
     }];
     
-    [NamiPaywallManager registerApplicationAutoRaisePaywallBlocker:^BOOL{
+    [NamiPaywallManager registerAutoRaisePaywallBlocker:^BOOL{
                 return [self shouldAllowPaywallRaise];
     }];
     

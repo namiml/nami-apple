@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         // This callback will be used by the Nami SDK whenever entititlements change - we have
         // three subscription products configured in Nami to activate a single entitlement.
-        NamiEntitlementManager.registerChangeHandler { [weak self] (entitlementsChanged) in
+        NamiEntitlementManager.registerEntitlementsChangedHandler { [weak self] (entitlementsChanged) in
             self?.configureSubscriptionButtons()
         }
     }
