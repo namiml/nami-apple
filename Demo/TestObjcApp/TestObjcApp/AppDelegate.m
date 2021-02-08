@@ -60,8 +60,9 @@
     }];
     
     [NamiPaywallManager registerAutoRaisePaywallBlocker:^BOOL{
-                return [self shouldAllowPaywallRaise];
+        return [self shouldAllowPaywallRaise];
     }];
+    
     
     [[NamiStoreKitHelper shared] registerWithPurchasesChangedHandler:^(NSArray<NamiPurchase *> * _Nonnull purchases, enum NamiPurchaseState purchaseState, NSError * _Nullable error) {
         // This block would react to any purchase changes, it will give you any purchases made or canceled.  Generallt you would check
