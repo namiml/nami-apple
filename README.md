@@ -24,7 +24,7 @@ Clone or download this repository!
 
 ### Requirements
 - iOS 11+, iPadOS 13+
-- **Built for Xcode 11, if you still use Xcode 10.3 use the framework located in Xcode10-3 folder.**
+- **Built for Xcode 12, if you still use Xcode 11.3.1 use the framework located in Xcode11 folder and follow the "Add Manually" instructions below.**
 
 ## 4. Add the Nami Framework to your Xcode project
 
@@ -48,7 +48,13 @@ Temporarily removed Carthage support until XCFramework support is fully resolved
 
 
 ### Add Manually
-After downloading the Nami framework from GitHub, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the   "Frameworks and Libraries" section, and drag Nami.xcframework from the finder into this area.
+The XCFramework added via the Swift Package Manager and Cocoapods is built for Xcode 12.  If you are using Xcode 11.3.1, you'll need to add the Nami framework manually to your project - you can also use this technique in Xcode 12 if you wish.
+
+For Xcode 11.3.1, you can download the version of the Nami framework in the "Xcode11" directory, in a file named Nami-xcode11_3_1.xcframework.zip.  Unzip that file after downloading to extract the framework and follow the instructions below.
+
+For Xcode 11.6 and higher, you can just download the Nami.xcframework directory in the top level of the Nami GitHub repository.
+
+After downloading the Nami framework from GitHub in the Nami repository, move to your application Project settings page in Xcode, and go to the General tab.  Scroll down until you can see the   "Frameworks and Libraries" section, and drag Nami.xcframework from the finder into this area.
 
 A dialog will come up to verify, opt to "copy" the framework into the project so that your application has a copy of the framework to check into source control.
 
@@ -56,7 +62,7 @@ When complete, you can verify the Nami framework has been added properly by addi
 
 Make sure the option to "Embed and Sign" is chosen instead of just "Embed".
 
-#### Note: Updating the Nami Framework
+#### Note: Updating the Nami Framework Manually
 
 When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - make sure to select "replace" instead of "merge".  After the framework has been copied over the old one, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
 
