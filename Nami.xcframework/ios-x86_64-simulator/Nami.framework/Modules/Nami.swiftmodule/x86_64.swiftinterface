@@ -674,18 +674,18 @@ public struct NamiPurchaseTransaction {
 public typealias NamiPaywallHandler = (UIKit.UIViewController?, [NamiSKU]?, Swift.String, NamiPaywall) -> Swift.Void
 public typealias NamiCustomPaywallHandler = ([NamiSKU]?, Swift.String, NamiPaywall?) -> Swift.Void
 public typealias NamiSignInHandler = (UIKit.UIViewController?, Swift.String, NamiPaywall) -> Swift.Void
-public typealias NamiAutoRaisePaywallBlocker = () -> Swift.Bool
+public typealias NamiAllowAutoRaisePaywallHandler = () -> Swift.Bool
 public typealias NamiBlockingPaywallClosedHandler = () -> ()
 public typealias NamiUUID = Swift.String
 @objc extension NamiPaywallManager {
   @objc public static func paywallImpression(developerID: Swift.String)
   @objc public static func presentNamiPaywall(fromVC: UIKit.UIViewController?, products: [NamiSKU]?, paywallMetadata: NamiPaywall, backgroundImage: UIKit.UIImage?, forNami: Swift.Bool)
-  @objc public static func registerAutoRaisePaywallBlocker(_ autoRaisePaywallBlocker: NamiAutoRaisePaywallBlocker?)
-  @objc @available(*, deprecated, renamed: "registerAutoRaisePaywallBlocker")
-  public static func register(applicationAutoRaisePaywallBlocker: NamiAutoRaisePaywallBlocker?)
+  @objc public static func registerAllowAutoRaisePaywallHandler(_ allowAutoRaisePaywallHandler: NamiAllowAutoRaisePaywallHandler?)
+  @objc @available(*, deprecated, renamed: "registerAllowAutoRaisePaywallHandler")
+  public static func register(applicationAutoRaisePaywallBlocker: NamiAllowAutoRaisePaywallHandler?)
   @objc public static func fetchCustomPaywallMetaForDeveloperID(_ developerPaywallID: Swift.String, _ namiCustomPaywallHandler: @escaping NamiCustomPaywallHandler)
-  @objc public static func registerPaywallHandler(_ applicationPaywallHandler: NamiPaywallHandler?)
-  @objc @available(*, deprecated, renamed: "registerPaywallHandler")
+  @objc public static func registerPaywallRaiseHandler(_ applicationPaywallHandler: NamiPaywallHandler?)
+  @objc @available(*, deprecated, renamed: "registerPaywallRaiseHandler")
   public static func register(applicationPaywallProvider: NamiPaywallHandler?)
   @objc public static func registerSignInHandler(_ applicationSignInHandler: NamiSignInHandler?)
   @objc @available(*, deprecated, renamed: "registerSignInHandler")
