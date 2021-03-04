@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Nami-Swift.h</key>
 		<data>
-		ui/zNZV0YXFL5cATf09ypl0EgW8=
+		VlGhsrIEcFtP1iUGs4b69xDuPHs=
 		</data>
 		<key>Headers/Nami.h</key>
 		<data>
@@ -14,31 +14,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		onLISbw/G/8iyqjXDU+cqvjbOzQ=
+		tMfU+Lxa/GyYA4elYsEnrGSLTbI=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		xRWncUqbGB79O17hMXpHjHB1Bmk=
+		5Nad8zgQl91mo6dt0poHFkNeD1w=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		f5dq0N5tCsFvyN5VGo+3g9CKLOo=
+		8de50udP6EQ1m9HWifVXUkfMKBY=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		X+LmgMspwgZwGf4soVWuVNF883c=
+		HeAA/hRWOH+SVuFh8aJqO3Thals=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		xRWncUqbGB79O17hMXpHjHB1Bmk=
+		5Nad8zgQl91mo6dt0poHFkNeD1w=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		f5dq0N5tCsFvyN5VGo+3g9CKLOo=
+		8de50udP6EQ1m9HWifVXUkfMKBY=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		X+LmgMspwgZwGf4soVWuVNF883c=
+		HeAA/hRWOH+SVuFh8aJqO3Thals=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -50,27 +50,27 @@
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/PurchaseNamiPopUpControllerScrolling.nib/objects-11.0+.nib</key>
 		<data>
-		BZcHLqDTiZGGjP8PyJnW3vpWLE4=
+		a3Xx6BSkIxvLvSz2SjYGFbyrx2w=
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/PurchaseNamiPopUpControllerScrolling.nib/objects-12.3+.nib</key>
 		<data>
-		9EjkQnRVAqE0tRKIkdA3t4f/xFs=
+		jqdm82CYs3lUKnI06uetvpoywSo=
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/PurchaseNamiPopUpControllerScrolling.nib/runtime.nib</key>
 		<data>
-		o/3ALOvz15QQ2/yKbIC55RI5I/g=
+		Y27Fp2vK1zlQpzekj7Qcr0h0TUc=
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/objects-11.0+.nib</key>
 		<data>
-		6pR7Y1OE0VpOYLyAaS5SsGMYbQw=
+		xPu/XUVE8YIbY9t2qo7kZ784ljQ=
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/objects-12.3+.nib</key>
 		<data>
-		kV9Zo7V/AMfxjfG5ZaY/WdszMaA=
+		7K3zfxT0+QDWXkgQqt08Kgzdxws=
 		</data>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/runtime.nib</key>
 		<data>
-		U+HXsPn0Up1/LXaj1QU0RBeq5vQ=
+		6rh+2N6yMldVGs3+xhAz2SaNWsA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -79,11 +79,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ui/zNZV0YXFL5cATf09ypl0EgW8=
+			VlGhsrIEcFtP1iUGs4b69xDuPHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			sJPC923VOEg3XTDS7280VTYxok63ZSn7XH+MLDDvcn0=
+			nPcAmawB/UBZ/uH9kAr+eF8Ts1s3ofgaxCIUtNAy1Vk=
 			</data>
 		</dict>
 		<key>Headers/Nami.h</key>
@@ -101,66 +101,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xRWncUqbGB79O17hMXpHjHB1Bmk=
+			5Nad8zgQl91mo6dt0poHFkNeD1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			2yNYjj0TahZIblbi02cRwQkhZdUchvb4ua9tk6tp/OI=
+			S1a/3kU5BWcwTAMj5u+d34YZ/4cSKaYkZ0fjB1USGr4=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			f5dq0N5tCsFvyN5VGo+3g9CKLOo=
+			8de50udP6EQ1m9HWifVXUkfMKBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			nw1hWjYxrrftA+hPRog1/xsvUJm4TVZGob3eT+mHN3c=
+			kquZsWWVqQ63KA4moqrNJ6kzto1GhY1LESMlhvzG8gI=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X+LmgMspwgZwGf4soVWuVNF883c=
+			HeAA/hRWOH+SVuFh8aJqO3Thals=
 			</data>
 			<key>hash2</key>
 			<data>
-			y8hm3R8xuC1AyOLwXPxBgJdta+0dG/QPF/uhRtZz9ZU=
+			M6z57ljETBaO3Va+9sgvy9JrkUnchxOvqmyeodX0s1c=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xRWncUqbGB79O17hMXpHjHB1Bmk=
+			5Nad8zgQl91mo6dt0poHFkNeD1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			2yNYjj0TahZIblbi02cRwQkhZdUchvb4ua9tk6tp/OI=
+			S1a/3kU5BWcwTAMj5u+d34YZ/4cSKaYkZ0fjB1USGr4=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			f5dq0N5tCsFvyN5VGo+3g9CKLOo=
+			8de50udP6EQ1m9HWifVXUkfMKBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			nw1hWjYxrrftA+hPRog1/xsvUJm4TVZGob3eT+mHN3c=
+			kquZsWWVqQ63KA4moqrNJ6kzto1GhY1LESMlhvzG8gI=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X+LmgMspwgZwGf4soVWuVNF883c=
+			HeAA/hRWOH+SVuFh8aJqO3Thals=
 			</data>
 			<key>hash2</key>
 			<data>
-			y8hm3R8xuC1AyOLwXPxBgJdta+0dG/QPF/uhRtZz9ZU=
+			M6z57ljETBaO3Va+9sgvy9JrkUnchxOvqmyeodX0s1c=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -189,66 +189,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BZcHLqDTiZGGjP8PyJnW3vpWLE4=
+			a3Xx6BSkIxvLvSz2SjYGFbyrx2w=
 			</data>
 			<key>hash2</key>
 			<data>
-			nei9r2pEit9RVMO4pknooUYxz4ybRLJvpZRvk9Ylx3g=
+			QjC18mBIn0/MewLQDLIpssFv8tVFLOpZjp6/iS1pMF4=
 			</data>
 		</dict>
 		<key>NamiPaywallTemplate.storyboardc/PurchaseNamiPopUpControllerScrolling.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9EjkQnRVAqE0tRKIkdA3t4f/xFs=
+			jqdm82CYs3lUKnI06uetvpoywSo=
 			</data>
 			<key>hash2</key>
 			<data>
-			b1vODNKnSC+IeuAHS+bhfxLPq/lvamyjMWiWoN9x9Wg=
+			2C7iq+6aNG1B6Y0lu14FaVbzzKiVmEICkN4JZi/bJwY=
 			</data>
 		</dict>
 		<key>NamiPaywallTemplate.storyboardc/PurchaseNamiPopUpControllerScrolling.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			o/3ALOvz15QQ2/yKbIC55RI5I/g=
+			Y27Fp2vK1zlQpzekj7Qcr0h0TUc=
 			</data>
 			<key>hash2</key>
 			<data>
-			I9hwNcZUZKFFDZqa1xUCoCZ1R6Rkhp54xmd1V9CZD5E=
+			bFfK45apyTEsoUE/YJWbGgxH3OyyW6oFymuQPJaMZ0o=
 			</data>
 		</dict>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6pR7Y1OE0VpOYLyAaS5SsGMYbQw=
+			xPu/XUVE8YIbY9t2qo7kZ784ljQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			0umd6oVrQBKLJha3oVbhmOW6OGd1PlLEBiclZfN5VuQ=
+			n/OPwMNkxQKEJvhTlk3olF3TuCPYPxcaofbngZtMOsM=
 			</data>
 		</dict>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/objects-12.3+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kV9Zo7V/AMfxjfG5ZaY/WdszMaA=
+			7K3zfxT0+QDWXkgQqt08Kgzdxws=
 			</data>
 			<key>hash2</key>
 			<data>
-			sPAFv1qzFJ1X4FeRLcrBltC9Y0IW9dZi3j5abNcZaMk=
+			3VgkrfzgnDmezocL9DB/y2ZRBr9ku/dvWc8m/e83Gyk=
 			</data>
 		</dict>
 		<key>NamiPaywallTemplate.storyboardc/d9Z-JR-qMK-view-UJx-t8-iWb.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U+HXsPn0Up1/LXaj1QU0RBeq5vQ=
+			6rh+2N6yMldVGs3+xhAz2SaNWsA=
 			</data>
 			<key>hash2</key>
 			<data>
-			PaF2QRfL6iL/rOSPHuEVgyx8iMDW2WZ82ZH/nrN5tSM=
+			SxH0eOSI+DWTViqhgboeLYZukimIyEUH5OLXezxvTQ0=
 			</data>
 		</dict>
 	</dict>

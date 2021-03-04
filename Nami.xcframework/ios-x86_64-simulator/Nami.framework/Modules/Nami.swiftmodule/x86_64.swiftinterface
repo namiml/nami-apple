@@ -625,6 +625,7 @@ public typealias NamiAppPlatformID = Swift.String
 }
 @objc extension Nami {
   @objc public static func configure(namiConfig: NamiConfiguration)
+  @objc public static func configureXamarin(namiConfig: NamiConfiguration)
   @objc public static func registerNamiLogger(logger: NamiLoggerClient)
   @objc public static func doConfigBasedWork(worker: @escaping NamiWorker)
   @objc public static func setExternalIdentifier(externalIdentifier: Swift.String?, type: NamiExternalIdentifierType)

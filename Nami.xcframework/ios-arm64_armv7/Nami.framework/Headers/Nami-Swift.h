@@ -307,6 +307,11 @@ enum NamiLogLevel : NSInteger;
 /// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
 ///
 + (void)configureWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
+/// Note: Only call this from applications developed in Xamarin.
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).  It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+///
++ (void)configureXamarinWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
 /// Normal Nami logging goes to stdout, however if desired you can provide a callback to receive Nami log messages to route to somewhere else.
 /// \param logger Logging callback delegate to handle SDK logging calls.
 ///
@@ -1439,6 +1444,11 @@ enum NamiLogLevel : NSInteger;
 /// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
 ///
 + (void)configureWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
+/// Note: Only call this from applications developed in Xamarin.
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).  It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+///
++ (void)configureXamarinWithNamiConfig:(NamiConfiguration * _Nonnull)namiConfig;
 /// Normal Nami logging goes to stdout, however if desired you can provide a callback to receive Nami log messages to route to somewhere else.
 /// \param logger Logging callback delegate to handle SDK logging calls.
 ///
