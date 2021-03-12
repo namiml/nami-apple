@@ -691,11 +691,35 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param applicationBlockingPaywallClosedHandler A callback that wil be called if a Nami paywall is being closed.
 ///
 + (void)registerWithApplicationBlockingPaywallClosedHandler:(void (^ _Nullable)(void))applicationBlockingPaywallClosedHandler SWIFT_DEPRECATED_MSG("", "registerBlockingPaywallClosedHandler:");
-/// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
+/// Used to ask if Nami has loaded any paywall definitions from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
 ///
 /// returns:
 /// true if the Nami SDK has paywall definitions, false otherwise.
 + (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+/// Used to check if Nami has loaded default paywall definition from the server, and optionally require a paywall image be fully loaded before the handler is called.  Note the callback will be invoked with an error if paywall data is not yet present in the system.
+/// \param backgroundImageRequired true if the callback should only be invoked after a background image is loaded, or on failure.  False if you want callback handler to be invoked if there is a valid paywall definitino present.  Default is false.
+///
+/// \param imageFetchTimeout Maximum timeout for image loading, in seconds. Default is 2.0 seconds.
+///
+/// \param prepareHandler Handler to be invoked either after the paywall elements required have all finished loading, or on error.
+///
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (void)preparePaywallForDisplayWithBackgroundImageRequired:(BOOL)backgroundImageRequired imageFetchTimeout:(double)imageFetchTimeout prepareHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))prepareHandler;
+/// Used to check if Nami has loaded a specific definition from the server, and optionally require a paywall image be fully loaded before the handler is called.  Note the callback will be invoked with an error if paywall data is not yet present in the system.
+/// \param developerPaywallID developerPaywallID defined in Nami Control Center for the paywall you want to pre-load assets for.
+///
+/// \param backgroundImageRequired true if the callback should only be invoked after a background image is loaded, or on failure.  False if you want callback handler to be invoked if there is a valid paywall definitino present.  Default is false.
+///
+/// \param imageFetchTimeout Maximum timeout for image loading, in seconds.  Default is 2.0 seconds.
+///
+/// \param prepareHandler Handler to be invoked either after the paywall elements required have all finished loading, or on error.
+///
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (void)preparePaywallForDisplayWithDeveloperPaywallID:(NSString * _Nonnull)developerPaywallID backgroundImageRequired:(BOOL)backgroundImageRequired imageFetchTimeout:(double)imageFetchTimeout prepareHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))prepareHandler;
 /// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
 /// \param fromVC A view controller to present the paywall from if desired, can be null.
 ///
@@ -1828,11 +1852,35 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 /// \param applicationBlockingPaywallClosedHandler A callback that wil be called if a Nami paywall is being closed.
 ///
 + (void)registerWithApplicationBlockingPaywallClosedHandler:(void (^ _Nullable)(void))applicationBlockingPaywallClosedHandler SWIFT_DEPRECATED_MSG("", "registerBlockingPaywallClosedHandler:");
-/// Used to ask if Nami has loaded any paywall definitons from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
+/// Used to ask if Nami has loaded any paywall definitions from the server. If the SDK could not load definitions, or no paywall definitions are present this method will return false.
 ///
 /// returns:
 /// true if the Nami SDK has paywall definitions, false otherwise.
 + (BOOL)canRaisePaywall SWIFT_WARN_UNUSED_RESULT;
+/// Used to check if Nami has loaded default paywall definition from the server, and optionally require a paywall image be fully loaded before the handler is called.  Note the callback will be invoked with an error if paywall data is not yet present in the system.
+/// \param backgroundImageRequired true if the callback should only be invoked after a background image is loaded, or on failure.  False if you want callback handler to be invoked if there is a valid paywall definitino present.  Default is false.
+///
+/// \param imageFetchTimeout Maximum timeout for image loading, in seconds. Default is 2.0 seconds.
+///
+/// \param prepareHandler Handler to be invoked either after the paywall elements required have all finished loading, or on error.
+///
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (void)preparePaywallForDisplayWithBackgroundImageRequired:(BOOL)backgroundImageRequired imageFetchTimeout:(double)imageFetchTimeout prepareHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))prepareHandler;
+/// Used to check if Nami has loaded a specific definition from the server, and optionally require a paywall image be fully loaded before the handler is called.  Note the callback will be invoked with an error if paywall data is not yet present in the system.
+/// \param developerPaywallID developerPaywallID defined in Nami Control Center for the paywall you want to pre-load assets for.
+///
+/// \param backgroundImageRequired true if the callback should only be invoked after a background image is loaded, or on failure.  False if you want callback handler to be invoked if there is a valid paywall definitino present.  Default is false.
+///
+/// \param imageFetchTimeout Maximum timeout for image loading, in seconds.  Default is 2.0 seconds.
+///
+/// \param prepareHandler Handler to be invoked either after the paywall elements required have all finished loading, or on error.
+///
+///
+/// returns:
+/// true if the Nami SDK has paywall definitions, false otherwise.
++ (void)preparePaywallForDisplayWithDeveloperPaywallID:(NSString * _Nonnull)developerPaywallID backgroundImageRequired:(BOOL)backgroundImageRequired imageFetchTimeout:(double)imageFetchTimeout prepareHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))prepareHandler;
 /// Called when the application wishes a paywall to be raised, such as when the application offers a subscribe button.  The Nami SDK will determine which paywall is currently defined to be raised.
 /// \param fromVC A view controller to present the paywall from if desired, can be null.
 ///

@@ -677,6 +677,7 @@ public typealias NamiCustomPaywallHandler = ([Nami.NamiSKU]?, Swift.String, Nami
 public typealias NamiSignInHandler = (UIKit.UIViewController?, Swift.String, Nami.NamiPaywall) -> Swift.Void
 public typealias NamiAllowAutoRaisePaywallHandler = () -> Swift.Bool
 public typealias NamiBlockingPaywallClosedHandler = () -> ()
+public typealias PreparePaywallHandler = (Swift.Bool, Swift.Error?) -> ()
 public typealias NamiUUID = Swift.String
 @objc extension NamiPaywallManager {
   @objc public static func paywallImpression(developerID: Swift.String)
@@ -695,6 +696,8 @@ public typealias NamiUUID = Swift.String
   @objc @available(*, deprecated, renamed: "registerBlockingPaywallClosedHandler")
   public static func register(applicationBlockingPaywallClosedHandler: Nami.NamiBlockingPaywallClosedHandler?)
   @objc public static func canRaisePaywall() -> Swift.Bool
+  @objc public static func preparePaywallForDisplay(backgroundImageRequired: Swift.Bool = false, imageFetchTimeout: Swift.Double = 10.0, prepareHandler: @escaping Nami.PreparePaywallHandler)
+  @objc public static func preparePaywallForDisplay(developerPaywallID: Swift.String, backgroundImageRequired: Swift.Bool = false, imageFetchTimeout: Swift.Double = 10.0, prepareHandler: @escaping Nami.PreparePaywallHandler)
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?)
   @objc public static func raisePaywall(fromVC: UIKit.UIViewController?, forNami: Swift.Bool = false)
   @objc public static func raisePaywall(developerPaywallID: Swift.String, fromVC: UIKit.UIViewController?)
