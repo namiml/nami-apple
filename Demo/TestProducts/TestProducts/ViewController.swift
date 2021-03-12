@@ -57,7 +57,14 @@ class ViewController: UIViewController {
     
     @IBAction func subscribeTapped(_ sender: Any) {
         // Tell Nami to raise whatever the current live subscription paywall may be, so the user can select an option.
-        NamiPaywallManager.raisePaywall(fromVC: self)
+
+        NamiPaywallManager.preparePaywallForDisplay(backgroundImageRequired: true) { (success, error) in
+            if success {
+                NamiPaywallManager.raisePaywall(fromVC: self)
+            } else if let error = error {
+                print("Could not raise paywall, error was \(error.localizedDescription).")
+            }
+        }
     }
     
     
