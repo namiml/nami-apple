@@ -11,12 +11,12 @@
 		EB23D63325B8F96D003C6E65 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D63225B8F96D003C6E65 /* ContentView.swift */; };
 		EB23D63525B8F96F003C6E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB23D63425B8F96F003C6E65 /* Assets.xcassets */; };
 		EB23D63825B8F96F003C6E65 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB23D63725B8F96F003C6E65 /* Preview Assets.xcassets */; };
-		EB23D64425BE0E03003C6E65 /* Nami in Frameworks */ = {isa = PBXBuildFile; productRef = EB23D64325BE0E03003C6E65 /* Nami */; };
 		EB23D64725BE0FAF003C6E65 /* SubscriptionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D64625BE0FAF003C6E65 /* SubscriptionColor.swift */; };
 		EB23D64A25BE358E003C6E65 /* ColorChangingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D64925BE358E003C6E65 /* ColorChangingView.swift */; };
 		EB23D65125BE4455003C6E65 /* OneTimePaymentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D64F25BE4455003C6E65 /* OneTimePaymentColor.swift */; };
 		EB23D65225BE4455003C6E65 /* MultiPaymentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D65025BE4455003C6E65 /* MultiPaymentColor.swift */; };
 		EB23D65625BEA54D003C6E65 /* TestProducts.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EB23D65525BEA54D003C6E65 /* TestProducts.storekit */; };
+		EB3550ED260BB0F8004669DF /* Nami in Frameworks */ = {isa = PBXBuildFile; productRef = EB3550EC260BB0F8004669DF /* Nami */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB23D64425BE0E03003C6E65 /* Nami in Frameworks */,
+				EB3550ED260BB0F8004669DF /* Nami in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			);
 			name = NamiColorsSWUI;
 			packageProductDependencies = (
-				EB23D64325BE0E03003C6E65 /* Nami */,
+				EB3550EC260BB0F8004669DF /* Nami */,
 			);
 			productName = NamiColorsSWUI;
 			productReference = EB23D62D25B8F96D003C6E65 /* NamiColorsSWUI.app */;
@@ -133,7 +133,7 @@
 			);
 			mainGroup = EB23D62425B8F96C003C6E65;
 			packageReferences = (
-				EB23D64225BE0E03003C6E65 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */,
+				EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */,
 			);
 			productRefGroup = EB23D62E25B8F96D003C6E65 /* Products */;
 			projectDirPath = "";
@@ -358,20 +358,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EB23D64225BE0E03003C6E65 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */ = {
+		EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/namiml/NamiSDK-SwiftPackageManager.git";
+			repositoryURL = "https://github.com/namiml/NamiSDK-SwiftPackageManager";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.4;
+				minimumVersion = 2.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB23D64325BE0E03003C6E65 /* Nami */ = {
+		EB3550EC260BB0F8004669DF /* Nami */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB23D64225BE0E03003C6E65 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */;
+			package = EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */;
 			productName = Nami;
 		};
 /* End XCSwiftPackageProductDependency section */
