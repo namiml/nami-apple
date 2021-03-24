@@ -16,12 +16,18 @@ struct MultiPaymentColor: View {
         VStack(spacing: 30) {
 
             ColorChangingView()
-
+            
             if namiDataSource.purchased {
                 Text("This App Owned By Generous Tipper!")
                 Button(action: {
-                    // When the button is pressed we'll raise the applciation paywall.
-                    NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
+                    // When the button is pressed we'll raise the application paywall.
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "tip_paywall", backgroundImageRequired: true ) { (success, error) in
+                        if success {
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
+                        } else {
+                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                        }
+                    }
                 }) {
                     // Slightly more subtle text for re-tipping.
                     Text("Tip Again!")
@@ -33,8 +39,14 @@ struct MultiPaymentColor: View {
                 }
             } else {
                 Button(action: {
-                    // When the button is pressed we'll raise the applciation paywall.
-                    NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)        
+                    // When the button is pressed we'll raise the application paywall.
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "tip_paywall", backgroundImageRequired: true ) { (success, error) in
+                        if success {
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
+                        } else {
+                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                        }
+                    }
                 }) {
                     // Button to tip the app owner on demand
                     Text("Tip App Owner!")
