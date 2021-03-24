@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         // This callback will be used by the Nami SDK whenever entititlements change - we have
         // three subscription products configured in Nami to activate a single entitlement.
-        NamiEntitlementManager.registerChangeHandler { [weak self] (entitlementsChanged) in
+        NamiEntitlementManager.registerEntitlementsChangedHandler { [weak self] (entitlementsChanged) in
             self?.configureSubscriptionButtons()
         }
     }
@@ -57,7 +57,14 @@ class ViewController: UIViewController {
     
     @IBAction func subscribeTapped(_ sender: Any) {
         // Tell Nami to raise whatever the current live subscription paywall may be, so the user can select an option.
-        NamiPaywallManager.raisePaywall(fromVC: self)
+
+        NamiPaywallManager.preparePaywallForDisplay(backgroundImageRequired: true) { (success, error) in
+            if success {
+                NamiPaywallManager.raisePaywall(fromVC: self)
+            } else if let error = error {
+                print("Could not raise paywall, error was \(error.localizedDescription).")
+            }
+        }
     }
     
     

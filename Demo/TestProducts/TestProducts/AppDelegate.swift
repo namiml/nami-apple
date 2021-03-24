@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Nami.configure(namiConfig: namiConfig )
                 
-        NamiPaywallManager.register { (fromVC, developerPaywallID, paywallMetadata) in
+        NamiPaywallManager.registerSignInHandler { (fromVC, developerPaywallID, paywallMetadata) in
             // Present any sign in UI from here to validate the user has an account already in your system.
         }
     }
