@@ -11,10 +11,14 @@ import Nami
 @main
 struct NamiColorsSWUIApp: App {
     
-    init() {
+    func setupNami() {
         let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         namiConfig.logLevel = .warn
         Nami.configure(namiConfig: namiConfig )
+    }
+    
+    init() {
+       setupNami()
     }
     
     var namiDataSource = NamiDataSource()
