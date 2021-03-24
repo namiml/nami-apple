@@ -21,11 +21,11 @@ struct MultiPaymentColor: View {
                 Text("This App Owned By Generous Tipper!")
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "tip_paywall", backgroundImageRequired: true ) { (success, error) in
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_tip_paywall", backgroundImageRequired: true ) { (success, error) in
                         if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_tip_paywall", fromVC: nil)
                         } else {
-                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
                         }
                     }
                 }) {
@@ -40,11 +40,11 @@ struct MultiPaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "tip_paywall", backgroundImageRequired: true ) { (success, error) in
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_tip_paywall", backgroundImageRequired: true ) { (success, error) in
                         if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "tip_paywall", fromVC: nil)
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_tip_paywall", fromVC: nil)
                         } else {
-                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
                         }
                     }
                 }) {

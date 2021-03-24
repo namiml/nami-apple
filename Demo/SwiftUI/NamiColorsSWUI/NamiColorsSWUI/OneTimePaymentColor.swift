@@ -22,11 +22,11 @@ struct OneTimePaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "otp_paywall", backgroundImageRequired: true ) { (success, error) in
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_otp_paywall", backgroundImageRequired: true ) { (success, error) in
                         if success {
-                            NamiPaywallManager.raisePaywall( developerPaywallID: "otp_paywall", fromVC: nil)
+                            NamiPaywallManager.raisePaywall( developerPaywallID: "swui_otp_paywall", fromVC: nil)
                         } else {
-                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
                         }
                     }
                 }) {

@@ -19,11 +19,11 @@ struct SubscriptionColor: View {
             if namiDataSource.subscribed {
                 ColorChangingView()
                 Button(action: {
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "subscription_paywall", backgroundImageRequired: true ) { (success, error) in
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_subscription", backgroundImageRequired: true ) { (success, error) in
                         if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "subscription_paywall", fromVC: nil)
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_subscription", fromVC: nil)
                         } else {
-                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
                         }
                     }
                 }) {
@@ -36,11 +36,11 @@ struct SubscriptionColor: View {
                 }
             } else {
                 Button(action: {
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "subscription_paywall", backgroundImageRequired: true ) { (success, error) in
+                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_subscription", backgroundImageRequired: true ) { (success, error) in
                         if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "subscription_paywall", fromVC: nil)
+                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_subscription", fromVC: nil)
                         } else {
-                            print("Paywall coudl not be raised, error was \(String(describing: error?.localizedDescription))")
+                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
                         }
                     }
                 }) {
