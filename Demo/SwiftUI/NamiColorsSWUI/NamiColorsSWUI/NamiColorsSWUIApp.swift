@@ -48,15 +48,13 @@ class NamiDataSource: ObservableObject {
     purchased = NamiPurchaseManager.allPurchases().count > 0
         
     // Now register a change handler that will set the variable when entitlements change.
-
-    // This uses Nami to detect purcahses, but you wouild do something similar if you set up your own StoreKit listener.
-    NamiEntitlementManager.registerChangeHandler { (activeEntitlements) in
+    NamiEntitlementManager.registerEntitlementsChangedHandler { (activeEntitlements) in
       // If any entitlements exist we'll consider the subscription active, you could also look for specific entitlements here.
         self.subscribed = (activeEntitlements.count > 0)
         self.expirationDate = NamiPurchaseManager.allPurchases().first?.expires
     }
     
-    NamiPurchaseManager.register { (purchases, purchaseState, error) in
+    NamiPurchaseManager.registerPurchasesChangedHandler { (purchases, purchaseState, error) in
         self.purchased = (purchases.count > 0)
     }
    
