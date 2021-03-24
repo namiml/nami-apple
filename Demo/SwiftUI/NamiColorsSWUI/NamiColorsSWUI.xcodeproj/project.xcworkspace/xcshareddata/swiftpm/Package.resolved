@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "Nami",
-        "repositoryURL": "https://github.com/namiml/NamiSDK-SwiftPackageManager.git",
+        "repositoryURL": "https://github.com/namiml/NamiSDK-SwiftPackageManager",
         "state": {
           "branch": null,
-          "revision": "26d5b3a7d6cc08008ad6313af9c2d164490c8b15",
+          "revision": "bc7f1c3f2697ba929286f1ec5912862bba21ec42",
           "version": "2.6.0"
         }
       }
