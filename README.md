@@ -33,7 +33,7 @@ Clone or download this repository!
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "2.6.0"
+pod "Nami", "2.7.0"
 ```
 
 Then run the command
