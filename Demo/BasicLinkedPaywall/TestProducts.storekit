@@ -1,0 +1,102 @@
+{
+  "identifier" : "5EE24DD3",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "4B9F3B97",
+      "localizations" : [
+
+      ],
+      "name" : "TestProductSubscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "014D4541",
+          "introductoryOffer" : {
+            "internalID" : "D9761416",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Monthly",
+              "displayName" : "Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "test_product_linked_monthly_subscription",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Test Product Monthly",
+          "subscriptionGroupID" : "4B9F3B97",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "14.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6A4613E2",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Six Months",
+              "displayName" : "Six Months",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "test_product_linked_sixmonth_subscription",
+          "recurringSubscriptionPeriod" : "P6M",
+          "referenceName" : "Test Product Bi-Yearly",
+          "subscriptionGroupID" : "4B9F3B97",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "19.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "4276C25D",
+          "introductoryOffer" : {
+            "displayPrice" : "1.23",
+            "internalID" : "398E30DD",
+            "paymentMode" : "payUpFront",
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "Yearly",
+              "displayName" : "Yearly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "test_product_linked_yearly_subscription",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Test Product Yearly",
+          "subscriptionGroupID" : "4B9F3B97",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}
