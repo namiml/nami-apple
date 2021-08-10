@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         // We have three seperate subscription products for this application, all of them are registered in the Nami
         // Control Center to actiavte the following entitlement, so a purchase for any term will activate this.
-        let isPurchased = NamiEntitlementManager.isEntitlementActive("TestProductSubscription")
+        let isPurchased = NamiEntitlementManager.isEntitlementActive("Premium")
 
         if isPurchased {
             // One of the subscription products has been purchased, indicate the subscription is live and the button to subscribe can be used to change the subscription period.
