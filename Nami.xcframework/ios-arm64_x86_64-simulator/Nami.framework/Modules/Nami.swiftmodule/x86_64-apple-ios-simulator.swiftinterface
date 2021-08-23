@@ -548,6 +548,17 @@ public enum StoreKitEnvironment : Swift.String {
     get
   }
 }
+@objc public enum NamiRestorePurchasesState : Swift.Int {
+  case started
+  case finished
+  case error
+  public func readableString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc public enum SandboxAccelerationItemUnit : Swift.Int {
   case hour
   case week
@@ -620,6 +631,7 @@ public typealias SKUsRequestCompletionHandler = (Swift.Bool, [NamiSKU]?, [StoreI
 public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseState, Swift.Error?) -> Swift.Void
 @_inheritsConvenienceInitializers @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiPurchasesChangedHandler = ([NamiPurchase], NamiPurchaseState, Swift.Error?) -> Swift.Void
+  public typealias NamiRestorePurchasesStateHandler = (NamiRestorePurchasesState, [NamiPurchase], [NamiPurchase], Swift.Error?) -> Swift.Void
   @objc public static func buySKU(_ sku: NamiSKU, fromPaywall paywall: NamiPaywall? = .none, responseHandler: @escaping NamiPurchaseManager.NamiPurchasesChangedHandler)
   @objc public static func clearBypassStorePurchases()
   @objc public static func clearAndCheckRestoreAllPurchases()
@@ -631,6 +643,9 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
   @objc public static func registerPurchasesChangedHandler(_ changeHandler: NamiPurchaseManager.NamiPurchasesChangedHandler?)
   @available(*, deprecated, renamed: "registerPurchasesChangedHandler")
   @objc public static func register(purchasesChangedHandler changeHandler: NamiPurchaseManager.NamiPurchasesChangedHandler?)
+  @objc public static func registerRestorePurchasesHandler(restorePurchasesStateHandler changeHandler: NamiPurchaseManager.NamiRestorePurchasesStateHandler?)
+  @objc public static func restorePurchases(statehandler: @escaping NamiPurchaseManager.NamiRestorePurchasesStateHandler)
+  @available(*, deprecated)
   @objc public static func restorePurchases(handler: @escaping RestorePurchaseCompleteHandler)
   @objc public static func consumePurchasedSKU(skuID: StoreID)
   @objc public static func presentCodeRedemptionSheet()
@@ -933,6 +948,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func dismissNamiPaywallIfOpen(animated: Swift.Bool, completion: @escaping () -> Swift.Void)
   @objc public static func processSmartText(text: Swift.String, dataStores: [Any]) -> Swift.String
   @objc public static func checkSkusPopulated(skus: [NamiSKU]) -> Swift.Bool
+  @objc public static func currentNamiPaywallViewController() -> UIKit.UIViewController?
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
@@ -1317,6 +1333,9 @@ extension StoreKitEnvironmentObjC : Swift.RawRepresentable {}
 extension NamiPurchaseState : Swift.Equatable {}
 extension NamiPurchaseState : Swift.Hashable {}
 extension NamiPurchaseState : Swift.RawRepresentable {}
+extension NamiRestorePurchasesState : Swift.Equatable {}
+extension NamiRestorePurchasesState : Swift.Hashable {}
+extension NamiRestorePurchasesState : Swift.RawRepresentable {}
 extension SandboxAccelerationItemUnit : Swift.Equatable {}
 extension SandboxAccelerationItemUnit : Swift.Hashable {}
 extension SandboxAccelerationItemUnit : Swift.RawRepresentable {}
