@@ -369,7 +369,7 @@ SWIFT_CLASS("_TtC4Nami20NamiAnalyticsSupport")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport * _Nonnull shared;)
 + (NamiAnalyticsSupport * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(NamiAnalyticsSupport * _Nonnull)value;
-/// An applciation provided analytics handler.
+/// An application provided analytics handler.
 @property (nonatomic, readonly, copy) void (^ _Nullable analyticsHandler)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull);
 /// The mechanism by whuch an application registers a callback handler for analyitcis data.
 + (void)registerAnalyticsHandlerWithHandler:(void (^ _Nullable)(enum NamiAnalyticsActionType, NSDictionary<NSString *, id> * _Nonnull))handler;
@@ -938,7 +938,7 @@ SWIFT_CLASS("_TtC4Nami11NamiPaywall")
 @property (nonatomic, copy) NSArray<NamiSKU *> * _Nullable namiSkus;
 /// Style data for this paywall, containing constants for paywall text and view colors and shadows and text sizes.
 @property (nonatomic, readonly, strong) PaywallStyleData * _Nonnull styleData;
-/// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the applciation is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
+/// A developer paywall ID defined in the Nami Control Center for linked paywalls - that is, paywalls the application is responsible for building a UI for.  This ID can be used to help decide which internal paywall to raise in various cases, or to ask Nami for paywall values related to a paywall of interest.
 @property (nonatomic, readonly, copy) NSString * _Nonnull developerPaywallID;
 /// The title value for the paywall, entered in the Nami Control Center.
 @property (nonatomic, readonly, copy) NSString * _Nonnull title;
@@ -1077,6 +1077,13 @@ SWIFT_CLASS("_TtC4Nami18NamiPaywallManager")
 ///
 + (NSString * _Nonnull)processSmartTextWithText:(NSString * _Nonnull)text dataStores:(NSArray * _Nonnull)dataStores SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)checkSkusPopulatedWithSkus:(NSArray<NamiSKU *> * _Nonnull)skus SWIFT_WARN_UNUSED_RESULT;
+/// Call to obtain the last raised Nami Paywall view controller, will be .none if the paywall is closed.  Useful if you wish to present status alerts or other modal UI on top of a Nami paywall.
+/// <ul>
+///   <li>
+///     Returns The view controller of a raised nami paywall, .none otherwise.
+///   </li>
+/// </ul>
++ (UIViewController * _Nullable)currentNamiPaywallViewController SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class UITextView;
@@ -1114,6 +1121,7 @@ SWIFT_CLASS("_TtC4Nami12NamiPurchase")
 @end
 
 enum NamiPurchaseState : NSInteger;
+enum NamiRestorePurchasesState : NSInteger;
 
 /// Class to work with and manage purchases on the device.
 SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
@@ -1176,11 +1184,19 @@ SWIFT_CLASS("_TtC4Nami19NamiPurchaseManager")
 /// returns:
 /// NamiPurchase objects if any purchases are found, an empty array otherwise.
 + (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler SWIFT_DEPRECATED_MSG("", "registerPurchasesChangedHandler:");
-/// Activates the system restore purchases feature, which replays all prior purchase transactions to determine which purchases are active.  This may trigger an app store password prompt if called, so only call this at the request of the user.  Generally this is not needed if your Nami account supports receipt validation, as a receipt is checked for on first launch and can determine active purchases that way.
-/// \param handler A callback called when the restore process is complete, with all known purchases found.
+/// Registers a callback that will be activated when restore purchases in invoked (by clicking the Restore Purchases button on a Nami Paywall or by starting the restore purchases process directly), so that the application can react to the restore purchase process and potentially provide information in the UI about the restore process.
+/// \param changeHandler A callback called when StoreKit restore purchases has been activated or finishes.
 ///
-+ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler;
-/// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your applciation has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
++ (void)registerRestorePurchasesHandlerWithRestorePurchasesStateHandler:(void (^ _Nullable)(enum NamiRestorePurchasesState, NSArray<NamiPurchase *> * _Nonnull, NSArray<NamiPurchase *> * _Nonnull, NSError * _Nullable))changeHandler;
+/// Activates the system restore purchases feature, which replays all prior purchase transactions to determine which purchases are active.  This may trigger an app store password prompt if called, so only call this at the request of the user.  Generally this is not needed if your Nami account supports receipt validation, as the receipt is checked every time the app comes to the foreground and can determine active purchases that way.
+/// \param handler A callback called when the restore process is complete, with state indicators and all known purchases found.
+///
++ (void)restorePurchasesWithStatehandler:(void (^ _Nonnull)(enum NamiRestorePurchasesState, NSArray<NamiPurchase *> * _Nonnull, NSArray<NamiPurchase *> * _Nonnull, NSError * _Nullable))statehandler;
+/// Activates the system restore purchases feature, which replays all prior purchase transactions to determine which purchases are active.  This may trigger an app store password prompt if called, so only call this at the request of the user.  Generally this is not needed if your Nami account supports receipt validation, as the receipt is checked every time the app comes to the foreground and can determine active purchases that way.
+/// \param handler A callback called when the restore process is complete, with success flag and errors (if any)
+///
++ (void)restorePurchasesWithHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler SWIFT_DEPRECATED;
+/// For consumable purchases only, tells the system a purchase has been consumed - that is to say, your application has altered the application permanently to account for the purchase.  If you do not consume a consumable purchase, the purcahse will come back with every application launch.
 /// \param skuID The ID (product ID for Apple) of the product you wish to consume - note that it must be purchased or this call will do nothing.
 ///
 + (void)consumePurchasedSKUWithSkuID:(NSString * _Nonnull)skuID;
@@ -1245,7 +1261,7 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 @property (nonatomic, readonly) NSInteger statusCode;
 /// The current StoreKit environment, for objective C.
 @property (nonatomic, readonly) enum StoreKitEnvironmentObjC storeKitEnvironmentObjC;
-/// The original applicatino version when the user first purchased/downloaded your applciation, so you know when they started using your applcation.
+/// The original application version when the user first purchased/downloaded your application, so you know when they started using your application.
 - (NSString * _Nullable)originalApplicationVersion SWIFT_WARN_UNUSED_RESULT;
 /// Full iAP receipt dictionary values.
 - (NSArray<NSDictionary<NSString *, id> *> * _Nullable)fullIAPReceiptInfoDict SWIFT_WARN_UNUSED_RESULT;
@@ -1258,6 +1274,12 @@ SWIFT_CLASS("_TtC4Nami18NamiReceiptWrapper")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiRestorePurchasesState, open) {
+  NamiRestorePurchasesStateStarted = 0,
+  NamiRestorePurchasesStateFinished = 1,
+  NamiRestorePurchasesStateError = 2,
+};
 
 @class SKProduct;
 enum NamiSKUType : NSInteger;
