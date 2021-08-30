@@ -659,7 +659,7 @@ public typealias NamiPurchaseResponseHandler = ([NamiPurchase], NamiPurchaseStat
   @objc @IBOutlet weak public var durationLabel: UIKit.UILabel?
   @objc @IBOutlet weak public var durationMultiplierLabel: UIKit.UILabel?
   @objc override dynamic public func awakeFromNib()
-  public func populateCellFromProduct(metaProduct: NamiSKU, paywallStyling: PaywallStyleData?, localeConfigDict: [Swift.String : Swift.String]?, anySkusFeatured: Swift.Bool = false)
+  public func populateCellFromProduct(metaProduct: NamiSKU, paywallStyling: PaywallStyleData?, localeConfigDict: [Swift.String : Any]?, anySkusFeatured: Swift.Bool = false)
   public func indicatePurchased(markPurchased: Swift.Bool)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
