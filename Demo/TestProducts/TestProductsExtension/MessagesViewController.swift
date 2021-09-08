@@ -3,7 +3,7 @@
 //  TestProductsExtension
 //
 //  Created by Kendall Helmstetter Gelner on 10/10/19.
-//  Copyright © 2019 Nami ML, Inc. All rights reserved.
+//  Copyright © 2019-2021 Nami ML, Inc. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  TestObjcApp
 //
 //  Created by Kendall Gelner on 6/23/19.
-//  Copyright © 2019 Nami ML, Inc. All rights reserved.
+//  Copyright © 2019-2021 Nami ML Inc. All rights reserved.
 //
 
 #import "ViewController.h"

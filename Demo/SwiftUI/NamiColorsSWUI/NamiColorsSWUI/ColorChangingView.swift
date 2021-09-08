@@ -3,11 +3,11 @@
 //  NamiColorsSWUI
 //
 //  Created by Kendall Gelner on 1/21/21.
+//  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
 import SwiftUI
 import Nami
-
 
 func chooseRandomColor() -> Color {
     let randomR : Double = Double.random(in: 0 ..< 1)
