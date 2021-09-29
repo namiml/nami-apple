@@ -363,7 +363,7 @@
 			repositoryURL = "https://github.com/namiml/NamiSDK-SwiftPackageManager";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.0;
+				minimumVersion = 2.9.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

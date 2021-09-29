@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/namiml/NamiSDK-SwiftPackageManager",
         "state": {
           "branch": null,
-          "revision": "665d18f45267a3805cea41f065e05c66c5b8da23",
-          "version": "2.9.1"
+          "revision": "5a5990f4bda8ebd435f1448f235ceae4ba2b28a8",
+          "version": "2.9.2"
         }
       }
     ]
