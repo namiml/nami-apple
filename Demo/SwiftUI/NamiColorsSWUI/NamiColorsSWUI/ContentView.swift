@@ -3,6 +3,7 @@
 //  NamiColorsSWUI
 //
 //  Created by Kendall Gelner on 1/20/21.
+//  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
 import SwiftUI

@@ -3,6 +3,7 @@
 //  BasicLinkedPaywall
 //
 //  Created by Kendall Gelner on 5/25/21.
+//  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
 import UIKit
