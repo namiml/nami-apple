@@ -5,7 +5,7 @@ target 'MyApp' do
   use_frameworks!
 
   # Pods for MyApp
-  pod 'Nami', '~> 2.9.2'
+  pod 'Nami', '~> 2.9.3'
 
   target 'MyAppTests' do
     inherit! :search_paths
