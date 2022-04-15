@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios11.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Nami
 import CoreML
 import Foundation
@@ -452,6 +452,7 @@ extension Foundation.NSNotification.Name {
   case android
   case apple
   case roku
+  case ironsource_rewarded
   case web
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
