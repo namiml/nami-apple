@@ -22,15 +22,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-            
-    [NamiPaywallManager preparePaywallForDisplayWithBackgroundImageRequired:true imageFetchTimeout:10.0 prepareHandler:^(BOOL success, NSError * _Nullable error) {
-        if (success) {
-            [NamiPaywallManager raisePaywallFromVC:nil];
-        } else {
-            NSLog(@"Could not raise paywall, error was %@.", [error localizedDescription]);
-        }
+        
+    [NamiCampaignManager launchWithLabel:nil waitOnData:0.0 errorHandler:^(NSError * _Nullable error) {
+        NSLog(@"Could not raise paywall, error was %@.", [error localizedDescription]);
     }];
-    
+        
     [NamiMLManager enterCoreContentWithLabel:@"visitingPage"];
 }
 

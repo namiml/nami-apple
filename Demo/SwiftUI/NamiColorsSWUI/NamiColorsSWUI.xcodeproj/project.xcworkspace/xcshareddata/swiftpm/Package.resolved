@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Nami",
-        "repositoryURL": "https://github.com/namiml/NamiSDK-SwiftPackageManager",
-        "state": {
-          "branch": null,
-          "revision": "5a5990f4bda8ebd435f1448f235ceae4ba2b28a8",
-          "version": "2.9.2"
-        }
+  "pins" : [
+    {
+      "identity" : "namisdk-swiftpackagemanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/namiml/NamiSDK-SwiftPackageManager",
+      "state" : {
+        "branch" : "3.0.0-alpha.01",
+        "revision" : "9a78f025062bdfde8a577338d2e0757c6aee1f74"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }

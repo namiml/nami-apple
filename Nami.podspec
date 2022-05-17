@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '2.9.4'
+  s.version          = '3.0.0-alpha.01'
   s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
 
   s.description      = <<-DESC

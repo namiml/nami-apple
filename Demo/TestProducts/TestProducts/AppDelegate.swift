@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Xcode 12 and iOS 14 simualtors now support purchases, so we'll leave this off.
         namiConfig.bypassStore = false
         
-        Nami.configure(namiConfig: namiConfig )
+        Nami.configure(with: namiConfig )
                 
         NamiPaywallManager.registerSignInHandler { (fromVC, developerPaywallID, paywallMetadata) in
             // Present any sign in UI from here to validate the user has an account already in your system.

@@ -23,13 +23,9 @@ struct OneTimePaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_otp_paywall", backgroundImageRequired: true ) { (success, error) in
-                        if success {
-                            NamiPaywallManager.raisePaywall( developerPaywallID: "swui_otp_paywall", fromVC: nil)
-                        } else {
-                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
-                        }
-                    }
+                    NamiCampaignManager.launch(label: "swui_otp_paywall") { error in
+                        print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
+                    }                    
                 }) {
                     Text("Buy extra Color Block!")
                         .background(Color.white)

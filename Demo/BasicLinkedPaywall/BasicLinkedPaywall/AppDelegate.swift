@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var paywallCanRaise = false
     
+    var raisePaywallInViewController: UIViewController?
+    
     func namiSetup() {
         // Makes sure when the app is re-run that any stored bypass purchases are cleared out so we can retry purchases
         // Note this cannot clear out StoreKit sandbox or regular purchaes, which Apple controls.
@@ -29,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Xcode 12 and iOS 14 simualtors now support purchases, so we'll leave this off.
         namiConfig.bypassStore = false
         
-        Nami.configure(namiConfig: namiConfig )
+        Nami.configure(with: namiConfig )
                 
         // If your applcation supports user sign-in, this callback asks you to build and present your login UI - it would be invoked from a sign-in link on the paywall.
         NamiPaywallManager.registerSignInHandler { (fromVC, developerPaywallID, paywallMetadata) in
@@ -37,25 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        // The Nami Control Center defines a paywall that automatically raises every session, which means every time the app is opened - here we show how to customize that behaviour by blocking the paywall auto-raise on firts launch of the app, but allowing if the applciation is suspended and opened again without terminating the app.
-        NamiPaywallManager.registerAllowAutoRaisePaywallHandler {
-            // Block auto-raise for first app open, allow if app is suspended and resumed.
-            if !self.paywallCanRaise {
-                self.paywallCanRaise = true
-                return false
-            } else {
-                return true
-            }
-        }
-        
-        
         // To support a linked paywall, we add a "paywallRaiseHandler" - if a paywall is defined in the Nami control center as linked instead of Nami created, the Nami SDK will call this method to ask you to build and present the paywall UI, passing in paywall metadata defined in the control center.
-        NamiPaywallManager.registerPaywallRaiseHandler { fromVC, skus, developerPaywallID, namiPaywall in
-            if let raisingVC = fromVC {
+        NamiPaywallManager.renderCustomUiHandler { fromVC, skus, developerPaywallID, namiPaywall in
+            if let raisingVC = self.raisePaywallInViewController {
 
                 // For this demo app we have two custom paywalls it's possible to raise, so we check the developerPaywallID to see which one we should load and present.
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if developerPaywallID == "BasicLinkedPaywall" {
+                if developerPaywallID.hasPrefix("PrimaryLinkedPaywall") {
                     if let paywallVC = storyboard.instantiateViewController(withIdentifier: "SimplePaywallViewController") as? SimplePaywallViewController {
 
                         // Hand over the paywall metadata and objects from Nami to the paywall we are building.  The metadata includes things like paywall title, body and style data defined in the Nami control center.
@@ -64,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         raisingVC.present(paywallVC, animated: true) {
                         }
                     }
-                } else if developerPaywallID == "AlternateLinkedPaywall" {
+                } else if developerPaywallID.hasPrefix("AlternateLinkedPaywall") {
                     if let paywallVC = storyboard.instantiateViewController(withIdentifier: "CollectionViewPaywallViewController") as? CollectionViewPaywallViewController {
                         
                         // Same as above case, hand over paywall metadata for application to use in building our custom paywall UI - in this case using a UICollectionView to present the product cells.

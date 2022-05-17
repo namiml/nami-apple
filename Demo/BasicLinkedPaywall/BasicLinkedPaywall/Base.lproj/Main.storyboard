@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -31,15 +32,18 @@
                                     <action selector="primaryPaywallPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S9B-hh-fAJ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PWm-la-LgB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWm-la-LgB">
                                 <rect key="frame" x="20" y="84" width="374" height="380"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="380" id="fAh-wo-zCD"/>
                                 </constraints>
-                                <mutableString key="text">This application demonstrates the use of linked paywalls - paywalls where Nami sends you data about the paywall, and you build the UI within the application istead of having Nami build and present the paywall.  Note you can have one or more linked paywalls, you can tell which one to provide in your paywall buulding callback via the developerPaywallID you set on each paywall in the Nami Control Center.  
+                                <string key="text">This application demonstrates the use of linked paywalls - paywalls where Nami sends you data about the paywall, and you build the UI within the application istead of having Nami build and present the paywall.  Note you can have one or more linked paywalls, you can tell which one to provide in your paywall buulding callback via the developerPaywallID you set on each paywall in the Nami Control Center.  
 
-This test application also has a Nami constructed paywall viewed by suspending and resuming the application.</mutableString>
+This test application also has a Nami constructed paywall viewed by suspending and resuming the application.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

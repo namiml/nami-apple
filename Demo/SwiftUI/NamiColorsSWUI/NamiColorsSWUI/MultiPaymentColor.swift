@@ -22,12 +22,8 @@ struct MultiPaymentColor: View {
                 Text("This App Owned By Generous Tipper!")
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_tip_paywall", backgroundImageRequired: true ) { (success, error) in
-                        if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_tip_paywall", fromVC: nil)
-                        } else {
-                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
-                        }
+                    NamiCampaignManager.launch(label: "swui_tip_paywall") { error in
+                        print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
                     // Slightly more subtle text for re-tipping.
@@ -41,12 +37,8 @@ struct MultiPaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_tip_paywall", backgroundImageRequired: true ) { (success, error) in
-                        if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_tip_paywall", fromVC: nil)
-                        } else {
-                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
-                        }
+                    NamiCampaignManager.launch(label: "swui_tip_paywall") { error in
+                        print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
                     // Button to tip the app owner on demand
