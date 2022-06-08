@@ -16,7 +16,7 @@
 		EB23D65125BE4455003C6E65 /* OneTimePaymentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D64F25BE4455003C6E65 /* OneTimePaymentColor.swift */; };
 		EB23D65225BE4455003C6E65 /* MultiPaymentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23D65025BE4455003C6E65 /* MultiPaymentColor.swift */; };
 		EB23D65625BEA54D003C6E65 /* TestProducts.storekit in Resources */ = {isa = PBXBuildFile; fileRef = EB23D65525BEA54D003C6E65 /* TestProducts.storekit */; };
-		EB3550ED260BB0F8004669DF /* Nami in Frameworks */ = {isa = PBXBuildFile; productRef = EB3550EC260BB0F8004669DF /* Nami */; };
+		EB727FBB2834313B00043AC5 /* Nami in Frameworks */ = {isa = PBXBuildFile; productRef = EB727FBA2834313B00043AC5 /* Nami */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB3550ED260BB0F8004669DF /* Nami in Frameworks */,
+				EB727FBB2834313B00043AC5 /* Nami in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			);
 			name = NamiColorsSWUI;
 			packageProductDependencies = (
-				EB3550EC260BB0F8004669DF /* Nami */,
+				EB727FBA2834313B00043AC5 /* Nami */,
 			);
 			productName = NamiColorsSWUI;
 			productReference = EB23D62D25B8F96D003C6E65 /* NamiColorsSWUI.app */;
@@ -133,7 +133,7 @@
 			);
 			mainGroup = EB23D62425B8F96C003C6E65;
 			packageReferences = (
-				EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */,
+				EB727FB92834313B00043AC5 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */,
 			);
 			productRefGroup = EB23D62E25B8F96D003C6E65 /* Products */;
 			projectDirPath = "";
@@ -358,20 +358,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */ = {
+		EB727FB92834313B00043AC5 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/namiml/NamiSDK-SwiftPackageManager";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.2;
+				branch = "3.0.0-alpha.04";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB3550EC260BB0F8004669DF /* Nami */ = {
+		EB727FBA2834313B00043AC5 /* Nami */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB3550EB260BB0F8004669DF /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */;
+			package = EB727FB92834313B00043AC5 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */;
 			productName = Nami;
 		};
 /* End XCSwiftPackageProductDependency section */
