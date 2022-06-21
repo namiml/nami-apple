@@ -13,9 +13,9 @@ import Nami
 struct NamiColorsSWUIApp: App {
     
     func setupNami() {
-        let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        let namiConfig = NamiConfiguration(appPlatformId: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         namiConfig.logLevel = .warn
-        Nami.configure(namiConfig: namiConfig )
+        Nami.configure(with: namiConfig )
     }
     
     init() {
@@ -43,13 +43,13 @@ class NamiDataSource: ObservableObject {
   
   init() {
     // On first init, check to see if subscription is active.
-    subscribed = (NamiEntitlementManager.activeEntitlements().count > 0)
+    subscribed = (NamiEntitlementManager.active().count > 0)
     
     // If you'd rather work with purchase, here's an alternative, though we always recommend working with entitlements when possible
     purchased = NamiPurchaseManager.allPurchases().count > 0
         
     // Now register a change handler that will set the variable when entitlements change.
-    NamiEntitlementManager.registerEntitlementsChangedHandler { (activeEntitlements) in
+    NamiEntitlementManager.registerChangeHandler { (activeEntitlements) in
       // If any entitlements exist we'll consider the subscription active, you could also look for specific entitlements here.
         self.subscribed = (activeEntitlements.count > 0)
         self.expirationDate = NamiPurchaseManager.allPurchases().first?.expires

@@ -20,12 +20,8 @@ struct SubscriptionColor: View {
             if namiDataSource.subscribed {
                 ColorChangingView()
                 Button(action: {
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_subscription", backgroundImageRequired: true ) { (success, error) in
-                        if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_subscription", fromVC: nil)
-                        } else {
-                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
-                        }
+                    NamiCampaignManager.launch(label: "swui_subscription") { success, error in
+                        print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
                     Text("Manage Subscription")
@@ -37,13 +33,9 @@ struct SubscriptionColor: View {
                 }
             } else {
                 Button(action: {
-                    NamiPaywallManager.preparePaywallForDisplay( developerPaywallID: "swui_subscription", backgroundImageRequired: true ) { (success, error) in
-                        if success {
-                            NamiPaywallManager.raisePaywall(developerPaywallID: "swui_subscription", fromVC: nil)
-                        } else {
-                            print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription))")
-                        }
-                    }
+                    NamiCampaignManager.launch(label: "swui_subscription") { success, error in
+                        print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
+                    }   
                 }) {
                     Text("Subscribe for two colors!")
                         .background(Color.white)
