@@ -101,7 +101,7 @@ extension CollectionViewPaywallViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let product = products?[indexPath.item] {
-            NamiPurchaseManager.buySKU(product, fromPaywall: namiPaywall) { purchase, purchaseState, error in
+            NamiPurchaseManager.buySku(product) { purchase, purchaseState, error in
                 if purchaseState == .purchased {
                     let alert = UIAlertController(title: "Purchase Success", message: "Your purchase is complete!", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in

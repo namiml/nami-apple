@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '2.9.4'
+  s.version          = '3.0.0-rc.01'
   s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
 
   s.description      = <<-DESC
@@ -26,8 +26,8 @@ See https://nami.ml for more details and to request an account.
 
   s.social_media_url = 'https://twitter.com/HelloNamiML'
 
-  s.platform              = :ios, "11.2"
-  s.ios.deployment_target = '11.2'
+  s.platform              = :ios, "13.0"
+  s.ios.deployment_target = '13.0'
 
   s.ios.vendored_frameworks = 'Nami.xcframework'  
   s.frameworks = 'UIKit', 'StoreKit'

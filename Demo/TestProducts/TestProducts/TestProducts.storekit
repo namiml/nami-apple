@@ -1,4 +1,8 @@
 {
+  "identifier" : "ECEA8E3C",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
 
   ],
@@ -15,6 +19,9 @@
       "subscriptions" : [
         {
           "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
 
           ],
           "displayPrice" : "9.99",
@@ -39,6 +46,9 @@
           "adHocOffers" : [
 
           ],
+          "codeOffers" : [
+
+          ],
           "displayPrice" : "14.99",
           "familyShareable" : false,
           "groupNumber" : 1,
@@ -59,6 +69,9 @@
         },
         {
           "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
 
           ],
           "displayPrice" : "19.99",
@@ -84,6 +97,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 2
   }
 }

@@ -27,16 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NamiPurchaseManager.clearBypassStorePurchases()
 
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
-        let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        let namiConfig = NamiConfiguration(appPlatformId: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         namiConfig.logLevel = .warn
         
         // For testing you can bypass StoreKit for purchases if you desire.
         // Xcode 12 and iOS 14 simualtors now support purchases, so we'll leave this off.
         namiConfig.bypassStore = false
         
-        Nami.configure(namiConfig: namiConfig )
+        Nami.configure(with: namiConfig )
         
-        NamiAnalyticsSupport.registerAnalyticsHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
+        NamiAnalyticsSupport.registerHandler { (actionType : NamiAnalyticsActionType, analyticsItems : [String:Any]) in
 
             // Look at the action type to determine what values to log.
             switch actionType {

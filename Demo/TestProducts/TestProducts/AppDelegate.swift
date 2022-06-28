@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // NamiPurchaseManager.clearBypassStorePurchases()
         
         // This is the appID for a Nami test application with already configured products and paywalls, contact Nami to obtain an Application ID for your own application.
-        let namiConfig = NamiConfiguration(appPlatformID: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
+        let namiConfig = NamiConfiguration(appPlatformId: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         
         namiConfig.logLevel = .warn
 
@@ -32,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Xcode 12 and iOS 14 simualtors now support purchases, so we'll leave this off.
         namiConfig.bypassStore = false
         
-        Nami.configure(namiConfig: namiConfig )
+        Nami.configure(with: namiConfig )
                 
-        NamiPaywallManager.registerSignInHandler { (fromVC, developerPaywallID, paywallMetadata) in
+        NamiPaywallManager.registerSignInHandler { (fromVC) in
             // Present any sign in UI from here to validate the user has an account already in your system.
         }
     }
