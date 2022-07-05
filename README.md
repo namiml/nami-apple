@@ -23,7 +23,7 @@ After creating your account, add your app to the [Nami Control Center](https://a
 Clone or download this repository!
 
 ### Requirements
-- iOS 11+, iPadOS 13+
+- iOS 13+, iPadOS 13+
 - **Built for Xcode 12, if you still use Xcode 11.3.1 use the framework located in Xcode11 folder and follow the "Add Manually" instructions below.**
 
 ## 4. Add the Nami Framework to your Xcode project
@@ -33,7 +33,7 @@ Clone or download this repository!
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "2.9.4"
+pod "Nami", "3.0.0-rc.02"
 ```
 
 Then run the command

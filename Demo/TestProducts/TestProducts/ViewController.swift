@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         
         // This callback will be used by the Nami SDK whenever entititlements change - we have
         // three subscription products configured in Nami to activate a single entitlement.
-        NamiEntitlementManager.registerEntitlementsChangedHandler { [weak self] (entitlementsChanged) in
+        NamiEntitlementManager.registerChangeHandler() { [weak self] (entitlementsChanged) in
             self?.configureSubscriptionButtons()
         }
     }
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         // We have three seperate subscription products for this application, all of them are registered in the Nami
         // Control Center to actiavte the following entitlement, so a purchase for any term will activate this.
-        let isPurchased = NamiEntitlementManager.isEntitlementActive("Premium")
+        let isPurchased = NamiEntitlementManager.isEntitlementActive("TestProductSubscription")
 
         if isPurchased {
             // One of the subscription products has been purchased, indicate the subscription is live and the button to subscribe can be used to change the subscription period.
@@ -57,18 +57,11 @@ class ViewController: UIViewController {
     
     @IBAction func subscribeTapped(_ sender: Any) {
         // Tell Nami to raise whatever the current live subscription paywall may be, so the user can select an option.
-
-        NamiPaywallManager.preparePaywallForDisplay(backgroundImageRequired: true) { (success, error) in
-            if success {
-                NamiPaywallManager.raisePaywall(fromVC: self)
-            } else if let error = error {
-                print("Could not raise paywall, error was \(error.localizedDescription).")
-            }
+        
+        NamiCampaignManager.launch() { success, error in
+            print("Could not raise paywall, error was \(String(describing: error?.localizedDescription)).")
         }
     }
     
-    
-    
-   
 }
 

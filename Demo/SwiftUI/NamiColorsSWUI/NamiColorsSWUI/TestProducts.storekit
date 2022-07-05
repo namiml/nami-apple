@@ -1,4 +1,8 @@
 {
+  "identifier" : "145F0485",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
     {
       "displayPrice" : "0.99",
@@ -46,6 +50,9 @@
           "adHocOffers" : [
 
           ],
+          "codeOffers" : [
+
+          ],
           "displayPrice" : "9.99",
           "familyShareable" : false,
           "groupNumber" : 1,
@@ -68,6 +75,9 @@
           "adHocOffers" : [
 
           ],
+          "codeOffers" : [
+
+          ],
           "displayPrice" : "14.99",
           "familyShareable" : false,
           "groupNumber" : 1,
@@ -88,6 +98,9 @@
         },
         {
           "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
 
           ],
           "displayPrice" : "19.99",
@@ -113,6 +126,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 2
   }
 }

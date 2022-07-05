@@ -30,13 +30,13 @@ class SimplePaywallViewController: UIViewController {
         
         // Set up monthly button directly from monthly product, using a custom label we defined in Nami Control Center for this product.
         if let monthlyProduct = productForProductID("test_product_linked_monthly_subscription") {
-            let titleString = monthlyProduct.namiDisplayText
+            let titleString = monthlyProduct.localizedDisplayText
             monthyButton?.setTitle(titleString, for: .normal)
         }
         
         // Set up yearly button directly from yearly product, using a custom label we defined in Nami Control Center for this product.
         if let yearlyProduct = productForProductID("test_product_linked_yearly_subscription") {
-            let titleString = yearlyProduct.namiDisplayText
+            let titleString = yearlyProduct.localizedDisplayText
             yearlyButton?.setTitle(titleString, for: .normal)
         }
         
@@ -51,7 +51,7 @@ class SimplePaywallViewController: UIViewController {
     func productForProductID( _ produdtID: String ) -> NamiSKU? {
         if let products = products {
             for product in products {
-                if product.skuID == produdtID {
+                if product.skuId == produdtID {
                     return product
                 }
             }
@@ -92,7 +92,8 @@ class SimplePaywallViewController: UIViewController {
     }
     
     func buyProductForNamiSKU( sku: NamiSKU ) {
-        NamiPurchaseManager.buySKU(sku, fromPaywall: namiPaywall) { purchase, purchaseState, error in
+        
+        NamiPurchaseManager.buySku(sku) { purchase, purchaseState, error in
             if purchaseState == .purchased {
                 let alert = UIAlertController(title: "Purchase Success", message: "Your purchase is complete!", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
