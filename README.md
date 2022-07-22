@@ -70,4 +70,3 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 For more details about getting started, see our [quick start guide](https://docs.namiml.com/docs/nami-quickstart-guide)
-

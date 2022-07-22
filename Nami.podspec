@@ -29,7 +29,7 @@ See https://www.namiml.com for more details and to create a free account.
 
   s.homepage         = 'https://github.com/namiml/nami-apple'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
-  s.author           = { 'nami' => 'hello@namiml.com' }
+  s.author           = { 'Team Nami' => 'hello@namiml.com' }
   s.source           = { :git => "https://github.com/namiml/nami-apple.git", :tag => "#{s.version}" }
 
   s.social_media_url = 'https://twitter.com/HelloNamiML'
