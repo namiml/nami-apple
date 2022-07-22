@@ -118,5 +118,3 @@ extension CollectionViewPaywallViewController {
     }
     
 }
-
-

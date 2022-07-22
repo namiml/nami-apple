@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/Nami.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		9YIXbQorbC/CTNuNILZb0g2AVY0=
+		ethWd1U5G8GxwMi2k3bI84cdIaw=
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		wXqd8BsGffWt60bqrgjXGPgPgAU=
+		h8oNoPmONRT0PixzZSBZ7nQU4b4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -99,7 +99,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ahJlCFP+jkxQOnHdVetE6IuGiZ1o/widv4tNKgasFXE=
+			5qzCpELOTl89h7L+2n1Y1XEhLYMV2pfJ21fllz8CNZ4=
 			</data>
 		</dict>
 		<key>Modules/Nami.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -120,7 +120,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1Dkp2FQ3NutESrYZWDmHNzXpCV6PnuJ4zdkuNTRBkC4=
+			FLsSGb9I3uJxh1nbcNDmURQaIYvReAh1XlRr7gh3P6A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
