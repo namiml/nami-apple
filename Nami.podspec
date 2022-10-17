@@ -37,6 +37,8 @@ See https://www.namiml.com for more details and to create a free account.
   s.platform              = :ios, "11.2"
   s.ios.deployment_target = '11.2'
 
-  s.ios.vendored_frameworks = 'Nami.xcframework'  
+  s.ios.vendored_frameworks = 'Nami.xcframework'
+  s.resources = 'Nami/**/*.nib'
+
   s.frameworks = 'UIKit', 'StoreKit'
 end
