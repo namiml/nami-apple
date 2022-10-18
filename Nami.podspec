@@ -8,20 +8,28 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '2.9.4'
-  s.summary          = 'Simplify StoreKit integration and testing. Add cloud based dynamic paywalls to your app.'
+  s.version          = '3.0.0-rc.04'
+  s.summary          = 'Easy Apple StoreKit subscriptions & in-app purchases, with powerful built-in paywalls and A/B testing.'
 
   s.description      = <<-DESC
-This library helps manage StoreKit operations, allow cloud based controls of your paywall to change images, text, and products.  Adds cloud based control of rules for how your users see your paywall.
+  This library helps you easily offer in-app purchases and subscriptions using Apple App Store billing and StoreKit APIs. 
 
-Requires an account with Nami ML.  Platform includes a free tier to get you up and running with subscriptions and paywalls in your app.
+  - No IAP code to write.
+  - Focus on your app experience.
+  - All edge cases are handled and no server is required.
+  - Includes is powerful built-in paywalls templates, built with SwiftUI and UIKit
+  - Update paywalls easily using a browser-based paywall CMS.
+  - Conduct paywall A/B tests, to improve your conversion rate.
+  - Robust subscription analytics, webhooks, and much more.
 
-See https://nami.ml for more details and to request an account.
+Requires an account with Nami. The free tier is generous and includes everything you need to get up and running.
+
+See https://www.namiml.com for more details and to create a free account.
                        DESC
 
   s.homepage         = 'https://github.com/namiml/nami-apple'
   s.license          = { :type => 'CUSTOM', :file => 'LICENSE' }
-  s.author           = { 'nami' => 'Kendall.Gelner@namiml.com' }
+  s.author           = { 'Team Nami' => 'hello@namiml.com' }
   s.source           = { :git => "https://github.com/namiml/nami-apple.git", :tag => "#{s.version}" }
 
   s.social_media_url = 'https://twitter.com/HelloNamiML'
