@@ -4,11 +4,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "Nami",
+    name: "NamiApple",
     products: [
         .library(
-            name: "Nami",
-            targets: ["Nami"]),
+            name: "NamiApple",
+            targets: ["NamiApple"]),
     ],
     dependencies: [
         // No Nami Dependencies
@@ -17,8 +17,8 @@ let package = Package(
         // Nami is a binary XCFramework
 	.binaryTarget(
             name: "Nami",
-            url: "https://packages.namiml.com/NamiSDK/Apple/2.9.4/Nami.xcframework-2.9.4.zip",
-            checksum: "f21cde3dbc4b706e057f4b15a4c2df4949b896d4100e5af107a78321267038c7"
+            url: "https://packages.namiml.com/NamiSDK/Apple/3.0.0-rc.07/NamiApple.xcframework-3.0.0-rc.07.zip",
+            checksum: "cf50af588e517eb9e9a5024d816efbf6ca6f1687207e0256d513cfc8442ddc3b"
         )
     ]
 )
