@@ -6,6 +6,6 @@ framework module Nami {
 }
 
 module Nami.Swift {
-    header "Nami-Swift.h"
-    requires objc
+  header "Nami-Swift.h"
+  requires objc
 }

@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
 // swift-module-flags: -target x86_64-apple-ios11.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name Nami
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreML
 import Foundation
 import Messages
@@ -13,6 +14,7 @@ import StoreKit
 import Swift
 import UIKit
 import _Concurrency
+import _StringProcessing
 import os.log
 import os
 public enum NamiSignals {
@@ -65,8 +67,8 @@ public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class NamiCorrectiveFlowLayout : UIKit.UICollectionViewFlowLayout {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func shouldInvalidateLayout(forBoundsChange newBounds: CoreGraphics.CGRect) -> Swift.Bool
-  @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func shouldInvalidateLayout(forBoundsChange newBounds: CoreFoundation.CGRect) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -198,7 +200,7 @@ public typealias NamiLanguageCode = Swift.String
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class StylableSimpleTextCell : UIKit.UICollectionViewCell {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -623,6 +625,7 @@ extension StoreKit.SKProduct {
   @objc override dynamic public init()
   @objc deinit
 }
+public typealias NamiExternalIdentifierUpdateCompleteHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> ()
 public typealias NamiVerifyReceiptHandler = (_ receiptJSON: Nami.NamiReceiptWrapper?) -> Swift.Void
 public typealias StoreID = Swift.String
 public typealias SKUsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [Nami.NamiSKU]?, _ invalidSKUIDs: [Nami.StoreID]?, _ error: Swift.Error?) -> Swift.Void
@@ -656,10 +659,10 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [Nami.NamiPurchase]
   @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var priceLabel: UIKit.UILabel?
   @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var durationLabel: UIKit.UILabel?
   @objc @IBOutlet @_Concurrency.MainActor(unsafe) weak public var durationMultiplierLabel: UIKit.UILabel?
-  @objc override dynamic public func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
   @_Concurrency.MainActor(unsafe) public func populateCellFromProduct(metaProduct: Nami.NamiSKU, paywallStyling: Nami.PaywallStyleData?, localeConfigDict: [Swift.String : Any]?, anySkusFeatured: Swift.Bool = false)
   @_Concurrency.MainActor(unsafe) public func indicatePurchased(markPurchased: Swift.Bool)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -709,7 +712,7 @@ public struct PaywallFeatureFlags {
 }
 @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class NamiPaywallTextFieldCell : UIKit.UICollectionViewCell, UIKit.UITextViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -769,8 +772,8 @@ extension Swift.String {
   public func sanitizedForFilename() -> Swift.String?
 }
 @objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) public class RoundedView : UIKit.UIView {
-  @objc override dynamic public func awakeFromNib()
-  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var cornerRadius: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func awakeFromNib()
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var cornerRadius: CoreFoundation.CGFloat {
     @objc get
     @objc set
   }
@@ -782,7 +785,7 @@ extension Swift.String {
     @objc get
     @objc set
   }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
@@ -868,9 +871,9 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static func configureXamarin(namiConfig: Nami.NamiConfiguration)
   @objc public static func registerNamiLogger(logger: Nami.NamiLoggerClient)
   @objc public static func doConfigBasedWork(worker: @escaping Nami.NamiWorker)
-  @objc public static func setExternalIdentifier(externalIdentifier: Swift.String?, type: Nami.NamiExternalIdentifierType)
+  @objc public static func setExternalIdentifier(externalIdentifier: Swift.String?, type: Nami.NamiExternalIdentifierType, completion: Nami.NamiExternalIdentifierUpdateCompleteHandler? = nil)
   @objc public static func getExternalIdentifier() -> Swift.String?
-  @objc public static func clearExternalIdentifier()
+  @objc public static func clearExternalIdentifier(completion: Nami.NamiExternalIdentifierUpdateCompleteHandler? = nil)
   @objc public static func setLogLevel(_ logLevel: Nami.NamiLogLevel)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
@@ -1104,39 +1107,39 @@ extension Nami.NamiPurchaseState : Swift.Codable {
 }
 @_inheritsConvenienceInitializers @objc public class PaywallStyleData : ObjectiveC.NSObject {
   @objc public var backgroundColor: UIKit.UIColor
-  @objc public var bodyFontSize: CoreGraphics.CGFloat
+  @objc public var bodyFontSize: CoreFoundation.CGFloat
   @objc public var bodyTextColor: UIKit.UIColor
   @objc public var bodyShadowColor: UIKit.UIColor
-  @objc public var bodyShadowRadius: CoreGraphics.CGFloat
-  @objc public var titleFontSize: CoreGraphics.CGFloat
+  @objc public var bodyShadowRadius: CoreFoundation.CGFloat
+  @objc public var titleFontSize: CoreFoundation.CGFloat
   @objc public var titleTextColor: UIKit.UIColor
   @objc public var titleShadowColor: UIKit.UIColor
-  @objc public var titleShadowRadius: CoreGraphics.CGFloat
-  @objc public var closeButtonFontSize: CoreGraphics.CGFloat
+  @objc public var titleShadowRadius: CoreFoundation.CGFloat
+  @objc public var closeButtonFontSize: CoreFoundation.CGFloat
   @objc public var closeButtonTextColor: UIKit.UIColor
   @objc public var closeButtonShadowColor: UIKit.UIColor
-  @objc public var closeButtonShadowRadius: CoreGraphics.CGFloat
+  @objc public var closeButtonShadowRadius: CoreFoundation.CGFloat
   @objc public var bottomOverlayColor: UIKit.UIColor
-  @objc public var bottomOverlayCornerRadius: CoreGraphics.CGFloat
+  @objc public var bottomOverlayCornerRadius: CoreFoundation.CGFloat
   @objc public var skuButtonColor: UIKit.UIColor
   @objc public var skuButtonTextColor: UIKit.UIColor
   @objc public var skuSubDisplayTextColor: UIKit.UIColor
   @objc public var skuSubDisplayShadowColor: UIKit.UIColor
-  @objc public var skuSubDisplayShadowRadius: CoreGraphics.CGFloat
+  @objc public var skuSubDisplayShadowRadius: CoreFoundation.CGFloat
   @objc public var featuredSkusButtonColor: UIKit.UIColor
   @objc public var featuredSkusButtonTextColor: UIKit.UIColor
-  @objc public var signinButtonFontSize: CoreGraphics.CGFloat
+  @objc public var signinButtonFontSize: CoreFoundation.CGFloat
   @objc public var signinButtonTextColor: UIKit.UIColor
   @objc public var signinButtonShadowColor: UIKit.UIColor
-  @objc public var signinButtonShadowRadius: CoreGraphics.CGFloat
-  @objc public var restoreButtonFontSize: CoreGraphics.CGFloat
+  @objc public var signinButtonShadowRadius: CoreFoundation.CGFloat
+  @objc public var restoreButtonFontSize: CoreFoundation.CGFloat
   @objc public var restoreButtonTextColor: UIKit.UIColor
   @objc public var restoreButtonShadowColor: UIKit.UIColor
-  @objc public var restoreButtonShadowRadius: CoreGraphics.CGFloat
-  @objc public var purchaseTermsFontSize: CoreGraphics.CGFloat
+  @objc public var restoreButtonShadowRadius: CoreFoundation.CGFloat
+  @objc public var purchaseTermsFontSize: CoreFoundation.CGFloat
   @objc public var purchaseTermsTextColor: UIKit.UIColor
   @objc public var purchaseTermsShadowColor: UIKit.UIColor
-  @objc public var purchaseTermsShadowRadius: CoreGraphics.CGFloat
+  @objc public var purchaseTermsShadowRadius: CoreFoundation.CGFloat
   @objc public var termsLinkColor: UIKit.UIColor
   @objc override dynamic public init()
   @objc deinit
