@@ -1,0 +1,19 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <plist version="1.0">
+  <dict>
+  <key>method</key>
+  <string>app-store</string> <!-- app-store, ad-hoc, enterprise, development -->
+  <key>teamID</key>
+  <string>APPSTORE_TEAM_ID</string>
+  <key>signingStyle</key>
+  <string>manual</string>
+  <key>provisioningProfiles</key>
+  <dict>
+  <key>com.namiml.stg.test</key>
+  <string>APPSTORE_PROVISIONING_PROFILE_UUID_STG</string>
+  <key>com.namiml.app.test</key>
+  <string>APPSTORE_PROVISIONING_PROFILE_UUID_PROD</string>
+  </dict>
+  </dict>
+  </plist>

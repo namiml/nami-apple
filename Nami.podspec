@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '2.9.5'
+  s.version          = '3.0.0'
   s.summary          = 'Easy Apple StoreKit subscriptions & in-app purchases, with powerful built-in paywalls and A/B testing.'
 
   s.description      = <<-DESC
-  This library helps you easily offer in-app purchases and subscriptions using Apple App Store billing and StoreKit APIs. 
+  This library helps you easily offer in-app purchases and subscriptions using Apple App Store billing and StoreKit APIs.
 
   - No IAP code to write.
   - Focus on your app experience.
@@ -37,6 +37,6 @@ See https://www.namiml.com for more details and to create a free account.
   s.platform              = :ios, "11.2"
   s.ios.deployment_target = '11.2'
 
-  s.ios.vendored_frameworks = 'Nami.xcframework'  
+  s.ios.vendored_frameworks = 'NamiApple.xcframework'
   s.frameworks = 'UIKit', 'StoreKit'
 end
