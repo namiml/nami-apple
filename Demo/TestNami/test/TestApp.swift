@@ -27,6 +27,7 @@ struct TestApp: App {
 
         if (BuildConfiguration.shared.environment == .staging) {
             namiConfig.namiCommands = ["useStagingAPI"]
+//            namiConfig.fullScreenPresentation = true
 //            namiConfig.namiCommands = ["useStagingAPI", "overrideTemplateFileName=template.json"]
         }
         namiConfig.logLevel = .debug

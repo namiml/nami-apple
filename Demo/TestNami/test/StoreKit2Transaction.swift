@@ -8,6 +8,7 @@
 import Foundation
 import StoreKit
 
+@available(iOS 15.0, *)
 final class StoreKit2TransactionObserver {
 
     var updates: Task<Void, Never>? = nil

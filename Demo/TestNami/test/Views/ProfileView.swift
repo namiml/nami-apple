@@ -17,11 +17,13 @@ struct JourneyStateItem: View {
 
         HStack {
 
-            Circle()
-                .background()
+            if #available(iOS 15.0, *) {
+                Circle()
+                    .background()
                     .foregroundColor(state == true ? Color("Green") : Color.gray.opacity(0.5))
                     .frame(width: 12, height: 12, alignment: .leading)
 
+            }
             Spacer()
 
             Text(label)
@@ -64,7 +66,7 @@ struct IdentifierCell: View {
                 .foregroundColor(.gray)
                 .frame(width: 45, alignment: .trailing)
             Text(identifier)
-                .font(.system(size: 13))
+                .font(.system(size: 12))
         }
     }
 
@@ -103,6 +105,15 @@ struct ProfileView: View {
             }
         }
         .navigationBarTitle("Profile")
+        .toolbar {
+            Button(namiDataSource.isLoggedIn == true ? "Logout" : "Login") {
+                if (namiDataSource.isLoggedIn == true) {
+                    NamiCustomerManager.logout()
+                } else {
+                    NamiCustomerManager.login(withId: UUID().uuidString)
+                }
+            }
+        }
         .onAppear() {
             namiDataSource.updateLoggedInStatus()
         }

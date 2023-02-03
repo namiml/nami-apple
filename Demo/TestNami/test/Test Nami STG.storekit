@@ -9,7 +9,7 @@
   "settings" : {
     "_applicationInternalID" : "6444032561",
     "_developerTeamID" : "K6APTMK8Y8",
-    "_lastSynchronizedDate" : 695169603.88285899
+    "_lastSynchronizedDate" : 696971116.31861901
   },
   "subscriptionGroups" : [
     {
@@ -30,7 +30,12 @@
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "1651722008",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "B0842B18",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
           "localizations" : [
             {
               "description" : "Plus Annual STG",
@@ -80,7 +85,12 @@
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "1651721699",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "2B40F7E5",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "localizations" : [
             {
               "description" : "Plus Monthly STG",
@@ -96,7 +106,14 @@
         },
         {
           "adHocOffers" : [
-
+            {
+              "internalID" : "767D6EB7",
+              "numberOfPeriods" : 1,
+              "offerID" : "vip_annual_testnami_stg_freetrial",
+              "paymentMode" : "free",
+              "referenceName" : "VIP Annual Free Trial",
+              "subscriptionPeriod" : "P2W"
+            }
           ],
           "codeOffers" : [
 
@@ -105,7 +122,12 @@
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "6444778703",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "411AC8DB",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1M"
+          },
           "localizations" : [
 
           ],
@@ -126,7 +148,12 @@
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "6444778528",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "B6D4EDB5",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
           "localizations" : [
 
           ],
