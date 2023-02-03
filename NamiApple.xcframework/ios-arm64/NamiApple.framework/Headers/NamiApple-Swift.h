@@ -237,6 +237,16 @@ SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @end
 
 
+
+SWIFT_CLASS("_TtC9NamiApple12ImageService")
+@interface ImageService : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+
 @class NSString;
 
 SWIFT_CLASS("_TtC9NamiApple11MockPayment")
@@ -368,15 +378,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport *
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple19NamiCampaignContext")
-@interface NamiCampaignContext : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
+@interface NamiCampaign : NSObject
 @end
 
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @interface NamiCampaignManager : NSObject
+- (void)registerWithAvailableCampaignsHandler:(void (^ _Nullable)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
+/// Unregisters any active entilement change handlers..
++ (void)unregisterAvailableCampaignsHandler;
+/// Registers a callback that will be activated when campaigns are loaded from cache or fetched from the Nami service.
+/// \param availableCampaignsHandler A callback called when campaigns for this device are made available.
+///
++ (void)registerAvailableCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
+/// Receive a list of all live campaigns sent to this device by the Nami service.
++ (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -401,7 +418,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
 /// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
 ///
@@ -411,7 +428,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label waitOnData:(double)waitOnData launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label waitOnData:(double)waitOnData launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -438,6 +455,8 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic, copy) NSString * _Nonnull namiLanguageCode;
 /// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
 @property (nonatomic) BOOL bypassStore;
+/// If set to true, <code>modalPresentationStyle</code> will be set to .fullScreen on phone devices for paywall views
+@property (nonatomic) BOOL fullScreenPresentation;
 /// Used to activate internal features of the SDK not generally used by Nami clients.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -966,6 +985,10 @@ typedef SWIFT_ENUM(NSInteger, NamiPaywallAction, open) {
   NamiPaywallActionSelect_sku = 4,
   NamiPaywallActionPurchase_selected_sku = 5,
   NamiPaywallActionPurchase_success = 6,
+  NamiPaywallActionPurchase_deferred = 7,
+  NamiPaywallActionPurchase_failed = 8,
+  NamiPaywallActionPurchase_cancelled = 9,
+  NamiPaywallActionPurchase_unknown = 10,
 };
 
 
@@ -1056,6 +1079,9 @@ SWIFT_CLASS("_TtC9NamiApple12NamiPurchase")
 @property (nonatomic) enum NamiPurchaseSource purchaseSource;
 @property (nonatomic) NSInteger consumptionCount;
 @property (nonatomic, readonly, copy) NSArray<NamiEntitlement *> * _Nonnull entitlementsGranted;
+- (nonnull instancetype)initWithProductIdentifier:(NSString * _Nonnull)productIdentifier purchaseSource:(enum NamiPurchaseSource)purchaseSource OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic) BOOL isSubscription;
+@property (nonatomic, strong) NamiSKU * _Nullable sku;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1103,12 +1129,12 @@ SWIFT_CLASS("_TtC9NamiApple19NamiPurchaseManager")
 /// NamiPurchase objects if any purchases are found, an empty array otherwise.
 + (NSArray<NamiPurchase *> * _Nonnull)allPurchases SWIFT_WARN_UNUSED_RESULT;
 /// Registers a callback that will be activated when any purchase activity occurs - either purchases or expiration.
-/// \param changeHandler A callback called when StoreKit purchase changes in the system are detected.
+/// \param responseHandler A callback called when StoreKit purchase changes in the system are detected.
 ///
 ///
 /// returns:
 /// NamiPurchase objects if any purchases are found, an empty array otherwise.
-+ (void)registerPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
++ (void)registerPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
 /// Registers a callback that will be activated when any purchase activity occurs - either purchases or expiration.
 /// \param changeHandler A callback called when StoreKit purchase changes in the system are detected.
 ///
@@ -1168,7 +1194,7 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, open) {
   NamiPurchaseSourceUnknown = 2,
 };
 
-/// The various states a purcahse can be in depending on what is happening in StoreKit.   Of note is that “purchasedNotValidated” means that validation failed, but StoreKit considers the item purchased .
+/// The various states a purcahse can be in depending on what is happening in StoreKit.   Of note is that “purchasedNotValidated” means that validation failed, but StoreKit considers the item purchased.
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStatePending = 0,
   NamiPurchaseStatePurchased = 1,
@@ -1313,7 +1339,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (void)verifyReceiptWithCompletion:(void (^ _Nonnull)(NamiReceiptWrapper * _Nullable))completion;
 /// A simple way to ask for SKProducts directly from StoreKit.
 - (void)productsForProductIdentifiersWithProductIDs:(NSArray<NSString *> * _Nonnull)productIDs productHandler:(void (^ _Nonnull)(BOOL, NSArray<NamiSKU *> * _Nullable, NSArray<NSString *> * _Nullable, NSError * _Nullable))productHandler;
-- (void)registerWithPurchasesChangedHandler:(void (^ _Nullable)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))changeHandler;
 + (NSData * _Nullable)appReceiptData SWIFT_WARN_UNUSED_RESULT;
 /// Last app receipt json obtained, if any.
 + (NamiReceiptWrapper * _Nullable)appReceipt SWIFT_WARN_UNUSED_RESULT;
@@ -1527,6 +1552,7 @@ SWIFT_CLASS("_TtC9NamiApple22StylableSimpleTextCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

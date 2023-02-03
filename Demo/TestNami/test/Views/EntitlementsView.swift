@@ -1,11 +1,12 @@
 //
-//  PremiumView.swift
+//  EntitlementsView.swift
 //  Test
 //
 //  Created by Dan Burcaw on 10/24/22.
 //
 
 import SwiftUI
+import NamiApple
 
 struct EntitlementsView: View {
     @EnvironmentObject var namiDataSource: NamiDataSource
@@ -24,6 +25,11 @@ struct EntitlementsView: View {
             }
         }
         .navigationBarTitle("Entitlements")
+        .toolbar {
+            Button("Refresh") {
+                NamiEntitlementManager.refresh()
+            }
+        }
     }
 }
 

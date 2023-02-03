@@ -22,8 +22,7 @@ class NamiDataSource: ObservableObject {
     @Published var linkedPaywallMetadata: NamiPaywall?
     @Published var activeEntitlements: [NamiEntitlement] = []
     @Published var journeyState: CustomerJourneyState? = NamiCustomerManager.journeyState()
-
-    @Environment(\.dismiss) private var dismiss
+    @Published var campaigns: [NamiCampaign] = NamiCampaignManager.allCampaigns()
 
 //    let publisher = PassthroughSubject<[NamiEntitlement], Never>()
 
@@ -76,12 +75,19 @@ class NamiDataSource: ObservableObject {
 
     init() {
 
-
-        if !Nami.shared.purchaseManagementEnabled {
-            StoreKit2TransactionObserver()
+        if #available(iOS 15.0, *) {
+            if !Nami.shared.purchaseManagementEnabled {
+                StoreKit2TransactionObserver()
+            }
         }
 
+
         self.isLoggedIn = NamiCustomerManager.isLoggedIn()
+
+        // This handler is called when campaigns are loaded for the device
+        NamiCampaignManager.registerAvailableCampaignsHandler { campaigns in
+            self.campaigns = campaigns.sorted(by: { $0.value ?? "" < $1.value ?? "" })
+        }
 
         // This handler is called when a paywall is closed
         NamiPaywallManager.registerCloseHandler { paywall in
@@ -138,43 +144,47 @@ class NamiDataSource: ObservableObject {
 
         // This handler is called when sign-in control on paywall is tapped
         NamiPaywallManager.registerSignInHandler { (_) in
-            self.dismiss()
+            NamiPaywallManager.dismiss(animated: true) {
+
+            }
         }
 
-        NamiPaywallManager.registerBuySkuHandler { paywallVC, sku in
-            print("BYO billing buySkuHandler \(sku.storeId)")
-            Task {
-                let productIdentifiers = [sku.storeId]
-                if let products = try? await Product.products(for: productIdentifiers) {
-                    print("\(products)")
+        if #available(iOS 15.0, *) {
+            NamiPaywallManager.registerBuySkuHandler { paywallVC, sku in
+                print("BYO billing buySkuHandler \(sku.storeId)")
+                Task {
+                    let productIdentifiers = [sku.storeId]
+                    if let products = try? await Product.products(for: productIdentifiers) {
+                        print("\(products)")
 
-                    if let appAccountToken = UUID(uuidString: NamiCustomerManager.deviceId()) {
-                        if let purchaseResult = try? await products[0].purchase(options: [
-                            .appAccountToken(appAccountToken)
-                        ]) {
-                            switch purchaseResult {
-                            case .pending:
-                                print("pending purchase result")
-                            case .success(let verification):
-                                switch verification {
-                                case .verified(let transaction):
-                                    await transaction.finish()
+                        if let appAccountToken = UUID(uuidString: NamiCustomerManager.deviceId()) {
+                            if let purchaseResult = try? await products[0].purchase(options: [
+                                .appAccountToken(appAccountToken)
+                            ]) {
+                                switch purchaseResult {
+                                case .pending:
+                                    print("pending purchase result")
+                                case .success(let verification):
+                                    switch verification {
+                                    case .verified(let transaction):
+                                        await transaction.finish()
 
-                                    print("verified \(transaction)")
-                                case .unverified:
-                                    print("unverified")
+                                        print("verified \(transaction)")
+                                    case .unverified:
+                                        print("unverified")
+                                    }
+                                case .userCancelled:
+                                    print("user cancelled")
+                                @unknown default:
+                                    print("unexpected result")
+
                                 }
-                            case .userCancelled:
-                                print("user cancelled")
-                            @unknown default:
-                                print("unexpected result")
-
                             }
                         }
                     }
+
+
                 }
-
-
             }
         }
 
@@ -236,11 +246,26 @@ class NamiDataSource: ObservableObject {
             }
         }
 
+        NamiPurchaseManager.registerPurchasesChangedHandler { purchases, purchaseState, error in
+                print("purchasesChangesHandler \(purchaseState)\n")
+                for purchase in purchases {
+                    print("purchased sku_ref_id: \(purchase.skuId)\n")
+                    print("purchased transaction id: \(purchase.transactionIdentifier)\n")
+
+                    if let originalTransactionID = purchase.transaction?.original?.transactionIdentifier {
+                        print("purchased original transaction id: \(originalTransactionID)\n")
+                    }
+                }
+        }
+
         NamiPurchaseManager.registerRestorePurchasesHandler { state, newPurchases, oldPurchases, error in
             let impactMed = UIImpactFeedbackGenerator(style: .soft)
             impactMed.impactOccurred()
 
             let presentAlertFromVC = NamiPaywallManager.displayedViewController()
+
+            print("newPurchases \(newPurchases) oldpurchases \(oldPurchases)")
+
 
             switch state {
             case .started:
@@ -250,7 +275,9 @@ class NamiDataSource: ObservableObject {
                 // newPurchases than oldPurchases
                 if oldPurchases != newPurchases {
                     print("Found restored purchases")
-                    self.dismiss()
+                    NamiPaywallManager.dismiss(animated:true) {
+
+                    }
                 } else {
                     let alert = UIAlertController(title: "Restore Purchase", message: "No previous purchases to restore", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -259,7 +286,6 @@ class NamiDataSource: ObservableObject {
                     if let paywallVc = presentAlertFromVC {
                         paywallVc.present(alert, animated: true, completion: nil)
                     } else {
-                        print("Did not find purchases to restore")
                     }
                 }
             case .error:
