@@ -5,25 +5,24 @@
 //  Copyright © 2022 Nami ML Inc.
 //
 
-import SwiftUI
 import NamiApple
+import SwiftUI
 
 struct CampaignView: View {
     @EnvironmentObject var namiDataSource: NamiDataSource
 
     var body: some View {
-
         ZStack {
             Form {
                 Section(header: Text("Live Unlabeled Campaign")) {
-                    ForEach(namiDataSource.campaigns.filter { $0.type == .default}) { campaign in
+                    ForEach(namiDataSource.campaigns.filter { $0.type == .default }) { _ in
                         Button(action: launchDefault) {
                             Text("default")
                         }
                     }
                 }
                 Section(header: Text("Live Labeled Campaigns")) {
-                    ForEach(namiDataSource.campaigns.filter { $0.value != nil}) { campaign in
+                    ForEach(namiDataSource.campaigns.filter { $0.value != nil }) { campaign in
                         Button(action: { launchWithLabel(label: campaign.value!) }) {
                             Text(campaign.value!)
                         }
@@ -32,11 +31,15 @@ struct CampaignView: View {
             }
         }
         .navigationBarTitle("Campaigns")
-
+        .toolbar {
+            Button("Refresh") {
+                NamiCampaignManager.refresh()
+            }
+        }
     }
 
     private func launchDefault() {
-        NamiCampaignManager.launch(launchHandler: { success, error -> () in
+        NamiCampaignManager.launch(launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         })
     }
@@ -45,7 +48,7 @@ struct CampaignView: View {
         NamiCampaignManager.launch(label: label, launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         },
-        paywallActionHandler: { action, skuId, purchaseError, purchases -> () in
+        paywallActionHandler: { action, skuId, purchaseError, _ in
 
             switch action {
             case .close_paywall:
@@ -73,11 +76,7 @@ struct CampaignView: View {
                 print("purchase cancelled")
 
             case .purchase_failed:
-                if let error = purchaseError {
-                    print("\(purchaseError)")
-                }
                 print("purchase failed - error \(String(describing: purchaseError))")
-
 
             default:
                 print("Launched paywall action - unknown \(action.rawValue) skuId: \(String(describing: skuId))")

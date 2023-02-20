@@ -45,6 +45,8 @@
 		429EB470296BBD2C00EF8A20 /* Release-STG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 42144E042909EFFB002C2415 /* Release-STG.xcconfig */; };
 		429EB47D296BBD3C00EF8A20 /* NamiApple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4273FCBF2931373E00842BE5 /* NamiApple.framework */; };
 		429EB47E296BBD3C00EF8A20 /* NamiApple.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4273FCBF2931373E00842BE5 /* NamiApple.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		42E84F1229A0305D0095FBD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E84F0E29A0305D0095FBD1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		42E84F1329A030680095FBD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E84F0E29A0305D0095FBD1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		42EB2E802932BA0B00F1E5E0 /* NamiApple.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */; };
 		42EB2E812932BA0B00F1E5E0 /* NamiApple.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42FCA7E72894DE3800DA3715 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E62894DE3800DA3715 /* TestApp.swift */; };
@@ -120,6 +122,7 @@
 		428CD0842909E09900DE7081 /* Test Nami PROD.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Test Nami PROD.storekit"; path = "test/Test Nami PROD.storekit"; sourceTree = SOURCE_ROOT; };
 		429EB478296BBD2C00EF8A20 /* Test dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429EB47C296BBD2C00EF8A20 /* Test copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Test copy-Info.plist"; path = "/Volumes/ExtremeSSD/Source/omaha-sdk-ios/Demo/TestNami/Test copy-Info.plist"; sourceTree = "<absolute>"; };
+		42E84F0E29A0305D0095FBD1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NamiApple.xcframework; path = ../../NamiApple.xcframework; sourceTree = "<group>"; };
 		42FCA7E32894DE3800DA3715 /* TestNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FCA7E62894DE3800DA3715 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E84F1229A0305D0095FBD1 /* StoreKit.framework in Frameworks */,
 				429EB467296BBD2C00EF8A20 /* AuthenticationServices.framework in Frameworks */,
 				429EB47D296BBD3C00EF8A20 /* NamiApple.framework in Frameworks */,
 			);
@@ -142,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E84F1329A030680095FBD1 /* StoreKit.framework in Frameworks */,
 				4246555E289CCFFD0011BB25 /* AuthenticationServices.framework in Frameworks */,
 				42EB2E802932BA0B00F1E5E0 /* NamiApple.xcframework in Frameworks */,
 			);
@@ -165,6 +170,7 @@
 		42465557289C69620011BB25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42E84F0E29A0305D0095FBD1 /* StoreKit.framework */,
 				42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */,
 				4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */,
 			);

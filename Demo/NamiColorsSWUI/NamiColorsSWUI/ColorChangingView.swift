@@ -6,13 +6,13 @@
 //  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
-import SwiftUI
 import Nami
+import SwiftUI
 
 func chooseRandomColor() -> Color {
-    let randomR : Double = Double.random(in: 0 ..< 1)
-    let randomG : Double = Double.random(in: 0 ..< 1)
-    let randomB : Double = Double.random(in: 0 ..< 1)
+    let randomR = Double.random(in: 0 ..< 1)
+    let randomG = Double.random(in: 0 ..< 1)
+    let randomB = Double.random(in: 0 ..< 1)
 
     let newColor = Color(red: randomR, green: randomG, blue: randomB)
 
@@ -20,7 +20,6 @@ func chooseRandomColor() -> Color {
 }
 
 struct ColorChangingView: View {
-
     @State var viewColor: Color = chooseRandomColor()
 
     var body: some View {
@@ -28,7 +27,7 @@ struct ColorChangingView: View {
             Rectangle()
                 .fill(viewColor)
                 .frame(width: 200, height: 200)
-                .gesture(TapGesture().onEnded{ _ in
+                .gesture(TapGesture().onEnded { _ in
                     viewColor = chooseRandomColor()
                 }
                 )

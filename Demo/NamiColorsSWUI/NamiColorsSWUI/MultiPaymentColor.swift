@@ -6,23 +6,21 @@
 //  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
-import SwiftUI
 import Nami
+import SwiftUI
 
 struct MultiPaymentColor: View {
-
     @EnvironmentObject var namiDataSource: NamiDataSource
 
     var body: some View {
         VStack(spacing: 30) {
-
             ColorChangingView()
 
             if namiDataSource.purchased {
                 Text("This App Owned By Generous Tipper!")
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiCampaignManager.launch(label: "swui_tip_paywall") { success, error in
+                    NamiCampaignManager.launch(label: "swui_tip_paywall") { _, error in
                         print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
@@ -37,7 +35,7 @@ struct MultiPaymentColor: View {
             } else {
                 Button(action: {
                     // When the button is pressed we'll raise the application paywall.
-                    NamiCampaignManager.launch(label: "swui_tip_paywall") { success, error in
+                    NamiCampaignManager.launch(label: "swui_tip_paywall") { _, error in
                         print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {

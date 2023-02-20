@@ -29,9 +29,9 @@
 import Foundation
 
 struct UserDataKeychain: Keychain {
-  // Make sure the account name doesn't match the bundle identifier!
-  var account = "com.namiml.app.test.Details"
-  var service = "userIdentifier"
+    // Make sure the account name doesn't match the bundle identifier!
+    var account = "com.namiml.app.test.Details"
+    var service = "userIdentifier"
 
-  typealias DataType = UserData
+    typealias DataType = UserData
 }

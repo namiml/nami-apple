@@ -5,20 +5,19 @@
 //  Copyright © 2022 Nami ML Inc.
 //
 
-import SwiftUI
-import NamiApple
 import AuthenticationServices
+import NamiApple
+import SwiftUI
 
 struct ContentView: View {
-    @StateObject var namiDataSource: NamiDataSource = NamiDataSource()
+    @StateObject var namiDataSource: NamiDataSource = .init()
 
     var body: some View {
         ZStack {
             TabView {
                 NavigationView {
-                   CampaignView()
+                    CampaignView()
                         .environmentObject(namiDataSource)
-
                 }
                 .tabItem {
                     Label("Campaigns", systemImage: "target")
@@ -48,11 +47,9 @@ struct ContentView: View {
                 }
                 .edgesIgnoringSafeArea(.top)
                 .navigationViewStyle(.stack)
-
             }
             .edgesIgnoringSafeArea(.top)
             .accentColor(Color("PrimaryBlue"))
-
         }
     }
 }
