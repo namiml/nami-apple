@@ -8,10 +8,9 @@
 import Foundation
 import StoreKit
 
-@available(iOS 15.0, *)
+@available(iOS 15.0, macOS 12.0, *)
 final class StoreKit2TransactionObserver {
-
-    var updates: Task<Void, Never>? = nil
+    var updates: Task<Void, Never>?
 
     init() {
         updates = newTransactionListenerTask()
@@ -31,7 +30,7 @@ final class StoreKit2TransactionObserver {
     }
 
     private func handle(updatedTransaction verificationResult: VerificationResult<Transaction>) {
-        guard case .verified(let transaction) = verificationResult else {
+        guard case let .verified(transaction) = verificationResult else {
             // Ignore unverified transactions.
             return
         }
@@ -59,5 +58,4 @@ final class StoreKit2TransactionObserver {
 //            <#...#>
 //        }
     }
-
 }

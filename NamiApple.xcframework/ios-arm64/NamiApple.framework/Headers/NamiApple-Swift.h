@@ -394,6 +394,16 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 + (void)registerAvailableCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
 /// Receive a list of all live campaigns sent to this device by the Nami service.
 + (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
+/// Return true if a campaign with the supplied label is available on the device for launch
++ (BOOL)isCampaignAvailableWithLabel:(NSString * _Nonnull)label SWIFT_WARN_UNUSED_RESULT;
+/// Return true if a campaign without a  label is available on the device for launch
++ (BOOL)isCampaignAvailable SWIFT_WARN_UNUSED_RESULT;
+/// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
++ (void)refresh;
+/// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
+/// \param refreshHandler Called when the entitlement check has returned from Nami and system entitlments updated.
+///
++ (void)refresh:(void (^ _Nullable)(NSArray<NamiCampaign *> * _Nonnull))refreshHandler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -466,7 +476,7 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 
 SWIFT_CLASS("_TtC9NamiApple24NamiCorrectiveFlowLayout")
 @interface NamiCorrectiveFlowLayout : UICollectionViewFlowLayout
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)_ SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -568,8 +578,6 @@ SWIFT_CLASS("_TtC9NamiApple22NamiEntitlementManager")
 /// true if the entitlement matching the passed in ID is active, false otherwise.
 + (BOOL)isEntitlementActive:(NSString * _Nonnull)referenceId SWIFT_WARN_UNUSED_RESULT;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
-/// \param refreshHandler Called when the entitlement check has returned from Nami and system entitlments updated.
-///
 + (void)refresh;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
 /// \param refreshHandler Called when the entitlement check has returned from Nami and system entitlments updated.
@@ -1000,6 +1008,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 
 
 @class UIViewController;
+@class NamiPurchaseSuccess;
+@class SKProduct;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback that is called when a paywall is to be raised, and the current paywall defintiion is a linked paywall.  The callback is given all of the metadata that Nami has on the paywall, along with pre-loaded assets like products and the paywall background.  When this method is called, the intent is for a paywall to the displayed for the user at that time.
@@ -1018,7 +1028,21 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 /// Only available for plans where Nami is not handling subscription & IAP purchase management.
 /// \param buySkuHandler A callback called when a buy sku action takes place
 ///
-+ (void)registerBuySkuHandler:(void (^ _Nullable)(UIViewController * _Nullable, NamiSKU * _Nonnull))buySkuHandler;
++ (void)registerBuySkuHandler:(void (^ _Nullable)(NamiSKU * _Nonnull))buySkuHandler;
+/// Notify the NamiPaywallManager that an App Store in-app purchase handled by you is complete.
+/// Only available for apps in which Nami is not handling subscription & IAP management.
+/// \param purchaseSuccess A NamiPurchaseSuccess object for the purchase.
+///
++ (void)buySkuCompleteWithPurchaseSuccess:(NamiPurchaseSuccess * _Nonnull)purchaseSuccess;
+/// Notify the NamiPaywallManager that a StoreKit 2 purchase handled by you is complete.
+/// Only available for apps in which Nami is not handling subscription & IAP management.
+/// \param sku A <code>NamiSKU</code> object passed to you by <code>NamiPaywallBuySkuHandler</code>
+///
+/// \param product A StoreKit 1 <code>SKProduct</code> object used to make the purchase.
+///
+/// \param transaction A StoreKit 1 <code>SKPaymentTransaction</code> object for the purchase.
+///
++ (void)buySkuCompleteWithSku:(NamiSKU * _Nonnull)sku product:(SKProduct * _Nonnull)product transaction:(SKPaymentTransaction * _Nonnull)transaction;
 /// Call in the case when you want to be sure a Nami paywall will have been closed
 /// \param animated True for standard UIKit animation of dismissal, false otherwise.
 ///
@@ -1058,7 +1082,7 @@ SWIFT_CLASS("_TtC9NamiApple31NamiPaywallRoundableSpacingCell")
 
 SWIFT_CLASS("_TtC9NamiApple24NamiPaywallTextFieldCell")
 @interface NamiPaywallTextFieldCell : UICollectionViewCell <UITextViewDelegate>
-- (BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)textView:(UITextView * _Nonnull)_ shouldInteractWithURL:(NSURL * _Nonnull)URL inRange:(NSRange)_ interaction:(UITextItemInteraction)_ SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1177,16 +1201,6 @@ SWIFT_CLASS("_TtC9NamiApple19NamiPurchaseManager")
 + (void)buySku:(NamiSKU * _Nonnull)sku responseHandler:(void (^ _Nonnull)(NSArray<NamiPurchase *> * _Nonnull, enum NamiPurchaseState, NSError * _Nullable))responseHandler;
 @end
 
-typedef SWIFT_ENUM(NSInteger, NamiPurchaseResult, open) {
-  NamiPurchaseResultPurchased = 0,
-  NamiPurchaseResultRenewed = 1,
-  NamiPurchaseResultDeferred = 2,
-  NamiPurchaseResultRetrying = 3,
-  NamiPurchaseResultCanceled = 4,
-  NamiPurchaseResultBlocked = 5,
-  NamiPurchaseResultFailed = 6,
-};
-
 /// The source a purchase comes from - either direct on the App Store, or through a paywall in-app controlled by a Nami campaign
 typedef SWIFT_ENUM(NSInteger, NamiPurchaseSource, open) {
   NamiPurchaseSourceCampaign = 0,
@@ -1206,6 +1220,14 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
   NamiPurchaseStateCancelled = 7,
   NamiPurchaseStateUnknown = 8,
 };
+
+
+SWIFT_CLASS("_TtC9NamiApple19NamiPurchaseSuccess")
+@interface NamiPurchaseSuccess : NSObject
+- (nonnull instancetype)initWithProduct:(NamiSKU * _Nonnull)product transactionID:(NSString * _Nonnull)transactionID originalTransactionID:(NSString * _Nonnull)originalTransactionID originalPurchaseDate:(NSDate * _Nonnull)originalPurchaseDate purchaseDate:(NSDate * _Nonnull)purchaseDate expiresDate:(NSDate * _Nullable)expiresDate price:(NSDecimal)price currencyCode:(NSString * _Nonnull)currencyCode locale:(NSLocale * _Nonnull)locale OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 /// Wimple wrapper around IAP JSON from an Apple parsed StoreKit receipt.  Note you can always get the original IAP product dict from the parsed receipt via the iapJSONDict property.
@@ -1251,7 +1273,6 @@ typedef SWIFT_ENUM(NSInteger, NamiRestorePurchasesState, open) {
   NamiRestorePurchasesStateError = 2,
 };
 
-@class SKProduct;
 enum NamiSKUType : NSInteger;
 
 /// Object that wraps the native product (when available for the platform you are on).  It holds metadata, if any, from the Nami Control Center.
@@ -1415,11 +1436,11 @@ SWIFT_CLASS("_TtC9NamiApple16PaywallStyleData")
 
 SWIFT_CLASS("_TtC9NamiApple17ProductOptionCell")
 @interface ProductOptionCell : UICollectionViewCell
-@property (nonatomic, weak) IBOutlet RoundedView * _Nullable backgroundRoundedView;
-@property (nonatomic, weak) IBOutlet UILabel * _Nullable descriptionLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Nullable priceLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Nullable durationLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Nullable durationMultiplierLabel;
+@property (nonatomic, strong) IBOutlet RoundedView * _Nullable backgroundRoundedView;
+@property (nonatomic, strong) IBOutlet UILabel * _Nullable descriptionLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Nullable priceLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Nullable durationLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Nullable durationMultiplierLabel;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
@@ -1442,7 +1463,7 @@ SWIFT_CLASS("_TtC9NamiApple11RoundedView")
 @interface SKProduct (SWIFT_EXTENSION(NamiApple))
 /// Builds a simple dictionary for a product that holds price, locale, and currency values for this product.
 - (NSDictionary<NSString *, id> * _Nonnull)namiInfoDict SWIFT_WARN_UNUSED_RESULT;
-- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)purchaseSource SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary<NSString *, id> * _Nonnull)namiInfoDictWithPurchaseSource:(enum NamiPurchaseSource)_ SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSNumberFormatter;
@@ -1552,6 +1573,9 @@ SWIFT_CLASS("_TtC9NamiApple22StylableSimpleTextCell")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
+
+
 
 
 

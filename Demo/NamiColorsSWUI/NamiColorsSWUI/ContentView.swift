@@ -6,9 +6,8 @@
 //  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
-import SwiftUI
 import Nami
-
+import SwiftUI
 
 struct ResultView: View {
     var choice: String
@@ -24,9 +23,9 @@ struct ContentView: View {
     @State private var username: String = ""
 
     /// Login a user with the given accountID - a UUID willl be generated for this user, since Nami only acccepts a UUID or SHA256 hash as an account identifier.
-    func loginWithAccountID(accountID: String? ) {
+    func loginWithAccountID(accountID: String?) {
         if let accountID = accountID, !accountID.isEmpty {
-            NamiCustomerManager.login(withId: UUID().uuidString) { success, error in
+            NamiCustomerManager.login(withId: UUID().uuidString) { success, _ in
 
                 if success {
                     UserDefaults.standard.set(accountID, forKey: "accountID")
@@ -51,13 +50,13 @@ struct ContentView: View {
                 Spacer()
                 if namiDataSource.loggedIn {
                     if #available(iOS 15.0, *) {
-                    Text("Logged in as \(currentAccountID() ?? "")")
-                        .padding([.leading, .trailing,.top,.bottom], 10)
-                        .border(.secondary)
-                        .padding([.leading, .trailing], 20)
+                        Text("Logged in as \(currentAccountID() ?? "")")
+                            .padding([.leading, .trailing, .top, .bottom], 10)
+                            .border(.secondary)
+                            .padding([.leading, .trailing], 20)
                     }
                     Button {
-                        NamiCustomerManager.logout() { success, error in
+                        NamiCustomerManager.logout { _, _ in
                             clearStoredAccountID()
                         }
                     } label: {
@@ -66,7 +65,7 @@ struct ContentView: View {
                 } else {
                     if #available(iOS 15.0, *) {
                         TextField("Username", text: $username)
-                            .padding([.leading, .trailing,.top,.bottom], 10)
+                            .padding([.leading, .trailing, .top, .bottom], 10)
                             .onSubmit {
                                 loginWithAccountID(accountID: username)
                             }
@@ -86,8 +85,8 @@ struct ContentView: View {
 
                 Spacer()
 
-            Text("Choose type of purchase to demo:")
-                .padding()
+                Text("Choose type of purchase to demo:")
+                    .padding()
 
                 NavigationLink(destination: SubscriptionColor()) {
                     Text("Subscription")

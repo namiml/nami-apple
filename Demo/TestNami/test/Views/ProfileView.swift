@@ -5,37 +5,29 @@
 //  Copyright © 2022 Nami ML Inc.
 //
 
-import SwiftUI
 import NamiApple
-
+import SwiftUI
 
 struct JourneyStateItem: View {
     var label: String
     var state: Bool
 
     var body: some View {
-
         HStack {
-
             if #available(iOS 15.0, *) {
                 Circle()
                     .background()
                     .foregroundColor(state == true ? Color("Green") : Color.gray.opacity(0.5))
                     .frame(width: 12, height: 12, alignment: .leading)
-
             }
             Spacer()
 
             Text(label)
                 .padding(.leading, 10)
                 .frame(maxWidth: .infinity, alignment: .leading)
-
         }
-
     }
 }
-
-
 
 struct JourneyState: View {
     var journeyState: CustomerJourneyState
@@ -48,7 +40,6 @@ struct JourneyState: View {
             JourneyStateItem(label: "Former Subscriber", state: journeyState.formerSubscriber)
             JourneyStateItem(label: "In Grace Period", state: journeyState.inGracePeriod)
             JourneyStateItem(label: "In Account Hold", state: journeyState.inAccountHold)
-
         }
     }
 }
@@ -58,7 +49,6 @@ struct IdentifierCell: View {
     var identifier: String
 
     var body: some View {
-
         HStack {
             Text(label)
                 .fontWeight(.light)
@@ -69,7 +59,6 @@ struct IdentifierCell: View {
                 .font(.system(size: 12))
         }
     }
-
 }
 
 struct ProfileView: View {
@@ -85,12 +74,10 @@ struct ProfileView: View {
             }
         }
     }
+
     var body: some View {
-
         Form {
-
             Section(header: Text(namiDataSource.isLoggedIn == true ? "Registered User" : "Anonymous User")) {
-
                 Button(action: {
                     copy(text: namiDataSource.isLoggedIn == true ? namiDataSource.loggedInId : namiDataSource.deviceId)
                 }) {
@@ -107,14 +94,14 @@ struct ProfileView: View {
         .navigationBarTitle("Profile")
         .toolbar {
             Button(namiDataSource.isLoggedIn == true ? "Logout" : "Login") {
-                if (namiDataSource.isLoggedIn == true) {
+                if namiDataSource.isLoggedIn == true {
                     NamiCustomerManager.logout()
                 } else {
                     NamiCustomerManager.login(withId: UUID().uuidString)
                 }
             }
         }
-        .onAppear() {
+        .onAppear {
             namiDataSource.updateLoggedInStatus()
         }
     }
@@ -128,10 +115,7 @@ struct ProfileView: View {
         }
     }
 
-    private func showAppleLoginView() {
-
-    }
-
+    private func showAppleLoginView() {}
 }
 
 struct ProfileView_Previews: PreviewProvider {

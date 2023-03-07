@@ -6,20 +6,19 @@
 //  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
-import SwiftUI
 import Nami
+import SwiftUI
 
 @main
 struct NamiColorsSWUIApp: App {
-
     func setupNami() {
         let namiConfig = NamiConfiguration(appPlatformId: "002e2c49-7f66-4d22-a05c-1dc9f2b7f2af")
         namiConfig.logLevel = .debug
-        Nami.configure(with: namiConfig )
+        Nami.configure(with: namiConfig)
     }
 
     init() {
-       setupNami()
+        setupNami()
     }
 
     var namiDataSource = NamiDataSource()
@@ -51,17 +50,17 @@ class NamiDataSource: ObservableObject {
         purchased = NamiPurchaseManager.allPurchases().count > 0
 
         // Now register a change handler that will set the variable when entitlements change.
-        NamiEntitlementManager.registerActiveEntitlementsHandler() { (activeEntitlements) in
+        NamiEntitlementManager.registerActiveEntitlementsHandler { activeEntitlements in
             // If any entitlements exist we'll consider the subscription active, you could also look for specific entitlements here.
             self.subscribed = (activeEntitlements.count > 0)
             self.expirationDate = NamiPurchaseManager.allPurchases().first?.expires
         }
 
-        NamiPurchaseManager.registerPurchasesChangedHandler { (purchases, purchaseState, error) in
+        NamiPurchaseManager.registerPurchasesChangedHandler { purchases, _, _ in
             self.purchased = (purchases.count > 0)
         }
 
-        NamiCustomerManager.registerAccountStateHandler { accountStateAction, success, error in
+        NamiCustomerManager.registerAccountStateHandler { accountStateAction, success, _ in
             if success {
                 if accountStateAction == .login {
                     self.loggedIn = true
@@ -70,6 +69,5 @@ class NamiDataSource: ObservableObject {
                 }
             }
         }
-
     }
 }

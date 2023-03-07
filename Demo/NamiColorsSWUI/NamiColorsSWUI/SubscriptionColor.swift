@@ -6,21 +6,20 @@
 //  Copyright © 2021 Nami ML Inc. All rights reserved.
 //
 
-import SwiftUI
 import Nami
+import SwiftUI
 
 struct SubscriptionColor: View {
     @EnvironmentObject var namiDataSource: NamiDataSource
 
     var body: some View {
         VStack(spacing: 30) {
-
             ColorChangingView()
 
             if namiDataSource.subscribed {
                 ColorChangingView()
                 Button(action: {
-                    NamiCampaignManager.launch(label: "swui_subscription") { success, error in
+                    NamiCampaignManager.launch(label: "swui_subscription") { _, error in
                         print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
@@ -33,7 +32,7 @@ struct SubscriptionColor: View {
                 }
             } else {
                 Button(action: {
-                    NamiCampaignManager.launch(label: "swui_subscription") { success, error in
+                    NamiCampaignManager.launch(label: "swui_subscription") { _, error in
                         print("Paywall could not be raised, error was \(String(describing: error?.localizedDescription)).")
                     }
                 }) {
