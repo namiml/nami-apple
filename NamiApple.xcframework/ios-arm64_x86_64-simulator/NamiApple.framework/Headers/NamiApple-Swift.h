@@ -382,6 +382,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport *
 
 SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @interface NamiCampaign : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
+@property (nonatomic, copy) NSString * _Nonnull rule;
+@property (nonatomic, copy) NSString * _Nonnull segment;
+@property (nonatomic, copy) NSString * _Nonnull paywall;
+@property (nonatomic, copy) NSString * _Nullable value;
 @end
 
 
@@ -486,7 +491,8 @@ SWIFT_CLASS("_TtC9NamiApple24NamiCorrectiveFlowLayout")
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 @interface NamiCustomerManager : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSUUID;
@@ -529,6 +535,22 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 + (void)setAdvertisingIdWith:(NSUUID * _Nonnull)advertisingId;
 /// Clear a Advertising Identifier that has been sent to Nami
 + (void)clearAdvertisingIdentifier;
+/// Customer attributes are optional key/value pairs that can be used to personalize your Nami paywalls.
+/// \param key The name of the attribute. For example: <code>firstName</code> or <code>favoriteTeam</code>
+///
+/// \param value The value of the attribute. For example: <code>Joe</code> or <code>Arsenal F.C.</code>
+///
++ (void)setCustomerAttribute:(NSString * _Nonnull)key :(NSString * _Nonnull)value;
+/// Clear a value  for a given key in the on-device customer attribute key/value store.
+/// \param key The name of the attribute. For example: <code>firstName</code>
+///
++ (void)clearCustomerAttribute:(NSString * _Nonnull)key;
+/// Clear all customer attributes from the on-device key/value store.
++ (void)clearAllCustomerAttributes;
+/// Get a value  for a given key in the on-device customer attribute key/value store.
+/// \param key The name of the attribute. For example: <code>firstName</code>
+///
++ (NSString * _Nullable)getCustomerAttributeWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1245,7 +1267,7 @@ enum StoreKitEnvironmentObjC : NSInteger;
 
 SWIFT_CLASS("_TtC9NamiApple18NamiReceiptWrapper")
 @interface NamiReceiptWrapper : NSObject
-/// The raw JSON data returned from Apple processing the receipt data sent from yoru device.
+/// The raw JSON data returned from Apple processing the receipt data sent from your device.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull receiptJSONDict;
 /// Lets you know if there’s any receupt data to lok at, in cases of varous errors or passive mode, you’ll not have receipt data from a validation call.
 @property (nonatomic, readonly) BOOL hasReceiptData;
@@ -1976,6 +1998,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NamiAnalyticsSupport *
 
 SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @interface NamiCampaign : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
+@property (nonatomic, copy) NSString * _Nonnull rule;
+@property (nonatomic, copy) NSString * _Nonnull segment;
+@property (nonatomic, copy) NSString * _Nonnull paywall;
+@property (nonatomic, copy) NSString * _Nullable value;
 @end
 
 
@@ -2080,7 +2107,8 @@ SWIFT_CLASS("_TtC9NamiApple24NamiCorrectiveFlowLayout")
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 @interface NamiCustomerManager : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class NSUUID;
@@ -2123,6 +2151,22 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 + (void)setAdvertisingIdWith:(NSUUID * _Nonnull)advertisingId;
 /// Clear a Advertising Identifier that has been sent to Nami
 + (void)clearAdvertisingIdentifier;
+/// Customer attributes are optional key/value pairs that can be used to personalize your Nami paywalls.
+/// \param key The name of the attribute. For example: <code>firstName</code> or <code>favoriteTeam</code>
+///
+/// \param value The value of the attribute. For example: <code>Joe</code> or <code>Arsenal F.C.</code>
+///
++ (void)setCustomerAttribute:(NSString * _Nonnull)key :(NSString * _Nonnull)value;
+/// Clear a value  for a given key in the on-device customer attribute key/value store.
+/// \param key The name of the attribute. For example: <code>firstName</code>
+///
++ (void)clearCustomerAttribute:(NSString * _Nonnull)key;
+/// Clear all customer attributes from the on-device key/value store.
++ (void)clearAllCustomerAttributes;
+/// Get a value  for a given key in the on-device customer attribute key/value store.
+/// \param key The name of the attribute. For example: <code>firstName</code>
+///
++ (NSString * _Nullable)getCustomerAttributeWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2839,7 +2883,7 @@ enum StoreKitEnvironmentObjC : NSInteger;
 
 SWIFT_CLASS("_TtC9NamiApple18NamiReceiptWrapper")
 @interface NamiReceiptWrapper : NSObject
-/// The raw JSON data returned from Apple processing the receipt data sent from yoru device.
+/// The raw JSON data returned from Apple processing the receipt data sent from your device.
 @property (nonatomic, copy) NSDictionary<NSString *, id> * _Nonnull receiptJSONDict;
 /// Lets you know if there’s any receupt data to lok at, in cases of varous errors or passive mode, you’ll not have receipt data from a validation call.
 @property (nonatomic, readonly) BOOL hasReceiptData;
