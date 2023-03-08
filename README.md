@@ -76,5 +76,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 - [Early Access](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Early-Access-Releases)
 
 ### Documentation
-- [Getting Started] (https://docs.namiml.com/docs/nami-quickstart-guide)
+- [Getting Started](https://docs.namiml.com/docs/nami-quickstart-guide)
+- [SDK Recipes](https://docs.namiml.com/recipes/)
 - [SDK Reference](https://docs.namiml.com/reference/)
