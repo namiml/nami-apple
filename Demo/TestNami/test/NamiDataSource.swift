@@ -68,12 +68,17 @@ class NamiDataSource: ObservableObject {
 
     init() {
         if #available(iOS 15.0, macOS 12.0, *) {
-            if !Nami.shared.purchaseManagementEnabled {
+            if !Nami.shared.isPurchaseManagementEnabled() {
                 StoreKit2TransactionObserver()
             }
         }
 
-        isLoggedIn = NamiCustomerManager.isLoggedIn()
+        NamiCustomerManager.setCustomerAttribute("firstName", "Dan")
+//        NamiCustomerManager.clearCustomerAttribute("firstName")
+        NamiCustomerManager.setCustomerAttribute("favoriteTeam", "Broncos")
+        NamiCustomerManager.setCustomerAttribute("fooxyz", "bar123")
+
+        self.isLoggedIn = NamiCustomerManager.isLoggedIn()
 
         // This handler is called when campaigns are loaded for the device
         NamiCampaignManager.registerAvailableCampaignsHandler { campaigns in

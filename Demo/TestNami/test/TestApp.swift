@@ -30,7 +30,6 @@ struct TestApp: App {
         namiConfig.logLevel = .debug
 //        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
         Nami.configure(with: namiConfig)
-
         // Telemetry Deck
 //        let telemetryConfig = TelemetryManagerConfiguration(appID: "74F37D95-BD62-447C-9051-83FB7AF7671D")
 //        TelemetryManager.initialize(with: telemetryConfig)

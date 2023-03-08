@@ -649,7 +649,7 @@ public typealias NamiAppPlatformID = Swift.String
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
   @objc public static let shared: NamiApple.Nami
-  public var purchaseManagementEnabled: Swift.Bool
+  public func isPurchaseManagementEnabled() -> Swift.Bool
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class NamiCommand : ObjectiveC.NSObject {
@@ -711,14 +711,14 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurc
   @objc deinit
 }
 @objc public class NamiCampaign : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
-  public var id: Swift.String {
-    get
+  @objc public var id: Swift.String {
+    @objc get
   }
-  public var rule: Swift.String
-  public var segment: Swift.String
-  public var paywall: Swift.String
+  @objc public var rule: Swift.String
+  @objc public var segment: Swift.String
+  @objc public var paywall: Swift.String
   public var type: NamiApple.NamiCampaignRuleType
-  public var value: Swift.String?
+  @objc public var value: Swift.String?
   public typealias ID = Swift.String
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
@@ -777,6 +777,10 @@ public enum CustomerJourneyStateKeys {
   @objc public static func clearVendorId()
   @objc public static func setAdvertisingId(with advertisingId: Foundation.UUID)
   @objc public static func clearAdvertisingIdentifier()
+  @objc public static func setCustomerAttribute(_ key: Swift.String, _ value: Swift.String)
+  @objc public static func clearCustomerAttribute(_ key: Swift.String)
+  @objc public static func clearAllCustomerAttributes()
+  @objc public static func getCustomerAttribute(key: Swift.String) -> Swift.String?
 }
 @objc public enum AccountStateAction : Swift.Int {
   case login
@@ -789,8 +793,7 @@ public enum CustomerJourneyStateKeys {
 }
 public typealias NamiCustomerJourneyStateHandler = (_ journeyState: NamiApple.CustomerJourneyState) -> Swift.Void
 public typealias NamiAccountStateHandler = (_ accountStateAction: NamiApple.AccountStateAction, _ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
-@_inheritsConvenienceInitializers @objc public class NamiCustomerManager : ObjectiveC.NSObject {
-  @objc override dynamic public init()
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCustomerManager : ObjectiveC.NSObject {
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class PaywallLifecycleNotifications : ObjectiveC.NSObject {
@@ -994,39 +997,6 @@ public enum AsyncImagePhase {
   @_Concurrency.MainActor(unsafe) public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, content: @escaping (SwiftUI.Image) -> I, placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
   @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
-}
-public enum VariableType : Swift.String {
-  case current_sku
-  case sku
-  case sku_array
-  case paywall_dictionary
-  case component_meta_dictionary
-  case state_meta_dictionary
-  case slide_meta_dictionary
-  case app_provided_dictionary
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-@_hasMissingDesignatedInitializers public class ParseSupportDataWrapper {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class SkuParseDataWrapper : NamiApple.ParseSupportDataWrapper {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class SkusParseDataWrapper : NamiApple.ParseSupportDataWrapper {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class InitialStateDataWrapper : NamiApple.ParseSupportDataWrapper {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class SlideDataWrapper : NamiApple.ParseSupportDataWrapper {
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers public class MetaDictionaryDataWrapper : NamiApple.ParseSupportDataWrapper {
-  @objc deinit
 }
 public typealias NamiPaywallActionHandler = (_ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase]) -> Swift.Void
 public typealias NamiCustomPaywallHandler = (_ products: [NamiApple.NamiSKU]?, _ paywallMetadata: NamiApple.NamiPaywall?) -> Swift.Void
@@ -1523,9 +1493,6 @@ extension NamiApple.NamiAnalyticsPurchaseActivityType : Swift.RawRepresentable {
 extension NamiApple.NamiSKUType : Swift.Equatable {}
 extension NamiApple.NamiSKUType : Swift.Hashable {}
 extension NamiApple.NamiSKUType : Swift.RawRepresentable {}
-extension NamiApple.VariableType : Swift.Equatable {}
-extension NamiApple.VariableType : Swift.Hashable {}
-extension NamiApple.VariableType : Swift.RawRepresentable {}
 extension NamiApple.NamiPaywallAction : Swift.Equatable {}
 extension NamiApple.NamiPaywallAction : Swift.Hashable {}
 extension NamiApple.NamiPaywallAction : Swift.RawRepresentable {}
