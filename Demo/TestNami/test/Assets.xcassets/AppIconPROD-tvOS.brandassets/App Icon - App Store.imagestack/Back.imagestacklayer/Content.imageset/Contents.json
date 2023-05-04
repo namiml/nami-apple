@@ -1,0 +1,12 @@
+{
+  "images": [
+    {
+      "filename": "AppleTV-AppStore-PROD-Back.jpg",
+      "idiom": "tv"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}
