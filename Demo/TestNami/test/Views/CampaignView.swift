@@ -23,7 +23,9 @@ struct CampaignView: View {
                 }
                 Section(header: Text("Live Labeled Campaigns")) {
                     ForEach(namiDataSource.campaigns.filter { $0.value != nil }) { campaign in
-                        Button(action: { launchWithLabel(label: campaign.value!) }) {
+                        Button(action: {
+                            launchWithLabel(label: campaign.value!)
+                        }) {
                             Text(campaign.value!)
                         }
                     }
@@ -51,6 +53,9 @@ struct CampaignView: View {
         paywallActionHandler: { action, skuId, purchaseError, _ in
 
             switch action {
+            case .show_paywall:
+                print("Launched paywall action - paywall raised")
+
             case .close_paywall:
                 print("Launched paywall action - paywall closed")
 

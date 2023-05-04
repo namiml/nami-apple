@@ -107,12 +107,14 @@ struct ProfileView: View {
     }
 
     private func copy(text: String?) {
-        if let message = text {
-            print("Copy to pasteboard \(message))")
-            UIPasteboard.general.setValue(message, forPasteboardType: "public.plain-text")
-        } else {
-            print("Nothing to copy")
-        }
+        #if os(iOS)
+            if let message = text {
+                print("Copy to pasteboard \(message))")
+                UIPasteboard.general.setValue(message, forPasteboardType: "public.plain-text")
+            } else {
+                print("Nothing to copy")
+            }
+        #endif
     }
 
     private func showAppleLoginView() {}
