@@ -69,15 +69,48 @@ class NamiDataSource: ObservableObject {
                 } else if accountStateAction == .logout {
                     // logged out
                     print("success logging out")
+                } else if accountStateAction == .advertising_id_set {
+                    print("advertising id set")
+                } else if accountStateAction == .vendor_id_set {
+                    print("vendor id set")
+                } else if accountStateAction == .customer_data_platform_id_set {
+                    print("cdp id set")
+                } else if accountStateAction == .advertising_id_cleared {
+                    print("advertising id cleared")
+                } else if accountStateAction == .vendor_id_cleared {
+                    print("vendor id cleared")
+                } else if accountStateAction == .customer_data_platform_id_cleared {
+                    print("cdp id cleared")
                 }
             } else if error != nil {
                 if accountStateAction == .login {
                     print("error logging in - \(String(describing: error))")
                 } else if accountStateAction == .logout {
                     print("error logging out - \(String(describing: error))")
+                } else if accountStateAction == .advertising_id_set {
+                    print("error setting advertising id - \(String(describing: error))")
+                } else if accountStateAction == .vendor_id_set {
+                    print("error setting vendor id - \(String(describing: error))")
+                } else if accountStateAction == .customer_data_platform_id_set {
+                    print("error setting cdp id - \(String(describing: error))")
+                } else if accountStateAction == .advertising_id_cleared {
+                    print("error clearing advertising id - \(String(describing: error))")
+                } else if accountStateAction == .vendor_id_cleared {
+                    print("error clearing vendor id - \(String(describing: error))")
+                } else if accountStateAction == .customer_data_platform_id_cleared {
+                    print("error clearing cdp id - \(String(describing: error))")
                 }
             }
         }
+
+        NamiCustomerManager.setCustomerDataPlatformId(with: UUID().uuidString)
+        NamiCustomerManager.clearCustomerDataPlatformId()
+
+        NamiCustomerManager.setAdvertisingId(with: UUID())
+        NamiCustomerManager.clearAdvertisingId()
+
+        NamiCustomerManager.setVendorId(with: UUID())
+        NamiCustomerManager.clearVendorId()
 
         // This handler is called when sign-in control on paywall is tapped
         NamiPaywallManager.registerSignInHandler { _ in
