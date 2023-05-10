@@ -50,41 +50,41 @@ struct CampaignView: View {
         NamiCampaignManager.launch(label: label, launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         },
-        paywallActionHandler: { action, skuId, purchaseError, _ in
+        paywallActionHandler: { campaignId, _, paywallId, action, skuId, purchaseError, _ in
 
             switch action {
             case .show_paywall:
-                print("Launched paywall action - paywall raised")
+                print("Launched campaign \(String(describing: campaignId)) - paywall raised \(String(describing: paywallId))")
 
             case .close_paywall:
-                print("Launched paywall action - paywall closed")
+                print("Launched campaign \(String(describing: campaignId)) - paywall closed \(String(describing: paywallId))")
 
             case .restore_purchases:
-                print("Launched paywall action - restore purchases tapped")
+                print("Launched campaign \(String(describing: campaignId)) - paywall restore purchases tapped \(String(describing: paywallId))")
 
             case .sign_in:
-                print("Launched paywall action - sign in tapped")
+                print("Launched campaign \(String(describing: campaignId)) - paywall sign in tapped \(String(describing: paywallId))")
 
             case .buy_sku:
-                print("Launched paywall action - buy sku tapped with sku: \(String(describing: skuId))")
+                print("Launched campaign \(String(describing: campaignId)) - buy sku tapped with sku \(String(describing: skuId)) on paywall \(paywallId)")
 
             case .select_sku:
-                print("Launched paywall action - sku selected: \(String(describing: skuId))")
+                print("Launched campaign \(String(describing: campaignId)) - sku \(String(describing: skuId)) selected on paywall \(String(describing: paywallId))")
 
             case .purchase_selected_sku:
-                print("Launched paywall action - purchase flow started with selected sku: \(String(describing: skuId))")
+                print("Launched campaign \(String(describing: campaignId)) - purchase flow started for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
 
             case .purchase_success:
-                print("purchase success")
+                print("Launched campaign \(String(describing: campaignId)) - purchase success for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
 
             case .purchase_cancelled:
-                print("purchase cancelled")
+                print("Launched campaign \(String(describing: campaignId)) - purchase cancelled for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
 
             case .purchase_failed:
-                print("purchase failed - error \(String(describing: purchaseError))")
+                print("Launched campaign \(String(describing: campaignId)) - purchase failed for sku \(String(describing: skuId)) on paywall \(paywallId) with error \(String(describing: purchaseError))")
 
             default:
-                print("Launched paywall action - unknown \(action.rawValue) skuId: \(String(describing: skuId))")
+                print("Launched campaign \(String(describing: campaignId)) - unknown action on paywall \(String(describing: paywallId))")
             }
         })
     }

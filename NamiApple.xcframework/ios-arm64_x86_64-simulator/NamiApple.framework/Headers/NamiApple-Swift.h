@@ -213,6 +213,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 typedef SWIFT_ENUM(NSInteger, AccountStateAction, open) {
   AccountStateActionLogin = 0,
   AccountStateActionLogout = 1,
+  AccountStateActionAdvertising_id_set = 2,
+  AccountStateActionAdvertising_id_cleared = 3,
+  AccountStateActionVendor_id_set = 4,
+  AccountStateActionVendor_id_cleared = 5,
+  AccountStateActionCustomer_data_platform_id_set = 6,
+  AccountStateActionCustomer_data_platform_id_cleared = 7,
 };
 
 @class NSNumber;
@@ -394,7 +400,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -475,7 +481,13 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 ///
 + (void)setAdvertisingIdWith:(NSUUID * _Nonnull)advertisingId;
 /// Clear a Advertising Identifier that has been sent to Nami
-+ (void)clearAdvertisingIdentifier;
++ (void)clearAdvertisingId;
+/// Allows you to pass your CDP Identifier to Nami
+/// \param cdpId Identifier obtained from your Customer Data Platform.
+///
++ (void)setCustomerDataPlatformIdWith:(NSString * _Nonnull)cdpId;
+/// Clear a CDP Identifier that has been sent to Nami
++ (void)clearCustomerDataPlatformId;
 /// Customer attributes are optional key/value pairs that can be used to personalize your Nami paywalls.
 /// \param key The name of the attribute. For example: <code>firstName</code> or <code>favoriteTeam</code>
 ///
@@ -1588,6 +1600,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 typedef SWIFT_ENUM(NSInteger, AccountStateAction, open) {
   AccountStateActionLogin = 0,
   AccountStateActionLogout = 1,
+  AccountStateActionAdvertising_id_set = 2,
+  AccountStateActionAdvertising_id_cleared = 3,
+  AccountStateActionVendor_id_set = 4,
+  AccountStateActionVendor_id_cleared = 5,
+  AccountStateActionCustomer_data_platform_id_set = 6,
+  AccountStateActionCustomer_data_platform_id_cleared = 7,
 };
 
 @class NSNumber;
@@ -1769,7 +1787,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -1850,7 +1868,13 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 ///
 + (void)setAdvertisingIdWith:(NSUUID * _Nonnull)advertisingId;
 /// Clear a Advertising Identifier that has been sent to Nami
-+ (void)clearAdvertisingIdentifier;
++ (void)clearAdvertisingId;
+/// Allows you to pass your CDP Identifier to Nami
+/// \param cdpId Identifier obtained from your Customer Data Platform.
+///
++ (void)setCustomerDataPlatformIdWith:(NSString * _Nonnull)cdpId;
+/// Clear a CDP Identifier that has been sent to Nami
++ (void)clearCustomerDataPlatformId;
 /// Customer attributes are optional key/value pairs that can be used to personalize your Nami paywalls.
 /// \param key The name of the attribute. For example: <code>firstName</code> or <code>favoriteTeam</code>
 ///

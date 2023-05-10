@@ -671,7 +671,9 @@ public enum CustomerJourneyStateKeys {
   @objc public static func setVendorId(with vendorId: Foundation.UUID)
   @objc public static func clearVendorId()
   @objc public static func setAdvertisingId(with advertisingId: Foundation.UUID)
-  @objc public static func clearAdvertisingIdentifier()
+  @objc public static func clearAdvertisingId()
+  @objc public static func setCustomerDataPlatformId(with cdpId: Swift.String)
+  @objc public static func clearCustomerDataPlatformId()
   @objc public static func setCustomerAttribute(_ key: Swift.String, _ value: Swift.String)
   @objc public static func clearCustomerAttribute(_ key: Swift.String)
   @objc public static func clearAllCustomerAttributes()
@@ -680,6 +682,12 @@ public enum CustomerJourneyStateKeys {
 @objc public enum AccountStateAction : Swift.Int {
   case login
   case logout
+  case advertising_id_set
+  case advertising_id_cleared
+  case vendor_id_set
+  case vendor_id_cleared
+  case customer_data_platform_id_set
+  case customer_data_platform_id_cleared
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -754,7 +762,7 @@ public enum AsyncImagePhase {
   @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
 }
-public typealias NamiPaywallActionHandler = (_ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase]) -> Swift.Void
+public typealias NamiPaywallActionHandler = (_ campaignId: Swift.String?, _ campaignLabel: Swift.String?, _ paywallId: Swift.String?, _ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase]) -> Swift.Void
 public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void

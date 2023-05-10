@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '3.0.8'
+  s.version          = '3.0.9'
   s.summary          = 'Easy Apple StoreKit subscriptions & in-app purchases, with powerful built-in paywalls and A/B testing.'
 
   s.description      = <<-DESC

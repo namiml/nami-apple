@@ -19,7 +19,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 ## Getting the Nami Framework
 
 ### Requirements
-- iOS 11+, iPadOS 13+
+- iOS 14+, iPadOS 14+, tvOS 15+
 
 ### Using SPM
 
@@ -33,7 +33,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.0.8"
+pod "Nami", "3.0.9"
 ```
 
 Then run the command
@@ -43,7 +43,7 @@ pod install
 ```
 
 ### Add Manually
-The Nami XCFramework is available via the Swift Package Manager or Cocoapods. You may also add the XCFramework manually to your project. If you are using Xcode 11, you need to use this option. Learn the details[here](https://docs.namiml.com/docs/xcode-11).
+The Nami XCFramework is available via the Swift Package Manager or Cocoapods. You may also add the XCFramework manually to your project.
 
 #### Note: Updating the Nami Framework Manually
 
