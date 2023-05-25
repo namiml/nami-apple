@@ -33,7 +33,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.0.9"
+pod "Nami", "3.0.9.1"
 ```
 
 Then run the command
@@ -76,5 +76,5 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 - [Early Access](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Early-Access-Releases)
 
 ### Documentation
-- [Getting Started](https://docs.namiml.com/docs/nami-quickstart-guide)
+- [Getting Started] (https://docs.namiml.com/docs/nami-quickstart-guide)
 - [SDK Reference](https://docs.namiml.com/reference/)
