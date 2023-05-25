@@ -27,6 +27,53 @@ class NamiDataSource: ObservableObject {
             }
         }
 
+        if #available(iOS 15.0, tvOS 15.0, *) {
+            NamiPaywallManager.registerBuySkuHandler { sku in
+                print("BYO billing buySkuHandler \(sku.storeId)")
+                NamiPaywallManager.dismiss(animated: true) {}
+                Task {
+                    let productIdentifiers = [sku.storeId]
+                    if let products = try? await Product.products(for: productIdentifiers) {
+                        print("\(products)")
+                        let product = products[0]
+
+                        let purchaseResult = try await product.purchase(options: [
+                            .appAccountToken(UUID()),
+                        ])
+
+                        switch purchaseResult {
+                        case .pending:
+                            print("pending purchase result")
+                        case let .success(verification):
+                            switch verification {
+                            case let .verified(transaction):
+                                await transaction.finish()
+
+                                #if swift(>=5.7)
+                                    let price = product.price
+                                    let currency = product.priceFormatStyle.currencyCode
+                                    let locale = product.priceFormatStyle.locale
+
+                                    let purchaseSuccess = NamiPurchaseSuccess(product: sku, transactionID: String(transaction.id), originalTransactionID: String(transaction.originalID), originalPurchaseDate: transaction.originalPurchaseDate, purchaseDate: transaction.purchaseDate, expiresDate: transaction.expirationDate, price: price, currencyCode: currency, locale: locale)
+                                    NamiPaywallManager.buySkuComplete(purchaseSuccess: purchaseSuccess)
+                                #endif
+
+//                                    NamiPaywallManager.buySkuComplete(sku: sku, product: product, transaction: transaction)
+
+                                print("verified \(transaction)")
+                            case .unverified:
+                                print("unverified")
+                            }
+                        case .userCancelled:
+                            print("user cancelled")
+                        @unknown default:
+                            print("unexpected result")
+                        }
+                    }
+                }
+            }
+        }
+
         NamiCustomerManager.setCustomerAttribute("firstName", "Dan")
         NamiCustomerManager.setCustomerAttribute("fooxyz", "bar123")
 
@@ -115,56 +162,6 @@ class NamiDataSource: ObservableObject {
         // This handler is called when sign-in control on paywall is tapped
         NamiPaywallManager.registerSignInHandler { _ in
             NamiPaywallManager.dismiss(animated: true) {}
-        }
-
-        if #available(iOS 15.0, tvOS 15.0, *) {
-            NamiPaywallManager.registerBuySkuHandler { sku in
-                print("BYO billing buySkuHandler \(sku.storeId)")
-                NamiPaywallManager.dismiss(animated: true) {}
-                Task {
-                    let productIdentifiers = [sku.storeId]
-                    if let products = try? await Product.products(for: productIdentifiers) {
-                        print("\(products)")
-
-                        if let appToken = UUID(uuidString: NamiCustomerManager.deviceId()) {
-                            let product = products[0]
-
-                            let purchaseResult = try await product.purchase(options: [
-                                .appAccountToken(appToken),
-                            ])
-
-                            switch purchaseResult {
-                            case .pending:
-                                print("pending purchase result")
-                            case let .success(verification):
-                                switch verification {
-                                case let .verified(transaction):
-                                    await transaction.finish()
-
-                                    #if swift(>=5.7)
-                                        let price = product.price
-                                        let currency = product.priceFormatStyle.currencyCode
-                                        let locale = product.priceFormatStyle.locale
-
-                                        let purchaseSuccess = NamiPurchaseSuccess(product: sku, transactionID: String(transaction.id), originalTransactionID: String(transaction.originalID), originalPurchaseDate: transaction.originalPurchaseDate, purchaseDate: transaction.purchaseDate, expiresDate: transaction.expirationDate, price: price, currencyCode: currency, locale: locale)
-                                        NamiPaywallManager.buySkuComplete(purchaseSuccess: purchaseSuccess)
-                                    #endif
-
-//                                    NamiPaywallManager.buySkuComplete(sku: sku, product: product, transaction: transaction)
-
-                                    print("verified \(transaction)")
-                                case .unverified:
-                                    print("unverified")
-                                }
-                            case .userCancelled:
-                                print("user cancelled")
-                            @unknown default:
-                                print("unexpected result")
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         NamiPaywallManager.registerRestoreRequestHandler {

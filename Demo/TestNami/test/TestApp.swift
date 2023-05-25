@@ -11,6 +11,13 @@ import SwiftUI
 @main
 struct TestApp: App {
     init() {
+        var initialNamiData: Data?
+        if let initialConfigPath = Bundle.main.url(forResource: "nami_initial_config", withExtension: "json"),
+           let data = try? Data(contentsOf: initialConfigPath)
+        {
+            initialNamiData = data
+        }
+
         print("Current configuration: \(BuildConfiguration.shared.environment)")
         // default to PROD
         var appPlatformId = "cae7b86c-dac1-42b6-80d2-765aaff766dc"
@@ -27,6 +34,11 @@ struct TestApp: App {
         }
         namiConfig.logLevel = .debug
 //        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
+
+        if initialNamiData != nil {
+            namiConfig.initialConfig = initialNamiData
+        }
+
         Nami.configure(with: namiConfig)
     }
 

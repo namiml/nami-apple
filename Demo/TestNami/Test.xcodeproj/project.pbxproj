@@ -43,6 +43,8 @@
 		42FCA7E92894DE3800DA3715 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E82894DE3800DA3715 /* ContentView.swift */; };
 		42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */; };
 		42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */; };
+		AB6E574C2A1BCDCA00B60DFB /* nami_initial_config.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config.json */; };
+		AB6E574D2A1BCDCA00B60DFB /* nami_initial_config.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,7 @@
 		42FCA7E82894DE3800DA3715 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB6E574B2A1BCDCA00B60DFB /* nami_initial_config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nami_initial_config.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,7 @@
 		42FCA7DA2894DE3700DA3715 = {
 			isa = PBXGroup;
 			children = (
+				AB6E574B2A1BCDCA00B60DFB /* nami_initial_config.json */,
 				425CE28B297601E40052260E /* template.json */,
 				4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */,
 				42FCA7E52894DE3800DA3715 /* Test */,
@@ -327,10 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				429EB46B296BBD2C00EF8A20 /* Debug-STG.xcconfig in Resources */,
+				AB6E57432A1946B500B60DFB /* nami_initial_campaigns.json in Resources */,
 				425CE28C297601E40052260E /* template.json in Resources */,
+				AB6E57492A19472500B60DFB /* nami_initial_config.json in Resources */,
 				429EB46C296BBD2C00EF8A20 /* Debug-PROD.xcconfig in Resources */,
 				429EB46D296BBD2C00EF8A20 /* Preview Assets.xcassets in Resources */,
 				429EB46E296BBD2C00EF8A20 /* Assets.xcassets in Resources */,
+				AB6E574D2A1BCDCA00B60DFB /* nami_initial_config.json in Resources */,
 				429EB46F296BBD2C00EF8A20 /* Release-PROD.xcconfig in Resources */,
 				425CE274296F72470052260E /* Test Nami STG.storekit in Resources */,
 				429EB470296BBD2C00EF8A20 /* Release-STG.xcconfig in Resources */,
@@ -346,7 +353,9 @@
 				42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */,
 				42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */,
 				42144E062909EFFB002C2415 /* Release-PROD.xcconfig in Resources */,
+				AB6E574C2A1BCDCA00B60DFB /* nami_initial_config.json in Resources */,
 				42144E082909EFFB002C2415 /* Release-STG.xcconfig in Resources */,
+				AB6E573C2A19464000B60DFB /* nami_initial_paywalls.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

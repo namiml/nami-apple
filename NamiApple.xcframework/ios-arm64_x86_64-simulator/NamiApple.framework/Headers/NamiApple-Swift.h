@@ -411,6 +411,7 @@ SWIFT_CLASS("_TtC9NamiApple11NamiCommand")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSData;
 
 /// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
@@ -427,8 +428,9 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic, copy) NSString * _Nonnull namiLanguageCode;
 /// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
 @property (nonatomic) BOOL bypassStore;
-/// If set to true, <code>modalPresentationStyle</code> will be set to .fullScreen on phone devices for paywall views
-@property (nonatomic) BOOL fullScreenPresentation;
+/// Initial configuration used to help bootstrap the SDK on first run. Retrieve the intial config JSON file from
+/// the Nami Control Center. Read in the JSON file as Data and pass the Data here.
+@property (nonatomic, copy) NSData * _Nullable initialConfig;
 /// Used to activate internal features of the SDK not generally used by Nami clients.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -886,7 +888,6 @@ typedef SWIFT_ENUM(NSInteger, NamiLogLevel, open) {
 
 @class NSURLRequest;
 @class NSHTTPURLResponse;
-@class NSData;
 
 /// Class to let an application be able to ingest logging messages from Nami.
 SWIFT_PROTOCOL("_TtP9NamiApple16NamiLoggerClient_")
@@ -1798,6 +1799,7 @@ SWIFT_CLASS("_TtC9NamiApple11NamiCommand")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSData;
 
 /// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
@@ -1814,8 +1816,9 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic, copy) NSString * _Nonnull namiLanguageCode;
 /// When enabled, device builds will no longer send purchases through StoreKit - instead the purchases will be simulated, and the application will receive the same callbacks as if a purchase had been made.  Purchases persist across application launches, call NamiPurchaseManager.clearBypassPurchases() to reset.
 @property (nonatomic) BOOL bypassStore;
-/// If set to true, <code>modalPresentationStyle</code> will be set to .fullScreen on phone devices for paywall views
-@property (nonatomic) BOOL fullScreenPresentation;
+/// Initial configuration used to help bootstrap the SDK on first run. Retrieve the intial config JSON file from
+/// the Nami Control Center. Read in the JSON file as Data and pass the Data here.
+@property (nonatomic, copy) NSData * _Nullable initialConfig;
 /// Used to activate internal features of the SDK not generally used by Nami clients.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2273,7 +2276,6 @@ typedef SWIFT_ENUM(NSInteger, NamiLogLevel, open) {
 
 @class NSURLRequest;
 @class NSHTTPURLResponse;
-@class NSData;
 
 /// Class to let an application be able to ingest logging messages from Nami.
 SWIFT_PROTOCOL("_TtP9NamiApple16NamiLoggerClient_")
