@@ -30,10 +30,8 @@ struct TestApp: App {
 
         if BuildConfiguration.shared.environment == .staging {
             namiConfig.namiCommands = ["useStagingAPI"]
-//            namiConfig.namiCommands = ["useStagingAPI", "overrideTemplateFileName=template.json"]
         }
         namiConfig.logLevel = .debug
-//        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
 
         if initialNamiData != nil {
             namiConfig.initialConfig = initialNamiData
