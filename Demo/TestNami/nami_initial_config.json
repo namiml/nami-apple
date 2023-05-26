@@ -1,0 +1,674 @@
+{
+  "app_config": {
+    "capabilities": [
+      "sdk",
+      "ml",
+      "third_party_analytics",
+      "third_party_transactions"
+    ],
+    "id": "111c1877-d660-4ad8-90f3-0b553e19e570",
+    "marketplace_app_id": "com.namiml.stg.test"
+  },
+  "campaigns": [
+    {
+      "paywall": "44522069-0587-4d77-9790-b711a22e7d78",
+      "rule": "d5b47816-e256-4b6d-bad9-f777b876e69b",
+      "segment": "89cd0275-af6b-42f6-9c85-08aca981983f",
+      "type": "label",
+      "value": "penguin"
+    }
+  ],
+  "paywalls": [
+    {
+      "fonts": {
+        "All-ProSans-Black": {
+          "family": "All-Pro Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-Black.otf",
+          "id": "ce8d9adc-eea7-4ac1-8a87-914f2cded9ea",
+          "style": "Black"
+        },
+        "All-ProSans-Bold": {
+          "family": "All-Pro Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-Bold.otf",
+          "id": "ab992c16-5905-42f7-835d-5314d61fd943",
+          "style": "Bold"
+        },
+        "All-ProSans-Medium": {
+          "family": "All-Pro Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-Medium.otf",
+          "id": "2b1c1fed-deae-4633-9083-2f1496847c2f",
+          "style": "Medium"
+        },
+        "All-ProSans-Regular": {
+          "family": "All-Pro Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-Regular.otf",
+          "id": "88bb4c58-30eb-4815-a996-8cc023770c7f",
+          "style": "Regular"
+        },
+        "All-ProSans-SemiBold": {
+          "family": "All-Pro Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-SemiBold.otf",
+          "id": "ef4e8e20-134c-4ae9-9ae1-4f8aa9e7c7f5",
+          "style": "SemiBold"
+        },
+        "HelveticaNeueLTPro-55Roman": {
+          "family": "Helvetica Neue LT Pro",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Helvetica_Neue_LT_Pro-55_Roman_7e2TTzd.otf",
+          "id": "aea13aa2-a7e8-477c-8ff1-d199deb40a68",
+          "style": "55 Roman"
+        },
+        "HelveticaNeueLTPro-73BoldExtended": {
+          "family": "Helvetica Neue LT Pro",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Helvetica_Neue_LT_Pro-73_Bold_Extended_gBIfoEj.otf",
+          "id": "76296b94-cc1b-4f8b-a076-002940bd2630",
+          "style": "73 Bold Extended"
+        },
+        "HelveticaNeueLTPro-75Bold": {
+          "family": "Helvetica Neue LT Pro",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Helvetica_Neue_LT_Pro-75_Bold_Ku1qFhD.otf",
+          "id": "c54bc84c-a09e-4f68-917b-50b2fce6c026",
+          "style": "75 Bold"
+        },
+        "LEMONMILK-Bold": {
+          "family": "LEMON MILK",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/LEMON_MILK-Bold.otf",
+          "id": "f3c1226f-edc6-4673-9558-82e5331986dc",
+          "style": "Bold"
+        },
+        "LEMONMILK-BoldItalic": {
+          "family": "LEMON MILK",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/LEMON_MILK-Bold_Italic.otf",
+          "id": "0c5de5c2-42fb-4a08-95b8-f06487a45294",
+          "style": "Bold Italic"
+        },
+        "LEMONMILK-Regular": {
+          "family": "LEMON MILK",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/LEMON_MILK-Regular.otf",
+          "id": "44bb1838-0729-408a-891e-45644d5c8206",
+          "style": "Regular"
+        },
+        "MuseoSans-500": {
+          "family": "Museo Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Museo_Sans-500.otf",
+          "id": "240af55b-743d-45d4-a571-18f236334ef0",
+          "style": "500"
+        },
+        "MuseoSans-500Italic": {
+          "family": "Museo Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Museo_Sans-500_Italic.otf",
+          "id": "e2b1984a-a28a-454e-a000-fd96dbaf384d",
+          "style": "500 Italic"
+        },
+        "MuseoSans-700": {
+          "family": "Museo Sans",
+          "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/Museo_Sans-700.otf",
+          "id": "66dcfe45-8507-4c1d-9b49-618e5ea9495e",
+          "style": "700"
+        }
+      },
+      "id": "44522069-0587-4d77-9790-b711a22e7d78",
+      "name": "Penguin 3.0.9",
+      "paywall_type": "component",
+      "sku_menus": [
+        {
+          "display_name": "Default",
+          "id": "a22e9f0e-737c-4dee-9a44-3a63e98458c0",
+          "name": "Default",
+          "products": [
+            {
+              "display_text": "",
+              "entitlements": [
+                {
+                  "description": null,
+                  "entitlement_ref_id": "vip",
+                  "id": "774d4dc8-f968-4d0d-b019-9846364f9151",
+                  "name": "VIP",
+                  "type": "binary_auth"
+                },
+                {
+                  "description": "Plus offers no-ads, family sharing, and downloadable listening",
+                  "entitlement_ref_id": "plus",
+                  "id": "4eb42772-a137-4370-b756-668463bef816",
+                  "name": "Plus",
+                  "type": "binary_auth"
+                },
+                {
+                  "description": null,
+                  "entitlement_ref_id": "nami_entitlement",
+                  "id": "0de1799c-ae5c-425e-9f94-4ca69ce60f24",
+                  "name": "Auto Created: nami_entitlement",
+                  "type": "binary_auth"
+                }
+              ],
+              "featured": false,
+              "id": "078e668c-c5a0-4bdb-bbe7-b5de83fab284",
+              "name": "VIP Monthly STG",
+              "sku_ref_id": "vip_monthly_testnami_stg",
+              "sub_display_text": "",
+              "variables": {
+                "displayText": "**${sku.price} per ${sku.period}**",
+                "subDisplayText": "\u00e2\u00ac\u2020\u00ef\u00b8\u008f Save!"
+              }
+            },
+            {
+              "display_text": "",
+              "entitlements": [
+                {
+                  "description": null,
+                  "entitlement_ref_id": "vip",
+                  "id": "774d4dc8-f968-4d0d-b019-9846364f9151",
+                  "name": "VIP",
+                  "type": "binary_auth"
+                },
+                {
+                  "description": "Plus offers no-ads, family sharing, and downloadable listening",
+                  "entitlement_ref_id": "plus",
+                  "id": "4eb42772-a137-4370-b756-668463bef816",
+                  "name": "Plus",
+                  "type": "binary_auth"
+                }
+              ],
+              "featured": true,
+              "id": "9193f0df-9085-4b3f-9187-bd02929ff86e",
+              "name": "VIP Annual STG",
+              "sku_ref_id": "vip_annual_testnami_stg",
+              "sub_display_text": "",
+              "variables": {
+                "displayText": "**${sku.price} per ${sku.period}**",
+                "subDisplayText": "\u00e2\u00ac\u2020\u00ef\u00b8\u008f Save!"
+              }
+            }
+          ]
+        }
+      ],
+      "template": {
+        "backgroundContainer": {
+          "bottomMargin": 0,
+          "component": "container",
+          "components": [],
+          "direction": "vertical",
+          "fillColor": "#021f3e",
+          "leftMargin": 0,
+          "rightMargin": 0,
+          "topMargin": 0
+        },
+        "codename": "Penguin",
+        "contentContainer": {
+          "alignment": "top",
+          "bottomMargin": 20,
+          "component": "container",
+          "components": [
+            {
+              "alignment": "left",
+              "component": "container",
+              "components": [
+                {
+                  "alignment": "left",
+                  "component": "text",
+                  "fontColor": "#ffffff",
+                  "fontName": "Helvetica",
+                  "fontSize": 44,
+                  "text": "**This is a Title**",
+                  "textType": "title"
+                },
+                {
+                  "alignment": "left",
+                  "bottomMargin": 20,
+                  "component": "text",
+                  "fontColor": "#ffffff",
+                  "fontName": "Helvetica",
+                  "fontSize": 20,
+                  "text": "Use body text to tell users why they should purchase. Keep it short and simple.",
+                  "textType": "body"
+                },
+                {
+                  "alignment": "left",
+                  "component": "text-list",
+                  "fontColor": "#ffffff",
+                  "fontName": "Helvetica",
+                  "fontSize": 20,
+                  "spacing": 15,
+                  "textType": "text",
+                  "texts": [
+                    "\u00f0\u0178\u2018\u2039 This is a list",
+                    "\u00f0\u0178\u017d\u2030 List your *best* features",
+                    "\u00f0\u0178\u2018\u2030 Use emoji for **emphasis**",
+                    "\u00e2\u008f\u00b3 Keep the items short!"
+                  ]
+                }
+              ],
+              "direction": "vertical",
+              "spacing": 20
+            },
+            {
+              "component": "spacer"
+            },
+            {
+              "alignment": "center",
+              "component": "productContainer",
+              "components": [
+                {
+                  "alignment": "top",
+                  "component": "container",
+                  "components": [
+                    {
+                      "actionTap": "namiBuySKU",
+                      "borderColor": "#ffffff",
+                      "borderRadius": 8,
+                      "borderWidth": 2,
+                      "bottomPadding": 35,
+                      "component": "button",
+                      "components": [
+                        {
+                          "alignment": "center",
+                          "component": "text",
+                          "conditionAttributes": [
+                            {
+                              "assertions": [
+                                {
+                                  "expected": true,
+                                  "operator": "equals",
+                                  "value": "${sku.featured}"
+                                }
+                              ],
+                              "attributes": {
+                                "alignment": "center",
+                                "fontColor": "#ffffff",
+                                "fontSize": 28
+                              },
+                              "component": "condition"
+                            }
+                          ],
+                          "fontColor": "#1374de",
+                          "fontName": "Helvetica",
+                          "fontSize": 28,
+                          "text": "${sku.displayText}",
+                          "textType": "body"
+                        }
+                      ],
+                      "conditionAttributes": [
+                        {
+                          "assertions": [
+                            {
+                              "expected": true,
+                              "operator": "equals",
+                              "value": "${sku.featured}"
+                            }
+                          ],
+                          "attributes": {
+                            "borderColor": "#1374de",
+                            "borderRadius": 8,
+                            "borderWidth": 2,
+                            "fillColor": "#1374de"
+                          },
+                          "component": "condition"
+                        }
+                      ],
+                      "fillColor": "#ffffff",
+                      "height": "100%",
+                      "leftPadding": 15,
+                      "rightPadding": 15,
+                      "topPadding": 35,
+                      "width": "100%"
+                    },
+                    {
+                      "alignment": "center",
+                      "component": "text",
+                      "conditionAttributes": [
+                        {
+                          "assertions": [
+                            {
+                              "expected": true,
+                              "operator": "equals",
+                              "value": "${sku.featured}"
+                            }
+                          ],
+                          "attributes": {
+                            "alignment": "center",
+                            "fontColor": "#ffffff",
+                            "fontSize": 14
+                          },
+                          "component": "condition"
+                        }
+                      ],
+                      "fontColor": "#ffffff",
+                      "fontName": "Helvetica",
+                      "fontSize": 14,
+                      "text": "${sku.subDisplayText}",
+                      "textType": "body"
+                    }
+                  ],
+                  "direction": "vertical",
+                  "spacing": 8
+                }
+              ],
+              "direction": "horizontal",
+              "products": "all",
+              "spacing": 20
+            },
+            {
+              "component": "container",
+              "components": [
+                {
+                  "assertions": [
+                    {
+                      "expected": true,
+                      "operator": "equals",
+                      "value": true
+                    }
+                  ],
+                  "component": "condition",
+                  "components": [
+                    {
+                      "actionTap": "namiSignIn",
+                      "borderWidth": 0,
+                      "component": "button",
+                      "components": [
+                        {
+                          "component": "text",
+                          "fontColor": "#ffffff",
+                          "fontName": null,
+                          "fontSize": 18,
+                          "text": "**Sign In**",
+                          "textType": "body"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "assertions": [
+                    {
+                      "expected": true,
+                      "operator": "equals",
+                      "value": true
+                    }
+                  ],
+                  "component": "condition",
+                  "components": [
+                    {
+                      "actionTap": "namiRestorePurchases",
+                      "borderWidth": 0,
+                      "component": "button",
+                      "components": [
+                        {
+                          "component": "text",
+                          "fontColor": "#ffffff",
+                          "fontName": null,
+                          "fontSize": 18,
+                          "text": "**Restore**",
+                          "textType": "body"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "direction": "vertical",
+              "spacing": 12
+            },
+            {
+              "component": "spacer"
+            },
+            {
+              "bottomMargin": 30,
+              "component": "container",
+              "components": [
+                {
+                  "alignment": "left",
+                  "component": "text",
+                  "fontColor": "#ffffff",
+                  "fontName": null,
+                  "fontSize": 12,
+                  "text": "By purchasing you agree to our [Terms](https://www.namiml.com/legal/terms) (https://www.namiml.com/legal/terms) and [Privacy Policy](https://www.namiml.com/legal/privacy) (https://www.namiml.com/legal/privacy). Contact support for information. Terms and conditions apply.",
+                  "textType": "legal"
+                }
+              ],
+              "direction": "vertical"
+            }
+          ],
+          "direction": "vertical",
+          "leftPadding": 20,
+          "rightPadding": 20,
+          "spacing": 20,
+          "topMargin": 30
+        },
+        "footer": [],
+        "header": [
+          {
+            "component": "spacer"
+          },
+          {
+            "actionTap": "namiClosePaywall",
+            "borderWidth": 0,
+            "component": "button",
+            "components": [
+              {
+                "alignment": "right",
+                "component": "text",
+                "fontColor": "#ffffff",
+                "fontName": null,
+                "fontSize": 14,
+                "text": "Close",
+                "textType": "body"
+              }
+            ],
+            "conditionAttributes": [
+              {
+                "assertions": [
+                  {
+                    "expected": true,
+                    "operator": "equals",
+                    "value": "${state.fullScreenPresentation}"
+                  }
+                ],
+                "attributes": {
+                  "topMargin": "${state.safeAreaTop}"
+                },
+                "component": "condition"
+              }
+            ],
+            "height": 40,
+            "rightPadding": 30,
+            "topMargin": 20
+          }
+        ],
+        "id": "4c4d97ee-63ed-4754-a6b1-2cabad989d21",
+        "initialState": {
+          "currentGroupId": "a22e9f0e-737c-4dee-9a44-3a63e98458c0",
+          "fullScreenPresentation": false,
+          "groups": [
+            {
+              "displayName": "Default",
+              "id": "a22e9f0e-737c-4dee-9a44-3a63e98458c0"
+            }
+          ],
+          "selectedProducts": {
+            "a22e9f0e-737c-4dee-9a44-3a63e98458c0": "078e668c-c5a0-4bdb-bbe7-b5de83fab284"
+          }
+        },
+        "ready": true,
+        "thumbnail": "paywall_template_logos/Paywall1.svg",
+        "version": 5
+      }
+    }
+  ],
+  "products": [
+    {
+      "entitlements": [
+        {
+          "description": null,
+          "entitlement_ref_id": "bronze",
+          "id": "414cf354-f217-4c1a-ae3c-e16ff3d3ae38",
+          "name": "Bronze",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "14e44ab1-c564-4b5e-a84d-4a73e386415e",
+      "name": "Monthly",
+      "sku_ref_id": "com.namiml.app.test.bronze.monthly",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": null,
+          "entitlement_ref_id": "platinum",
+          "id": "cd8e7105-370a-4022-a0a7-732cea8ef211",
+          "name": "Platinum",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "993d1dfc-f2b8-4ddf-8868-71e3f80fd2cd",
+      "name": "Platinum Monthly",
+      "sku_ref_id": "com.namiml.app.test.plat.monthly",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [],
+      "id": "eb2c8352-45a2-4713-9b77-53fb544cf93f",
+      "name": "Annual",
+      "sku_ref_id": "com.namiml.app.test.bronze.annual",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [],
+      "id": "a294c39e-0e07-47bc-845a-f7bcc09478b9",
+      "name": "Bi-Annual",
+      "sku_ref_id": "com.namiml.app.test.bronze.sixmonths",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "c8d5d16a-444a-4bbc-b234-5a3dd5f98f0a",
+      "name": "Plus Monthly STG",
+      "sku_ref_id": "plus_monthly_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "416e4819-fe24-4708-86f6-346b9cfc34eb",
+      "name": "Plus Bi-Annual STG",
+      "sku_ref_id": "plus_sixmonths_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "faf13224-1323-4190-a650-f149b002310f",
+      "name": "Plus Annual STG",
+      "sku_ref_id": "plus_annual_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": null,
+          "entitlement_ref_id": "vip",
+          "id": "774d4dc8-f968-4d0d-b019-9846364f9151",
+          "name": "VIP",
+          "type": "binary_auth"
+        },
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        },
+        {
+          "description": null,
+          "entitlement_ref_id": "nami_entitlement",
+          "id": "0de1799c-ae5c-425e-9f94-4ca69ce60f24",
+          "name": "Auto Created: nami_entitlement",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "078e668c-c5a0-4bdb-bbe7-b5de83fab284",
+      "name": "VIP Monthly STG",
+      "sku_ref_id": "vip_monthly_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": null,
+          "entitlement_ref_id": "vip",
+          "id": "774d4dc8-f968-4d0d-b019-9846364f9151",
+          "name": "VIP",
+          "type": "binary_auth"
+        },
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        },
+        {
+          "description": null,
+          "entitlement_ref_id": "nami_entitlement",
+          "id": "0de1799c-ae5c-425e-9f94-4ca69ce60f24",
+          "name": "Auto Created: nami_entitlement",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "6706f308-6195-414e-a351-b7e5df72709f",
+      "name": "VIP Bi-Annual STG",
+      "sku_ref_id": "vip_sixmonths_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [
+        {
+          "description": null,
+          "entitlement_ref_id": "vip",
+          "id": "774d4dc8-f968-4d0d-b019-9846364f9151",
+          "name": "VIP",
+          "type": "binary_auth"
+        },
+        {
+          "description": "Plus offers no-ads, family sharing, and downloadable listening",
+          "entitlement_ref_id": "plus",
+          "id": "4eb42772-a137-4370-b756-668463bef816",
+          "name": "Plus",
+          "type": "binary_auth"
+        }
+      ],
+      "id": "9193f0df-9085-4b3f-9187-bd02929ff86e",
+      "name": "VIP Annual STG",
+      "sku_ref_id": "vip_annual_testnami_stg",
+      "sku_type": "subscription"
+    },
+    {
+      "entitlements": [],
+      "id": "37d94114-49ea-4af7-a8a1-739610c948ca",
+      "name": "plus_monthly_testnami_prod (Entitlement Configuration Required)",
+      "sku_ref_id": "plus_monthly_testnami_prod",
+      "sku_type": "subscription"
+    }
+  ]
+}

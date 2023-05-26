@@ -110,7 +110,7 @@ public typealias NamiLanguageCode = Swift.String
     @objc set(value)
   }
   @objc public var bypassStore: Swift.Bool
-  @objc public var fullScreenPresentation: Swift.Bool
+  @objc public var initialConfig: Foundation.Data?
   @objc public var namiCommands: [Swift.String]
   @objc deinit
 }

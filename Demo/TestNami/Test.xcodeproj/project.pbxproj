@@ -18,7 +18,6 @@
 		425CE274296F72470052260E /* Test Nami STG.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 428CD0832909E08500DE7081 /* Test Nami STG.storekit */; };
 		425CE27A29710B560052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
 		425CE27E29710C2A0052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
-		425CE28C297601E40052260E /* template.json in Resources */ = {isa = PBXBuildFile; fileRef = 425CE28B297601E40052260E /* template.json */; };
 		42652DEE290744F700234029 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
 		429EB45C296BBD2C00EF8A20 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
 		429EB45D296BBD2C00EF8A20 /* NamiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42465553289C5CE40011BB25 /* NamiDataSource.swift */; };
@@ -99,7 +98,6 @@
 		4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		424FA677289B276B00A2FF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		425CE27929710B550052260E /* StoreKit2Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreKit2Transaction.swift; path = test/StoreKit2Transaction.swift; sourceTree = SOURCE_ROOT; };
-		425CE28B297601E40052260E /* template.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = template.json; path = ../../template.json; sourceTree = "<group>"; };
 		42652DED290744F700234029 /* EntitlementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntitlementsView.swift; path = test/Views/EntitlementsView.swift; sourceTree = SOURCE_ROOT; };
 		4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NamiApple.xcodeproj; path = ../../NamiApple.xcodeproj; sourceTree = "<group>"; };
 		428CD07E2909DD9400DE7081 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = test/Config.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -172,7 +170,6 @@
 		42FCA7DA2894DE3700DA3715 = {
 			isa = PBXGroup;
 			children = (
-				425CE28B297601E40052260E /* template.json */,
 				4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */,
 				42FCA7E52894DE3800DA3715 /* Test */,
 				42FCA7E42894DE3800DA3715 /* Products */,
@@ -327,7 +324,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				429EB46B296BBD2C00EF8A20 /* Debug-STG.xcconfig in Resources */,
-				425CE28C297601E40052260E /* template.json in Resources */,
 				429EB46C296BBD2C00EF8A20 /* Debug-PROD.xcconfig in Resources */,
 				429EB46D296BBD2C00EF8A20 /* Preview Assets.xcassets in Resources */,
 				429EB46E296BBD2C00EF8A20 /* Assets.xcassets in Resources */,
