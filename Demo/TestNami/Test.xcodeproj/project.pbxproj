@@ -18,6 +18,7 @@
 		425CE274296F72470052260E /* Test Nami STG.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 428CD0832909E08500DE7081 /* Test Nami STG.storekit */; };
 		425CE27A29710B560052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
 		425CE27E29710C2A0052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
+		425CE28C297601E40052260E /* template.json in Resources */ = {isa = PBXBuildFile; fileRef = 425CE28B297601E40052260E /* template.json */; };
 		42652DEE290744F700234029 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
 		429EB45C296BBD2C00EF8A20 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
 		429EB45D296BBD2C00EF8A20 /* NamiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42465553289C5CE40011BB25 /* NamiDataSource.swift */; };
@@ -42,6 +43,8 @@
 		42FCA7E92894DE3800DA3715 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E82894DE3800DA3715 /* ContentView.swift */; };
 		42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */; };
 		42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */; };
+		AB6E574C2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */; };
+		AB6E574D2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,7 @@
 		4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		424FA677289B276B00A2FF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		425CE27929710B550052260E /* StoreKit2Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreKit2Transaction.swift; path = test/StoreKit2Transaction.swift; sourceTree = SOURCE_ROOT; };
+		425CE28B297601E40052260E /* template.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = template.json; path = ../../template.json; sourceTree = "<group>"; };
 		42652DED290744F700234029 /* EntitlementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntitlementsView.swift; path = test/Views/EntitlementsView.swift; sourceTree = SOURCE_ROOT; };
 		4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NamiApple.xcodeproj; path = ../../NamiApple.xcodeproj; sourceTree = "<group>"; };
 		428CD07E2909DD9400DE7081 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = test/Config.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -111,6 +115,7 @@
 		42FCA7E82894DE3800DA3715 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nami_initial_config_stg.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +175,8 @@
 		42FCA7DA2894DE3700DA3715 = {
 			isa = PBXGroup;
 			children = (
+				AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */,
+				425CE28B297601E40052260E /* template.json */,
 				4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */,
 				42FCA7E52894DE3800DA3715 /* Test */,
 				42FCA7E42894DE3800DA3715 /* Products */,
@@ -324,9 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				429EB46B296BBD2C00EF8A20 /* Debug-STG.xcconfig in Resources */,
+				425CE28C297601E40052260E /* template.json in Resources */,
 				429EB46C296BBD2C00EF8A20 /* Debug-PROD.xcconfig in Resources */,
 				429EB46D296BBD2C00EF8A20 /* Preview Assets.xcassets in Resources */,
 				429EB46E296BBD2C00EF8A20 /* Assets.xcassets in Resources */,
+				AB6E574D2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */,
 				429EB46F296BBD2C00EF8A20 /* Release-PROD.xcconfig in Resources */,
 				425CE274296F72470052260E /* Test Nami STG.storekit in Resources */,
 				429EB470296BBD2C00EF8A20 /* Release-STG.xcconfig in Resources */,
@@ -342,6 +351,7 @@
 				42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */,
 				42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */,
 				42144E062909EFFB002C2415 /* Release-PROD.xcconfig in Resources */,
+				AB6E574C2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */,
 				42144E082909EFFB002C2415 /* Release-STG.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,10 +638,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = K6APTMK8Y8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -668,11 +678,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K6APTMK8Y8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -691,7 +701,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Test Nami PROD";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -906,10 +915,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPROD;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1192,10 +1202,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = K6APTMK8Y8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1286,10 +1296,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIconPROD-tvOS";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1326,11 +1337,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K6APTMK8Y8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1349,7 +1360,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Test Nami PROD";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
