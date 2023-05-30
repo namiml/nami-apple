@@ -58,7 +58,7 @@
          </EnvironmentVariable>
       </EnvironmentVariables>
       <StoreKitConfigurationFileReference
-         identifier = "../../test/Test Nami PROD.storekit">
+         identifier = "../TestNami/test/Test Nami PROD.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

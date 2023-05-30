@@ -1,6 +1,6 @@
 ![Nami SDK logo](https://cdn.namiml.com/brand/sdk/Nami-SDK@0.5x.png)
 
-# Nami SDK [![Platform](http://img.shields.io/badge/platform-iOS%20%7C%20iPadOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Cocoapod](http://img.shields.io/cocoapods/v/Nami.svg?style=flat)](http://cocoapods.org/pods/Nami/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+# Nami SDK [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20iPadOS%20%7C%20tvOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/) [![Cocoapod](http://img.shields.io/cocoapods/v/Nami.svg?style=flat)](http://cocoapods.org/pods/Nami/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## What is Nami?
 
@@ -33,7 +33,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.0.10"
+pod "Nami", "3.0.11"
 ```
 
 Then run the command
@@ -76,5 +76,5 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 - [Early Access](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Early-Access-Releases)
 
 ### Documentation
-- [Getting Started] (https://docs.namiml.com/docs/nami-quickstart-guide)
+- [Getting Started](https://docs.namiml.com/docs/nami-quickstart-guide)
 - [SDK Reference](https://docs.namiml.com/reference/)

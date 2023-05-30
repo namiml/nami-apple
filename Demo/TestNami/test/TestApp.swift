@@ -12,7 +12,12 @@ import SwiftUI
 struct TestApp: App {
     init() {
         var initialNamiData: Data?
-        if let initialConfigPath = Bundle.main.url(forResource: "nami_initial_config", withExtension: "json"),
+        var initialConfigFileName = "nami_initial_config_prod"
+        if BuildConfiguration.shared.environment == .staging {
+            initialConfigFileName = "nami_initial_config_stg"
+        }
+
+        if let initialConfigPath = Bundle.main.url(forResource: initialConfigFileName, withExtension: "json"),
            let data = try? Data(contentsOf: initialConfigPath)
         {
             initialNamiData = data
@@ -30,8 +35,10 @@ struct TestApp: App {
 
         if BuildConfiguration.shared.environment == .staging {
             namiConfig.namiCommands = ["useStagingAPI"]
+//            namiConfig.namiCommands = ["useStagingAPI", "overrideTemplateFileName=template.json"]
         }
         namiConfig.logLevel = .debug
+//        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
 
         if initialNamiData != nil {
             namiConfig.initialConfig = initialNamiData
