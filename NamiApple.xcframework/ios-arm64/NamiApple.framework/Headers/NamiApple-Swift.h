@@ -409,7 +409,6 @@ SWIFT_CLASS("_TtC9NamiApple11NamiCommand")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSData;
 
 /// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
@@ -428,7 +427,7 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic) BOOL bypassStore;
 /// Initial configuration used to help bootstrap the SDK on first run. Retrieve the intial config JSON file from
 /// the Nami Control Center. Read in the JSON file as Data and pass the Data here.
-@property (nonatomic, copy) NSData * _Nullable initialConfig;
+@property (nonatomic, copy) NSString * _Nullable initialConfig;
 /// Used to activate internal features of the SDK not generally used by Nami clients.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -886,6 +885,7 @@ typedef SWIFT_ENUM(NSInteger, NamiLogLevel, open) {
 
 @class NSURLRequest;
 @class NSHTTPURLResponse;
+@class NSData;
 
 /// Class to let an application be able to ingest logging messages from Nami.
 SWIFT_PROTOCOL("_TtP9NamiApple16NamiLoggerClient_")
@@ -1203,6 +1203,7 @@ SWIFT_CLASS("_TtC9NamiApple7NamiSKU")
 /// Type of product - basically subscription, or non-one_time_purchase.  Is unknownn on versions of iOS prior to 11.2, which introduced a subscription related values to product.
 @property (nonatomic) enum NamiSKUType type;
 @property (nonatomic, readonly) BOOL isFeatured;
+- (nonnull instancetype)initWithNamiId:(NSString * _Nullable)namiId storeId:(NSString * _Nonnull)storeId skuType:(enum NamiSKUType)skuType OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
