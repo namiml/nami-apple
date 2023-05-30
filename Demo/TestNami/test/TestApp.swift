@@ -11,16 +11,16 @@ import SwiftUI
 @main
 struct TestApp: App {
     init() {
-        var initialNamiData: Data?
+        var initialNamiConfig: String?
         var initialConfigFileName = "nami_initial_config_prod"
         if BuildConfiguration.shared.environment == .staging {
             initialConfigFileName = "nami_initial_config_stg"
         }
 
-        if let initialConfigPath = Bundle.main.url(forResource: initialConfigFileName, withExtension: "json"),
-           let data = try? Data(contentsOf: initialConfigPath)
-        {
-            initialNamiData = data
+        if let initialConfigPath = Bundle.main.url(forResource: initialConfigFileName, withExtension: "json") {
+            if let string = try? String(contentsOf: initialConfigPath, encoding: String.Encoding.utf8) {
+                initialNamiConfig = string
+            }
         }
 
         print("Current configuration: \(BuildConfiguration.shared.environment)")
@@ -35,13 +35,13 @@ struct TestApp: App {
 
         if BuildConfiguration.shared.environment == .staging {
             namiConfig.namiCommands = ["useStagingAPI"]
-//            namiConfig.namiCommands = ["useStagingAPI", "overrideTemplateFileName=template.json"]
         }
         namiConfig.logLevel = .debug
-//        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
+        // uses device locale by default. This is just for override
+        //        namiConfig.namiLanguageCode = NamiLanguageCodes.ja
 
-        if initialNamiData != nil {
-            namiConfig.initialConfig = initialNamiData
+        if initialNamiConfig != nil {
+            namiConfig.initialConfig = initialNamiConfig
         }
 
         Nami.configure(with: namiConfig)

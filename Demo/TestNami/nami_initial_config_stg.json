@@ -147,7 +147,7 @@
               "sub_display_text": "",
               "variables": {
                 "displayText": "**${sku.price} per ${sku.period}**",
-                "subDisplayText": "\u00e2\u00ac\u2020\u00ef\u00b8\u008f Save!"
+                "subDisplayText": "\u2b06\ufe0f Save!"
               }
             },
             {
@@ -175,7 +175,7 @@
               "sub_display_text": "",
               "variables": {
                 "displayText": "**${sku.price} per ${sku.period}**",
-                "subDisplayText": "\u00e2\u00ac\u2020\u00ef\u00b8\u008f Save!"
+                "subDisplayText": "\u2b06\ufe0f Save!"
               }
             }
           ]
@@ -206,7 +206,7 @@
                   "alignment": "left",
                   "component": "text",
                   "fontColor": "#ffffff",
-                  "fontName": "Helvetica",
+                  "fontName": null,
                   "fontSize": 44,
                   "text": "**This is a Title**",
                   "textType": "title"
@@ -230,10 +230,10 @@
                   "spacing": 15,
                   "textType": "text",
                   "texts": [
-                    "\u00f0\u0178\u2018\u2039 This is a list",
-                    "\u00f0\u0178\u017d\u2030 List your *best* features",
-                    "\u00f0\u0178\u2018\u2030 Use emoji for **emphasis**",
-                    "\u00e2\u008f\u00b3 Keep the items short!"
+                    "\ud83d\udc4b This is a list",
+                    "\ud83c\udf89 List your *best* features",
+                    "\ud83d\udc49 Use emoji for **emphasis**",
+                    "\u23f3 Keep the items short!"
                   ]
                 }
               ],
@@ -334,6 +334,7 @@
                       "fontColor": "#ffffff",
                       "fontName": "Helvetica",
                       "fontSize": 14,
+                      "strikethrough": "${sku.subDisplayStrikethrough}",
                       "text": "${sku.subDisplayText}",
                       "textType": "body"
                     }
@@ -367,7 +368,7 @@
                         {
                           "component": "text",
                           "fontColor": "#ffffff",
-                          "fontName": null,
+                          "fontName": "Helvetica",
                           "fontSize": 18,
                           "text": "**Sign In**",
                           "textType": "body"
@@ -394,7 +395,7 @@
                         {
                           "component": "text",
                           "fontColor": "#ffffff",
-                          "fontName": null,
+                          "fontName": "Helvetica",
                           "fontSize": 18,
                           "text": "**Restore**",
                           "textType": "body"
@@ -418,7 +419,7 @@
                   "alignment": "left",
                   "component": "text",
                   "fontColor": "#ffffff",
-                  "fontName": null,
+                  "fontName": "Helvetica",
                   "fontSize": 12,
                   "text": "By purchasing you agree to our [Terms](https://www.namiml.com/legal/terms) (https://www.namiml.com/legal/terms) and [Privacy Policy](https://www.namiml.com/legal/privacy) (https://www.namiml.com/legal/privacy). Contact support for information. Terms and conditions apply.",
                   "textType": "legal"
@@ -447,7 +448,7 @@
                 "alignment": "right",
                 "component": "text",
                 "fontColor": "#ffffff",
-                "fontName": null,
+                "fontName": "Helvetica",
                 "fontSize": 14,
                 "text": "Close",
                 "textType": "body"
@@ -470,7 +471,7 @@
             ],
             "height": 40,
             "rightPadding": 30,
-            "topMargin": 20
+            "topMargin": 30
           }
         ],
         "id": "4c4d97ee-63ed-4754-a6b1-2cabad989d21",
