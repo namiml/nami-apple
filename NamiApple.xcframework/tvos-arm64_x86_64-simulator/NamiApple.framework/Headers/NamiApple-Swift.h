@@ -385,6 +385,7 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 enum NamiPaywallAction : NSInteger;
 @class NamiSKU;
 @class NamiPurchase;
+@class UIViewController;
 
 @interface NamiCampaignManager (SWIFT_EXTENSION(NamiApple))
 /// Presents a paywall for the default campaign.
@@ -401,6 +402,16 @@ enum NamiPaywallAction : NSInteger;
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
+/// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
+/// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
+///
+/// \param viewController Optional provided view controller to present the paywall from.
+///
+/// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
+///
+/// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
+///
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -949,7 +960,6 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIViewController;
 @class NamiPurchaseSuccess;
 @class SKProduct;
 
@@ -1774,6 +1784,7 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 enum NamiPaywallAction : NSInteger;
 @class NamiSKU;
 @class NamiPurchase;
+@class UIViewController;
 
 @interface NamiCampaignManager (SWIFT_EXTENSION(NamiApple))
 /// Presents a paywall for the default campaign.
@@ -1790,6 +1801,16 @@ enum NamiPaywallAction : NSInteger;
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
+/// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
+/// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
+///
+/// \param viewController Optional provided view controller to present the paywall from.
+///
+/// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
+///
+/// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
+///
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -2338,7 +2359,6 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIViewController;
 @class NamiPurchaseSuccess;
 @class SKProduct;
 
