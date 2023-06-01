@@ -19,7 +19,7 @@ let package = Package(
         .binaryTarget(
             name: "NamiApple",
             url: "https://packages.namiml.com/NamiSDK/Apple/3.0.14/NamiApple.xcframework-3.0.14.zip",
-            checksum: "bf0f75701c11d686821e07cc4e74ff752248392300de5e31d85e997ca9135b37"
+            checksum: "d183c0493015ddee64233ff1bdc41aefbcbe0c2bd036be89dacec6983cd338c7"
         ),
     ]
 )
