@@ -380,6 +380,7 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class PaywallLaunchContext;
 enum NamiPaywallAction : NSInteger;
 @class NamiSKU;
 @class NamiPurchase;
@@ -399,7 +400,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
 /// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
 ///
@@ -409,7 +410,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
 @end
 
 
@@ -1273,6 +1274,13 @@ SWIFT_CLASS("_TtC9NamiApple16NamiVersionUtils")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+
+SWIFT_CLASS("_TtC9NamiApple20PaywallLaunchContext")
+@interface PaywallLaunchContext : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 

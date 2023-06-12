@@ -21,7 +21,7 @@ class NamiDataSource: ObservableObject {
     }
 
     init() {
-        if #available(iOS 15.0, macOS 12.0, *) {
+        if #available(iOS 15.0, tvOS 15.0, macOS 12.0, *) {
             if !Nami.shared.isPurchaseManagementEnabled() {
                 StoreKit2TransactionObserver()
             }
