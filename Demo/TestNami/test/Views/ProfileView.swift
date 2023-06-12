@@ -14,7 +14,7 @@ struct JourneyStateItem: View {
 
     var body: some View {
         HStack {
-            if #available(iOS 15.0, *) {
+            if #available(iOS 15.0, tvOS 15.0, *) {
                 Circle()
                     .background()
                     .foregroundColor(state == true ? Color("Green") : Color.gray.opacity(0.5))
