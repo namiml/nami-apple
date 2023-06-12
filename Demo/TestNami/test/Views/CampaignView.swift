@@ -47,7 +47,8 @@ struct CampaignView: View {
     }
 
     private func launchWithLabel(label: String) {
-        NamiCampaignManager.launch(label: label, launchHandler: { success, error in
+        let context = PaywallLaunchContext(customAttributes: ["matchupImage": "https://imagecomposer.nfl.com/image/fetch/q_80,f_auto,h_2160,w_3840,c_fit/l_fetch:aHR0cHM6Ly9zdGF0aWMud3d3Lm5mbC5jb20vbGVhZ3VlL2FwcHMvc2hhcmVkL0NMRV9Bd2F5X1ZlcnRpY2FsLnBuZw==,h_2160,w_3840,c_fit,x_0/https:/static.www.nfl.com/league/apps/shared/BAL_Home_Vertical.png"])
+        NamiCampaignManager.launch(label: label, context: context, launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         },
         paywallActionHandler: { campaignId, _, paywallId, action, skuId, purchaseError, _ in

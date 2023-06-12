@@ -15,6 +15,7 @@ import StoreKit
 import Swift
 import SwiftUI
 import UIKit
+import _AVKit_SwiftUI
 import _Concurrency
 import os.log
 import os
@@ -63,6 +64,11 @@ public enum PaywallType : Swift.String, Swift.Codable {
   public var rawValue: Swift.String {
     get
   }
+}
+@objc public class PaywallLaunchContext : ObjectiveC.NSObject {
+  public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc public class NamiVersionUtils : ObjectiveC.NSObject {
   @objc public static func isOriginalVersion(_ originalVersion: Swift.String, lowerThanVersion otherVersion: Swift.String) -> Swift.Bool
@@ -625,8 +631,8 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
 @objc extension NamiApple.NamiCampaignManager {
   @objc public static func launch()
   @objc public static func launch(label: Swift.String)
-  @objc public static func launch(label: Swift.String? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(label: Swift.String? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
   @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
