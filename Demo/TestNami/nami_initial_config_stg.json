@@ -12,10 +12,24 @@
   "campaigns": [
     {
       "paywall": "44522069-0587-4d77-9790-b711a22e7d78",
-      "rule": "d5b47816-e256-4b6d-bad9-f777b876e69b",
+      "rule": "ce8d9adc-eea7-4ac1-8a87-914f2cded9ea",
       "segment": "89cd0275-af6b-42f6-9c85-08aca981983f",
       "type": "label",
       "value": "penguin"
+    },
+    {
+      "paywall": "44522069-0587-4d77-9790-b711a22e7d78",
+      "rule": "ab992c16-5905-42f7-835d-5314d61fd943",
+      "segment": "89cd0275-af6b-42f6-9c85-08aca981983f",
+      "type": "url",
+      "value": "testnami://penguin?sponsor=nami&color=blue"
+    },
+    {
+      "paywall": "44522069-0587-4d77-9790-b711a22e7d78",
+      "rule": "d5b47816-e256-4b6d-bad9-f777b876e69b",
+      "segment": "89cd0275-af6b-42f6-9c85-08aca981983f",
+      "type": "url",
+      "value": "testnami://penguin"
     }
   ],
   "paywalls": [
@@ -388,7 +402,6 @@
                   "component": "condition",
                   "components": [
                     {
-                      "actionTap": "namiRestorePurchases",
                       "borderWidth": 0,
                       "component": "button",
                       "components": [
@@ -397,10 +410,16 @@
                           "fontColor": "#ffffff",
                           "fontName": "Helvetica",
                           "fontSize": 18,
-                          "text": "**Restore**",
+                          "text": "**Deeplink**",
                           "textType": "body"
                         }
-                      ]
+                      ],
+                      "onTap": {
+                        "function": "namiDeeplink",
+                        "parameters": {
+                          "url": "testnami://penguin"
+                        }
+                      }
                     }
                   ]
                 }

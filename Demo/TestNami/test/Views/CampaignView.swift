@@ -14,15 +14,8 @@ struct CampaignView: View {
     var body: some View {
         ZStack {
             Form {
-                Section(header: Text("Live Unlabeled Campaign")) {
-                    ForEach(namiDataSource.campaigns.filter { $0.type == .default }) { _ in
-                        Button(action: launchDefault) {
-                            Text("default")
-                        }
-                    }
-                }
                 Section(header: Text("Live Labeled Campaigns")) {
-                    ForEach(namiDataSource.campaigns.filter { $0.value != nil }) { campaign in
+                    ForEach(namiDataSource.campaigns.filter { $0.value != nil && $0.type == .label }) { campaign in
                         Button(action: {
                             launchWithLabel(label: campaign.value!)
                         }) {
@@ -50,41 +43,57 @@ struct CampaignView: View {
         NamiCampaignManager.launch(label: label, launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         },
-        paywallActionHandler: { campaignId, _, paywallId, action, skuId, purchaseError, _ in
+        paywallActionHandler: { campaignId, campaignName, campaignType, campaignLabel, campaignUrl, paywallId, paywallName, segmentId, externalSegmentId, paywallLaunchContext, action, skuId, _, _, deeplinkUrl in
+
+            print("Launched campaign with metadata: \n" +
+                "campaignId: \(String(describing: campaignId))\n" +
+                "campaignName: \(String(describing: campaignName))\n" +
+                "campaignType: \(String(describing: campaignType))\n" +
+                "campaignLabel: \(String(describing: campaignLabel))\n" +
+                "campaignUrl: \(String(describing: campaignUrl))\n" +
+                "paywallId: \(String(describing: paywallId))\n" +
+                "paywallName: \(String(describing: paywallName))\n" +
+                "segmentId: \(String(describing: segmentId))\n" +
+                "externalSegmentId: \(String(describing: externalSegmentId))\n" +
+                "paywallLaunchContext: \(String(describing: paywallLaunchContext))\n" +
+                "deeplinkUrl: \(String(describing: deeplinkUrl))\n")
 
             switch action {
             case .show_paywall:
-                print("Launched campaign \(String(describing: campaignId)) - paywall raised \(String(describing: paywallId))")
+                print("paywall raised")
 
             case .close_paywall:
-                print("Launched campaign \(String(describing: campaignId)) - paywall closed \(String(describing: paywallId))")
+                print("paywall closed")
 
             case .restore_purchases:
-                print("Launched campaign \(String(describing: campaignId)) - paywall restore purchases tapped \(String(describing: paywallId))")
+                print("paywall restore purchases tapped")
 
             case .sign_in:
-                print("Launched campaign \(String(describing: campaignId)) - paywall sign in tapped \(String(describing: paywallId))")
+                print("paywall sign in tapped")
+
+            case .deeplink:
+                print("deeplink tapped")
 
             case .buy_sku:
-                print("Launched campaign \(String(describing: campaignId)) - buy sku tapped with sku \(String(describing: skuId)) on paywall \(paywallId)")
+                print("buy sku tapped with sku \(String(describing: skuId))")
 
             case .select_sku:
-                print("Launched campaign \(String(describing: campaignId)) - sku \(String(describing: skuId)) selected on paywall \(String(describing: paywallId))")
+                print("sku selected \(String(describing: skuId))")
 
             case .purchase_selected_sku:
-                print("Launched campaign \(String(describing: campaignId)) - purchase flow started for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
+                print("purchase flow started for sku \(String(describing: skuId))")
 
             case .purchase_success:
-                print("Launched campaign \(String(describing: campaignId)) - purchase success for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
+                print("purchase success for sku \(String(describing: skuId))")
 
             case .purchase_cancelled:
-                print("Launched campaign \(String(describing: campaignId)) - purchase cancelled for sku \(String(describing: skuId)) on paywall \(String(describing: paywallId))")
+                print("purchase cancelled for sku \(String(describing: skuId))")
 
             case .purchase_failed:
-                print("Launched campaign \(String(describing: campaignId)) - purchase failed for sku \(String(describing: skuId)) on paywall \(paywallId) with error \(String(describing: purchaseError))")
+                print("purchase failed for sku \(String(describing: skuId))")
 
             default:
-                print("Launched campaign \(String(describing: campaignId)) - unknown action on paywall \(String(describing: paywallId))")
+                print("unknown action")
             }
         })
     }

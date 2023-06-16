@@ -150,14 +150,14 @@ class NamiDataSource: ObservableObject {
             }
         }
 
-        NamiCustomerManager.setCustomerDataPlatformId(with: UUID().uuidString)
-        NamiCustomerManager.clearCustomerDataPlatformId()
-
-        NamiCustomerManager.setAdvertisingId(with: UUID())
-        NamiCustomerManager.clearAdvertisingId()
-
-        NamiCustomerManager.setVendorId(with: UUID())
-        NamiCustomerManager.clearVendorId()
+//        NamiCustomerManager.setCustomerDataPlatformId(with: UUID().uuidString)
+//        NamiCustomerManager.clearCustomerDataPlatformId()
+//
+//        NamiCustomerManager.setAdvertisingId(with: UUID())
+//        NamiCustomerManager.clearAdvertisingId()
+//
+//        NamiCustomerManager.setVendorId(with: UUID())
+//        NamiCustomerManager.clearVendorId()
 
         // This handler is called when sign-in control on paywall is tapped
         NamiPaywallManager.registerSignInHandler { _ in

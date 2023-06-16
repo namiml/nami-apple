@@ -50,6 +50,68 @@ struct TestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { url in
+                    if NamiCampaignManager.isCampaignAvailable(url: url) {
+                        print("Attempting campaign launch from deeplink \(url.absoluteString)")
+
+                        NamiCampaignManager.launch(url: url, launchHandler: { success, error in
+                            print("campaign launch from deeplink \(url.absoluteString) - success \(success) or error \(String(describing: error))")
+                        },
+                        paywallActionHandler: { campaignId, campaignName, campaignType, campaignLabel, campaignUrl, paywallId, paywallName, segmentId, externalSegmentId, paywallLaunchContext, action, skuId, _, _, deeplinkUrl in
+
+                            print("Campaign paywallActionHandler metadata: \n" +
+                                "campaignId: \(String(describing: campaignId))\n" +
+                                "campaignName: \(String(describing: campaignName))\n" +
+                                "campaignType: \(String(describing: campaignType))\n" +
+                                "campaignLabel: \(String(describing: campaignLabel))\n" +
+                                "campaignUrl: \(String(describing: campaignUrl))\n" +
+                                "paywallId: \(String(describing: paywallId))\n" +
+                                "paywallName: \(String(describing: paywallName))\n" +
+                                "segmentId: \(String(describing: segmentId))\n" +
+                                "externalSegmentId: \(String(describing: externalSegmentId))\n" +
+                                "paywallLaunchContext: \(String(describing: paywallLaunchContext))\n" +
+                                "deeplinkUrl: \(String(describing: deeplinkUrl))\n")
+
+                            switch action {
+                            case .show_paywall:
+                                print("paywall raised")
+
+                            case .close_paywall:
+                                print("paywall closed")
+
+                            case .restore_purchases:
+                                print("paywall restore purchases tapped")
+
+                            case .sign_in:
+                                print("paywall sign in tapped")
+
+                            case .deeplink:
+                                print("deeplink tapped")
+
+                            case .buy_sku:
+                                print("buy sku tapped with sku \(String(describing: skuId))")
+
+                            case .select_sku:
+                                print("sku selected \(String(describing: skuId))")
+
+                            case .purchase_selected_sku:
+                                print("purchase flow started for sku \(String(describing: skuId))")
+
+                            case .purchase_success:
+                                print("purchase success for sku \(String(describing: skuId))")
+
+                            case .purchase_cancelled:
+                                print("purchase cancelled for sku \(String(describing: skuId))")
+
+                            case .purchase_failed:
+                                print("purchase failed for sku \(String(describing: skuId))")
+
+                            default:
+                                print("unknown action")
+                            }
+                        })
+                    }
+                }
         }
     }
 }
