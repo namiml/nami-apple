@@ -19,31 +19,8 @@ import _AVKit_SwiftUI
 import _Concurrency
 import os.log
 import os
-public enum NamiSignals {
-  case readyToBuy
-  case smartPaywallActive
-  public static func == (a: NamiApple.NamiSignals, b: NamiApple.NamiSignals) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public typealias NamiConfidence = Swift.Double
-public typealias NamiSignalCallback = (_ confidence: NamiApple.NamiConfidence) -> Swift.Void
-public enum NamiPaywallInitiationType {
-  case userAction
-  case appTrggered
-  case triggerRule
-  case smart
-  public static func == (a: NamiApple.NamiPaywallInitiationType, b: NamiApple.NamiPaywallInitiationType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers public class NamiSignalManager {
   public static var shared: NamiApple.NamiSignalManager
-  public func addHandler(forSignal signal: NamiApple.NamiSignals, handler: NamiApple.NamiSignalCallback?)
   public func paywallRaisedImpression()
   @objc deinit
 }
@@ -96,6 +73,22 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
     get
   }
   public typealias ID = Swift.Int
+}
+@objc public class NamiCampaign : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
+  @objc public var id: Swift.String {
+    @objc get
+  }
+  @objc public var rule: Swift.String
+  @objc public var segment: Swift.String
+  @objc public var paywall: Swift.String
+  public var type: NamiApple.NamiCampaignType
+  @objc public var value: Swift.String?
+  @objc public var external_segment: Swift.String?
+  @objc public var name: Swift.String?
+  public typealias ID = Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public typealias NamiLanguageCode = Swift.String
 @_inheritsConvenienceInitializers @objc public class NamiServerConfiguration : ObjectiveC.NSObject {
@@ -229,47 +222,19 @@ extension Swift.String {
   public func uuidHash() -> Foundation.UUID
   public func stripMarkdown() -> Swift.String
 }
-public enum NamiCampaignV3PaywallMappingKeys : Swift.String {
-  case paywall_id
-  case type
-  case fonts
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
+extension Swift.String {
+  public enum TrimmingOptions {
+    case all
+    case leading
+    case trailing
+    case leadingAndTrailing
+    public static func == (a: Swift.String.TrimmingOptions, b: Swift.String.TrimmingOptions) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
   }
-}
-public enum NamiCampaignPaywallMappingKeys : Swift.String {
-  case user_initiated
-  case nami_triggered
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiServerConfigLegalCitationsKeys : Swift.String {
-  case id
-  case language
-  case clickwrap_text
-  case tos_text
-  case tos_url
-  case privacy_text
-  case privacy_url
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiServerConfigCapabilitiesKeys : Swift.String {
-  case ml_enabled
-  case enterprise_analytics_enabled
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
+  public func trimming(spaces: Swift.String.TrimmingOptions, using characterSet: Foundation.CharacterSet = .whitespacesAndNewlines) -> Swift.String
 }
 public enum NamiEntitlementKeys : Swift.String {
   case id
@@ -311,30 +276,6 @@ public enum NamiPaywallKeys : Swift.String {
     get
   }
 }
-public enum NamiPaywallLocaleConfigKeys : Swift.String {
-  case close_button_text
-  case sign_in_button_text
-  case restore_purchase_button_text
-  case purchase_terms_prefix_hint_text_to_speech
-  case purchase_button_hint_text_to_speech
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiPaywallSkuMenuKeys : Swift.String {
-  case close_button_text
-  case sign_in_button_text
-  case restore_purchase_button_text
-  case purchase_terms_prefix_hint_text_to_speech
-  case purchase_button_hint_text_to_speech
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
 public enum NamiPaywallTypeValues : Swift.String {
   case paywall_creator
   case paywall_linked
@@ -345,9 +286,10 @@ public enum NamiPaywallTypeValues : Swift.String {
     get
   }
 }
-public enum NamiCampaignRuleType : Swift.String, Swift.Codable {
+public enum NamiCampaignType : Swift.String, Swift.Codable {
   case `default`
   case label
+  case url
   case unknown
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
@@ -602,52 +544,9 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurc
   @objc override dynamic public init()
   @objc deinit
 }
-@objc public enum NamiSKUType : Swift.Int, Swift.Codable {
-  case unknown = 0
-  case one_time_purchase
-  case subscription
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc public class NamiCampaign : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
-  @objc public var id: Swift.String {
-    @objc get
-  }
-  @objc public var rule: Swift.String
-  @objc public var segment: Swift.String
-  @objc public var paywall: Swift.String
-  public var type: NamiApple.NamiCampaignRuleType
-  @objc public var value: Swift.String?
-  public typealias ID = Swift.String
-  @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
-}
-public typealias CampaignLaunchHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
-public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: [NamiApple.NamiCampaign]) -> Swift.Void
-@objc extension NamiApple.NamiCampaignManager {
-  @objc public static func launch()
-  @objc public static func launch(label: Swift.String)
-  @objc public static func launch(label: Swift.String? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
-  @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
-  @objc public static func unregisterAvailableCampaignsHandler()
-  @objc public static func registerAvailableCampaignsHandler(_ availableCampaignsHandler: @escaping NamiApple.NamiAvailableCampaignsResponseHandler)
-  @objc public static func allCampaigns() -> [NamiApple.NamiCampaign]
-  @objc public static func isCampaignAvailable(label: Swift.String) -> Swift.Bool
-  @objc public static func isCampaignAvailable() -> Swift.Bool
-  @objc public static func refresh()
-  @objc public static func refresh(_ refreshHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
-  @objc deinit
-}
 public enum CustomerJourneyStateKeys {
 }
-@objc public class CustomerJourneyState : ObjectiveC.NSObject, Foundation.NSCoding, Swift.Codable {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class CustomerJourneyState : ObjectiveC.NSObject, Foundation.NSCoding, Swift.Codable {
   @objc final public let formerSubscriber: Swift.Bool
   @objc final public let inGracePeriod: Swift.Bool
   @objc final public let inTrialPeriod: Swift.Bool
@@ -666,6 +565,37 @@ public enum CustomerJourneyStateKeys {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
+@objc public enum NamiSKUType : Swift.Int, Swift.Codable {
+  case unknown = 0
+  case one_time_purchase
+  case subscription
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public typealias CampaignLaunchHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
+public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: [NamiApple.NamiCampaign]) -> Swift.Void
+@objc extension NamiApple.NamiCampaignManager {
+  @objc public static func launch()
+  @objc public static func launch(label: Swift.String)
+  @objc public static func launch(label: Swift.String? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(url: Foundation.URL, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
+  @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
+  @objc public static func unregisterAvailableCampaignsHandler()
+  @objc public static func registerAvailableCampaignsHandler(_ availableCampaignsHandler: @escaping NamiApple.NamiAvailableCampaignsResponseHandler)
+  @objc public static func allCampaigns() -> [NamiApple.NamiCampaign]
+  @objc public static func isCampaignAvailable(label: Swift.String) -> Swift.Bool
+  @objc public static func isCampaignAvailable(url: Foundation.URL) -> Swift.Bool
+  @objc public static func isCampaignAvailable() -> Swift.Bool
+  @objc public static func refresh()
+  @objc public static func refresh(_ refreshHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
+  @objc deinit
+}
 @objc extension NamiApple.NamiCustomerManager {
   @objc public static func journeyState() -> NamiApple.CustomerJourneyState?
   @objc public static func registerJourneyStateHandler(_ journeyStateHandler: NamiApple.NamiCustomerJourneyStateHandler?)
@@ -675,6 +605,9 @@ public enum CustomerJourneyStateKeys {
   @objc public static func loggedInId() -> Swift.String?
   @objc public static func logout(logoutCompleteHandler: NamiApple.NamiLoginLogoutCompleteHandler? = nil)
   @objc public static func deviceId() -> Swift.String
+  @objc public static func setAnonymousMode(_ anonymousMode: Swift.Bool)
+  @objc public static func inAnonymousMode() -> Swift.Bool
+  @objc public static func anonymousModeCapability() -> Swift.Bool
   @objc public static func setVendorId(with vendorId: Foundation.UUID)
   @objc public static func clearVendorId()
   @objc public static func setAdvertisingId(with advertisingId: Foundation.UUID)
@@ -695,6 +628,10 @@ public enum CustomerJourneyStateKeys {
   case vendor_id_cleared
   case customer_data_platform_id_set
   case customer_data_platform_id_cleared
+  case anonymous_mode_on
+  case anonymous_mode_off
+  case nami_device_id_set
+  case nami_device_id_cleared
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -770,7 +707,7 @@ public enum AsyncImagePhase {
   @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
 }
-public typealias NamiPaywallActionHandler = (_ campaignId: Swift.String?, _ campaignLabel: Swift.String?, _ paywallId: Swift.String?, _ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase]) -> Swift.Void
+public typealias NamiPaywallActionHandler = (_ campaignId: Swift.String?, _ campaignName: Swift.String?, _ campaignType: Swift.String?, _ campaignLabel: Swift.String?, _ campaignUrl: Swift.String?, _ paywallId: Swift.String?, _ paywallName: Swift.String?, _ segmentId: Swift.String?, _ externalSegmentId: Swift.String?, _ paywallLaunchContext: NamiApple.PaywallLaunchContext?, _ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase], _ deeplinkUrl: Swift.String?) -> Swift.Void
 public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void
@@ -982,6 +919,7 @@ extension NamiApple.NamiPurchaseState : Swift.Codable {
   case purchase_cancelled = 9
   case purchase_unknown = 10
   case show_paywall = 11
+  case deeplink = 12
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
