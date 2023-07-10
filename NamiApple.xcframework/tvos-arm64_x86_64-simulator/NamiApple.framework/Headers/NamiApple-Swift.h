@@ -190,9 +190,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreGraphics;
 @import Foundation;
 @import ObjectiveC;
 @import StoreKit;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -219,10 +221,47 @@ typedef SWIFT_ENUM(NSInteger, AccountStateAction, open) {
   AccountStateActionVendor_id_cleared = 5,
   AccountStateActionCustomer_data_platform_id_set = 6,
   AccountStateActionCustomer_data_platform_id_cleared = 7,
+  AccountStateActionAnonymous_mode_on = 8,
+  AccountStateActionAnonymous_mode_off = 9,
+  AccountStateActionNami_device_id_set = 10,
+  AccountStateActionNami_device_id_cleared = 11,
 };
 
+@class UIImage;
 @class NSNumber;
 @class NSCoder;
+@class CALayer;
+
+/// Represents a subclass of <code>UIImageView</code> for displaying animated image.
+/// Different from showing animated image in a normal <code>UIImageView</code> (which load all frames at one time),
+/// <code>AnimatedImageView</code> only tries to load several frames (defined by <code>framePreloadCount</code>) to reduce memory usage.
+/// It provides a tradeoff between memory usage and CPU time. If you have a memory issue when using a normal image
+/// view to load GIF data, you could give this class a try.
+/// Kingfisher supports setting GIF animated data to either <code>UIImageView</code> and <code>AnimatedImageView</code> out of box. So
+/// it would be fairly easy to switch between them.
+SWIFT_CLASS("_TtC9NamiApple17AnimatedImageView")
+@interface AnimatedImageView : UIImageView
+@property (nonatomic, strong) UIImage * _Nullable image;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@property (nonatomic, readonly, getter=isAnimating) BOOL animating;
+/// Starts the animation.
+- (void)startAnimating;
+/// Stops the animation.
+- (void)stopAnimating;
+- (void)displayLayer:(CALayer * _Nonnull)layer;
+- (void)didMoveToWindow;
+- (void)didMoveToSuperview;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+
+
 
 SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @interface CustomerJourneyState : NSObject <NSCoding>
@@ -234,13 +273,14 @@ SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @property (nonatomic, readonly) BOOL inPause;
 @property (nonatomic, readonly) BOOL inAccountHold;
 - (nonnull instancetype)initWithFormerSubscriber:(BOOL)formerSubscriber inGracePeriod:(BOOL)inGracePeriod inTrialPeriod:(BOOL)inTrialPeriod inIntroOfferPeriod:(BOOL)inIntroOfferPeriod isCancelled:(BOOL)isCancelled inPause:(BOOL)inPause inAccountHold:(BOOL)inAccountHold OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSUInteger hash;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -314,6 +354,7 @@ SWIFT_CLASS("_TtC9NamiApple30MockPaymentTransactionPending2")
 
 
 
+
 /// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC9NamiApple4Nami")
 @interface Nami : NSObject
@@ -354,8 +395,11 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @property (nonatomic, copy) NSString * _Nonnull segment;
 @property (nonatomic, copy) NSString * _Nonnull paywall;
 @property (nonatomic, copy) NSString * _Nullable value;
+@property (nonatomic, copy) NSString * _Nullable external_segment;
+@property (nonatomic, copy) NSString * _Nullable name;
 @end
 
+@class NSURL;
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @interface NamiCampaignManager : NSObject
@@ -370,6 +414,8 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 + (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign with the supplied label is available on the device for launch
 + (BOOL)isCampaignAvailableWithLabel:(NSString * _Nonnull)label SWIFT_WARN_UNUSED_RESULT;
+/// Return true if a campaign with the supplied label is available on the device for launch
++ (BOOL)isCampaignAvailableWithUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign without a  label is available on the device for launch
 + (BOOL)isCampaignAvailable SWIFT_WARN_UNUSED_RESULT;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
@@ -402,17 +448,31 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
 /// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
 ///
 /// \param viewController Optional provided view controller to present the paywall from.
 ///
+/// \param context Optional PaywallLaunchContext which is used to contextual certain paywall templates.
+///
 /// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
+/// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the url passed in as listed below.
+/// \param url Campaign url defined in Nami Control Center for launching a specific campaign.
+///
+/// \param viewController Optional provided view controller to present the paywall from.
+///
+/// \param context Optional PaywallLaunchContext which is used to contextual certain paywall templates.
+///
+/// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
+///
+/// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
+///
++ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 @end
 
 
@@ -483,6 +543,17 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 + (void)logoutWithLogoutCompleteHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))logoutCompleteHandler;
 /// Uniquie identifier used by Nami to identify this device. Please note, this value does not persist across app re-installs.
 + (NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+/// Allows users to opt-out of sending device-level data to the Nami service. Opted-in by default unless explicitly opted out.
+/// <ul>
+///   <li>
+///     : anonymousMode:  A boolean that is true if the device has opted-out of device-level data.
+///   </li>
+/// </ul>
++ (void)setAnonymousMode:(BOOL)anonymousMode;
+/// Returns whether or not the SDK is currently operating in anonymous mode
++ (BOOL)inAnonymousMode SWIFT_WARN_UNUSED_RESULT;
+/// Returns whether or not this app platform id belongs to an anonymous mode capable Nami account.
++ (BOOL)anonymousModeCapability SWIFT_WARN_UNUSED_RESULT;
 /// Allows you to pass the system Vendor ID to Nami
 /// \param vendorId Advertising Identifier obtained from the system or your own custom UUID.
 ///
@@ -952,6 +1023,7 @@ typedef SWIFT_ENUM(NSInteger, NamiPaywallAction, open) {
   NamiPaywallActionPurchase_cancelled = 9,
   NamiPaywallActionPurchase_unknown = 10,
   NamiPaywallActionShow_paywall = 11,
+  NamiPaywallActionDeeplink = 12,
 };
 
 
@@ -1366,6 +1438,28 @@ typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitYear = 4,
 };
 
+
+SWIFT_CLASS_NAMED("SessionDelegate")
+@interface KFSessionDelegate : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSURLSession;
+@class NSURLSessionDataTask;
+@class NSURLResponse;
+@class NSURLSessionTask;
+@class NSURLAuthenticationChallenge;
+@class NSURLCredential;
+
+@interface KFSessionDelegate (SWIFT_EXTENSION(NamiApple)) <NSURLSessionDataDelegate>
+- (void)URLSession:(NSURLSession * _Nonnull)_ dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveResponse:(NSURLResponse * _Nonnull)response completionHandler:(void (^ _Nonnull)(NSURLSessionResponseDisposition))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
+- (void)URLSession:(NSURLSession * _Nonnull)_ task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
+- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)_ task:(NSURLSessionTask * _Nonnull)task willPerformHTTPRedirection:(NSHTTPURLResponse * _Nonnull)response newRequest:(NSURLRequest * _Nonnull)request completionHandler:(void (^ _Nonnull)(NSURLRequest * _Nullable))completionHandler;
+@end
+
 /// Objective-C enum for store kit environments as there are no String enums in Objective-C.
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, open) {
   StoreKitEnvironmentObjCProduction = 0,
@@ -1393,6 +1487,15 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1597,9 +1700,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreGraphics;
 @import Foundation;
 @import ObjectiveC;
 @import StoreKit;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -1626,10 +1731,47 @@ typedef SWIFT_ENUM(NSInteger, AccountStateAction, open) {
   AccountStateActionVendor_id_cleared = 5,
   AccountStateActionCustomer_data_platform_id_set = 6,
   AccountStateActionCustomer_data_platform_id_cleared = 7,
+  AccountStateActionAnonymous_mode_on = 8,
+  AccountStateActionAnonymous_mode_off = 9,
+  AccountStateActionNami_device_id_set = 10,
+  AccountStateActionNami_device_id_cleared = 11,
 };
 
+@class UIImage;
 @class NSNumber;
 @class NSCoder;
+@class CALayer;
+
+/// Represents a subclass of <code>UIImageView</code> for displaying animated image.
+/// Different from showing animated image in a normal <code>UIImageView</code> (which load all frames at one time),
+/// <code>AnimatedImageView</code> only tries to load several frames (defined by <code>framePreloadCount</code>) to reduce memory usage.
+/// It provides a tradeoff between memory usage and CPU time. If you have a memory issue when using a normal image
+/// view to load GIF data, you could give this class a try.
+/// Kingfisher supports setting GIF animated data to either <code>UIImageView</code> and <code>AnimatedImageView</code> out of box. So
+/// it would be fairly easy to switch between them.
+SWIFT_CLASS("_TtC9NamiApple17AnimatedImageView")
+@interface AnimatedImageView : UIImageView
+@property (nonatomic, strong) UIImage * _Nullable image;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image highlightedImage:(UIImage * _Nullable)highlightedImage OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@property (nonatomic, readonly, getter=isAnimating) BOOL animating;
+/// Starts the animation.
+- (void)startAnimating;
+/// Stops the animation.
+- (void)stopAnimating;
+- (void)displayLayer:(CALayer * _Nonnull)layer;
+- (void)didMoveToWindow;
+- (void)didMoveToSuperview;
+- (nonnull instancetype)initWithImage:(UIImage * _Nullable)image SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+
+
 
 SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @interface CustomerJourneyState : NSObject <NSCoding>
@@ -1641,13 +1783,14 @@ SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @property (nonatomic, readonly) BOOL inPause;
 @property (nonatomic, readonly) BOOL inAccountHold;
 - (nonnull instancetype)initWithFormerSubscriber:(BOOL)formerSubscriber inGracePeriod:(BOOL)inGracePeriod inTrialPeriod:(BOOL)inTrialPeriod inIntroOfferPeriod:(BOOL)inIntroOfferPeriod isCancelled:(BOOL)isCancelled inPause:(BOOL)inPause inAccountHold:(BOOL)inAccountHold OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) NSUInteger hash;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -1721,6 +1864,7 @@ SWIFT_CLASS("_TtC9NamiApple30MockPaymentTransactionPending2")
 
 
 
+
 /// This is the core Nami class, that handles central configuration across the Nami SDK
 SWIFT_CLASS("_TtC9NamiApple4Nami")
 @interface Nami : NSObject
@@ -1761,8 +1905,11 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @property (nonatomic, copy) NSString * _Nonnull segment;
 @property (nonatomic, copy) NSString * _Nonnull paywall;
 @property (nonatomic, copy) NSString * _Nullable value;
+@property (nonatomic, copy) NSString * _Nullable external_segment;
+@property (nonatomic, copy) NSString * _Nullable name;
 @end
 
+@class NSURL;
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @interface NamiCampaignManager : NSObject
@@ -1777,6 +1924,8 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 + (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign with the supplied label is available on the device for launch
 + (BOOL)isCampaignAvailableWithLabel:(NSString * _Nonnull)label SWIFT_WARN_UNUSED_RESULT;
+/// Return true if a campaign with the supplied label is available on the device for launch
++ (BOOL)isCampaignAvailableWithUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign without a  label is available on the device for launch
 + (BOOL)isCampaignAvailable SWIFT_WARN_UNUSED_RESULT;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
@@ -1809,17 +1958,31 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the parameters passed in as listed below.
 /// \param label Campaign label defined in Nami Control Center for launching a specific campaign.
 ///
 /// \param viewController Optional provided view controller to present the paywall from.
 ///
+/// \param context Optional PaywallLaunchContext which is used to contextual certain paywall templates.
+///
 /// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
+/// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the url passed in as listed below.
+/// \param url Campaign url defined in Nami Control Center for launching a specific campaign.
+///
+/// \param viewController Optional provided view controller to present the paywall from.
+///
+/// \param context Optional PaywallLaunchContext which is used to contextual certain paywall templates.
+///
+/// \param launchHandler Handler to be invoked on success or if campaign cannot be launched due to an error.
+///
+/// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
+///
++ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 @end
 
 
@@ -1890,6 +2053,17 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
 + (void)logoutWithLogoutCompleteHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))logoutCompleteHandler;
 /// Uniquie identifier used by Nami to identify this device. Please note, this value does not persist across app re-installs.
 + (NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
+/// Allows users to opt-out of sending device-level data to the Nami service. Opted-in by default unless explicitly opted out.
+/// <ul>
+///   <li>
+///     : anonymousMode:  A boolean that is true if the device has opted-out of device-level data.
+///   </li>
+/// </ul>
++ (void)setAnonymousMode:(BOOL)anonymousMode;
+/// Returns whether or not the SDK is currently operating in anonymous mode
++ (BOOL)inAnonymousMode SWIFT_WARN_UNUSED_RESULT;
+/// Returns whether or not this app platform id belongs to an anonymous mode capable Nami account.
++ (BOOL)anonymousModeCapability SWIFT_WARN_UNUSED_RESULT;
 /// Allows you to pass the system Vendor ID to Nami
 /// \param vendorId Advertising Identifier obtained from the system or your own custom UUID.
 ///
@@ -2359,6 +2533,7 @@ typedef SWIFT_ENUM(NSInteger, NamiPaywallAction, open) {
   NamiPaywallActionPurchase_cancelled = 9,
   NamiPaywallActionPurchase_unknown = 10,
   NamiPaywallActionShow_paywall = 11,
+  NamiPaywallActionDeeplink = 12,
 };
 
 
@@ -2773,6 +2948,28 @@ typedef SWIFT_ENUM(NSInteger, SandboxAccelerationItemUnit, open) {
   SandboxAccelerationItemUnitYear = 4,
 };
 
+
+SWIFT_CLASS_NAMED("SessionDelegate")
+@interface KFSessionDelegate : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSURLSession;
+@class NSURLSessionDataTask;
+@class NSURLResponse;
+@class NSURLSessionTask;
+@class NSURLAuthenticationChallenge;
+@class NSURLCredential;
+
+@interface KFSessionDelegate (SWIFT_EXTENSION(NamiApple)) <NSURLSessionDataDelegate>
+- (void)URLSession:(NSURLSession * _Nonnull)_ dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveResponse:(NSURLResponse * _Nonnull)response completionHandler:(void (^ _Nonnull)(NSURLSessionResponseDisposition))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask didReceiveData:(NSData * _Nonnull)data;
+- (void)URLSession:(NSURLSession * _Nonnull)_ task:(NSURLSessionTask * _Nonnull)task didCompleteWithError:(NSError * _Nullable)error;
+- (void)URLSession:(NSURLSession * _Nonnull)session didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didReceiveChallenge:(NSURLAuthenticationChallenge * _Nonnull)challenge completionHandler:(void (^ _Nonnull)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler;
+- (void)URLSession:(NSURLSession * _Nonnull)_ task:(NSURLSessionTask * _Nonnull)task willPerformHTTPRedirection:(NSHTTPURLResponse * _Nonnull)response newRequest:(NSURLRequest * _Nonnull)request completionHandler:(void (^ _Nonnull)(NSURLRequest * _Nullable))completionHandler;
+@end
+
 /// Objective-C enum for store kit environments as there are no String enums in Objective-C.
 typedef SWIFT_ENUM(NSInteger, StoreKitEnvironmentObjC, open) {
   StoreKitEnvironmentObjCProduction = 0,
@@ -2800,6 +2997,15 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
+
+
+
+
+
+
+
+
+
 
 
 
