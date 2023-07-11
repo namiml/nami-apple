@@ -425,7 +425,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController useNamiWindow:(BOOL)useNamiWindow context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the url passed in as listed below.
 /// \param url Campaign url defined in Nami Control Center for launching a specific campaign.
 ///
@@ -437,7 +437,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController useNamiWindow:(BOOL)useNamiWindow context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
++ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 @end
 
 
@@ -1873,7 +1873,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController useNamiWindow:(BOOL)useNamiWindow context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
++ (void)launchWithLabel:(NSString * _Nullable)label viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 /// Presents a paywall for a campaign with the selection of the paywall and paywall loading affected by the url passed in as listed below.
 /// \param url Campaign url defined in Nami Control Center for launching a specific campaign.
 ///
@@ -1885,7 +1885,7 @@ enum NamiPaywallAction : NSInteger;
 ///
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
-+ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController useNamiWindow:(BOOL)useNamiWindow context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
++ (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, NSString * _Nullable, PaywallLaunchContext * _Nullable, enum NamiPaywallAction, NamiSKU * _Nullable, NSError * _Nullable, NSArray<NamiPurchase *> * _Nonnull, NSString * _Nullable))paywallActionHandler;
 @end
 
 

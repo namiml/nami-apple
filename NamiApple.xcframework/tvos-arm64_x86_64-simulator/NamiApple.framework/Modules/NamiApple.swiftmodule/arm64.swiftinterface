@@ -582,8 +582,8 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
   @objc public static func launch()
   @objc public static func launch(label: Swift.String)
   @objc public static func launch(label: Swift.String? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, useNamiWindow: Swift.Bool = false, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(url: Foundation.URL, viewController: UIKit.UIViewController? = .none, useNamiWindow: Swift.Bool = false, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(url: Foundation.URL, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
   @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
