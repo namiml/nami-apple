@@ -1,164 +1,28 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-tvos15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
-import AVKit
-import Accelerate
 import Combine
 import CommonCrypto
 import CoreGraphics
-import CoreImage
 import CoreML
 import CoreText
 import CryptoKit
 import Foundation
-import ImageIO
 import MobileCoreServices
 @_exported import NamiApple
 import Security
 import StoreKit
 import Swift
 import SwiftUI
-import TVUIKit
 import UIKit
 import _AVKit_SwiftUI
 import _Concurrency
 import os.log
 import os
-extension NamiApple.KingfisherWrapper where Base : UIKit.NSTextAttachment {
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, attributedView: @autoclosure @escaping () -> NamiApple.KFCrossPlatformView, placeholder: NamiApple.KFCrossPlatformImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with resource: NamiApple.Resource?, attributedView: @autoclosure @escaping () -> NamiApple.KFCrossPlatformView, placeholder: NamiApple.KFCrossPlatformImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  public func cancelDownloadTask()
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.NSTextAttachment {
-  public var taskIdentifier: NamiApple.Source.Identifier.Value? {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers public class NamiSignalManager {
   public static var shared: NamiApple.NamiSignalManager
   public func paywallRaisedImpression()
   @objc deinit
-}
-@_hasMissingDesignatedInitializers public class SessionDataTask {
-  public typealias CancelToken = Swift.Int
-  public var mutableData: Foundation.Data {
-    get
-  }
-  final public let originalURL: Foundation.URL?
-  final public let task: Foundation.URLSessionDataTask
-  @objc deinit
-}
-public protocol ImageDataProvider {
-  var cacheKey: Swift.String { get }
-  func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
-  var contentURL: Foundation.URL? { get }
-}
-extension NamiApple.ImageDataProvider {
-  public var contentURL: Foundation.URL? {
-    get
-  }
-  public func convertToSource() -> NamiApple.Source
-}
-public struct LocalFileImageDataProvider : NamiApple.ImageDataProvider {
-  public let fileURL: Foundation.URL
-  public init(fileURL: Foundation.URL, cacheKey: Swift.String? = nil, loadingQueue: NamiApple.ExecutionQueue = .dispatch(DispatchQueue.global(qos: .userInitiated)))
-  public var cacheKey: Swift.String
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
-  
-  #if compiler(>=5.3) && $EffectfulProp
-  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-  public var data: Foundation.Data {
-    get async throws
-  }
-  #endif
-
-  public var contentURL: Foundation.URL? {
-    get
-  }
-}
-public struct Base64ImageDataProvider : NamiApple.ImageDataProvider {
-  public let base64String: Swift.String
-  public init(base64String: Swift.String, cacheKey: Swift.String)
-  public var cacheKey: Swift.String
-  public func data(handler: (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
-}
-public struct RawImageDataProvider : NamiApple.ImageDataProvider {
-  public let data: Foundation.Data
-  public init(data: Foundation.Data, cacheKey: Swift.String)
-  public var cacheKey: Swift.String
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
-}
-public protocol ImageDownloaderDelegate : AnyObject {
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, willDownloadImageForURL url: Foundation.URL, with request: Foundation.URLRequest?)
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, didFinishDownloadingImageForURL url: Foundation.URL, with response: Foundation.URLResponse?, error: Swift.Error?)
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, didDownload data: Foundation.Data, with dataTask: NamiApple.SessionDataTask) -> Foundation.Data?
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, didDownload data: Foundation.Data, for url: Foundation.URL) -> Foundation.Data?
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, didDownload image: NamiApple.KFCrossPlatformImage, for url: Foundation.URL, with response: Foundation.URLResponse?)
-  func isValidStatusCode(_ code: Swift.Int, for downloader: NamiApple.ImageDownloader) -> Swift.Bool
-  func imageDownloader(_ downloader: NamiApple.ImageDownloader, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
-}
-extension NamiApple.ImageDownloaderDelegate {
-  public func imageDownloader(_: NamiApple.ImageDownloader, willDownloadImageForURL _: Foundation.URL, with _: Foundation.URLRequest?)
-  public func imageDownloader(_: NamiApple.ImageDownloader, didFinishDownloadingImageForURL _: Foundation.URL, with _: Foundation.URLResponse?, error _: Swift.Error?)
-  public func imageDownloader(_: NamiApple.ImageDownloader, didDownload _: NamiApple.KFCrossPlatformImage, for _: Foundation.URL, with _: Foundation.URLResponse?)
-  public func isValidStatusCode(_ code: Swift.Int, for _: NamiApple.ImageDownloader) -> Swift.Bool
-  public func imageDownloader(_ downloader: NamiApple.ImageDownloader, didDownload data: Foundation.Data, with task: NamiApple.SessionDataTask) -> Foundation.Data?
-  public func imageDownloader(_: NamiApple.ImageDownloader, didDownload data: Foundation.Data, for _: Foundation.URL) -> Foundation.Data?
-  public func imageDownloader(_: NamiApple.ImageDownloader, didReceive _: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
-}
-public protocol Resource {
-  var cacheKey: Swift.String { get }
-  var downloadURL: Foundation.URL { get }
-}
-extension NamiApple.Resource {
-  public func convertToSource(overrideCacheKey: Swift.String? = nil) -> NamiApple.Source
-}
-@available(*, deprecated, renamed: "KF.ImageResource", message: "This type conflicts with `GeneratedAssetSymbols.ImageResource` in Swift 5.9. Renamed to avoid issues in the future.")
-public typealias ImageResource = NamiApple.KF.ImageResource
-extension NamiApple.KF {
-  public struct ImageResource : NamiApple.Resource {
-    public init(downloadURL: Foundation.URL, cacheKey: Swift.String? = nil)
-    public let cacheKey: Swift.String
-    public let downloadURL: Foundation.URL
-  }
-}
-extension Foundation.URL : NamiApple.Resource {
-  public var cacheKey: Swift.String {
-    get
-  }
-  public var downloadURL: Foundation.URL {
-    get
-  }
-}
-public enum DiskStorage {
-  @_hasMissingDesignatedInitializers public class Backend<T> where T : NamiApple.DataTransformable {
-    public var config: NamiApple.DiskStorage.Config
-    final public let directoryURL: Foundation.URL
-    public convenience init(config: NamiApple.DiskStorage.Config) throws
-    public func store(value: T, forKey key: Swift.String, expiration: NamiApple.StorageExpiration? = nil, writeOptions: Foundation.Data.WritingOptions = []) throws
-    public func value(forKey key: Swift.String, extendingExpiration: NamiApple.ExpirationExtending = .cacheTime) throws -> T?
-    public func isCached(forKey key: Swift.String) -> Swift.Bool
-    public func isCached(forKey key: Swift.String, referenceDate: Foundation.Date) -> Swift.Bool
-    public func remove(forKey key: Swift.String) throws
-    public func removeAll() throws
-    public func cacheFileURL(forKey key: Swift.String) -> Foundation.URL
-    public func removeExpiredValues() throws -> [Foundation.URL]
-    public func totalSize() throws -> Swift.UInt
-    @objc deinit
-  }
-}
-extension NamiApple.DiskStorage {
-  public struct Config {
-    public var sizeLimit: Swift.UInt
-    public var expiration: NamiApple.StorageExpiration
-    public var pathExtension: Swift.String?
-    public var usesHashedFileName: Swift.Bool
-    public var autoExtAfterHashedFileName: Swift.Bool
-    public var cachePathBlock: ((_ directory: Foundation.URL, _ cacheName: Swift.String) -> Foundation.URL)!
-    public init(name: Swift.String, sizeLimit: Swift.UInt, fileManager: Foundation.FileManager = .default, directory: Foundation.URL? = nil)
-  }
 }
 extension Swift.Encodable where Self : UIKit.UIColor {
   public func encode(to encoder: Swift.Encoder) throws
@@ -167,13 +31,6 @@ extension Swift.Decodable where Self : UIKit.UIColor {
   public init(from decoder: Swift.Decoder) throws
 }
 extension UIKit.UIColor : Swift.Codable {
-}
-public protocol ImageDownloadRedirectHandler {
-  func handleHTTPRedirection(for task: NamiApple.SessionDataTask, response: Foundation.HTTPURLResponse, newRequest: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
-}
-public struct AnyRedirectHandler : NamiApple.ImageDownloadRedirectHandler {
-  public func handleHTTPRedirection(for task: NamiApple.SessionDataTask, response: Foundation.HTTPURLResponse, newRequest: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
-  public init(handle: @escaping (NamiApple.SessionDataTask, Foundation.HTTPURLResponse, Foundation.URLRequest, @escaping (Foundation.URLRequest?) -> Swift.Void) -> Swift.Void)
 }
 public enum PaywallType : Swift.String, Swift.Codable {
   case component
@@ -185,48 +42,6 @@ public enum PaywallType : Swift.String, Swift.Codable {
     get
   }
 }
-public struct ImageLoadingResult {
-  public let image: NamiApple.KFCrossPlatformImage
-  public let url: Foundation.URL?
-  public let originalData: Foundation.Data
-}
-public struct DownloadTask {
-  public let sessionTask: NamiApple.SessionDataTask
-  public let cancelToken: NamiApple.SessionDataTask.CancelToken
-  public func cancel()
-}
-open class ImageDownloader {
-  public static var `default`: NamiApple.ImageDownloader
-  open var downloadTimeout: Swift.Double
-  open var trustedHosts: Swift.Set<Swift.String>?
-  open var sessionConfiguration: Foundation.URLSessionConfiguration {
-    get
-    set(value)
-  }
-  open var sessionDelegate: NamiApple.SessionDelegate {
-    get
-    set(value)
-  }
-  open var requestsUsePipelining: Swift.Bool
-  weak open var delegate: NamiApple.ImageDownloaderDelegate?
-  weak open var authenticationChallengeResponder: NamiApple.AuthenticationChallengeResponsible?
-  public init(name: Swift.String)
-  @objc deinit
-  @discardableResult
-  open func downloadImage(with url: Foundation.URL, options: NamiApple.KingfisherParsedOptionsInfo, completionHandler: ((Swift.Result<NamiApple.ImageLoadingResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  open func downloadImage(with url: Foundation.URL, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.ImageLoadingResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  open func downloadImage(with url: Foundation.URL, options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<NamiApple.ImageLoadingResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-}
-extension NamiApple.ImageDownloader {
-  public func cancelAll()
-  public func cancel(url: Foundation.URL)
-}
-extension NamiApple.ImageDownloader : NamiApple.AuthenticationChallengeResponsible {
-}
-extension NamiApple.ImageDownloader : NamiApple.ImageDownloaderDelegate {
-}
 @objc public class PaywallLaunchContext : ObjectiveC.NSObject {
   public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none)
   required public init(from decoder: Swift.Decoder) throws
@@ -237,69 +52,6 @@ extension NamiApple.ImageDownloader : NamiApple.ImageDownloaderDelegate {
   @objc public static func currentAppVersion() -> Swift.String
   @objc override dynamic public init()
   @objc deinit
-}
-public enum KingfisherError : Swift.Error {
-  public enum RequestErrorReason {
-    case emptyRequest
-    case invalidURL(request: Foundation.URLRequest)
-    case taskCancelled(task: NamiApple.SessionDataTask, token: NamiApple.SessionDataTask.CancelToken)
-  }
-  public enum ResponseErrorReason {
-    case invalidURLResponse(response: Foundation.URLResponse)
-    case invalidHTTPStatusCode(response: Foundation.HTTPURLResponse)
-    case URLSessionError(error: Swift.Error)
-    case dataModifyingFailed(task: NamiApple.SessionDataTask)
-    case noURLResponse(task: NamiApple.SessionDataTask)
-    case cancelledByDelegate(response: Foundation.URLResponse)
-  }
-  public enum CacheErrorReason {
-    case fileEnumeratorCreationFailed(url: Foundation.URL)
-    case invalidFileEnumeratorContent(url: Foundation.URL)
-    case invalidURLResource(error: Swift.Error, key: Swift.String, url: Foundation.URL)
-    case cannotLoadDataFromDisk(url: Foundation.URL, error: Swift.Error)
-    case cannotCreateDirectory(path: Swift.String, error: Swift.Error)
-    case imageNotExisting(key: Swift.String)
-    case cannotConvertToData(object: Any, error: Swift.Error)
-    case cannotSerializeImage(image: NamiApple.KFCrossPlatformImage?, original: Foundation.Data?, serializer: NamiApple.CacheSerializer)
-    case cannotCreateCacheFile(fileURL: Foundation.URL, key: Swift.String, data: Foundation.Data, error: Swift.Error)
-    case cannotSetCacheFileAttribute(filePath: Swift.String, attributes: [Foundation.FileAttributeKey : Any], error: Swift.Error)
-    case diskStorageIsNotReady(cacheURL: Foundation.URL)
-  }
-  public enum ProcessorErrorReason {
-    case processingFailed(processor: NamiApple.ImageProcessor, item: NamiApple.ImageProcessItem)
-  }
-  public enum ImageSettingErrorReason {
-    case emptySource
-    case notCurrentSourceTask(result: NamiApple.RetrieveImageResult?, error: Swift.Error?, source: NamiApple.Source)
-    case dataProviderError(provider: NamiApple.ImageDataProvider, error: Swift.Error)
-    case alternativeSourcesExhausted([NamiApple.PropagationError])
-  }
-  case requestError(reason: NamiApple.KingfisherError.RequestErrorReason)
-  case responseError(reason: NamiApple.KingfisherError.ResponseErrorReason)
-  case cacheError(reason: NamiApple.KingfisherError.CacheErrorReason)
-  case processorError(reason: NamiApple.KingfisherError.ProcessorErrorReason)
-  case imageSettingError(reason: NamiApple.KingfisherError.ImageSettingErrorReason)
-  public var isTaskCancelled: Swift.Bool {
-    get
-  }
-  public func isInvalidResponseStatusCode(_ code: Swift.Int) -> Swift.Bool
-  public var isInvalidResponseStatusCode: Swift.Bool {
-    get
-  }
-  public var isNotCurrentTask: Swift.Bool {
-    get
-  }
-}
-extension NamiApple.KingfisherError : Foundation.LocalizedError {
-  public var errorDescription: Swift.String? {
-    get
-  }
-}
-extension NamiApple.KingfisherError : Foundation.CustomNSError {
-  public static var domain: Swift.String
-  public var errorCode: Swift.Int {
-    get
-  }
 }
 extension Foundation._NSRange {
   public init(range: Swift.Range<Swift.String.Index>, originalText: Swift.String)
@@ -315,63 +67,6 @@ public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
 }
 public enum NamiStoreKitTesting {
   public static func bypassAdvanceDate(bySeconds seconds: Foundation.TimeInterval?)
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public func image(withBlendMode blendMode: CoreGraphics.CGBlendMode, alpha: CoreGraphics.CGFloat = 1.0, backgroundColor: NamiApple.KFCrossPlatformColor? = nil) -> NamiApple.KFCrossPlatformImage
-  public func image(withRadius radius: NamiApple.Radius, fit size: CoreGraphics.CGSize, roundingCorners corners: NamiApple.RectCorner = .all, backgroundColor: NamiApple.KFCrossPlatformColor? = nil) -> NamiApple.KFCrossPlatformImage
-  public func image(withRoundRadius radius: CoreGraphics.CGFloat, fit size: CoreGraphics.CGSize, roundingCorners corners: NamiApple.RectCorner = .all, backgroundColor: NamiApple.KFCrossPlatformColor? = nil) -> NamiApple.KFCrossPlatformImage
-  public func resize(to size: CoreGraphics.CGSize) -> NamiApple.KFCrossPlatformImage
-  public func resize(to targetSize: CoreGraphics.CGSize, for contentMode: NamiApple.ContentMode) -> NamiApple.KFCrossPlatformImage
-  public func crop(to size: CoreGraphics.CGSize, anchorOn anchor: CoreGraphics.CGPoint) -> NamiApple.KFCrossPlatformImage
-  public func blurred(withRadius radius: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage
-  public func addingBorder(_ border: NamiApple.Border) -> NamiApple.KFCrossPlatformImage
-  public func overlaying(with color: NamiApple.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage
-  public func tinted(with color: NamiApple.KFCrossPlatformColor) -> NamiApple.KFCrossPlatformImage
-  public func adjusted(brightness: CoreGraphics.CGFloat, contrast: CoreGraphics.CGFloat, saturation: CoreGraphics.CGFloat, inputEV: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage
-  public func scaled(to scale: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public var decoded: NamiApple.KFCrossPlatformImage {
-    get
-  }
-  public func decoded(scale: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage
-  public func decoded(on context: CoreGraphics.CGContext) -> NamiApple.KFCrossPlatformImage
-}
-public class Delegate<Input, Output> {
-  public init()
-  public func delegate<T>(on target: T, block: ((T, Input) -> Output)?) where T : AnyObject
-  public func call(_ input: Input) -> Output?
-  public func callAsFunction(_ input: Input) -> Output?
-  @objc deinit
-}
-extension NamiApple.Delegate where Input == Swift.Void {
-  public func call() -> Output?
-  public func callAsFunction() -> Output?
-}
-extension NamiApple.Delegate where Input == Swift.Void, Output : NamiApple.OptionalProtocol {
-  public func call() -> Output
-  public func callAsFunction() -> Output
-}
-extension NamiApple.Delegate where Output : NamiApple.OptionalProtocol {
-  public func call(_ input: Input) -> Output
-  public func callAsFunction(_ input: Input) -> Output
-}
-public protocol OptionalProtocol {
-  static var _createNil: Self { get }
-}
-extension Swift.Optional : NamiApple.OptionalProtocol {
-  public static var _createNil: Wrapped? {
-    get
-  }
-}
-public enum ImageTransition {
-  case none
-  case fade(Foundation.TimeInterval)
-  case flipFromLeft(Foundation.TimeInterval)
-  case flipFromRight(Foundation.TimeInterval)
-  case flipFromTop(Foundation.TimeInterval)
-  case flipFromBottom(Foundation.TimeInterval)
-  case custom(duration: Foundation.TimeInterval, options: UIKit.UIView.AnimationOptions, animations: ((UIKit.UIImageView, UIKit.UIImage) -> Swift.Void)?, completion: ((Swift.Bool) -> Swift.Void)?)
 }
 extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   public var id: Swift.Int {
@@ -394,22 +89,6 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
-}
-public typealias Transformer = (CoreImage.CIImage) -> CoreImage.CIImage?
-public protocol CIImageProcessor : NamiApple.ImageProcessor {
-  var filter: NamiApple.Filter { get }
-}
-extension NamiApple.CIImageProcessor {
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct Filter {
-  public init(transform: @escaping NamiApple.Transformer)
-  public static var tint: (_ color: NamiApple.KFCrossPlatformColor) -> NamiApple.Filter
-  public typealias ColorElement = (CoreGraphics.CGFloat, CoreGraphics.CGFloat, CoreGraphics.CGFloat, CoreGraphics.CGFloat)
-  public static var colorControl: (_ arg: NamiApple.Filter.ColorElement) -> NamiApple.Filter
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public func apply(_ filter: NamiApple.Filter) -> NamiApple.KFCrossPlatformImage
 }
 public typealias NamiLanguageCode = Swift.String
 @_inheritsConvenienceInitializers @objc public class NamiServerConfiguration : ObjectiveC.NSObject {
@@ -536,139 +215,9 @@ public typealias NamiLanguageCode = Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
-public enum ImageProcessItem {
-  case image(NamiApple.KFCrossPlatformImage)
-  case data(Foundation.Data)
-}
 public protocol ImageProcessor {
-  var identifier: Swift.String { get }
-  func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
+  func process(image: UIKit.UIImage) -> UIKit.UIImage
 }
-extension NamiApple.ImageProcessor {
-  public func append(another: NamiApple.ImageProcessor) -> NamiApple.ImageProcessor
-}
-public struct DefaultImageProcessor : NamiApple.ImageProcessor {
-  public static var `default`: NamiApple.DefaultImageProcessor
-  public let identifier: Swift.String
-  public init()
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct RectCorner : Swift.OptionSet {
-  public let rawValue: Swift.Int
-  public static var topLeft: NamiApple.RectCorner
-  public static var topRight: NamiApple.RectCorner
-  public static var bottomLeft: NamiApple.RectCorner
-  public static var bottomRight: NamiApple.RectCorner
-  public static var all: NamiApple.RectCorner
-  public init(rawValue: Swift.Int)
-  public typealias ArrayLiteralElement = NamiApple.RectCorner
-  public typealias Element = NamiApple.RectCorner
-  public typealias RawValue = Swift.Int
-}
-public struct BlendImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let blendMode: CoreGraphics.CGBlendMode
-  public let alpha: CoreGraphics.CGFloat
-  public let backgroundColor: NamiApple.KFCrossPlatformColor?
-  public init(blendMode: CoreGraphics.CGBlendMode, alpha: CoreGraphics.CGFloat = 1.0, backgroundColor: NamiApple.KFCrossPlatformColor? = nil)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public enum Radius {
-  case widthFraction(CoreGraphics.CGFloat)
-  case heightFraction(CoreGraphics.CGFloat)
-  case point(CoreGraphics.CGFloat)
-  public func compute(with size: CoreGraphics.CGSize) -> CoreGraphics.CGFloat
-}
-public struct RoundCornerImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let radius: NamiApple.Radius
-  public let roundingCorners: NamiApple.RectCorner
-  public let targetSize: CoreGraphics.CGSize?
-  public let backgroundColor: NamiApple.KFCrossPlatformColor?
-  public init(cornerRadius: CoreGraphics.CGFloat, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: NamiApple.RectCorner = .all, backgroundColor: NamiApple.KFCrossPlatformColor? = nil)
-  public init(radius: NamiApple.Radius, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: NamiApple.RectCorner = .all, backgroundColor: NamiApple.KFCrossPlatformColor? = nil)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct Border {
-  public var color: NamiApple.KFCrossPlatformColor
-  public var lineWidth: CoreGraphics.CGFloat
-  public var radius: NamiApple.Radius
-  public var roundingCorners: NamiApple.RectCorner
-  public init(color: NamiApple.KFCrossPlatformColor = .black, lineWidth: CoreGraphics.CGFloat = 4, radius: NamiApple.Radius = .point(0), roundingCorners: NamiApple.RectCorner = .all)
-}
-public struct BorderImageProcessor : NamiApple.ImageProcessor {
-  public var identifier: Swift.String {
-    get
-  }
-  public let border: NamiApple.Border
-  public init(border: NamiApple.Border)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public enum ContentMode {
-  case none
-  case aspectFit
-  case aspectFill
-  public static func == (a: NamiApple.ContentMode, b: NamiApple.ContentMode) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public struct ResizingImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let referenceSize: CoreGraphics.CGSize
-  public let targetContentMode: NamiApple.ContentMode
-  public init(referenceSize: CoreGraphics.CGSize, mode: NamiApple.ContentMode = .none)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct BlurImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let blurRadius: CoreGraphics.CGFloat
-  public init(blurRadius: CoreGraphics.CGFloat)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct OverlayImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let overlay: NamiApple.KFCrossPlatformColor
-  public let fraction: CoreGraphics.CGFloat
-  public init(overlay: NamiApple.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat = 0.5)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct TintImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let tint: NamiApple.KFCrossPlatformColor
-  public init(tint: NamiApple.KFCrossPlatformColor)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct ColorControlsProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let brightness: CoreGraphics.CGFloat
-  public let contrast: CoreGraphics.CGFloat
-  public let saturation: CoreGraphics.CGFloat
-  public let inputEV: CoreGraphics.CGFloat
-  public init(brightness: CoreGraphics.CGFloat, contrast: CoreGraphics.CGFloat, saturation: CoreGraphics.CGFloat, inputEV: CoreGraphics.CGFloat)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct BlackWhiteProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public init()
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct CroppingImageProcessor : NamiApple.ImageProcessor {
-  public let identifier: Swift.String
-  public let size: CoreGraphics.CGSize
-  public let anchor: CoreGraphics.CGPoint
-  public init(size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint = CGPoint(x: 0.5, y: 0.5))
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public struct DownsamplingImageProcessor : NamiApple.ImageProcessor {
-  public let size: CoreGraphics.CGSize
-  public let identifier: Swift.String
-  public init(size: CoreGraphics.CGSize)
-  public func process(item: NamiApple.ImageProcessItem, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-infix operator |> : AdditionPrecedence
-public func |> (left: NamiApple.ImageProcessor, right: NamiApple.ImageProcessor) -> NamiApple.ImageProcessor
 extension Swift.String {
   public func uuidHash() -> Foundation.UUID
   public func stripMarkdown() -> Swift.String
@@ -686,165 +235,6 @@ extension Swift.String {
     }
   }
   public func trimming(spaces: Swift.String.TrimmingOptions, using characterSet: Foundation.CharacterSet = .whitespacesAndNewlines) -> Swift.String
-}
-public protocol NamiImageProcessor {
-  func process(image: UIKit.UIImage) -> UIKit.UIImage
-}
-public typealias PrefetcherProgressBlock = (_ skippedResources: [NamiApple.Resource], _ failedResources: [NamiApple.Resource], _ completedResources: [NamiApple.Resource]) -> Swift.Void
-public typealias PrefetcherSourceProgressBlock = (_ skippedSources: [NamiApple.Source], _ failedSources: [NamiApple.Source], _ completedSources: [NamiApple.Source]) -> Swift.Void
-public typealias PrefetcherCompletionHandler = (_ skippedResources: [NamiApple.Resource], _ failedResources: [NamiApple.Resource], _ completedResources: [NamiApple.Resource]) -> Swift.Void
-public typealias PrefetcherSourceCompletionHandler = (_ skippedSources: [NamiApple.Source], _ failedSources: [NamiApple.Source], _ completedSources: [NamiApple.Source]) -> Swift.Void
-@_hasMissingDesignatedInitializers public class ImagePrefetcher : Swift.CustomStringConvertible {
-  public var description: Swift.String {
-    get
-  }
-  public var maxConcurrentDownloads: Swift.Int
-  public convenience init(urls: [Foundation.URL], options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.PrefetcherProgressBlock? = nil, completionHandler: NamiApple.PrefetcherCompletionHandler? = nil)
-  public convenience init(urls: [Foundation.URL], options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: NamiApple.PrefetcherCompletionHandler? = nil)
-  public convenience init(resources: [NamiApple.Resource], options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.PrefetcherProgressBlock? = nil, completionHandler: NamiApple.PrefetcherCompletionHandler? = nil)
-  public convenience init(resources: [NamiApple.Resource], options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: NamiApple.PrefetcherCompletionHandler? = nil)
-  public convenience init(sources: [NamiApple.Source], options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.PrefetcherSourceProgressBlock? = nil, completionHandler: NamiApple.PrefetcherSourceCompletionHandler? = nil)
-  public convenience init(sources: [NamiApple.Source], options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: NamiApple.PrefetcherSourceCompletionHandler? = nil)
-  public func start()
-  public func stop()
-  @objc deinit
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImage {
-  @_hasMissingDesignatedInitializers public class Context<HoldingView> where HoldingView : NamiApple.KFImageHoldingView {
-    @objc deinit
-  }
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImage.Context : Swift.Hashable {
-  public static func == (lhs: NamiApple.KFImage.Context<HoldingView>, rhs: NamiApple.KFImage.Context<HoldingView>) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFAnimatedImage {
-  public typealias Context = NamiApple.KFImage.Context
-}
-public typealias KFCrossPlatformImage = UIKit.UIImage
-public typealias KFCrossPlatformColor = UIKit.UIColor
-public typealias KFCrossPlatformImageView = UIKit.UIImageView
-public typealias KFCrossPlatformView = UIKit.UIView
-public typealias KFCrossPlatformButton = UIKit.UIButton
-public struct KingfisherWrapper<Base> {
-  public let base: Base
-  public init(_ base: Base)
-}
-public protocol KingfisherCompatible : AnyObject {
-}
-public protocol KingfisherCompatibleValue {
-}
-extension NamiApple.KingfisherCompatible {
-  public var kf: NamiApple.KingfisherWrapper<Self> {
-    get
-    set(newValue)
-  }
-}
-extension NamiApple.KingfisherCompatibleValue {
-  public var kf: NamiApple.KingfisherWrapper<Self> {
-    get
-    set(newValue)
-  }
-}
-extension UIKit.UIImage : NamiApple.KingfisherCompatible {
-}
-extension UIKit.UIImageView : NamiApple.KingfisherCompatible {
-}
-extension UIKit.UIButton : NamiApple.KingfisherCompatible {
-}
-extension UIKit.NSTextAttachment : NamiApple.KingfisherCompatible {
-}
-@available(tvOS 12.0, *)
-extension TVUIKit.TVMonogramView : NamiApple.KingfisherCompatible {
-}
-public protocol AnimatedImageViewDelegate : AnyObject {
-  func animatedImageView(_ imageView: NamiApple.AnimatedImageView, didPlayAnimationLoops count: Swift.UInt)
-  func animatedImageViewDidFinishAnimating(_ imageView: NamiApple.AnimatedImageView)
-}
-extension NamiApple.AnimatedImageViewDelegate {
-  public func animatedImageView(_: NamiApple.AnimatedImageView, didPlayAnimationLoops _: Swift.UInt)
-  public func animatedImageViewDidFinishAnimating(_: NamiApple.AnimatedImageView)
-}
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class AnimatedImageView : UIKit.UIImageView {
-  public enum RepeatCount : Swift.Equatable {
-    case once
-    case finite(count: Swift.UInt)
-    case infinite
-    public static func == (lhs: NamiApple.AnimatedImageView.RepeatCount, rhs: NamiApple.AnimatedImageView.RepeatCount) -> Swift.Bool
-  }
-  @_Concurrency.MainActor(unsafe) public var autoPlayAnimatedImage: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var framePreloadCount: Swift.Int
-  @_Concurrency.MainActor(unsafe) public var needsPrescaling: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var backgroundDecode: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public var runLoopMode: Foundation.RunLoop.Mode {
-    get
-    set(value)
-  }
-  @_Concurrency.MainActor(unsafe) public var repeatCount: NamiApple.AnimatedImageView.RepeatCount {
-    get
-    set(value)
-  }
-  @_Concurrency.MainActor(unsafe) weak public var delegate: NamiApple.AnimatedImageViewDelegate?
-  @_Concurrency.MainActor(unsafe) public var animator: NamiApple.AnimatedImageView.Animator? {
-    get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var image: NamiApple.KFCrossPlatformImage? {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set(value)
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHighlighted: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set(newValue)
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isAnimating: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func startAnimating()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func stopAnimating()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func display(_ layer: QuartzCore.CALayer)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToWindow()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didMoveToSuperview()
-}
-extension NamiApple.AnimatedImageView {
-  @_hasMissingDesignatedInitializers public class Animator {
-    final public let maxFrameCount: Swift.Int
-    public var currentFrameImage: UIKit.UIImage? {
-      get
-    }
-    public var currentFrameDuration: Foundation.TimeInterval {
-      get
-    }
-    public var currentFrameIndex: Swift.Int {
-      get
-    }
-    public var isLastFrame: Swift.Bool {
-      get
-    }
-    @objc deinit
-    public func frame(at index: Swift.Int) -> NamiApple.KFCrossPlatformImage?
-    public func duration(at index: Swift.Int) -> Foundation.TimeInterval
-  }
-}
-@_inheritsConvenienceInitializers @objc(KFSessionDelegate) open class SessionDelegate : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension NamiApple.SessionDelegate : Foundation.URLSessionDataDelegate {
-  @objc dynamic open func urlSession(_: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive response: Foundation.URLResponse, completionHandler: @escaping (Foundation.URLSession.ResponseDisposition) -> Swift.Void)
-  @objc dynamic open func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, didReceive data: Foundation.Data)
-  @objc dynamic open func urlSession(_: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: Swift.Error?)
-  @objc dynamic open func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
-  @objc dynamic open func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
-  @objc dynamic open func urlSession(_: Foundation.URLSession, task: Foundation.URLSessionTask, willPerformHTTPRedirection response: Foundation.HTTPURLResponse, newRequest request: Foundation.URLRequest, completionHandler: @escaping (Foundation.URLRequest?) -> Swift.Void)
 }
 public enum NamiEntitlementKeys : Swift.String {
   case id
@@ -938,73 +328,6 @@ public enum NamiPaywallMarketingContentKeys : Swift.String {
     get
   }
 }
-public struct ImageProgressive {
-  public enum UpdatingStrategy {
-    case `default`
-    case keepCurrent
-    case replace(NamiApple.KFCrossPlatformImage?)
-  }
-  @available(*, deprecated, renamed: "init()", message: "Getting a default `ImageProgressive` is deprecated due to its syntax symatic is not clear. Use `ImageProgressive.init` instead.")
-  public static var `default`: NamiApple.ImageProgressive
-  public let onImageUpdated: NamiApple.Delegate<NamiApple.KFCrossPlatformImage, NamiApple.ImageProgressive.UpdatingStrategy>
-  public init()
-  public init(isBlur: Swift.Bool, isFastestScan: Swift.Bool, scanInterval: Foundation.TimeInterval)
-}
-public enum Source {
-  public enum Identifier {
-    public typealias Value = Swift.UInt
-  }
-  case network(NamiApple.Resource)
-  case provider(NamiApple.ImageDataProvider)
-  public var cacheKey: Swift.String {
-    get
-  }
-  public var url: Foundation.URL? {
-    get
-  }
-}
-extension NamiApple.Source : Swift.Hashable {
-  public static func == (lhs: NamiApple.Source, rhs: NamiApple.Source) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public protocol CacheSerializer {
-  func data(with image: NamiApple.KFCrossPlatformImage, original: Foundation.Data?) -> Foundation.Data?
-  func image(with data: Foundation.Data, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-  var originalDataUsed: Swift.Bool { get }
-}
-extension NamiApple.CacheSerializer {
-  public var originalDataUsed: Swift.Bool {
-    get
-  }
-}
-public struct DefaultCacheSerializer : NamiApple.CacheSerializer {
-  public static var `default`: NamiApple.DefaultCacheSerializer
-  public var compressionQuality: CoreGraphics.CGFloat
-  public var preferCacheOriginalData: Swift.Bool
-  public var originalDataUsed: Swift.Bool {
-    get
-  }
-  public init()
-  public func data(with image: NamiApple.KFCrossPlatformImage, original: Foundation.Data?) -> Foundation.Data?
-  public func image(with data: Foundation.Data, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-@available(tvOS 12.0, *)
-extension NamiApple.KingfisherWrapper where Base : TVUIKit.TVMonogramView {
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, placeholder: NamiApple.KFCrossPlatformImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with resource: NamiApple.Resource?, placeholder: NamiApple.KFCrossPlatformImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  public func cancelDownloadTask()
-}
-@available(tvOS 12.0, *)
-extension NamiApple.KingfisherWrapper where Base : TVUIKit.TVMonogramView {
-  public var taskIdentifier: NamiApple.Source.Identifier.Value? {
-    get
-  }
-}
 extension Foundation.NSNotification.Name {
   public static var NamiActiveEntitlementsNotification: Foundation.Notification.Name
 }
@@ -1045,21 +368,6 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc override dynamic public init()
   @objc public func register(activeEntitlementsHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc deinit
-}
-public struct AVAssetImageDataProvider : NamiApple.ImageDataProvider {
-  public enum AVAssetImageDataProviderError : Swift.Error {
-    case userCancelled
-    case invalidImage(_: CoreGraphics.CGImage?)
-  }
-  public let assetImageGenerator: AVFoundation.AVAssetImageGenerator
-  public let time: CoreMedia.CMTime
-  public var cacheKey: Swift.String {
-    get
-  }
-  public init(assetImageGenerator: AVFoundation.AVAssetImageGenerator, time: CoreMedia.CMTime)
-  public init(assetURL: Foundation.URL, time: CoreMedia.CMTime)
-  public init(assetURL: Foundation.URL, seconds: Foundation.TimeInterval)
-  public func data(handler: @escaping (Swift.Result<Foundation.Data, Swift.Error>) -> Swift.Void)
 }
 public var mockSubscriptionGroupID: Swift.String
 public typealias StoreKitProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.SKProduct]?, _ invalidProductIDs: [NamiApple.StoreId]?, _ error: Swift.Error?) -> Swift.Void
@@ -1163,155 +471,6 @@ public enum StoreKitEnvironment : Swift.String {
 extension StoreKit.SKProduct {
   public convenience init(identifier: Swift.String, price: Swift.String, priceLocale: Foundation.Locale, subscriptionGroupIdentifier: Swift.String)
 }
-public enum ImageFormat {
-  case unknown
-  case PNG
-  case JPEG
-  case GIF
-  public enum JPEGMarker {
-    case SOF0
-    case SOF2
-    case DHT
-    case DQT
-    case DRI
-    case SOS
-    case RSTn(Swift.UInt8)
-    case APPn
-    case COM
-    case EOI
-  }
-  public static func == (a: NamiApple.ImageFormat, b: NamiApple.ImageFormat) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension Foundation.Data : NamiApple.KingfisherCompatibleValue {
-}
-extension NamiApple.KingfisherWrapper where Base == Foundation.Data {
-  public var imageFormat: NamiApple.ImageFormat {
-    get
-  }
-  public func contains(jpeg marker: NamiApple.ImageFormat.JPEGMarker) -> Swift.Bool
-}
-public protocol Placeholder {
-  func add(to imageView: NamiApple.KFCrossPlatformImageView)
-  func remove(from imageView: NamiApple.KFCrossPlatformImageView)
-}
-extension UIKit.UIImage : NamiApple.Placeholder {
-  public func add(to imageView: NamiApple.KFCrossPlatformImageView)
-  public func remove(from imageView: NamiApple.KFCrossPlatformImageView)
-}
-extension NamiApple.Placeholder where Self : UIKit.UIView {
-  public func add(to imageView: NamiApple.KFCrossPlatformImageView)
-  public func remove(from _: NamiApple.KFCrossPlatformImageView)
-}
-public struct SVGImgProcessor : NamiApple.ImageProcessor {
-  public init()
-  public var identifier: Swift.String
-  public func process(item: NamiApple.ImageProcessItem, options _: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-}
-public protocol KFOptionSetter {
-  var options: NamiApple.KingfisherParsedOptionsInfo { get nonmutating set }
-  var onFailureDelegate: NamiApple.Delegate<NamiApple.KingfisherError, Swift.Void> { get }
-  var onSuccessDelegate: NamiApple.Delegate<NamiApple.RetrieveImageResult, Swift.Void> { get }
-  var onProgressDelegate: NamiApple.Delegate<(Swift.Int64, Swift.Int64), Swift.Void> { get }
-  var delegateObserver: Swift.AnyObject { get }
-}
-extension NamiApple.KF.Builder : NamiApple.KFOptionSetter {
-  public var delegateObserver: Swift.AnyObject {
-    get
-  }
-}
-extension NamiApple.KFOptionSetter {
-  public func onProgress(_ block: NamiApple.DownloadProgressBlock?) -> Self
-  public func onSuccess(_ block: ((NamiApple.RetrieveImageResult) -> Swift.Void)?) -> Self
-  public func onFailure(_ block: ((NamiApple.KingfisherError) -> Swift.Void)?) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func targetCache(_ cache: NamiApple.ImageCache) -> Self
-  public func originalCache(_ cache: NamiApple.ImageCache) -> Self
-  public func downloader(_ downloader: NamiApple.ImageDownloader) -> Self
-  public func downloadPriority(_ priority: Swift.Float) -> Self
-  public func forceRefresh(_ enabled: Swift.Bool = true) -> Self
-  public func fromMemoryCacheOrRefresh(_ enabled: Swift.Bool = true) -> Self
-  public func cacheMemoryOnly(_ enabled: Swift.Bool = true) -> Self
-  public func waitForCache(_ enabled: Swift.Bool = true) -> Self
-  public func onlyFromCache(_ enabled: Swift.Bool = true) -> Self
-  public func backgroundDecode(_ enabled: Swift.Bool = true) -> Self
-  public func callbackQueue(_ queue: NamiApple.CallbackQueue) -> Self
-  public func scaleFactor(_ factor: CoreGraphics.CGFloat) -> Self
-  public func cacheOriginalImage(_ enabled: Swift.Bool = true) -> Self
-  public func diskStoreWriteOptions(_ writingOptions: Foundation.Data.WritingOptions) -> Self
-  public func loadDiskFileSynchronously(_ enabled: Swift.Bool = true) -> Self
-  public func processingQueue(_ queue: NamiApple.CallbackQueue?) -> Self
-  public func alternativeSources(_ sources: [NamiApple.Source]?) -> Self
-  public func retry(_ strategy: NamiApple.RetryStrategy?) -> Self
-  public func retry(maxCount: Swift.Int, interval: NamiApple.DelayRetryStrategy.Interval = .seconds(3)) -> Self
-  public func lowDataModeSource(_ source: NamiApple.Source?) -> Self
-  public func forceTransition(_ enabled: Swift.Bool = true) -> Self
-  public func onFailureImage(_ image: NamiApple.KFCrossPlatformImage?) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func requestModifier(_ modifier: NamiApple.AsyncImageDownloadRequestModifier) -> Self
-  public func requestModifier(_ modifyBlock: @escaping (inout Foundation.URLRequest) -> Swift.Void) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func redirectHandler(_ handler: NamiApple.ImageDownloadRedirectHandler) -> Self
-  public func redirectHandler(_ block: @escaping (NamiApple.KF.RedirectPayload) -> Swift.Void) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func setProcessor(_ processor: NamiApple.ImageProcessor) -> Self
-  public func setProcessors(_ processors: [NamiApple.ImageProcessor]) -> Self
-  public func appendProcessor(_ processor: NamiApple.ImageProcessor) -> Self
-  public func roundCorner(radius: NamiApple.Radius, targetSize: CoreGraphics.CGSize? = nil, roundingCorners corners: NamiApple.RectCorner = .all, backgroundColor: NamiApple.KFCrossPlatformColor? = nil) -> Self
-  public func blur(radius: CoreGraphics.CGFloat) -> Self
-  public func overlay(color: NamiApple.KFCrossPlatformColor, fraction: CoreGraphics.CGFloat = 0.5) -> Self
-  public func tint(color: NamiApple.KFCrossPlatformColor) -> Self
-  public func blackWhite() -> Self
-  public func cropping(size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint = .init(x: 0.5, y: 0.5)) -> Self
-  public func downsampling(size: CoreGraphics.CGSize) -> Self
-  public func resizing(referenceSize: CoreGraphics.CGSize, mode: NamiApple.ContentMode = .none) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func serialize(by cacheSerializer: NamiApple.CacheSerializer) -> Self
-  public func serialize(as format: NamiApple.ImageFormat, jpegCompressionQuality: CoreGraphics.CGFloat? = nil) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func imageModifier(_ modifier: NamiApple.ImageModifier?) -> Self
-  public func imageModifier(_ block: @escaping (inout NamiApple.KFCrossPlatformImage) throws -> Swift.Void) -> Self
-}
-extension NamiApple.KFOptionSetter {
-  public func memoryCacheExpiration(_ expiration: NamiApple.StorageExpiration?) -> Self
-  public func memoryCacheAccessExtending(_ extending: NamiApple.ExpirationExtending) -> Self
-  public func diskCacheExpiration(_ expiration: NamiApple.StorageExpiration?) -> Self
-  public func diskCacheAccessExtending(_ extending: NamiApple.ExpirationExtending) -> Self
-}
-public typealias DownloadProgressBlock = (_ receivedSize: Swift.Int64, _ totalSize: Swift.Int64) -> Swift.Void
-public struct RetrieveImageResult {
-  public let image: NamiApple.KFCrossPlatformImage
-  public let cacheType: NamiApple.CacheType
-  public let source: NamiApple.Source
-  public let originalSource: NamiApple.Source
-  public let data: () -> Foundation.Data?
-}
-public struct PropagationError {
-  public let source: NamiApple.Source
-  public let error: NamiApple.KingfisherError
-}
-public typealias DownloadTaskUpdatedBlock = (_ newTask: NamiApple.DownloadTask?) -> Swift.Void
-public class KingfisherManager {
-  public static var shared: NamiApple.KingfisherManager
-  public var cache: NamiApple.ImageCache
-  public var downloader: NamiApple.ImageDownloader
-  public var defaultOptions: NamiApple.KingfisherOptionsInfo
-  public init(downloader: NamiApple.ImageDownloader, cache: NamiApple.ImageCache)
-  @discardableResult
-  public func retrieveImage(with resource: NamiApple.Resource, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, downloadTaskUpdated: NamiApple.DownloadTaskUpdatedBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)?) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func retrieveImage(with source: NamiApple.Source, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, downloadTaskUpdated: NamiApple.DownloadTaskUpdatedBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)?) -> NamiApple.DownloadTask?
-  @objc deinit
-}
 @objc extension NamiApple.NamiMLManager {
   @objc public static func enterCoreContent(labels: [Swift.String])
   @objc public static func enterCoreContent(label: Swift.String)
@@ -1322,87 +481,6 @@ public class KingfisherManager {
 @_inheritsConvenienceInitializers @objc public class NamiMLManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public var imageFrameCount: Swift.Int? {
-    get
-    set(newValue)
-  }
-  public var imageSource: ImageIO.CGImageSource? {
-    get
-  }
-  public var frameSource: NamiApple.ImageFrameSource? {
-    get
-  }
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public var normalized: NamiApple.KFCrossPlatformImage {
-    get
-  }
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public func pngRepresentation() -> Foundation.Data?
-  public func jpegRepresentation(compressionQuality: CoreGraphics.CGFloat) -> Foundation.Data?
-  public func gifRepresentation() -> Foundation.Data?
-  public func data(format: NamiApple.ImageFormat, compressionQuality: CoreGraphics.CGFloat = 1.0) -> Foundation.Data?
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImage {
-  public static func animatedImage(data: Foundation.Data, options: NamiApple.ImageCreatingOptions) -> NamiApple.KFCrossPlatformImage?
-  public static func animatedImage(source: NamiApple.ImageFrameSource, options: NamiApple.ImageCreatingOptions, baseImage: NamiApple.KFCrossPlatformImage? = nil) -> NamiApple.KFCrossPlatformImage?
-  public static func image(data: Foundation.Data, options: NamiApple.ImageCreatingOptions) -> NamiApple.KFCrossPlatformImage?
-  public static func downsampledImage(data: Foundation.Data, to pointSize: CoreGraphics.CGSize, scale: CoreGraphics.CGFloat) -> NamiApple.KFCrossPlatformImage?
-}
-public enum KF {
-  public static func source(_ source: NamiApple.Source?) -> NamiApple.KF.Builder
-  public static func resource(_ resource: NamiApple.Resource?) -> NamiApple.KF.Builder
-  public static func url(_ url: Foundation.URL?, cacheKey: Swift.String? = nil) -> NamiApple.KF.Builder
-  public static func dataProvider(_ provider: NamiApple.ImageDataProvider?) -> NamiApple.KF.Builder
-  public static func data(_ data: Foundation.Data?, cacheKey: Swift.String) -> NamiApple.KF.Builder
-}
-extension NamiApple.KF {
-  @_hasMissingDesignatedInitializers public class Builder {
-    public var options: NamiApple.KingfisherParsedOptionsInfo
-    final public let onFailureDelegate: NamiApple.Delegate<NamiApple.KingfisherError, Swift.Void>
-    final public let onSuccessDelegate: NamiApple.Delegate<NamiApple.RetrieveImageResult, Swift.Void>
-    final public let onProgressDelegate: NamiApple.Delegate<(Swift.Int64, Swift.Int64), Swift.Void>
-    @objc deinit
-  }
-}
-extension NamiApple.KF.Builder {
-  @discardableResult
-  public func set(to imageView: NamiApple.KFCrossPlatformImageView) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func set(to attachment: UIKit.NSTextAttachment, attributedView: @autoclosure @escaping () -> NamiApple.KFCrossPlatformView) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func set(to button: UIKit.UIButton, for state: UIKit.UIControl.State) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setBackground(to button: UIKit.UIButton, for state: UIKit.UIControl.State) -> NamiApple.DownloadTask?
-  @available(tvOS 12.0, *)
-  @discardableResult
-  public func set(to monogramView: TVUIKit.TVMonogramView) -> NamiApple.DownloadTask?
-}
-extension NamiApple.KF.Builder {
-  public func placeholder(_ placeholder: NamiApple.Placeholder?) -> Self
-  public func placeholder(_ image: NamiApple.KFCrossPlatformImage?) -> Self
-}
-extension NamiApple.KF.Builder {
-  public func transition(_ transition: NamiApple.ImageTransition) -> Self
-  public func fade(duration: Foundation.TimeInterval) -> Self
-  public func keepCurrentImageWhileLoading(_ enabled: Swift.Bool = true) -> Self
-  public func onlyLoadFirstFrame(_ enabled: Swift.Bool = true) -> Self
-  public func progressiveJPEG(_ progressive: NamiApple.ImageProgressive? = .init()) -> Self
-}
-extension NamiApple.KF.Builder {
-  @available(*, deprecated, message: "This is not necessary anymore since `@StateObject` is used. It does nothing now and please just remove it.")
-  public func loadImmediately(_: Swift.Bool = true) -> Self
-}
-extension NamiApple.KF {
-  public struct RedirectPayload {
-    public let task: NamiApple.SessionDataTask
-    public let response: Foundation.HTTPURLResponse
-    public let newRequest: Foundation.URLRequest
-    public let completionHandler: (Foundation.URLRequest?) -> Swift.Void
-  }
 }
 public typealias NamiLoginLogoutCompleteHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceiptWrapper?) -> Swift.Void
@@ -1417,12 +495,10 @@ public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceip
     }
   }
   public static var shared: NamiApple.ImageService
-  final public func fetchImage(url: Foundation.URL, scale: CoreGraphics.CGFloat, completionHandler: @escaping (Swift.Result<UIKit.UIImage, NamiApple.ImageService.ImageError>) -> Swift.Void) -> NamiApple.NamiDownloadTask?
+  final public func fetchImage(url: Foundation.URL, scale: CoreGraphics.CGFloat, completionHandler: @escaping (Swift.Result<UIKit.UIImage, NamiApple.ImageService.ImageError>) -> Swift.Void) -> NamiApple.DownloadTask?
   @objc deinit
 }
-public struct NamiDownloadTask {
-}
-extension Swift.String : NamiApple.KingfisherCompatibleValue {
+public struct DownloadTask {
 }
 public typealias NamiWorker = () -> Swift.Void
 public typealias NamiAppPlatformID = Swift.String
@@ -1431,6 +507,7 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static func configureXamarin(namiConfig: NamiApple.NamiConfiguration)
   @objc public static func doConfigBasedWork(with worker: @escaping NamiApple.NamiWorker)
   @objc public static func setLogLevel(_ logLevel: NamiApple.NamiLogLevel)
+  @objc public static func namiWindowEnabled() -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
   @objc public static var shared: NamiApple.Nami
@@ -1442,14 +519,6 @@ public typealias NamiAppPlatformID = Swift.String
   @objc public static func performCommand(_ commandString: Swift.String)
   @objc override dynamic public init()
   @objc deinit
-}
-public struct FormatIndicatedCacheSerializer : NamiApple.CacheSerializer {
-  public static var png: NamiApple.FormatIndicatedCacheSerializer
-  public static var jpeg: NamiApple.FormatIndicatedCacheSerializer
-  public static func jpeg(compressionQuality: CoreGraphics.CGFloat) -> NamiApple.FormatIndicatedCacheSerializer
-  public static var gif: NamiApple.FormatIndicatedCacheSerializer
-  public func data(with image: NamiApple.KFCrossPlatformImage, original: Foundation.Data?) -> Foundation.Data?
-  public func image(with data: Foundation.Data, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
 }
 public typealias StoreId = Swift.String
 public typealias SKUsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [NamiApple.NamiSKU]?, _ invalidSKUIDs: [NamiApple.StoreId]?, _ error: Swift.Error?) -> Swift.Void
@@ -1476,27 +545,6 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurc
   @objc override dynamic public init()
   @objc deinit
 }
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public struct KFImage : NamiApple.KFImageProtocol {
-  public var context: NamiApple.KFImage.Context<SwiftUI.Image>
-  public init(context: NamiApple.KFImage.Context<SwiftUI.Image>)
-  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15KFImageProtocolPAAE4bodyQrvp", 0) __<NamiApple.KFImage>
-  public typealias HoldingView = SwiftUI.Image
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension SwiftUI.Image : NamiApple.KFImageHoldingView {
-  public typealias RenderingView = SwiftUI.Image
-  public static func created(from image: NamiApple.KFCrossPlatformImage?, context _: NamiApple.KFImage.Context<SwiftUI.Image>) -> SwiftUI.Image
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImage {
-  public func resizable(capInsets: SwiftUI.EdgeInsets = EdgeInsets(), resizingMode: SwiftUI.Image.ResizingMode = .stretch) -> NamiApple.KFImage
-  public func renderingMode(_ renderingMode: SwiftUI.Image.TemplateRenderingMode?) -> NamiApple.KFImage
-  public func interpolation(_ interpolation: SwiftUI.Image.Interpolation) -> NamiApple.KFImage
-  public func antialiased(_ isAntialiased: Swift.Bool) -> NamiApple.KFImage
-  @available(*, deprecated, message: "This is not necessary anymore since `@StateObject` is used. It does nothing now and please just remove it.")
-  public func loadImmediately(_: Swift.Bool = true) -> NamiApple.KFImage
-}
 public enum CustomerJourneyStateKeys {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class CustomerJourneyState : ObjectiveC.NSObject, Foundation.NSCoding, Swift.Codable {
@@ -1518,26 +566,6 @@ public enum CustomerJourneyStateKeys {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-public enum StorageExpiration {
-  case never
-  case seconds(Foundation.TimeInterval)
-  case days(Swift.Int)
-  case date(Foundation.Date)
-  case expired
-}
-public enum ExpirationExtending {
-  case none
-  case cacheTime
-  case expirationTime(_: NamiApple.StorageExpiration)
-}
-public protocol CacheCostCalculable {
-  var cacheCost: Swift.Int { get }
-}
-public protocol DataTransformable {
-  func toData() throws -> Foundation.Data
-  static func fromData(_ data: Foundation.Data) throws -> Self
-  static var empty: Self { get }
-}
 @objc public enum NamiSKUType : Swift.Int, Swift.Codable {
   case unknown = 0
   case one_time_purchase
@@ -1554,8 +582,8 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
   @objc public static func launch()
   @objc public static func launch(label: Swift.String)
   @objc public static func launch(label: Swift.String? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
-  @objc public static func launch(url: Foundation.URL, viewController: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(label: Swift.String? = .none, viewController: UIKit.UIViewController? = .none, useNamiWindow: Swift.Bool = false, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
+  @objc public static func launch(url: Foundation.URL, viewController: UIKit.UIViewController? = .none, useNamiWindow: Swift.Bool = false, context: NamiApple.PaywallLaunchContext? = .none, launchHandler: NamiApple.CampaignLaunchHandler? = .none, paywallActionHandler: NamiApple.NamiPaywallActionHandler? = .none)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
   @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
@@ -1568,26 +596,6 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
   @objc public static func refresh()
   @objc public static func refresh(_ refreshHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
   @objc deinit
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIButton {
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with resource: NamiApple.Resource?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, parsedOptions: NamiApple.KingfisherParsedOptionsInfo, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  public func cancelImageDownloadTask()
-  @discardableResult
-  public func setBackgroundImage(with source: NamiApple.Source?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setBackgroundImage(with resource: NamiApple.Resource?, for state: UIKit.UIControl.State, placeholder: UIKit.UIImage? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  public func cancelBackgroundImageDownloadTask()
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIButton {
-  public func taskIdentifier(for state: UIKit.UIControl.State) -> NamiApple.Source.Identifier.Value?
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIButton {
-  public func backgroundTaskIdentifier(for state: UIKit.UIControl.State) -> NamiApple.Source.Identifier.Value?
 }
 @objc extension NamiApple.NamiCustomerManager {
   @objc public static func journeyState() -> NamiApple.CustomerJourneyState?
@@ -1636,289 +644,11 @@ public typealias NamiAccountStateHandler = (_ accountStateAction: NamiApple.Acco
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCustomerManager : ObjectiveC.NSObject {
   @objc deinit
 }
-extension Foundation.NSNotification.Name {
-  public static var KingfisherDidCleanDiskCache: Foundation.Notification.Name
-}
-public var KingfisherDiskCacheCleanedHashKey: Swift.String
-public enum CacheType {
-  case none
-  case memory
-  case disk
-  public var cached: Swift.Bool {
-    get
-  }
-  public static func == (a: NamiApple.CacheType, b: NamiApple.CacheType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public struct CacheStoreResult {
-  public let memoryCacheResult: Swift.Result<Swift.Void, Swift.Never>
-  public let diskCacheResult: Swift.Result<Swift.Void, NamiApple.KingfisherError>
-}
-extension UIKit.UIImage : NamiApple.CacheCostCalculable {
-  public var cacheCost: Swift.Int {
-    get
-  }
-}
-extension Foundation.Data : NamiApple.DataTransformable {
-  public func toData() throws -> Foundation.Data
-  public static func fromData(_ data: Foundation.Data) throws -> Foundation.Data
-  public static var empty: Foundation.Data
-}
-public enum ImageCacheResult {
-  case disk(NamiApple.KFCrossPlatformImage)
-  case memory(NamiApple.KFCrossPlatformImage)
-  case none
-  public var image: NamiApple.KFCrossPlatformImage? {
-    get
-  }
-  public var cacheType: NamiApple.CacheType {
-    get
-  }
-}
-open class ImageCache {
-  public static var `default`: NamiApple.ImageCache
-  final public let memoryStorage: NamiApple.MemoryStorage.Backend<NamiApple.KFCrossPlatformImage>
-  final public let diskStorage: NamiApple.DiskStorage.Backend<Foundation.Data>
-  public typealias DiskCachePathClosure = (Foundation.URL, Swift.String) -> Foundation.URL
-  public init(memoryStorage: NamiApple.MemoryStorage.Backend<NamiApple.KFCrossPlatformImage>, diskStorage: NamiApple.DiskStorage.Backend<Foundation.Data>)
-  public convenience init(name: Swift.String)
-  public convenience init(name: Swift.String, cacheDirectoryURL: Foundation.URL?, diskCachePathClosure: NamiApple.ImageCache.DiskCachePathClosure? = nil) throws
-  @objc deinit
-  open func store(_ image: NamiApple.KFCrossPlatformImage, original: Foundation.Data? = nil, forKey key: Swift.String, options: NamiApple.KingfisherParsedOptionsInfo, toDisk: Swift.Bool = true, completionHandler: ((NamiApple.CacheStoreResult) -> Swift.Void)? = nil)
-  open func store(_ image: NamiApple.KFCrossPlatformImage, original: Foundation.Data? = nil, forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", cacheSerializer serializer: NamiApple.CacheSerializer = DefaultCacheSerializer.default, toDisk: Swift.Bool = true, callbackQueue: NamiApple.CallbackQueue = .untouch, completionHandler: ((NamiApple.CacheStoreResult) -> Swift.Void)? = nil)
-  open func storeToDisk(_ data: Foundation.Data, forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", expiration: NamiApple.StorageExpiration? = nil, callbackQueue: NamiApple.CallbackQueue = .untouch, completionHandler: ((NamiApple.CacheStoreResult) -> Swift.Void)? = nil)
-  open func removeImage(forKey key: Swift.String, processorIdentifier identifier: Swift.String = "", fromMemory: Swift.Bool = true, fromDisk: Swift.Bool = true, callbackQueue: NamiApple.CallbackQueue = .untouch, completionHandler: (() -> Swift.Void)? = nil)
-  open func retrieveImage(forKey key: Swift.String, options: NamiApple.KingfisherParsedOptionsInfo, callbackQueue: NamiApple.CallbackQueue = .mainCurrentOrAsync, completionHandler: ((Swift.Result<NamiApple.ImageCacheResult, NamiApple.KingfisherError>) -> Swift.Void)?)
-  open func retrieveImage(forKey key: Swift.String, options: NamiApple.KingfisherOptionsInfo? = nil, callbackQueue: NamiApple.CallbackQueue = .mainCurrentOrAsync, completionHandler: ((Swift.Result<NamiApple.ImageCacheResult, NamiApple.KingfisherError>) -> Swift.Void)?)
-  open func retrieveImageInMemoryCache(forKey key: Swift.String, options: NamiApple.KingfisherParsedOptionsInfo) -> NamiApple.KFCrossPlatformImage?
-  open func retrieveImageInMemoryCache(forKey key: Swift.String, options: NamiApple.KingfisherOptionsInfo? = nil) -> NamiApple.KFCrossPlatformImage?
-  open func retrieveImageInDiskCache(forKey key: Swift.String, options: NamiApple.KingfisherOptionsInfo? = nil, callbackQueue: NamiApple.CallbackQueue = .untouch, completionHandler: @escaping (Swift.Result<NamiApple.KFCrossPlatformImage?, NamiApple.KingfisherError>) -> Swift.Void)
-  public func clearCache(completion handler: (() -> Swift.Void)? = nil)
-  @objc public func clearMemoryCache()
-  open func clearDiskCache(completion handler: (() -> Swift.Void)? = nil)
-  open func cleanExpiredCache(completion handler: (() -> Swift.Void)? = nil)
-  open func cleanExpiredMemoryCache()
-  open func cleanExpiredDiskCache(completion handler: (() -> Swift.Void)? = nil)
-  @objc public func backgroundCleanExpiredDiskCache()
-  open func imageCachedType(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> NamiApple.CacheType
-  public func isCached(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.Bool
-  open func hash(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.String
-  open func calculateDiskStorageSize(completion handler: @escaping ((Swift.Result<Swift.UInt, NamiApple.KingfisherError>) -> Swift.Void))
-  
-  #if compiler(>=5.3) && $EffectfulProp
-  @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-  open var diskStorageSize: Swift.UInt {
-    get async throws
-  }
-  #endif
-
-  open func cachePath(forKey key: Swift.String, processorIdentifier identifier: Swift.String = DefaultImageProcessor.default.identifier) -> Swift.String
-}
-extension UIKit.UIApplication : NamiApple.KingfisherCompatible {
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIApplication {
-  public static var shared: UIKit.UIApplication? {
-    get
-  }
-}
-public typealias IndicatorView = UIKit.UIView
-public enum IndicatorType {
-  case none
-  case activity
-  case image(imageData: Foundation.Data)
-  case custom(indicator: NamiApple.Indicator)
-}
-public protocol Indicator {
-  func startAnimatingView()
-  func stopAnimatingView()
-  var centerOffset: CoreGraphics.CGPoint { get }
-  var view: NamiApple.IndicatorView { get }
-  func sizeStrategy(in imageView: NamiApple.KFCrossPlatformImageView) -> NamiApple.IndicatorSizeStrategy
-}
-public enum IndicatorSizeStrategy {
-  case intrinsicSize
-  case full
-  case size(CoreGraphics.CGSize)
-}
-extension NamiApple.Indicator {
-  public var centerOffset: CoreGraphics.CGPoint {
-    get
-  }
-  public func sizeStrategy(in _: NamiApple.KFCrossPlatformImageView) -> NamiApple.IndicatorSizeStrategy
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImageView {
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with source: NamiApple.Source?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with resource: NamiApple.Resource?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with resource: NamiApple.Resource?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with provider: NamiApple.ImageDataProvider?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, progressBlock: NamiApple.DownloadProgressBlock? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  @discardableResult
-  public func setImage(with provider: NamiApple.ImageDataProvider?, placeholder: NamiApple.Placeholder? = nil, options: NamiApple.KingfisherOptionsInfo? = nil, completionHandler: ((Swift.Result<NamiApple.RetrieveImageResult, NamiApple.KingfisherError>) -> Swift.Void)? = nil) -> NamiApple.DownloadTask?
-  public func cancelDownloadTask()
-}
-extension NamiApple.KingfisherWrapper where Base : UIKit.UIImageView {
-  public var taskIdentifier: NamiApple.Source.Identifier.Value? {
-    get
-  }
-  public var indicatorType: NamiApple.IndicatorType {
-    get
-    set(newValue)
-  }
-  public var indicator: NamiApple.Indicator? {
-    get
-  }
-  public var placeholder: NamiApple.Placeholder? {
-    get
-  }
-}
-public protocol ImageModifier {
-  func modify(_ image: NamiApple.KFCrossPlatformImage) -> NamiApple.KFCrossPlatformImage
-}
-public struct AnyImageModifier : NamiApple.ImageModifier {
-  public init(modify: @escaping (NamiApple.KFCrossPlatformImage) throws -> NamiApple.KFCrossPlatformImage)
-  public func modify(_ image: NamiApple.KFCrossPlatformImage) -> NamiApple.KFCrossPlatformImage
-}
-public struct RenderingModeImageModifier : NamiApple.ImageModifier {
-  public let renderingMode: UIKit.UIImage.RenderingMode
-  public init(renderingMode: UIKit.UIImage.RenderingMode = .automatic)
-  public func modify(_ image: NamiApple.KFCrossPlatformImage) -> NamiApple.KFCrossPlatformImage
-}
-public struct FlipsForRightToLeftLayoutDirectionImageModifier : NamiApple.ImageModifier {
-  public init()
-  public func modify(_ image: NamiApple.KFCrossPlatformImage) -> NamiApple.KFCrossPlatformImage
-}
-public struct AlignmentRectInsetsImageModifier : NamiApple.ImageModifier {
-  public let alignmentInsets: UIKit.UIEdgeInsets
-  public init(alignmentInsets: UIKit.UIEdgeInsets)
-  public func modify(_ image: NamiApple.KFCrossPlatformImage) -> NamiApple.KFCrossPlatformImage
-}
 extension Swift.KeyedDecodingContainer {
   public func decode(_: UIKit.UIImage.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> UIKit.UIImage
 }
 extension Swift.String {
   public func sanitizedForFilename() -> Swift.String?
-}
-public typealias KingfisherOptionsInfo = [NamiApple.KingfisherOptionsInfoItem]
-public enum KingfisherOptionsInfoItem {
-  case targetCache(NamiApple.ImageCache)
-  case originalCache(NamiApple.ImageCache)
-  case downloader(NamiApple.ImageDownloader)
-  case transition(NamiApple.ImageTransition)
-  case downloadPriority(Swift.Float)
-  case forceRefresh
-  case fromMemoryCacheOrRefresh
-  case forceTransition
-  case cacheMemoryOnly
-  case waitForCache
-  case onlyFromCache
-  case backgroundDecode
-  case callbackQueue(NamiApple.CallbackQueue)
-  case scaleFactor(CoreGraphics.CGFloat)
-  case preloadAllAnimationData
-  case requestModifier(NamiApple.AsyncImageDownloadRequestModifier)
-  case redirectHandler(NamiApple.ImageDownloadRedirectHandler)
-  case processor(NamiApple.ImageProcessor)
-  case cacheSerializer(NamiApple.CacheSerializer)
-  case imageModifier(NamiApple.ImageModifier)
-  case keepCurrentImageWhileLoading
-  case onlyLoadFirstFrame
-  case cacheOriginalImage
-  case onFailureImage(NamiApple.KFCrossPlatformImage?)
-  case alsoPrefetchToMemory
-  case loadDiskFileSynchronously
-  case diskStoreWriteOptions(Foundation.Data.WritingOptions)
-  case memoryCacheExpiration(NamiApple.StorageExpiration)
-  case memoryCacheAccessExtendingExpiration(NamiApple.ExpirationExtending)
-  case diskCacheExpiration(NamiApple.StorageExpiration)
-  case diskCacheAccessExtendingExpiration(NamiApple.ExpirationExtending)
-  case processingQueue(NamiApple.CallbackQueue)
-  case progressiveJPEG(NamiApple.ImageProgressive)
-  case alternativeSources([NamiApple.Source])
-  case retryStrategy(NamiApple.RetryStrategy)
-  case lowDataMode(NamiApple.Source?)
-}
-public struct KingfisherParsedOptionsInfo {
-  public var targetCache: NamiApple.ImageCache?
-  public var originalCache: NamiApple.ImageCache?
-  public var downloader: NamiApple.ImageDownloader?
-  public var transition: NamiApple.ImageTransition
-  public var downloadPriority: Swift.Float
-  public var forceRefresh: Swift.Bool
-  public var fromMemoryCacheOrRefresh: Swift.Bool
-  public var forceTransition: Swift.Bool
-  public var cacheMemoryOnly: Swift.Bool
-  public var waitForCache: Swift.Bool
-  public var onlyFromCache: Swift.Bool
-  public var backgroundDecode: Swift.Bool
-  public var preloadAllAnimationData: Swift.Bool
-  public var callbackQueue: NamiApple.CallbackQueue
-  public var scaleFactor: CoreGraphics.CGFloat
-  public var requestModifier: NamiApple.AsyncImageDownloadRequestModifier?
-  public var redirectHandler: NamiApple.ImageDownloadRedirectHandler?
-  public var processor: NamiApple.ImageProcessor
-  public var imageModifier: NamiApple.ImageModifier?
-  public var cacheSerializer: NamiApple.CacheSerializer
-  public var keepCurrentImageWhileLoading: Swift.Bool
-  public var onlyLoadFirstFrame: Swift.Bool
-  public var cacheOriginalImage: Swift.Bool
-  public var onFailureImage: NamiApple.KFCrossPlatformImage??
-  public var alsoPrefetchToMemory: Swift.Bool
-  public var loadDiskFileSynchronously: Swift.Bool
-  public var diskStoreWriteOptions: Foundation.Data.WritingOptions
-  public var memoryCacheExpiration: NamiApple.StorageExpiration?
-  public var memoryCacheAccessExtendingExpiration: NamiApple.ExpirationExtending
-  public var diskCacheExpiration: NamiApple.StorageExpiration?
-  public var diskCacheAccessExtendingExpiration: NamiApple.ExpirationExtending
-  public var processingQueue: NamiApple.CallbackQueue?
-  public var progressiveJPEG: NamiApple.ImageProgressive?
-  public var alternativeSources: [NamiApple.Source]?
-  public var retryStrategy: NamiApple.RetryStrategy?
-  public var lowDataModeSource: NamiApple.Source?
-  public init(_ info: NamiApple.KingfisherOptionsInfo?)
-}
-public enum MemoryStorage {
-  public class Backend<T> where T : NamiApple.CacheCostCalculable {
-    public var config: NamiApple.MemoryStorage.Config {
-      get
-      set(value)
-    }
-    public init(config: NamiApple.MemoryStorage.Config)
-    public func removeExpired()
-    public func store(value: T, forKey key: Swift.String, expiration: NamiApple.StorageExpiration? = nil)
-    public func value(forKey key: Swift.String, extendingExpiration: NamiApple.ExpirationExtending = .cacheTime) -> T?
-    public func isCached(forKey key: Swift.String) -> Swift.Bool
-    public func remove(forKey key: Swift.String)
-    public func removeAll()
-    @objc deinit
-  }
-}
-extension NamiApple.MemoryStorage {
-  public struct Config {
-    public var totalCostLimit: Swift.Int
-    public var countLimit: Swift.Int
-    public var expiration: NamiApple.StorageExpiration
-    public var cleanInterval: Foundation.TimeInterval
-    public var keepWhenEnteringBackground: Swift.Bool
-    public init(totalCostLimit: Swift.Int, cleanInterval: Foundation.TimeInterval = 120)
-  }
-}
-@available(*, deprecated, renamed: "AuthenticationChallengeResponsible", message: "Typo. Use `AuthenticationChallengeResponsible` instead")
-public typealias AuthenticationChallengeResponsable = NamiApple.AuthenticationChallengeResponsible
-public protocol AuthenticationChallengeResponsible : AnyObject {
-  func downloader(_ downloader: NamiApple.ImageDownloader, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
-  func downloader(_ downloader: NamiApple.ImageDownloader, task: Foundation.URLSessionTask, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
-}
-extension NamiApple.AuthenticationChallengeResponsible {
-  public func downloader(_ downloader: NamiApple.ImageDownloader, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
-  public func downloader(_: NamiApple.ImageDownloader, task _: Foundation.URLSessionTask, didReceive _: Foundation.URLAuthenticationChallenge, completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
   @objc public var id: Swift.String {
@@ -1964,46 +694,6 @@ extension NamiApple.AuthenticationChallengeResponsible {
   public typealias ID = Swift.String
   @objc deinit
 }
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public protocol KFImageProtocol : NamiApple.KFOptionSetter, SwiftUI.View {
-  associatedtype HoldingView : NamiApple.KFImageHoldingView
-  var context: NamiApple.KFImage.Context<Self.HoldingView> { get set }
-  init(context: NamiApple.KFImage.Context<Self.HoldingView>)
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImageProtocol {
-  public var body: some SwiftUI.View {
-    get
-  }
-  public init(source: NamiApple.Source?)
-  public init(_ url: Foundation.URL?)
-  public func configure(_ block: @escaping (Self.HoldingView) -> Self.HoldingView) -> Self
-  public func contentConfigure<V>(_ block: @escaping (Self.HoldingView) -> V) -> Self where V : SwiftUI.View
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public protocol KFImageHoldingView : SwiftUI.View {
-  associatedtype RenderingView
-  static func created(from image: NamiApple.KFCrossPlatformImage?, context: NamiApple.KFImage.Context<Self>) -> Self
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImageProtocol {
-  public var options: NamiApple.KingfisherParsedOptionsInfo {
-    get
-    nonmutating set(newValue)
-  }
-  public var onFailureDelegate: NamiApple.Delegate<NamiApple.KingfisherError, Swift.Void> {
-    get
-  }
-  public var onSuccessDelegate: NamiApple.Delegate<NamiApple.RetrieveImageResult, Swift.Void> {
-    get
-  }
-  public var onProgressDelegate: NamiApple.Delegate<(Swift.Int64, Swift.Int64), Swift.Void> {
-    get
-  }
-  public var delegateObserver: Swift.AnyObject {
-    get
-  }
-}
 public enum AsyncImagePhase {
   case empty
   case success(SwiftUI.Image)
@@ -2013,26 +703,10 @@ public enum AsyncImagePhase {
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
-  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.NamiImageProcessor? = nil) where Content == SwiftUI.Image
-  @_Concurrency.MainActor(unsafe) public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.NamiImageProcessor? = nil, content: @escaping (SwiftUI.Image) -> I, placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
-  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.NamiImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
+  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil) where Content == SwiftUI.Image
+  @_Concurrency.MainActor(unsafe) public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, content: @escaping (SwiftUI.Image) -> I, placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
+  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImageProtocol {
-  public static func source(_ source: NamiApple.Source?) -> Self
-  public static func resource(_ resource: NamiApple.Resource?) -> Self
-  public static func url(_ url: Foundation.URL?, cacheKey: Swift.String? = nil) -> Self
-  public static func dataProvider(_ provider: NamiApple.ImageDataProvider?) -> Self
-  public static func data(_ data: Foundation.Data?, cacheKey: Swift.String) -> Self
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-extension NamiApple.KFImageProtocol {
-  public func placeholder<P>(@SwiftUI.ViewBuilder _ content: @escaping (Foundation.Progress) -> P) -> Self where P : SwiftUI.View
-  public func placeholder<P>(@SwiftUI.ViewBuilder _ content: @escaping () -> P) -> Self where P : SwiftUI.View
-  public func cancelOnDisappear(_ flag: Swift.Bool) -> Self
-  public func fade(duration: Foundation.TimeInterval) -> Self
-  public func startLoadingBeforeViewAppear(_ flag: Swift.Bool = true) -> Self
 }
 public typealias NamiPaywallActionHandler = (_ campaignId: Swift.String?, _ campaignName: Swift.String?, _ campaignType: Swift.String?, _ campaignLabel: Swift.String?, _ campaignUrl: Swift.String?, _ paywallId: Swift.String?, _ paywallName: Swift.String?, _ segmentId: Swift.String?, _ externalSegmentId: Swift.String?, _ paywallLaunchContext: NamiApple.PaywallLaunchContext?, _ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase], _ deeplinkUrl: Swift.String?) -> Swift.Void
 public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
@@ -2050,6 +724,8 @@ public typealias NamiUUID = Swift.String
   @objc public static func buySkuComplete(sku: NamiApple.NamiSKU, product: StoreKit.SKProduct, transaction: StoreKit.SKPaymentTransaction)
   @objc public static func dismiss(animated: Swift.Bool, completion: @escaping () -> Swift.Void)
   @objc public static func displayedViewController() -> UIKit.UIViewController?
+  @objc public static func show()
+  @objc public static func hide()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
@@ -2233,49 +909,6 @@ extension NamiApple.NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-public struct KFAnimatedImage : NamiApple.KFImageProtocol {
-  public typealias HoldingView = NamiApple.KFAnimatedImageViewRepresenter
-  public var context: NamiApple.KFImage.Context<NamiApple.KFAnimatedImage.HoldingView>
-  public init(context: NamiApple.KFImage.Context<NamiApple.KFAnimatedImage.HoldingView>)
-  public func configure(_ block: @escaping (NamiApple.KFAnimatedImage.HoldingView.RenderingView) -> Swift.Void) -> NamiApple.KFAnimatedImage
-  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15KFImageProtocolPAAE4bodyQrvp", 0) __<NamiApple.KFAnimatedImage>
-}
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@_Concurrency.MainActor(unsafe) public struct KFAnimatedImageViewRepresenter : SwiftUI.UIViewRepresentable, NamiApple.KFImageHoldingView {
-  public typealias RenderingView = NamiApple.AnimatedImageView
-  @_Concurrency.MainActor(unsafe) public static func created(from image: NamiApple.KFCrossPlatformImage?, context: NamiApple.KFImage.Context<NamiApple.KFAnimatedImageViewRepresenter>) -> NamiApple.KFAnimatedImageViewRepresenter
-  @_Concurrency.MainActor(unsafe) public func makeUIView(context _: NamiApple.KFAnimatedImageViewRepresenter.Context) -> NamiApple.AnimatedImageView
-  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: NamiApple.AnimatedImageView, context _: NamiApple.KFAnimatedImageViewRepresenter.Context)
-  public typealias Body = Swift.Never
-  public typealias Coordinator = Swift.Void
-  public typealias UIViewType = NamiApple.AnimatedImageView
-}
-public typealias ExecutionQueue = NamiApple.CallbackQueue
-public enum CallbackQueue {
-  case mainAsync
-  case mainCurrentOrAsync
-  case untouch
-  case dispatch(Dispatch.DispatchQueue)
-  public func execute(_ block: @escaping () -> Swift.Void)
-}
-public protocol AsyncImageDownloadRequestModifier {
-  func modified(for request: Foundation.URLRequest, reportModified: @escaping (Foundation.URLRequest?) -> Swift.Void)
-  var onDownloadTaskStarted: ((NamiApple.DownloadTask?) -> Swift.Void)? { get }
-}
-public protocol ImageDownloadRequestModifier : NamiApple.AsyncImageDownloadRequestModifier {
-  func modified(for request: Foundation.URLRequest) -> Foundation.URLRequest?
-}
-extension NamiApple.ImageDownloadRequestModifier {
-  public func modified(for request: Foundation.URLRequest, reportModified: @escaping (Foundation.URLRequest?) -> Swift.Void)
-  public var onDownloadTaskStarted: ((NamiApple.DownloadTask?) -> Swift.Void)? {
-    get
-  }
-}
-public struct AnyModifier : NamiApple.ImageDownloadRequestModifier {
-  public func modified(for request: Foundation.URLRequest) -> Foundation.URLRequest?
-  public init(modify: @escaping (Foundation.URLRequest) -> Foundation.URLRequest?)
-}
 @objc public enum NamiPaywallAction : Swift.Int {
   case close_paywall = 0
   case restore_purchases = 1
@@ -2297,33 +930,6 @@ public struct AnyModifier : NamiApple.ImageDownloadRequestModifier {
   }
 }
 public func clearAllNamiStorage()
-@_hasMissingDesignatedInitializers public class RetryContext {
-  final public let source: NamiApple.Source
-  final public let error: NamiApple.KingfisherError
-  public var retriedCount: Swift.Int
-  public var userInfo: Any? {
-    get
-  }
-  @objc deinit
-}
-public enum RetryDecision {
-  case retry(userInfo: Any?)
-  case stop
-}
-public protocol RetryStrategy {
-  func retry(context: NamiApple.RetryContext, retryHandler: @escaping (NamiApple.RetryDecision) -> Swift.Void)
-}
-public struct DelayRetryStrategy : NamiApple.RetryStrategy {
-  public enum Interval {
-    case seconds(Foundation.TimeInterval)
-    case accumulated(Foundation.TimeInterval)
-    case custom(block: (_ retriedCount: Swift.Int) -> Foundation.TimeInterval)
-  }
-  public let maxRetryCount: Swift.Int
-  public let retryInterval: NamiApple.DelayRetryStrategy.Interval
-  public init(maxRetryCount: Swift.Int, retryInterval: NamiApple.DelayRetryStrategy.Interval = .seconds(3))
-  public func retry(context: NamiApple.RetryContext, retryHandler: @escaping (NamiApple.RetryDecision) -> Swift.Void)
-}
 @objc public protocol NamiLoggerClient : ObjectiveC.NSObjectProtocol {
   @objc func logHTTP(request: Foundation.URLRequest, response: Foundation.HTTPURLResponse, responseData: Foundation.Data?, message: Swift.String)
   @objc func logMessage(_ message: Swift.String)
@@ -2338,35 +944,6 @@ public struct DelayRetryStrategy : NamiApple.RetryStrategy {
   public var rawValue: Swift.Int {
     get
   }
-}
-extension CoreGraphics.CGSize : NamiApple.KingfisherCompatibleValue {
-}
-extension NamiApple.KingfisherWrapper where Base == CoreGraphics.CGSize {
-  public func resize(to size: CoreGraphics.CGSize, for contentMode: NamiApple.ContentMode) -> CoreGraphics.CGSize
-  public func constrained(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
-  public func filling(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
-  public func constrainedRect(for size: CoreGraphics.CGSize, anchor: CoreGraphics.CGPoint) -> CoreGraphics.CGRect
-}
-public struct ImageCreatingOptions {
-  public let scale: CoreGraphics.CGFloat
-  public let duration: Foundation.TimeInterval
-  public let preloadAll: Swift.Bool
-  public let onlyFirstFrame: Swift.Bool
-  public init(scale: CoreGraphics.CGFloat = 1.0, duration: Foundation.TimeInterval = 0.0, preloadAll: Swift.Bool = false, onlyFirstFrame: Swift.Bool = false)
-}
-@_hasMissingDesignatedInitializers public class GIFAnimatedImage {
-  public static func getFrameDuration(from gifInfo: [Swift.String : Any]?) -> Foundation.TimeInterval
-  public static func getFrameDuration(from imageSource: ImageIO.CGImageSource, at index: Swift.Int) -> Foundation.TimeInterval
-  @objc deinit
-}
-public protocol ImageFrameSource {
-  var data: Foundation.Data? { get }
-  var frameCount: Swift.Int { get }
-  func frame(at index: Swift.Int, maxSize: CoreGraphics.CGSize?) -> CoreGraphics.CGImage?
-  func duration(at index: Swift.Int) -> Foundation.TimeInterval
-}
-extension NamiApple.ImageFrameSource {
-  public func frame(at index: Swift.Int) -> CoreGraphics.CGImage?
 }
 @objc public enum NamiPurchaseSource : Swift.Int {
   case campaign
