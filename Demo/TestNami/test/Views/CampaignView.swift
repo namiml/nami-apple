@@ -50,7 +50,7 @@ struct CampaignView: View {
         NamiCampaignManager.launch(label: label, launchHandler: { success, error in
             print("campaign launch - success \(success) or error \(String(describing: error))")
         },
-        paywallActionHandler: { campaignId, _, paywallId, action, skuId, purchaseError, _ in
+        paywallActionHandler: { campaignId, campaignName, campaignType, campaignLabel, campaignUrl, paywallId, paywallName, segmentId, externalSegmentId, paywallLaunchContext, action, skuId, purchaseError, purchases, deeplinkUrl in
 
             switch action {
             case .show_paywall:
