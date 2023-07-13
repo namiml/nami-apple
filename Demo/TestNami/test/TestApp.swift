@@ -25,10 +25,10 @@ struct TestApp: App {
 
         print("Current configuration: \(BuildConfiguration.shared.environment)")
         // default to PROD
-        var appPlatformId = "cae7b86c-dac1-42b6-80d2-765aaff766dc"
+        var appPlatformId = "NAMI_PRODUCTION_API_KEY"
 
         if BuildConfiguration.shared.environment == .staging {
-            appPlatformId = "111c1877-d660-4ad8-90f3-0b553e19e570"
+            appPlatformId = "NAMI_STAGING_API_KEY"
         }
 
         let namiConfig = NamiConfiguration(appPlatformId: appPlatformId)

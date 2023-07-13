@@ -14,75 +14,23 @@
 		422D05EC2895944D007C5D63 /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D05EB2895944D007C5D63 /* CampaignView.swift */; };
 		422D05EE28959458007C5D63 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D05ED28959458007C5D63 /* ProfileView.swift */; };
 		42465554289C5CE40011BB25 /* NamiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42465553289C5CE40011BB25 /* NamiDataSource.swift */; };
-		4246555E289CCFFD0011BB25 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */; };
-		425CE274296F72470052260E /* Test Nami STG.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 428CD0832909E08500DE7081 /* Test Nami STG.storekit */; };
 		425CE27A29710B560052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
-		425CE27E29710C2A0052260E /* StoreKit2Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425CE27929710B550052260E /* StoreKit2Transaction.swift */; };
-		425CE28C297601E40052260E /* template.json in Resources */ = {isa = PBXBuildFile; fileRef = 425CE28B297601E40052260E /* template.json */; };
 		42652DEE290744F700234029 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
-		429EB45C296BBD2C00EF8A20 /* EntitlementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42652DED290744F700234029 /* EntitlementsView.swift */; };
-		429EB45D296BBD2C00EF8A20 /* NamiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42465553289C5CE40011BB25 /* NamiDataSource.swift */; };
-		429EB45F296BBD2C00EF8A20 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D05ED28959458007C5D63 /* ProfileView.swift */; };
-		429EB460296BBD2C00EF8A20 /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422D05EB2895944D007C5D63 /* CampaignView.swift */; };
-		429EB461296BBD2C00EF8A20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E82894DE3800DA3715 /* ContentView.swift */; };
-		429EB462296BBD2C00EF8A20 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E62894DE3800DA3715 /* TestApp.swift */; };
-		429EB467296BBD2C00EF8A20 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */; };
-		429EB46B296BBD2C00EF8A20 /* Debug-STG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 42144E032909EFFB002C2415 /* Debug-STG.xcconfig */; };
-		429EB46C296BBD2C00EF8A20 /* Debug-PROD.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 42144E012909EFFB002C2415 /* Debug-PROD.xcconfig */; };
-		429EB46D296BBD2C00EF8A20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */; };
-		429EB46E296BBD2C00EF8A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */; };
-		429EB46F296BBD2C00EF8A20 /* Release-PROD.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 42144E022909EFFB002C2415 /* Release-PROD.xcconfig */; };
-		429EB470296BBD2C00EF8A20 /* Release-STG.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 42144E042909EFFB002C2415 /* Release-STG.xcconfig */; };
-		429EB47D296BBD3C00EF8A20 /* NamiApple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4273FCBF2931373E00842BE5 /* NamiApple.framework */; };
-		429EB47E296BBD3C00EF8A20 /* NamiApple.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4273FCBF2931373E00842BE5 /* NamiApple.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		42E84F1229A0305D0095FBD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E84F0E29A0305D0095FBD1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		42E84F1329A030680095FBD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E84F0E29A0305D0095FBD1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		42EB2E802932BA0B00F1E5E0 /* NamiApple.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */; };
-		42EB2E812932BA0B00F1E5E0 /* NamiApple.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42FCA7E72894DE3800DA3715 /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E62894DE3800DA3715 /* TestApp.swift */; };
 		42FCA7E92894DE3800DA3715 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA7E82894DE3800DA3715 /* ContentView.swift */; };
 		42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */; };
 		42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */; };
-		AB6E574C2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */; };
-		AB6E574D2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */ = {isa = PBXBuildFile; fileRef = AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */; };
+		AB6416802A5F19C10035FC10 /* NamiApple in Frameworks */ = {isa = PBXBuildFile; productRef = AB64167F2A5F19C10035FC10 /* NamiApple */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4273FCBE2931373E00842BE5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 420BD56620DADDE40093F993;
-			remoteInfo = NamiApple;
-		};
-		4273FCC02931373E00842BE5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EB345CB622DE645100ED9824;
-			remoteInfo = NamiAppleTests;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		429EB47F296BBD3C00EF8A20 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				429EB47E296BBD3C00EF8A20 /* NamiApple.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42BD141F291B0CBC00103EB4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				42EB2E812932BA0B00F1E5E0 /* NamiApple.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,41 +49,25 @@
 		4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		424FA677289B276B00A2FF1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		425CE27929710B550052260E /* StoreKit2Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreKit2Transaction.swift; path = test/StoreKit2Transaction.swift; sourceTree = SOURCE_ROOT; };
-		425CE28B297601E40052260E /* template.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = template.json; path = ../../template.json; sourceTree = "<group>"; };
 		42652DED290744F700234029 /* EntitlementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntitlementsView.swift; path = test/Views/EntitlementsView.swift; sourceTree = SOURCE_ROOT; };
-		4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NamiApple.xcodeproj; path = ../../NamiApple.xcodeproj; sourceTree = "<group>"; };
 		428CD07E2909DD9400DE7081 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = test/Config.xcconfig; sourceTree = SOURCE_ROOT; };
 		428CD0832909E08500DE7081 /* Test Nami STG.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Test Nami STG.storekit"; path = "test/Test Nami STG.storekit"; sourceTree = SOURCE_ROOT; };
 		428CD0842909E09900DE7081 /* Test Nami PROD.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Test Nami PROD.storekit"; path = "test/Test Nami PROD.storekit"; sourceTree = SOURCE_ROOT; };
-		429EB478296BBD2C00EF8A20 /* Test dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42E84F0E29A0305D0095FBD1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NamiApple.xcframework; path = ../../NamiApple.xcframework; sourceTree = "<group>"; };
 		42FCA7E32894DE3800DA3715 /* TestNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FCA7E62894DE3800DA3715 /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
 		42FCA7E82894DE3800DA3715 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		42FCA7EA2894DE3B00DA3715 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42FCA7ED2894DE3B00DA3715 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nami_initial_config_stg.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		429EB466296BBD2C00EF8A20 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42E84F1229A0305D0095FBD1 /* StoreKit.framework in Frameworks */,
-				429EB467296BBD2C00EF8A20 /* AuthenticationServices.framework in Frameworks */,
-				429EB47D296BBD3C00EF8A20 /* NamiApple.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42FCA7E02894DE3800DA3715 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				42E84F1329A030680095FBD1 /* StoreKit.framework in Frameworks */,
-				4246555E289CCFFD0011BB25 /* AuthenticationServices.framework in Frameworks */,
-				42EB2E802932BA0B00F1E5E0 /* NamiApple.xcframework in Frameworks */,
+				AB6416802A5F19C10035FC10 /* NamiApple in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,27 +89,14 @@
 			isa = PBXGroup;
 			children = (
 				42E84F0E29A0305D0095FBD1 /* StoreKit.framework */,
-				42EB2E7D2932765C00F1E5E0 /* NamiApple.xcframework */,
 				4246555D289CCFFD0011BB25 /* AuthenticationServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4273FCB92931373E00842BE5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4273FCBF2931373E00842BE5 /* NamiApple.framework */,
-				4273FCC12931373E00842BE5 /* NamiAppleTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		42FCA7DA2894DE3700DA3715 = {
 			isa = PBXGroup;
 			children = (
-				AB6E574B2A1BCDCA00B60DFB /* nami_initial_config_stg.json */,
-				425CE28B297601E40052260E /* template.json */,
-				4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */,
 				42FCA7E52894DE3800DA3715 /* Test */,
 				42FCA7E42894DE3800DA3715 /* Products */,
 				42465557289C69620011BB25 /* Frameworks */,
@@ -188,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				42FCA7E32894DE3800DA3715 /* TestNative.app */,
-				429EB478296BBD2C00EF8A20 /* Test dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,26 +144,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		429EB457296BBD2C00EF8A20 /* Test dev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 429EB473296BBD2C00EF8A20 /* Build configuration list for PBXNativeTarget "Test dev" */;
-			buildPhases = (
-				429EB45A296BBD2C00EF8A20 /* Sources */,
-				429EB466296BBD2C00EF8A20 /* Frameworks */,
-				429EB46A296BBD2C00EF8A20 /* Resources */,
-				429EB47F296BBD3C00EF8A20 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Test dev";
-			packageProductDependencies = (
-			);
-			productName = test;
-			productReference = 429EB478296BBD2C00EF8A20 /* Test dev.app */;
-			productType = "com.apple.product-type.application";
-		};
 		42FCA7E22894DE3800DA3715 /* Test */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42FCA7F12894DE3B00DA3715 /* Build configuration list for PBXNativeTarget "Test" */;
@@ -261,6 +159,7 @@
 			);
 			name = Test;
 			packageProductDependencies = (
+				AB64167F2A5F19C10035FC10 /* NamiApple */,
 			);
 			productName = test;
 			productReference = 42FCA7E32894DE3800DA3715 /* TestNative.app */;
@@ -291,57 +190,18 @@
 			);
 			mainGroup = 42FCA7DA2894DE3700DA3715;
 			packageReferences = (
+				AB64167A2A5F19020035FC10 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */,
 			);
 			productRefGroup = 42FCA7E42894DE3800DA3715 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 4273FCB92931373E00842BE5 /* Products */;
-					ProjectRef = 4273FCB82931373E00842BE5 /* NamiApple.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				42FCA7E22894DE3800DA3715 /* Test */,
-				429EB457296BBD2C00EF8A20 /* Test dev */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		4273FCBF2931373E00842BE5 /* NamiApple.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = NamiApple.framework;
-			remoteRef = 4273FCBE2931373E00842BE5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4273FCC12931373E00842BE5 /* NamiAppleTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = NamiAppleTests.xctest;
-			remoteRef = 4273FCC02931373E00842BE5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
-		429EB46A296BBD2C00EF8A20 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429EB46B296BBD2C00EF8A20 /* Debug-STG.xcconfig in Resources */,
-				425CE28C297601E40052260E /* template.json in Resources */,
-				429EB46C296BBD2C00EF8A20 /* Debug-PROD.xcconfig in Resources */,
-				429EB46D296BBD2C00EF8A20 /* Preview Assets.xcassets in Resources */,
-				429EB46E296BBD2C00EF8A20 /* Assets.xcassets in Resources */,
-				AB6E574D2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */,
-				429EB46F296BBD2C00EF8A20 /* Release-PROD.xcconfig in Resources */,
-				425CE274296F72470052260E /* Test Nami STG.storekit in Resources */,
-				429EB470296BBD2C00EF8A20 /* Release-STG.xcconfig in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42FCA7E12894DE3800DA3715 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,7 +211,6 @@
 				42FCA7EE2894DE3B00DA3715 /* Preview Assets.xcassets in Resources */,
 				42FCA7EB2894DE3B00DA3715 /* Assets.xcassets in Resources */,
 				42144E062909EFFB002C2415 /* Release-PROD.xcconfig in Resources */,
-				AB6E574C2A1BCDCA00B60DFB /* nami_initial_config_stg.json in Resources */,
 				42144E082909EFFB002C2415 /* Release-STG.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,20 +218,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		429EB45A296BBD2C00EF8A20 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429EB45C296BBD2C00EF8A20 /* EntitlementsView.swift in Sources */,
-				425CE27E29710C2A0052260E /* StoreKit2Transaction.swift in Sources */,
-				429EB45D296BBD2C00EF8A20 /* NamiDataSource.swift in Sources */,
-				429EB45F296BBD2C00EF8A20 /* ProfileView.swift in Sources */,
-				429EB460296BBD2C00EF8A20 /* CampaignView.swift in Sources */,
-				429EB461296BBD2C00EF8A20 /* ContentView.swift in Sources */,
-				429EB462296BBD2C00EF8A20 /* TestApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		42FCA7DF2894DE3800DA3715 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -578,170 +423,6 @@
 				PRODUCT_NAME = TestNative;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Release-STG";
-		};
-		429EB474296BBD2C00EF8A20 /* Debug-PROD */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E012909EFFB002C2415 /* Debug-PROD.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPROD;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Debug-PROD";
-		};
-		429EB475296BBD2C00EF8A20 /* Debug-STG */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E032909EFFB002C2415 /* Debug-STG.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconSTG;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.stg.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Debug-STG";
-		};
-		429EB476296BBD2C00EF8A20 /* Release-PROD */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E022909EFFB002C2415 /* Release-PROD.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPROD;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Release-PROD";
-		};
-		429EB477296BBD2C00EF8A20 /* Release-STG */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E042909EFFB002C2415 /* Release-STG.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconSTG;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.stg.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1049,47 +730,6 @@
 			};
 			name = "Debug-PROD-tvos";
 		};
-		AB856B0E2A00ADBB007C6627 /* Debug-PROD-tvos */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E012909EFFB002C2415 /* Debug-PROD.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIconPROD-tvOS";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Debug-PROD-tvos";
-		};
 		AB856B0F2A00ADCD007C6627 /* Debug-STG-tvos */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1193,47 +833,6 @@
 			};
 			name = "Debug-STG-tvos";
 		};
-		AB856B112A00ADCD007C6627 /* Debug-STG-tvos */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E032909EFFB002C2415 /* Debug-STG.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIconSTG-tvOS";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.stg.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Debug-STG-tvos";
-		};
 		AB856B122A00ADD8007C6627 /* Release-PROD-tvos */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1318,47 +917,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
 				PRODUCT_NAME = TestNative;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Release-PROD-tvos";
-		};
-		AB856B142A00ADD8007C6627 /* Release-PROD-tvos */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E022909EFFB002C2415 /* Release-PROD.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIconPROD-tvOS";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.app.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1465,65 +1023,9 @@
 			};
 			name = "Release-STG-tvos";
 		};
-		AB856B172A00ADE4007C6627 /* Release-STG-tvos */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42144E042909EFFB002C2415 /* Release-STG.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIconSTG-tvOS";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Test/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.namiml.stg.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = "Release-STG-tvos";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		429EB473296BBD2C00EF8A20 /* Build configuration list for PBXNativeTarget "Test dev" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				429EB474296BBD2C00EF8A20 /* Debug-PROD */,
-				AB856B0E2A00ADBB007C6627 /* Debug-PROD-tvos */,
-				429EB475296BBD2C00EF8A20 /* Debug-STG */,
-				AB856B112A00ADCD007C6627 /* Debug-STG-tvos */,
-				429EB476296BBD2C00EF8A20 /* Release-PROD */,
-				AB856B142A00ADD8007C6627 /* Release-PROD-tvos */,
-				429EB477296BBD2C00EF8A20 /* Release-STG */,
-				AB856B172A00ADE4007C6627 /* Release-STG-tvos */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-PROD";
-		};
 		42FCA7DE2894DE3800DA3715 /* Build configuration list for PBXProject "Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1555,6 +1057,25 @@
 			defaultConfigurationName = "Release-PROD";
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB64167A2A5F19020035FC10 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/namiml/NamiSDK-SwiftPackageManager";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB64167F2A5F19C10035FC10 /* NamiApple */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB64167A2A5F19020035FC10 /* XCRemoteSwiftPackageReference "NamiSDK-SwiftPackageManager" */;
+			productName = NamiApple;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42FCA7DB2894DE3800DA3715 /* Project object */;
 }
