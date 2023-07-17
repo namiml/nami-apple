@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NamiApple-Swift.h</key>
 		<data>
-		1M6BBhMrrau/Ud37ChEv4RpXClg=
+		KKlawiYyo6VRzGT4ADx0wW14QiY=
 		</data>
 		<key>Headers/NamiApple.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		u9+SXeGJUMrkD0bClgaURNkTark=
+		HzgsEUPN7RMlK0qXBcjbYzSkdGQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		GEOo1+5TA3TtNCbDzBetxTIZKuM=
+		hy7LOzYAUSHYGOYiz63q3aDOwtk=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		EJuBCn6TuamcmdHM8QgByBCGvHQ=
+		YJZJx1Y1rfJpkaGLEceRVdzMYgo=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		GEOo1+5TA3TtNCbDzBetxTIZKuM=
+		hy7LOzYAUSHYGOYiz63q3aDOwtk=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		EJuBCn6TuamcmdHM8QgByBCGvHQ=
+		YJZJx1Y1rfJpkaGLEceRVdzMYgo=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jk/V4Lqp47blNiEFWbqKzmajoso=
+		gg19J2ZDRTF50P3Hn8vLgei0o5I=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		1dDD1J6fZEe4J5f7+lXUpjy8Cfo=
+		XysVrHQIQL2r83Gcz2EEW/jab3c=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		jk/V4Lqp47blNiEFWbqKzmajoso=
+		gg19J2ZDRTF50P3Hn8vLgei0o5I=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		1dDD1J6fZEe4J5f7+lXUpjy8Cfo=
+		XysVrHQIQL2r83Gcz2EEW/jab3c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mn4iwNNnRFH8t2POKpzTIJkLSG6+afr5xBXmnwqKv/w=
+			W2RbcaOYNjIK+3/I5r5hqyIfPHT3YcbjltTKvSpVQ40=
 			</data>
 		</dict>
 		<key>Headers/NamiApple.h</key>
@@ -96,14 +96,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Th3CL3UkFwzW9hEPijp5KkYTkt/LwS4aXSW7qIsKpKA=
+			Qt5XxHwXJ5Fujju/aaxbIk2un4yPKsSlJaGJti5cldk=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g2YdOsUR/lMbfsSthppZWHydAaUzUznSdzvAtujDlI0=
+			tsCYDEi8RM367y2LEVW7751sLiyY++unw19IwWYpFQM=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftdoc</key>
@@ -117,14 +117,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Th3CL3UkFwzW9hEPijp5KkYTkt/LwS4aXSW7qIsKpKA=
+			Qt5XxHwXJ5Fujju/aaxbIk2un4yPKsSlJaGJti5cldk=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g2YdOsUR/lMbfsSthppZWHydAaUzUznSdzvAtujDlI0=
+			tsCYDEi8RM367y2LEVW7751sLiyY++unw19IwWYpFQM=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -138,14 +138,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pLbEc3o7abKGCym9xvmA/Fb7VPNOyyd0os0lULyms24=
+			rcSWpmz9hqCrRvLmom0FpMDtjMh3y8oDUzWD1htRO2E=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g0A2gF5CZjcEZdTZ9hMa1O+OFNzdn8nutkKIWa1C4r0=
+			88lFKU5UiMwE5/VtEFg5PhvnBUcrm2tIYnk40o5A/nw=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftdoc</key>
@@ -159,14 +159,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pLbEc3o7abKGCym9xvmA/Fb7VPNOyyd0os0lULyms24=
+			rcSWpmz9hqCrRvLmom0FpMDtjMh3y8oDUzWD1htRO2E=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			g0A2gF5CZjcEZdTZ9hMa1O+OFNzdn8nutkKIWa1C4r0=
+			88lFKU5UiMwE5/VtEFg5PhvnBUcrm2tIYnk40o5A/nw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

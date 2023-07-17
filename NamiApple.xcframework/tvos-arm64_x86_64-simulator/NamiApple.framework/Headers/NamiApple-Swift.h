@@ -1257,7 +1257,7 @@ SWIFT_CLASS("_TtC9NamiApple7NamiSKU")
 /// Type of product - basically subscription, or non-one_time_purchase.  Is unknownn on versions of iOS prior to 11.2, which introduced a subscription related values to product.
 @property (nonatomic) enum NamiSKUType type;
 @property (nonatomic, readonly) BOOL isFeatured;
-- (nonnull instancetype)initWithNamiId:(NSString * _Nullable)namiId storeId:(NSString * _Nonnull)storeId skuType:(enum NamiSKUType)skuType OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNamiId:(NSString * _Nullable)namiId storeId:(NSString * _Nonnull)storeId skuType:(enum NamiSKUType)skuType productMetadata:(NSDictionary<NSString *, id> * _Nonnull)productMetadata product:(SKProduct * _Nullable)product OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2705,7 +2705,7 @@ SWIFT_CLASS("_TtC9NamiApple7NamiSKU")
 /// Type of product - basically subscription, or non-one_time_purchase.  Is unknownn on versions of iOS prior to 11.2, which introduced a subscription related values to product.
 @property (nonatomic) enum NamiSKUType type;
 @property (nonatomic, readonly) BOOL isFeatured;
-- (nonnull instancetype)initWithNamiId:(NSString * _Nullable)namiId storeId:(NSString * _Nonnull)storeId skuType:(enum NamiSKUType)skuType OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNamiId:(NSString * _Nullable)namiId storeId:(NSString * _Nonnull)storeId skuType:(enum NamiSKUType)skuType productMetadata:(NSDictionary<NSString *, id> * _Nonnull)productMetadata product:(SKProduct * _Nullable)product OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
