@@ -689,7 +689,7 @@ extension Swift.String {
   @objc public var isFeatured: Swift.Bool {
     @objc get
   }
-  @objc public init(namiId: Swift.String?, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType)
+  @objc public init(namiId: Swift.String?, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType, productMetadata: [Swift.String : Any] = [:], product: StoreKit.SKProduct?)
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
   public typealias ID = Swift.String
