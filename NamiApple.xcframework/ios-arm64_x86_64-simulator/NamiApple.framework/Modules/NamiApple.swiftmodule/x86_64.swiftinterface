@@ -719,13 +719,16 @@ public typealias NamiUUID = Swift.String
 @objc extension NamiApple.NamiPaywallManager {
   @objc public static func registerSignInHandler(_ applicationSignInHandler: NamiApple.NamiSignInHandler?)
   @objc public static func registerCloseHandler(_ paywallCloseHandler: NamiApple.NamiPaywallCloseHandler?)
-  @objc public static func registerRestoreRequestHandler(_ restoreRequestHandler: NamiApple.NamiPaywallRestoreRequestHandler?)
+  @objc @available(*, deprecated, renamed: "registerRestoreHandler")
+  public static func registerRestoreRequestHandler(_ restoreRequestHandler: NamiApple.NamiPaywallRestoreRequestHandler?)
+  @objc public static func registerRestoreHandler(_ restoreHandler: NamiApple.NamiPaywallRestoreRequestHandler?)
   @objc public static func registerBuySkuHandler(_ buySkuHandler: NamiApple.NamiPaywallBuySkuHandler?)
   @objc public static func buySkuComplete(purchaseSuccess: NamiApple.NamiPurchaseSuccess)
   @objc public static func buySkuComplete(sku: NamiApple.NamiSKU, product: StoreKit.SKProduct, transaction: StoreKit.SKPaymentTransaction)
   @objc public static func dismiss(animated: Swift.Bool, completion: @escaping () -> Swift.Void)
   @objc public static func displayedViewController() -> UIKit.UIViewController?
   @objc public static func show()
+  @objc public static func isHidden() -> Swift.Bool
   @objc public static func hide()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
