@@ -1012,7 +1012,12 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 /// can process the request. This is for customers using Nami for paywalls, but not subscription management.
 /// \param restoreRequestHandler A callback called when restore is requested by a user on the Nami Paywall
 ///
-+ (void)registerRestoreRequestHandler:(void (^ _Nullable)(void))restoreRequestHandler;
++ (void)registerRestoreRequestHandler:(void (^ _Nullable)(void))restoreRequestHandler SWIFT_DEPRECATED_MSG("", "registerRestoreHandler:");
+/// Registers a callback that will be activated when user by taps on the Restore Purchases button on a Nami Paywall, so that the application
+/// can process the request. This is for customers using Nami for paywalls, but not subscription management.
+/// \param restoreHandler A callback called when restore is requested by a user on the Nami Paywall
+///
++ (void)registerRestoreHandler:(void (^ _Nullable)(void))restoreHandler;
 /// Registers a callback that will be activated when a user triggers a buy sku action on a paywall.
 /// Only available for plans where Nami is not handling subscription & IAP purchase management.
 /// \param buySkuHandler A callback called when a buy sku action takes place
@@ -1047,6 +1052,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (UIViewController * _Nullable)displayedViewController SWIFT_WARN_UNUSED_RESULT;
 /// Used when a paywall is presented via a nami window to show the window if it’s currently hidden. Advanced use case.
 + (void)show;
+/// Used when a paywall is presented via a nami window to find out if the paywall is currently hidden. Advanced use case.
++ (BOOL)isHidden SWIFT_WARN_UNUSED_RESULT;
 /// Used when a paywall is presented via a nami window to hide the window if it’s currently showing. Advanced use case.
 + (void)hide;
 @end
