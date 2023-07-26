@@ -47,26 +47,33 @@ public enum PaywallType : Swift.String, Swift.Codable {
   required public init(from decoder: Swift.Decoder) throws
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc public class NamiVersionUtils : ObjectiveC.NSObject {
-  @objc public static func isOriginalVersion(_ originalVersion: Swift.String, lowerThanVersion otherVersion: Swift.String) -> Swift.Bool
-  @objc public static func currentAppVersion() -> Swift.String
-  @objc override dynamic public init()
-  @objc deinit
-}
 extension Foundation._NSRange {
   public init(range: Swift.Range<Swift.String.Index>, originalText: Swift.String)
 }
-public enum BypassAdvanceSecondConstants : Foundation.TimeInterval {
-  case day
-  case week
-  public init?(rawValue: Foundation.TimeInterval)
-  public typealias RawValue = Foundation.TimeInterval
-  public var rawValue: Foundation.TimeInterval {
+@_inheritsConvenienceInitializers @objc public class NamiProductManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum NamiPurchaseState : Swift.Int {
+  case pending
+  case purchased
+  case consumed
+  case resubscribed
+  case unsubscribed
+  case deferred
+  case failed
+  case cancelled
+  case unknown
+  public func readableString() -> Swift.String
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }
-public enum NamiStoreKitTesting {
-  public static func bypassAdvanceDate(bySeconds seconds: Foundation.TimeInterval?)
+extension NamiApple.NamiPurchaseState : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   public var id: Swift.Int {
@@ -108,7 +115,6 @@ public typealias NamiLanguageCode = Swift.String
     @objc get
     @objc set(value)
   }
-  @objc public var bypassStore: Swift.Bool
   @objc public var initialConfig: Swift.String?
   @objc public var namiCommands: [Swift.String]
   @objc deinit
@@ -247,56 +253,6 @@ public enum NamiEntitlementKeys : Swift.String {
     get
   }
 }
-public enum NamiPaywallKeys : Swift.String {
-  case paywall_id
-  case name
-  case language
-  case type
-  case marketing_content
-  case purchase_terms
-  case display_options
-  case backgrounds
-  case developer_paywall_id
-  case sku_menu
-  case sku_menus
-  case sku_ordered_metadata
-  case sku_ordered_metadata_by_group
-  case locale_config
-  case style
-  case template
-  case tos_link
-  case privacy_policy
-  case legal_citations
-  case legal_citation
-  case skus
-  case skuSet
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiPaywallTypeValues : Swift.String {
-  case paywall_creator
-  case paywall_linked
-  case component
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiCampaignType : Swift.String, Swift.Codable {
-  case `default`
-  case label
-  case url
-  case unknown
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
 public enum NamiSKUKeys : Swift.String {
   case sku_ref_id
   case sku_type
@@ -315,44 +271,31 @@ public enum NamiSKUKeys : Swift.String {
     get
   }
 }
-public enum sku_type_values {
-}
-public enum NamiPaywallMarketingContentKeys : Swift.String {
-  case title
-  case body
-  case button_title
-  case extra_data
+public enum NamiCampaignType : Swift.String, Swift.Codable {
+  case `default`
+  case label
+  case url
+  case unknown
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
-extension Foundation.NSNotification.Name {
-  public static var NamiActiveEntitlementsNotification: Foundation.Notification.Name
-}
-@objc public enum NamiEntitlementType : Swift.Int, Swift.Codable {
-  case other = 0
-  case binary_auth
-  case quota
-  case consumable
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 @_hasMissingDesignatedInitializers @objc public class NamiEntitlement : ObjectiveC.NSObject, Swift.Codable {
   @objc public var name: Swift.String?
   @objc public var desc: Swift.String?
-  @objc public var namiId: Swift.String?
+  @objc public var namiId: Swift.String
   @objc public var referenceId: Swift.String
   @objc public var relatedSkus: [NamiApple.NamiSKU]
   @objc public var purchasedSkus: [NamiApple.NamiSKU]
   @objc public var activePurchases: [NamiApple.NamiPurchase]
-  @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to _: Swift.Encoder) throws
+  @objc deinit
+}
+extension Foundation.NSNotification.Name {
+  public static var NamiActiveEntitlementsNotification: Foundation.Notification.Name
 }
 public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiApple.NamiEntitlement]) -> Swift.Void
 @objc extension NamiApple.NamiEntitlementManager {
@@ -398,23 +341,6 @@ public enum StoreKitEnvironment : Swift.String {
     get
   }
 }
-@objc public enum NamiPurchaseState : Swift.Int {
-  case pending
-  case purchased
-  case consumed
-  case resubscribed
-  case unsubscribed
-  case deferred
-  case failed
-  case cancelled
-  case unknown
-  public func readableString() -> Swift.String
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 @objc public enum NamiRestorePurchasesState : Swift.Int {
   case started
   case finished
@@ -441,9 +367,6 @@ public enum StoreKitEnvironment : Swift.String {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
   @objc public static var shared: NamiApple.NamiStoreKitHelper
   @objc public static var noProductIdentifier: Swift.String
-  @objc public var bypassStoreKit: Swift.Bool {
-    get
-  }
   public var subscriptionAccelerationToMinutesMap: [NamiApple.SandboxAccelerationItemUnit : Swift.Double] {
     get
   }
@@ -456,10 +379,7 @@ public enum StoreKitEnvironment : Swift.String {
   @objc public var objCStoreKitEnvironment: Swift.String {
     get
   }
-  public func bypassStoreKit(bypass: Swift.Bool, customAccelerationToMinutesMap: [NamiApple.SandboxAccelerationItemUnit : Swift.Double] = [:], customResubscriptionsEightHours: Swift.Int = -1)
   @objc public func verifyReceipt(completion: @escaping NamiApple.NamiVerifyReceiptHandler)
-  @objc public func productsForProductIdentifiers(productIDs: [NamiApple.StoreId], productHandler: @escaping NamiApple.SKUsRequestCompletionHandler)
-  @objc public static func appReceiptData() -> Foundation.Data?
   @objc public static func appReceipt() -> NamiApple.NamiReceiptWrapper?
   @objc deinit
 }
@@ -482,6 +402,26 @@ extension StoreKit.SKProduct {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public enum NamiPurchaseSource : Swift.Int {
+  case campaign
+  case marketplace
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension NamiApple.NamiPurchaseSource : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_inheritsConvenienceInitializers @objc public class NamiCommand : ObjectiveC.NSObject {
+  @objc public static func performCommands(_ commands: [Swift.String])
+  @objc public static func performCommand(_ commandString: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
 public typealias NamiLoginLogoutCompleteHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceiptWrapper?) -> Swift.Void
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ImageService : ObjectiveC.NSObject {
@@ -500,24 +440,33 @@ public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceip
 }
 public struct DownloadTask {
 }
+public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swift.Hashable, Content : SwiftUI.View {
+  public let sources: [Data]
+  @SwiftUI.Binding @_projectedValueProperty($selection) public var selection: Data? {
+    get
+    nonmutating set(value)
+    nonmutating _modify
+  }
+  public var $selection: SwiftUI.Binding<Data?> {
+    get
+  }
+  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreGraphics.CGFloat? = nil, indicatorBuilder: (() -> SwiftUI.AnyView)? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>? = nil, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreGraphics.CGFloat? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple0A15SegmentedPickerV4bodyQrvp", 0) __<Data, Content>
+}
 public typealias NamiWorker = () -> Swift.Void
 public typealias NamiAppPlatformID = Swift.String
 @objc extension NamiApple.Nami {
   @objc public static func configure(with namiConfig: NamiApple.NamiConfiguration)
-  @objc public static func configureXamarin(namiConfig: NamiApple.NamiConfiguration)
-  @objc public static func doConfigBasedWork(with worker: @escaping NamiApple.NamiWorker)
   @objc public static func setLogLevel(_ logLevel: NamiApple.NamiLogLevel)
   @objc public static func namiWindowEnabled() -> Swift.Bool
+  @objc public static func isPurchaseManagementEnabled() -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
   @objc public static var shared: NamiApple.Nami
-  public func isPurchaseManagementEnabled() -> Swift.Bool
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class NamiCommand : ObjectiveC.NSObject {
-  @objc public static func performCommands(_ commands: [Swift.String])
-  @objc public static func performCommand(_ commandString: Swift.String)
-  @objc override dynamic public init()
   @objc deinit
 }
 public typealias StoreId = Swift.String
@@ -525,8 +474,6 @@ public typealias SKUsRequestCompletionHandler = (_ success: Swift.Bool, _ produc
 public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurchase], _ state: NamiApple.NamiPurchaseState, _ error: Swift.Error?) -> Swift.Void
 @_inheritsConvenienceInitializers @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiRestorePurchasesStateHandler = (_ state: NamiApple.NamiRestorePurchasesState, _ newPurchases: [NamiApple.NamiPurchase], _ oldPurchases: [NamiApple.NamiPurchase], _ error: Swift.Error?) -> Swift.Void
-  @objc public static func clearBypassStorePurchases()
-  @objc public static func clearAndCheckRestoreAllPurchases()
   @objc public static func skuPurchased(_ skuId: NamiApple.StoreId) -> Swift.Bool
   @objc public static func anySkuPurchased(_ skuIds: [NamiApple.StoreId]) -> Swift.Bool
   @objc public static func getRecord(forSKU skuId: NamiApple.StoreId) -> NamiApple.NamiPurchase?
@@ -570,6 +517,7 @@ public enum CustomerJourneyStateKeys {
   case unknown = 0
   case one_time_purchase
   case subscription
+  public init(from decoder: Swift.Decoder) throws
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -650,47 +598,21 @@ extension Swift.KeyedDecodingContainer {
 extension Swift.String {
   public func sanitizedForFilename() -> Swift.String?
 }
+extension StoreKit.SKPaymentTransactionState {
+  public func readableString() -> Swift.String
+}
 @_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
-  @objc public var id: Swift.String {
-    @objc get
-  }
-  @objc public var platformId: Swift.String {
-    @objc get
-  }
-  @objc public var skuId: Swift.String {
-    @objc get
-  }
-  @objc public var languageCode: NamiApple.NamiLanguageCode {
-    @objc get
-  }
-  @objc public var name: Swift.String {
-    @objc get
-  }
-  @objc public var localizedCurrentPrice: Swift.String? {
-    @objc get
-  }
-  @objc public var localizedCurrentPricePerMonth: Swift.String? {
-    @objc get
-  }
-  @objc public var localizedBasePrice: Swift.String? {
-    @objc get
-  }
-  @objc public var localizedBasePricePerMonth: Swift.String? {
-    @objc get
-  }
-  @objc public var localizedIntroductoryPrice: Swift.String? {
-    @objc get
-  }
-  @objc public var storeId: Swift.String
-  @objc public var product: StoreKit.SKProduct?
-  @objc public var productMetadata: [Swift.String : Any]?
+  @objc public var id: Swift.String
+  @objc public var skuId: Swift.String
+  @objc public var name: Swift.String?
   @objc public var type: NamiApple.NamiSKUType
-  @objc public var isFeatured: Swift.Bool {
-    @objc get
-  }
-  @objc public init(namiId: Swift.String?, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType, productMetadata: [Swift.String : Any] = [:], product: StoreKit.SKProduct?)
-  public func encode(to encoder: Swift.Encoder) throws
+  @objc public var associatedEntitlements: [NamiApple.NamiEntitlement]
+  @objc public var promoId: Swift.String?
+  @objc public var product: Any?
   required public init(from decoder: Swift.Decoder) throws
+  public func encode(to _: Swift.Encoder) throws
+  @objc public init(namiId: Swift.String, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType)
+  public init(namiId: Swift.String, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType, product: Any?)
   public typealias ID = Swift.String
   @objc deinit
 }
@@ -708,7 +630,7 @@ public enum AsyncImagePhase {
   @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
 }
-public typealias NamiPaywallActionHandler = (_ campaignId: Swift.String?, _ campaignName: Swift.String?, _ campaignType: Swift.String?, _ campaignLabel: Swift.String?, _ campaignUrl: Swift.String?, _ paywallId: Swift.String?, _ paywallName: Swift.String?, _ segmentId: Swift.String?, _ externalSegmentId: Swift.String?, _ paywallLaunchContext: NamiApple.PaywallLaunchContext?, _ action: NamiApple.NamiPaywallAction, _ sku: NamiApple.NamiSKU?, _ purchaseError: Swift.Error?, _ purchases: [NamiApple.NamiPurchase], _ deeplinkUrl: Swift.String?) -> Swift.Void
+public typealias NamiPaywallActionHandler = (_ event: NamiApple.NamiPaywallEvent) -> Swift.Void
 public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void
@@ -737,202 +659,79 @@ public typealias NamiUUID = Swift.String
   @objc dynamic public func namiInfoDict() -> [Swift.String : Any]
   @objc dynamic public func namiInfoDict(withPurchaseSource _: NamiApple.NamiPurchaseSource) -> [Swift.String : Any]
 }
-@objc extension StoreKit.SKProduct {
-  @objc dynamic public var variableDuration: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var variableDurationInMonths: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableDuration(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public func variableDurationInMonths(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableDurationSingular: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var variableDurationSingularInMonths: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableDurationSingular(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public func variableDurationSingularInMonths(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variablePeriod: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var variablePeriodInMonths: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variablePeriod(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public func variablePeriodInMonths(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variablePeriodNumber: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var variablePeriodNumberInMonths: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variablePeriodNumber(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public func variablePeriodNumberInMonths(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableFreeTrialDuration: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableFreeTrialDuration(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableFreeTrialDurationSingular: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableFreeTrialDurationSingular(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableFreeTrialPeriod: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableFreeTrialPeriod(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableFreeTrialPeriodNumber: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableFreeTrialPeriodNumber(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableIntroductoryDuration: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableIntroductoryDuration(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableIntroductoryDurationSingular: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableIntroductoryDurationSingular(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableIntroductoryPeriod: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableIntroductoryPeriod(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var variableIntroductoryPeriodNumber: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public func variableIntroductoryPeriodNumber(languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-}
-@objc extension StoreKit.SKProduct {
-  @objc public static var priceFormatter: Foundation.NumberFormatter
-  @objc dynamic public var localizedPrice: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var localizedIntroductoryPrice: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var localizedPerUnitPricePerMonth: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var localizedPerUnitPrice: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var localizedMultipliedPrice: Swift.String? {
-    @objc get
-  }
-  @objc @available(iOS 11.2, *)
-  dynamic public var localizedDurationSingular: Swift.String? {
-    @objc get
-  }
-  @objc dynamic public var localizedDurationSingularInMonths: Swift.String? {
-    @objc get
-  }
-}
-@available(iOS 11.2, *)
-@objc extension StoreKit.SKProductSubscriptionPeriod {
-  @objc dynamic public var unitText: Swift.String? {
-    @objc get
-  }
-  @objc @available(iOS 11.2, *)
-  dynamic public func unitText(forLanguageCode languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-  @objc dynamic public var unitTextInMonths: Swift.String? {
-    @objc get
-  }
-  @objc @available(iOS 11.2, *)
-  dynamic public func unitTextInMonths(forLanguageCode languageCode: NamiApple.NamiLanguageCode) -> Swift.String?
-}
-@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionPending : StoreKit.SKPaymentTransaction {
-  @objc override dynamic public var payment: StoreKit.SKPayment {
-    @objc get
-  }
-  @objc override dynamic public var transactionIdentifier: Swift.String? {
-    @objc get
-  }
-  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
-    @objc get
-  }
-  @objc override dynamic public var transactionDate: Foundation.Date? {
-    @objc get
-  }
-  @objc override dynamic public init()
+@_hasMissingDesignatedInitializers @objc public class NamiPaywallComponentChange : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
   @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionPending2 : NamiApple.MockPaymentTransactionPending {
-  @objc override dynamic public var payment: StoreKit.SKPayment {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPaymentTransactionFailed : NamiApple.MockPaymentTransactionPending {
-  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPaymentTransaction : NamiApple.MockPaymentTransactionPending {
-  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
-    @objc get
-  }
-  @objc override dynamic public var payment: StoreKit.SKPayment {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPaymentTransaction2 : NamiApple.MockPaymentTransactionPending {
-  @objc override dynamic public var transactionState: StoreKit.SKPaymentTransactionState {
-    @objc get
-  }
-  @objc override dynamic public var payment: StoreKit.SKPayment {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPayment : StoreKit.SKPayment {
-  @objc override dynamic public var productIdentifier: Swift.String {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class MockPayment2 : StoreKit.SKPayment {
-  @objc override dynamic public var productIdentifier: Swift.String {
-    @objc get
-  }
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension StoreKit.SKPaymentTransactionState {
-  public func readableString() -> Swift.String
-}
-extension NamiApple.NamiPurchaseState : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
-@objc public enum NamiPaywallAction : Swift.Int {
-  case close_paywall = 0
-  case restore_purchases = 1
-  case sign_in = 2
-  case buy_sku = 3
-  case select_sku = 4
-  case purchase_selected_sku = 5
-  case purchase_success = 6
-  case purchase_deferred = 7
-  case purchase_failed = 8
-  case purchase_cancelled = 9
-  case purchase_unknown = 10
-  case show_paywall = 11
-  case deeplink = 12
+@_hasMissingDesignatedInitializers @objc public class NamiPaywallEvent : ObjectiveC.NSObject, Swift.Codable {
+  public var action: NamiApple.NamiPaywallAction
+  public var campaignId: Swift.String?
+  public var campaignName: Swift.String?
+  public var campaignType: NamiApple.NamiCampaignType
+  public var campaignLabel: Swift.String?
+  public var campaignUrl: Swift.String?
+  public var paywallId: Swift.String?
+  public var paywallName: Swift.String?
+  public var componentChange: NamiApple.NamiPaywallComponentChange?
+  public var segmentId: Swift.String?
+  public var externalSegmentId: Swift.String?
+  public var paywallLaunchContext: NamiApple.PaywallLaunchContext?
+  public var deeplinkUrl: Swift.String?
+  public var sku: NamiApple.NamiSKU?
+  public var purchaseError: Swift.Error?
+  public var purchases: [NamiApple.NamiPurchase]
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to _: Swift.Encoder) throws
+  @objc deinit
+}
+public enum NamiPaywallAction : Swift.String, Swift.Codable {
+  case close_paywall
+  case restore_purchases
+  case sign_in
+  case buy_sku
+  case select_sku
+  case purchase_selected_sku
+  case purchase_success
+  case purchase_deferred
+  case purchase_failed
+  case purchase_cancelled
+  case purchase_unknown
+  case show_paywall
+  case deeplink
+  case toggle_change
+  case page_change
+  case slide_change
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@available(iOS 15.0, tvOS 15.0, *)
+public typealias StoreKit2ProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.Product]?, _ error: Swift.Error?) -> Swift.Void
+@objc public class NamiPurchaseSuccess : ObjectiveC.NSObject, Swift.Codable {
+  @objc public init(product: NamiApple.NamiSKU, transactionID: Swift.String, originalTransactionID: Swift.String, originalPurchaseDate: Foundation.Date, purchaseDate: Foundation.Date, expiresDate: Foundation.Date?, price: Foundation.Decimal, currencyCode: Swift.String, locale: Foundation.Locale)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public func clearAllNamiStorage()
+@objc public enum NamiEntitlementType : Swift.Int, Swift.Codable {
+  case other = 0
+  case binary_auth
+  case quota
+  case consumable
+  public init(from decoder: Swift.Decoder) throws
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-public func clearAllNamiStorage()
 @objc public protocol NamiLoggerClient : ObjectiveC.NSObjectProtocol {
   @objc func logHTTP(request: Foundation.URLRequest, response: Foundation.HTTPURLResponse, responseData: Foundation.Data?, message: Swift.String)
   @objc func logMessage(_ message: Swift.String)
@@ -947,26 +746,6 @@ public func clearAllNamiStorage()
   public var rawValue: Swift.Int {
     get
   }
-}
-@objc public enum NamiPurchaseSource : Swift.Int {
-  case campaign
-  case marketplace
-  case unknown
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-extension NamiApple.NamiPurchaseSource : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class NamiPurchaseSuccess : ObjectiveC.NSObject, Swift.Codable {
-  @objc public init(product: NamiApple.NamiSKU, transactionID: Swift.String, originalTransactionID: Swift.String, originalPurchaseDate: Foundation.Date, purchaseDate: Foundation.Date, expiresDate: Foundation.Date?, price: Foundation.Decimal, currencyCode: Swift.String, locale: Foundation.Locale)
-  @objc deinit
-  public func encode(to encoder: Swift.Encoder) throws
-  required public init(from decoder: Swift.Decoder) throws
 }
 @objc public class NamiPurchase : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let skuId: NamiApple.StoreId
