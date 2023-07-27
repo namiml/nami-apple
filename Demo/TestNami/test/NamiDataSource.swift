@@ -6,76 +6,30 @@ import NamiApple
 import StoreKit
 
 class NamiDataSource: ObservableObject {
+    @Published var purchaseManagementEnabled = Nami.isPurchaseManagementEnabled()
+    @Published var anonymousModeCapable = NamiCustomerManager.anonymousModeCapability()
     @Published var isLoggedIn = NamiCustomerManager.isLoggedIn()
     @Published var loggedInId = NamiCustomerManager.loggedInId()
     @Published var deviceId = NamiCustomerManager.deviceId()
-    @Published var showLinkedPaywall = false
+    @Published var anonymousMode = NamiCustomerManager.inAnonymousMode()
     @Published var activeEntitlements: [NamiEntitlement] = []
     @Published var journeyState: CustomerJourneyState? = NamiCustomerManager.journeyState()
     @Published var campaigns: [NamiCampaign] = NamiCampaignManager.allCampaigns()
 
     func updateLoggedInStatus() {
-        self.isLoggedIn = NamiCustomerManager.isLoggedIn()
-        self.loggedInId = NamiCustomerManager.loggedInId()
-        self.deviceId = NamiCustomerManager.deviceId()
+        isLoggedIn = NamiCustomerManager.isLoggedIn()
+        loggedInId = NamiCustomerManager.loggedInId()
+        deviceId = NamiCustomerManager.deviceId()
+        anonymousMode = NamiCustomerManager.inAnonymousMode()
+        journeyState = NamiCustomerManager.journeyState()
     }
 
     init() {
-        if #available(iOS 15.0, tvOS 15.0, macOS 12.0, *) {
-            if !Nami.shared.isPurchaseManagementEnabled() {
-                StoreKit2TransactionObserver()
-            }
-        }
-
         if #available(iOS 15.0, tvOS 15.0, *) {
-            NamiPaywallManager.registerBuySkuHandler { sku in
-                print("BYO billing buySkuHandler \(sku.storeId)")
-                NamiPaywallManager.dismiss(animated: true) {}
-                Task {
-                    let productIdentifiers = [sku.storeId]
-                    if let products = try? await Product.products(for: productIdentifiers) {
-                        print("\(products)")
-                        let product = products[0]
-
-                        let purchaseResult = try await product.purchase(options: [
-                            .appAccountToken(UUID()),
-                        ])
-
-                        switch purchaseResult {
-                        case .pending:
-                            print("pending purchase result")
-                        case let .success(verification):
-                            switch verification {
-                            case let .verified(transaction):
-                                await transaction.finish()
-
-                                #if swift(>=5.7)
-                                    let price = product.price
-                                    let currency = product.priceFormatStyle.currencyCode
-                                    let locale = product.priceFormatStyle.locale
-
-                                    let purchaseSuccess = NamiPurchaseSuccess(product: sku, transactionID: String(transaction.id), originalTransactionID: String(transaction.originalID), originalPurchaseDate: transaction.originalPurchaseDate, purchaseDate: transaction.purchaseDate, expiresDate: transaction.expirationDate, price: price, currencyCode: currency, locale: locale)
-                                    NamiPaywallManager.buySkuComplete(purchaseSuccess: purchaseSuccess)
-                                #endif
-
-//                                    NamiPaywallManager.buySkuComplete(sku: sku, product: product, transaction: transaction)
-
-                                print("verified \(transaction)")
-                            case .unverified:
-                                print("unverified")
-                            }
-                        case .userCancelled:
-                            print("user cancelled")
-                        @unknown default:
-                            print("unexpected result")
-                        }
-                    }
-                }
+            NamiPaywallManager.registerBuySkuHandler { _ in
+                print("For customers implementing Nami paywalls with their own billing code or third-party such as RevenueCat")
             }
         }
-
-        NamiCustomerManager.setCustomerAttribute("firstName", "Dan")
-        NamiCustomerManager.setCustomerAttribute("fooxyz", "bar123")
 
         updateLoggedInStatus()
 
@@ -95,6 +49,7 @@ class NamiDataSource: ObservableObject {
 
         // This handler is called whenever customer journey state is received from the Nami service
         NamiCustomerManager.registerJourneyStateHandler { journeyState in
+
             self.journeyState = journeyState
         }
 
@@ -108,6 +63,8 @@ class NamiDataSource: ObservableObject {
             self.isLoggedIn = NamiCustomerManager.isLoggedIn()
             self.loggedInId = NamiCustomerManager.loggedInId()
             self.deviceId = NamiCustomerManager.deviceId()
+            self.anonymousMode = NamiCustomerManager.inAnonymousMode()
+            self.journeyState = NamiCustomerManager.journeyState()
 
             if success {
                 if accountStateAction == .login {
@@ -128,7 +85,14 @@ class NamiDataSource: ObservableObject {
                     print("vendor id cleared")
                 } else if accountStateAction == .customer_data_platform_id_cleared {
                     print("cdp id cleared")
+                } else if accountStateAction == .anonymous_mode_on {
+                    print("anonymous mode on")
+                } else if accountStateAction == .anonymous_mode_off {
+                    print("anonymous mode off")
+                } else if accountStateAction == .nami_device_id_set {
+                    print("nami device id set")
                 }
+
             } else if error != nil {
                 if accountStateAction == .login {
                     print("error logging in - \(String(describing: error))")
@@ -146,25 +110,26 @@ class NamiDataSource: ObservableObject {
                     print("error clearing vendor id - \(String(describing: error))")
                 } else if accountStateAction == .customer_data_platform_id_cleared {
                     print("error clearing cdp id - \(String(describing: error))")
+                } else if accountStateAction == .anonymous_mode_on {
+                    print("error turning anonymous mode on - \(String(describing: error))")
+                } else if accountStateAction == .anonymous_mode_off {
+                    print("error turning anonymous mode off - \(String(describing: error))")
+                } else if accountStateAction == .nami_device_id_set {
+                    print("nami device id set - \(String(describing: error))")
                 }
             }
         }
 
-        NamiCustomerManager.setCustomerDataPlatformId(with: UUID().uuidString)
-        NamiCustomerManager.clearCustomerDataPlatformId()
-
-        NamiCustomerManager.setAdvertisingId(with: UUID())
-        NamiCustomerManager.clearAdvertisingId()
-
-        NamiCustomerManager.setVendorId(with: UUID())
-        NamiCustomerManager.clearVendorId()
-
         // This handler is called when sign-in control on paywall is tapped
         NamiPaywallManager.registerSignInHandler { _ in
-            NamiPaywallManager.dismiss(animated: true) {}
+            if Nami.namiWindowEnabled() {
+                NamiPaywallManager.hide()
+            } else {
+                NamiPaywallManager.dismiss(animated: true) {}
+            }
         }
 
-        NamiPaywallManager.registerRestoreRequestHandler {
+        NamiPaywallManager.registerRestoreHandler {
             print("registerRestoreRequestHandler from paywalls only plans \n")
         }
 
@@ -172,7 +137,7 @@ class NamiDataSource: ObservableObject {
             print("purchasesChangesHandler \(purchaseState)\n")
             for purchase in purchases {
                 print("purchased sku_ref_id: \(purchase.skuId)\n")
-                print("purchased transaction id: \(purchase.transactionIdentifier)\n")
+                print("purchased transaction id: \(String(describing: purchase.transactionIdentifier))\n")
 
                 if let originalTransactionID = purchase.transaction?.original?.transactionIdentifier {
                     print("purchased original transaction id: \(originalTransactionID)\n")
@@ -186,7 +151,7 @@ class NamiDataSource: ObservableObject {
                 impactMed.impactOccurred()
             #endif
 
-            let presentAlertFromVC = NamiPaywallManager.displayedViewController()
+            _ = NamiPaywallManager.displayedViewController()
 
             print("newPurchases \(newPurchases) oldpurchases \(oldPurchases)")
 
