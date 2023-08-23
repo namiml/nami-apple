@@ -496,16 +496,16 @@ SWIFT_CLASS("_TtC9NamiApple15NamiEntitlement")
 @property (nonatomic, copy) NSString * _Nullable name;
 /// Description of entitlement
 @property (nonatomic, copy) NSString * _Nullable desc;
-/// The Nami ID of the entitlement.
-@property (nonatomic, copy) NSString * _Nonnull namiId;
 /// The unique ID of the entitlement, use this to refer to the system when referencing an entitlements.
 @property (nonatomic, copy) NSString * _Nonnull referenceId;
 /// All SKU’s (StoreKit products or other) that grant this entitlement on purchase on this app platform.
-@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull relatedSkus;
+@property (nonatomic, readonly, copy) NSArray<NamiSKU *> * _Nonnull relatedSkus;
 /// List of NamiSKU objects that have been purchased and grant this entitlement.
-@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull purchasedSkus;
+@property (nonatomic, readonly, copy) NSArray<NamiSKU *> * _Nonnull purchasedSkus;
 /// Purchase records for any purchased SKU.  Purchase records hold details like date of purchase, or subscription expiration.
-@property (nonatomic, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
+@property (nonatomic, readonly, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
+@property (nonatomic, readonly) NSUInteger hash;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -519,10 +519,10 @@ SWIFT_CLASS("_TtC9NamiApple22NamiEntitlementManager")
 
 
 @interface NamiEntitlementManager (SWIFT_EXTENSION(NamiApple))
-/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitements. To see only active entitements use activeEntitlments().
+/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitlements. To see only active entitements use activeEntitlements().
 ///
 /// returns:
-/// array of all NamiEntitlement objects defined in the Control Center
+/// array of all NamiEntitlements objects defined in the Control Center
 + (NSArray<NamiEntitlement *> * _Nonnull)available SWIFT_WARN_UNUSED_RESULT;
 /// Returns a list of all active entitlements.  Nami checks entitlements across all platforms you have set up in the Control Center.  Use active entitlements to control access to different features in your app.
 ///
@@ -1797,16 +1797,16 @@ SWIFT_CLASS("_TtC9NamiApple15NamiEntitlement")
 @property (nonatomic, copy) NSString * _Nullable name;
 /// Description of entitlement
 @property (nonatomic, copy) NSString * _Nullable desc;
-/// The Nami ID of the entitlement.
-@property (nonatomic, copy) NSString * _Nonnull namiId;
 /// The unique ID of the entitlement, use this to refer to the system when referencing an entitlements.
 @property (nonatomic, copy) NSString * _Nonnull referenceId;
 /// All SKU’s (StoreKit products or other) that grant this entitlement on purchase on this app platform.
-@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull relatedSkus;
+@property (nonatomic, readonly, copy) NSArray<NamiSKU *> * _Nonnull relatedSkus;
 /// List of NamiSKU objects that have been purchased and grant this entitlement.
-@property (nonatomic, copy) NSArray<NamiSKU *> * _Nonnull purchasedSkus;
+@property (nonatomic, readonly, copy) NSArray<NamiSKU *> * _Nonnull purchasedSkus;
 /// Purchase records for any purchased SKU.  Purchase records hold details like date of purchase, or subscription expiration.
-@property (nonatomic, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
+@property (nonatomic, readonly, copy) NSArray<NamiPurchase *> * _Nonnull activePurchases;
+@property (nonatomic, readonly) NSUInteger hash;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1820,10 +1820,10 @@ SWIFT_CLASS("_TtC9NamiApple22NamiEntitlementManager")
 
 
 @interface NamiEntitlementManager (SWIFT_EXTENSION(NamiApple))
-/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitements. To see only active entitements use activeEntitlments().
+/// Returns a list of all entitlements defined in the Control Center.  Note this includes both inactive and active entitlements. To see only active entitements use activeEntitlements().
 ///
 /// returns:
-/// array of all NamiEntitlement objects defined in the Control Center
+/// array of all NamiEntitlements objects defined in the Control Center
 + (NSArray<NamiEntitlement *> * _Nonnull)available SWIFT_WARN_UNUSED_RESULT;
 /// Returns a list of all active entitlements.  Nami checks entitlements across all platforms you have set up in the Control Center.  Use active entitlements to control access to different features in your app.
 ///

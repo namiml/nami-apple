@@ -286,17 +286,23 @@ public enum NamiCampaignType : Swift.String, Swift.Codable {
 @_hasMissingDesignatedInitializers @objc public class NamiEntitlement : ObjectiveC.NSObject, Swift.Codable {
   @objc public var name: Swift.String?
   @objc public var desc: Swift.String?
-  @objc public var namiId: Swift.String
   @objc public var referenceId: Swift.String
-  @objc public var relatedSkus: [NamiApple.NamiSKU]
-  @objc public var purchasedSkus: [NamiApple.NamiSKU]
-  @objc public var activePurchases: [NamiApple.NamiPurchase]
+  @objc public var relatedSkus: [NamiApple.NamiSKU] {
+    @objc get
+  }
+  @objc public var purchasedSkus: [NamiApple.NamiSKU] {
+    @objc get
+  }
+  @objc public var activePurchases: [NamiApple.NamiPurchase] {
+    @objc get
+  }
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   required public init(from decoder: Swift.Decoder) throws
-  public func encode(to _: Swift.Encoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
   @objc deinit
-}
-extension Foundation.NSNotification.Name {
-  public static var NamiActiveEntitlementsNotification: Foundation.Notification.Name
 }
 public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiApple.NamiEntitlement]) -> Swift.Void
 @objc extension NamiApple.NamiEntitlementManager {
@@ -759,6 +765,8 @@ public func clearAllNamiStorage()
     @objc get
   }
   @objc public init(productIdentifier: NamiApple.StoreId, purchaseSource: NamiApple.NamiPurchaseSource)
+  @available(iOS 15.0, *)
+  public init(transaction: StoreKit.Transaction, source: NamiApple.NamiPurchaseSource?)
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   @objc public var isSubscription: Swift.Bool
