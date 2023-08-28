@@ -396,7 +396,12 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 /// Initial configuration used to help bootstrap the SDK on first run. Retrieve the intial config JSON file from
 /// the Nami Control Center. Read in the JSON file as Data and pass the Data here.
 @property (nonatomic, copy) NSString * _Nullable initialConfig;
-/// Used to activate internal features of the SDK not generally used by Nami clients.
+/// Override the default behavior for how long a provisional entitlement grant will be valid before it expires.
+/// If not provided, production purchases will grant a provisional entitlement for 24 hours. All other
+/// purchases will grant for 3 minutes.
+/// Override values need to be provided in seconds.
+@property (nonatomic) double provisionalGrantTTL;
+/// Used to activate internal features of the SDK not generally used by Nami customers.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -546,6 +551,9 @@ SWIFT_CLASS("_TtC9NamiApple22NamiEntitlementManager")
 /// \param changeHandler A callback called when entitlement changes in the system are detected.
 ///
 + (void)registerActiveEntitlementsHandler:(void (^ _Nonnull)(NSArray<NamiEntitlement *> * _Nonnull))activeEntitlementsHandler;
+/// Clear any provisional entitlement grants, which are entitlements issued on-device only.
+/// Useful for development and purchase testing. Not recommended to be called in production.
++ (void)clearProvisionalEntitlementGrants;
 @end
 
 typedef SWIFT_ENUM(NSInteger, NamiEntitlementType, open) {
@@ -970,6 +978,9 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 /// \param transaction A StoreKit 1 <code>SKPaymentTransaction</code> object for the purchase.
 ///
 + (void)buySkuCompleteWithSku:(NamiSKU * _Nonnull)sku product:(SKProduct * _Nonnull)product transaction:(SKPaymentTransaction * _Nonnull)transaction;
+/// Notify the NamiPaywallManager that an App Store in-app purchase flow handled by you is cancelled.
+/// Used to disable product purchase-in-progress loading indicators
++ (void)buySkuCancel;
 /// Call in the case when you want to be sure a Nami paywall will have been closed
 /// \param animated True for standard UIKit animation of dismissal, false otherwise.
 ///

@@ -117,6 +117,7 @@ public typealias NamiLanguageCode = Swift.String
     @objc set(value)
   }
   @objc public var initialConfig: Swift.String?
+  @objc public var provisionalGrantTTL: Swift.Double
   @objc public var namiCommands: [Swift.String]
   @objc deinit
 }
@@ -313,6 +314,7 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc public static func refresh(_ refreshHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc public static func unregisterActiveEntitlementsHandler()
   @objc public static func registerActiveEntitlementsHandler(_ activeEntitlementsHandler: @escaping NamiApple.NamiEntitlementsResponseHandler)
+  @objc public static func clearProvisionalEntitlementGrants()
 }
 @_inheritsConvenienceInitializers @objc public class NamiEntitlementManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
@@ -653,6 +655,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func registerBuySkuHandler(_ buySkuHandler: NamiApple.NamiPaywallBuySkuHandler?)
   @objc public static func buySkuComplete(purchaseSuccess: NamiApple.NamiPurchaseSuccess)
   @objc public static func buySkuComplete(sku: NamiApple.NamiSKU, product: StoreKit.SKProduct, transaction: StoreKit.SKPaymentTransaction)
+  @objc public static func buySkuCancel()
   @objc public static func dismiss(animated: Swift.Bool, completion: @escaping () -> Swift.Void)
   @objc public static func displayedViewController() -> UIKit.UIViewController?
   @objc public static func show()
