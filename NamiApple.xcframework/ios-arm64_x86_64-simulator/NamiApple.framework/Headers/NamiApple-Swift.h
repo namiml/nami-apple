@@ -961,6 +961,11 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 /// \param restoreHandler A callback called when restore is requested by a user on the Nami Paywall
 ///
 + (void)registerRestoreHandler:(void (^ _Nullable)(void))restoreHandler;
+/// Registers an optional callback that will activate if a button on a paywall is setup to trigger a deeplink action.  By default, the SDK will dismiss the paywall
+/// and open the deeplink via the operating system. If this handler is registered, it will be called instead so the app can implement custom logic.
+/// \param deeplinkActionHandler A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
+///
++ (void)registerDeeplinkActionHandler:(void (^ _Nullable)(NSString * _Nonnull))deeplinkActionHandler;
 /// Registers a callback that will be activated when a user triggers a buy sku action on a paywall.
 /// Only available for plans where Nami is not handling subscription & IAP purchase management.
 /// \param buySkuHandler A callback called when a buy sku action takes place
@@ -2273,6 +2278,11 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 /// \param restoreHandler A callback called when restore is requested by a user on the Nami Paywall
 ///
 + (void)registerRestoreHandler:(void (^ _Nullable)(void))restoreHandler;
+/// Registers an optional callback that will activate if a button on a paywall is setup to trigger a deeplink action.  By default, the SDK will dismiss the paywall
+/// and open the deeplink via the operating system. If this handler is registered, it will be called instead so the app can implement custom logic.
+/// \param deeplinkActionHandler A callback that wil be called at a time Nami is told a sign-in request has been made by a paywall.
+///
++ (void)registerDeeplinkActionHandler:(void (^ _Nullable)(NSString * _Nonnull))deeplinkActionHandler;
 /// Registers a callback that will be activated when a user triggers a buy sku action on a paywall.
 /// Only available for plans where Nami is not handling subscription & IAP purchase management.
 /// \param buySkuHandler A callback called when a buy sku action takes place
