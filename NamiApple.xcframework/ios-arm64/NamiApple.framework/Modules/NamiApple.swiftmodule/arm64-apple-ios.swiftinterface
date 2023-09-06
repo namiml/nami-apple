@@ -644,6 +644,7 @@ public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) 
 public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void
 public typealias NamiPaywallRestoreRequestHandler = () -> Swift.Void
+public typealias NamiPaywallDeeplinkActionHandler = (_ action: Swift.String) -> Swift.Void
 public typealias PreparePaywallHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiUUID = Swift.String
 @objc extension NamiApple.NamiPaywallManager {
@@ -652,6 +653,7 @@ public typealias NamiUUID = Swift.String
   @objc @available(*, deprecated, renamed: "registerRestoreHandler")
   public static func registerRestoreRequestHandler(_ restoreRequestHandler: NamiApple.NamiPaywallRestoreRequestHandler?)
   @objc public static func registerRestoreHandler(_ restoreHandler: NamiApple.NamiPaywallRestoreRequestHandler?)
+  @objc public static func registerDeeplinkActionHandler(_ deeplinkActionHandler: NamiApple.NamiPaywallDeeplinkActionHandler?)
   @objc public static func registerBuySkuHandler(_ buySkuHandler: NamiApple.NamiPaywallBuySkuHandler?)
   @objc public static func buySkuComplete(purchaseSuccess: NamiApple.NamiPurchaseSuccess)
   @objc public static func buySkuComplete(sku: NamiApple.NamiSKU, product: StoreKit.SKProduct, transaction: StoreKit.SKPaymentTransaction)
@@ -708,6 +710,7 @@ public enum NamiPaywallAction : Swift.String, Swift.Codable {
   case purchase_deferred
   case purchase_failed
   case purchase_cancelled
+  case purchase_pending
   case purchase_unknown
   case show_paywall
   case deeplink
