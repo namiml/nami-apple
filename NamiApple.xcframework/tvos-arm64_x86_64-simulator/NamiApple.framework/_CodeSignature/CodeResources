@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UKHbCg95qWEPDZDZvI1Hs09DtBg=
+		dvZr4pWxkiGQA4rXdvuJBj8vw/E=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		cx0+8z7nntulvi+oP0hO1X7eJFk=
+		mdVsnamqVKA14cIN/obL+WMdp2Q=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		cx0+8z7nntulvi+oP0hO1X7eJFk=
+		mdVsnamqVKA14cIN/obL+WMdp2Q=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		FyLyU6nZTeEwn7foCzHmYUx1VMU=
+		Li7Jjz6VsT3fUstghMcGVfUaNbs=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		FyLyU6nZTeEwn7foCzHmYUx1VMU=
+		Li7Jjz6VsT3fUstghMcGVfUaNbs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -103,7 +103,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zQSSHZO6w/yY1xc0qdxRVIXblvqLcHzXoilr58GdzDE=
+			PWoPMs+9HiQtBnoCFi8ldpq/QVhL1I4uqopkcK4965E=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64.swiftdoc</key>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zQSSHZO6w/yY1xc0qdxRVIXblvqLcHzXoilr58GdzDE=
+			PWoPMs+9HiQtBnoCFi8ldpq/QVhL1I4uqopkcK4965E=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -145,7 +145,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HrItGR+kRwixYUL/el3Ny4mDovlGPOHuia2LAmv3Q6s=
+			Lu/2c9QU1RNR8okC95rSfDp51JecW2cUG4A8+ApzO+Y=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64.swiftdoc</key>
@@ -166,7 +166,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HrItGR+kRwixYUL/el3Ny4mDovlGPOHuia2LAmv3Q6s=
+			Lu/2c9QU1RNR8okC95rSfDp51JecW2cUG4A8+ApzO+Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
