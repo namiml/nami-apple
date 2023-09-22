@@ -663,6 +663,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func show()
   @objc public static func isHidden() -> Swift.Bool
   @objc public static func hide()
+  @objc public static func isPaywallOpen() -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
