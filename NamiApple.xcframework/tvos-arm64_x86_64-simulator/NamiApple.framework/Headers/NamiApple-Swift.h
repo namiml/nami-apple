@@ -1007,6 +1007,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (BOOL)isHidden SWIFT_WARN_UNUSED_RESULT;
 /// Used when a paywall is presented via a nami window to hide the window if it’s currently showing. Advanced use case.
 + (void)hide;
+/// Use this to check if a paywall is currently being shown to the end user
++ (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2324,6 +2326,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (BOOL)isHidden SWIFT_WARN_UNUSED_RESULT;
 /// Used when a paywall is presented via a nami window to hide the window if it’s currently showing. Advanced use case.
 + (void)hide;
+/// Use this to check if a paywall is currently being shown to the end user
++ (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
