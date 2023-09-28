@@ -403,6 +403,8 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 /// purchases will grant for 3 minutes.
 /// Override values need to be provided in seconds.
 @property (nonatomic) double provisionalGrantTTL;
+/// For customers using a custom instance of Nami with a unique hostname
+@property (nonatomic, copy) NSString * _Nullable customHostname;
 /// Used to activate internal features of the SDK not generally used by Nami customers.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
