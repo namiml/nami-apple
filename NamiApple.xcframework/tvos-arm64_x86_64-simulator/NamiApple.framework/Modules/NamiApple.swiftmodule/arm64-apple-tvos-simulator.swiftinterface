@@ -111,6 +111,7 @@ public typealias NamiLanguageCode = Swift.String
   }
   @objc public var initialConfig: Swift.String?
   @objc public var provisionalGrantTTL: Swift.Double
+  @objc public var customHostname: Swift.String?
   @objc public var namiCommands: [Swift.String]
   @objc deinit
 }
