@@ -271,10 +271,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Nami * _Nonn
 enum NamiLogLevel : NSInteger;
 
 @interface Nami (SWIFT_EXTENSION(NamiApple))
-/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).  It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).
+/// It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
 /// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
 ///
-+ (void)configureWith:(NamiConfiguration * _Nonnull)namiConfig;
++ (void)configureWith:(NamiConfiguration * _Nonnull)namiConfig :(void (^ _Nullable)(BOOL))sdkInitHandler;
 /// Allows for dynamic re-adjustment of SDK log level if desired, from the log level set in the <code>NamiConfiguration</code> object.
 /// \param logLevel New log level you wish to set, same as the log levels that can be set in the Nami.configure() call.
 ///
@@ -282,6 +283,7 @@ enum NamiLogLevel : NSInteger;
 + (BOOL)namiWindowEnabled SWIFT_WARN_UNUSED_RESULT;
 /// Returns whether or not Nami is responsible for purchase management based upon the Nami account’s organization settings.
 + (BOOL)isPurchaseManagementEnabled SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)sdkConfigured SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSString;
@@ -1215,21 +1217,6 @@ typedef SWIFT_ENUM(NSInteger, NamiSKUType, open) {
   NamiSKUTypeOne_time_purchase = 1,
   NamiSKUTypeSubscription = 2,
 };
-
-
-/// Holds values that represent if specific Nami application account features are active.
-SWIFT_CLASS("_TtC9NamiApple23NamiServerConfiguration")
-@interface NamiServerConfiguration : NSObject
-/// If true, the Nami SDK will use machine learning aspects of system to analyze and act on user behaviour
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL mlEnabled;)
-+ (BOOL)mlEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setMlEnabled:(BOOL)value;
-/// Determines if analytics are supported for this account
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL analyticsEnabled;)
-+ (BOOL)analyticsEnabled SWIFT_WARN_UNUSED_RESULT;
-+ (void)setAnalyticsEnabled:(BOOL)value;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 /// Class to help with some aspects of direct StoreKit access.

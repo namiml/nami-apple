@@ -99,12 +99,6 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   required public init(from decoder: Swift.Decoder) throws
 }
 public typealias NamiLanguageCode = Swift.String
-@_inheritsConvenienceInitializers @objc public class NamiServerConfiguration : ObjectiveC.NSObject {
-  @objc public static var mlEnabled: Swift.Bool
-  @objc public static var analyticsEnabled: Swift.Bool
-  @objc override dynamic public init()
-  @objc deinit
-}
 @objc public class NamiConfiguration : ObjectiveC.NSObject {
   public init(appPlatformId: NamiApple.NamiAppPlatformID)
   @objc public static func configuration(forAppPlatformId appPlatformId: NamiApple.NamiAppPlatformID) -> NamiApple.NamiConfiguration
@@ -468,11 +462,13 @@ public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swi
 }
 public typealias NamiWorker = () -> Swift.Void
 public typealias NamiAppPlatformID = Swift.String
+public typealias NamiConfigurationHandler = (_ sdkInitialized: Swift.Bool) -> Swift.Void
 @objc extension NamiApple.Nami {
-  @objc public static func configure(with namiConfig: NamiApple.NamiConfiguration)
+  @objc public static func configure(with namiConfig: NamiApple.NamiConfiguration, _ sdkInitHandler: NamiApple.NamiConfigurationHandler? = .none)
   @objc public static func setLogLevel(_ logLevel: NamiApple.NamiLogLevel)
   @objc public static func namiWindowEnabled() -> Swift.Bool
   @objc public static func isPurchaseManagementEnabled() -> Swift.Bool
+  @objc public static func sdkConfigured() -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
   @objc public static var shared: NamiApple.Nami
