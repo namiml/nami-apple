@@ -1142,7 +1142,7 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
 
 SWIFT_CLASS("_TtC9NamiApple19NamiPurchaseSuccess")
 @interface NamiPurchaseSuccess : NSObject
-- (nonnull instancetype)initWithProduct:(NamiSKU * _Nonnull)product transactionID:(NSString * _Nonnull)transactionID originalTransactionID:(NSString * _Nonnull)originalTransactionID originalPurchaseDate:(NSDate * _Nonnull)originalPurchaseDate purchaseDate:(NSDate * _Nonnull)purchaseDate expiresDate:(NSDate * _Nullable)expiresDate price:(NSDecimal)price currencyCode:(NSString * _Nonnull)currencyCode locale:(NSLocale * _Nonnull)locale OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithProduct:(NamiSKU * _Nonnull)product transactionID:(NSString * _Nonnull)transactionID originalTransactionID:(NSString * _Nonnull)originalTransactionID price:(NSDecimal)price currencyCode:(NSString * _Nonnull)currencyCode OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2450,7 +2450,7 @@ typedef SWIFT_ENUM(NSInteger, NamiPurchaseState, open) {
 
 SWIFT_CLASS("_TtC9NamiApple19NamiPurchaseSuccess")
 @interface NamiPurchaseSuccess : NSObject
-- (nonnull instancetype)initWithProduct:(NamiSKU * _Nonnull)product transactionID:(NSString * _Nonnull)transactionID originalTransactionID:(NSString * _Nonnull)originalTransactionID originalPurchaseDate:(NSDate * _Nonnull)originalPurchaseDate purchaseDate:(NSDate * _Nonnull)purchaseDate expiresDate:(NSDate * _Nullable)expiresDate price:(NSDecimal)price currencyCode:(NSString * _Nonnull)currencyCode locale:(NSLocale * _Nonnull)locale OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithProduct:(NamiSKU * _Nonnull)product transactionID:(NSString * _Nonnull)transactionID originalTransactionID:(NSString * _Nonnull)originalTransactionID price:(NSDecimal)price currencyCode:(NSString * _Nonnull)currencyCode OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
