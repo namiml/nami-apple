@@ -667,6 +667,22 @@ public enum CustomerJourneyStateKeys {
     get
   }
 }
+@objc public enum LaunchCampaignError : Swift.Int {
+  case DEFAULT_CAMPAIGN_NOT_FOUND = 0
+  case LABELED_CAMPAIGN_NOT_FOUND = 1
+  case CAMPAIGN_DATA_NOT_FOUND = 2
+  case PAYWALL_ALREADY_DISPLAYED = 3
+  case SDK_NOT_INITIALIZED = 4
+  case PAYWALL_COULD_NOT_DISPLAY = 5
+  case URL_CAMPAIGN_NOT_FOUND = 6
+  case PRODUCT_DATA_NOT_FOUND = 7
+  case PRODUCT_GROUPS_NOT_FOUND = 8
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public typealias CampaignLaunchHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: [NamiApple.NamiCampaign]) -> Swift.Void
 @objc extension NamiApple.NamiCampaignManager {

@@ -257,6 +257,19 @@ SWIFT_CLASS("_TtC9NamiApple12ImageService")
 
 
 
+/// Possible campaign errors from the launch call.
+typedef SWIFT_ENUM(NSInteger, LaunchCampaignError, open) {
+  LaunchCampaignErrorDEFAULT_CAMPAIGN_NOT_FOUND = 0,
+  LaunchCampaignErrorLABELED_CAMPAIGN_NOT_FOUND = 1,
+  LaunchCampaignErrorCAMPAIGN_DATA_NOT_FOUND = 2,
+  LaunchCampaignErrorPAYWALL_ALREADY_DISPLAYED = 3,
+  LaunchCampaignErrorSDK_NOT_INITIALIZED = 4,
+  LaunchCampaignErrorPAYWALL_COULD_NOT_DISPLAY = 5,
+  LaunchCampaignErrorURL_CAMPAIGN_NOT_FOUND = 6,
+  LaunchCampaignErrorPRODUCT_DATA_NOT_FOUND = 7,
+  LaunchCampaignErrorPRODUCT_GROUPS_NOT_FOUND = 8,
+};
+
 
 
 
@@ -1564,6 +1577,19 @@ SWIFT_CLASS("_TtC9NamiApple12ImageService")
 
 
 
+
+/// Possible campaign errors from the launch call.
+typedef SWIFT_ENUM(NSInteger, LaunchCampaignError, open) {
+  LaunchCampaignErrorDEFAULT_CAMPAIGN_NOT_FOUND = 0,
+  LaunchCampaignErrorLABELED_CAMPAIGN_NOT_FOUND = 1,
+  LaunchCampaignErrorCAMPAIGN_DATA_NOT_FOUND = 2,
+  LaunchCampaignErrorPAYWALL_ALREADY_DISPLAYED = 3,
+  LaunchCampaignErrorSDK_NOT_INITIALIZED = 4,
+  LaunchCampaignErrorPAYWALL_COULD_NOT_DISPLAY = 5,
+  LaunchCampaignErrorURL_CAMPAIGN_NOT_FOUND = 6,
+  LaunchCampaignErrorPRODUCT_DATA_NOT_FOUND = 7,
+  LaunchCampaignErrorPRODUCT_GROUPS_NOT_FOUND = 8,
+};
 
 
 
