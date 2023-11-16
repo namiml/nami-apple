@@ -956,6 +956,7 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
+@class NamiPromo;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
@@ -1024,6 +1025,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)hide;
 /// Use this to check if a paywall is currently being shown to the end user
 + (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
+/// Receive a signed signature for applying to a promotion. Requires a proper entitlement to use.
++ (void)getSignedPromoWithSkuId:(NSString * _Nonnull)skuId promoId:(NSString * _Nonnull)promoId completeHandler:(void (^ _Nullable)(NamiPromo * _Nullable))completeHandler;
 @end
 
 
@@ -1033,6 +1036,13 @@ SWIFT_CLASS("_TtC9NamiApple18NamiProductManager")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC9NamiApple9NamiPromo")
+@interface NamiPromo : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class NSDate;
 enum NamiPurchaseSource : NSInteger;
