@@ -2,7 +2,6 @@
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
 import Combine
-import CommonCrypto
 import CoreGraphics
 import CoreML
 import CoreText
@@ -10,6 +9,7 @@ import CryptoKit
 import Foundation
 import MobileCoreServices
 @_exported import NamiApple
+import Network
 import SafariServices
 import Security
 import StoreKit
@@ -33,6 +33,16 @@ extension Swift.Decodable where Self : UIKit.UIColor {
 }
 extension UIKit.UIColor : Swift.Codable {
 }
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public enum SwipeInteractionArea {
+  case allAvailable
+  case page
+  public static func == (a: NamiApple.SwipeInteractionArea, b: NamiApple.SwipeInteractionArea) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public enum PaywallType : Swift.String, Swift.Codable {
   case component
   case paywall_creator
@@ -42,6 +52,73 @@ public enum PaywallType : Swift.String, Swift.Codable {
   public var rawValue: Swift.String {
     get
   }
+}
+@objc public class PaywallLaunchContext : ObjectiveC.NSObject {
+  public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.Pager {
+  public typealias DragResult = (page: Swift.Int, newPage: Swift.Int, translation: CoreGraphics.CGFloat, velocity: Swift.Double)
+  @available(*, deprecated, message: "This method will no longer be mantained in future versions. Please use `draggingAnimation(_:)` instead")
+  public func pagingAnimation(_ value: ((NamiApple.Pager<Element, ID, PageView>.DragResult) -> NamiApple.PagingAnimation)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func multiplePagination() -> NamiApple.Pager<Element, ID, PageView>
+  public func singlePagination(ratio: CoreGraphics.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
+  public func contentLoadingPolicy(_ value: NamiApple.ContentLoadingPolicy) -> NamiApple.Pager<Element, ID, PageView>
+  public func loopPages(_ value: Swift.Bool = true, repeating count: Swift.UInt = 1) -> NamiApple.Pager<Element, ID, PageView>
+  public func dragForwardOnly(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  public func draggingAnimation(onChange anim1: NamiApple.DraggingAnimation, onEnded anim2: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
+  public func sensitivity(_ value: NamiApple.PaginationSensitivity) -> NamiApple.Pager<Element, ID, PageView>
+  public func delaysTouches(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  public func disableDragging() -> NamiApple.Pager<Element, ID, PageView>
+  public func allowsDragging(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  public func pagingPriority(_ value: NamiApple.GesturePriority) -> NamiApple.Pager<Element, ID, PageView>
+  public func swipeInteractionArea(_ value: NamiApple.SwipeInteractionArea) -> NamiApple.Pager<Element, ID, PageView>
+  public func bounces(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  public func onDraggingBegan(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func onDraggingChanged(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func onDraggingEnded(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @available(watchOS 7.0, *)
+  @available(iOS, unavailable)
+  @available(macOS, unavailable)
+  @available(tvOS, unavailable)
+  public func onDigitalCrownRotated(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @available(watchOS 7.0, *)
+  @available(iOS, unavailable)
+  @available(macOS, unavailable)
+  @available(tvOS, unavailable)
+  public func disableDigitalCrownRotation() -> NamiApple.Pager<Element, ID, PageView>
+  @available(watchOS 7.0, *)
+  @available(iOS, unavailable)
+  @available(macOS, unavailable)
+  @available(tvOS, unavailable)
+  public func allowsDigitalCrownRotation(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  public func draggingAnimation(_ value: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
+  public func alignment(_ value: NamiApple.PositionAlignment) -> NamiApple.Pager<Element, ID, PageView>
+  public func horizontal(_ swipeDirection: NamiApple.HorizontalSwipeDirection = .startToEnd) -> NamiApple.Pager<Element, ID, PageView>
+  public func vertical(_ swipeDirection: NamiApple.VerticalSwipeDirection = .topToBottom) -> NamiApple.Pager<Element, ID, PageView>
+  @available(*, deprecated, renamed: "interactive(scale:)")
+  public func interactive(_ scale: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func interactive(scale ratio: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  public func interactive(opacity decrement: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
+  public func interactive(rotation shouldRotate: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  @available(*, deprecated, renamed: "interactive(rotation:)")
+  public func rotation3D(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  public func pageOffset(_ value: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
+  public func itemSpacing(_ value: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func itemAspectRatio(_ value: CoreGraphics.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  public func preferredItemSize(_ value: CoreGraphics.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  public func expandPageToEdges() -> NamiApple.Pager<Element, ID, PageView>
+  public func onPageChanged(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func onPageWillTransition(_ callback: ((Swift.Result<NamiApple.PageTransition, NamiApple.PageTransitionError>) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func onPageWillChange(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  public func padding(_ length: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func padding(_ insets: SwiftUI.EdgeInsets) -> NamiApple.Pager<Element, ID, PageView>
+  public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  public func pageIndicatorHidden(_ hidden: Swift.Bool = false) -> NamiApple.Pager<Element, ID, PageView>
+  public func pageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  public func currentPageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum GesturePriority {
@@ -54,26 +131,12 @@ public enum GesturePriority {
     get
   }
 }
-@objc public class PaywallLaunchContext : ObjectiveC.NSObject {
-  public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none)
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-}
 extension Foundation._NSRange {
   public init(range: Swift.Range<Swift.String.Index>, originalText: Swift.String)
 }
 @_inheritsConvenienceInitializers @objc public class NamiProductManager : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public enum PaginationSensitivity : Swift.Equatable {
-  case low
-  case medium
-  case high
-  case custom(CoreGraphics.CGFloat)
-  public static var `default`: NamiApple.PaginationSensitivity
-  public static func == (a: NamiApple.PaginationSensitivity, b: NamiApple.PaginationSensitivity) -> Swift.Bool
 }
 @objc public enum NamiPurchaseState : Swift.Int {
   case pending
@@ -95,30 +158,6 @@ public enum PaginationSensitivity : Swift.Equatable {
 extension NamiApple.NamiPurchaseState : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-}
-@_hasMissingDesignatedInitializers @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public class Page : Combine.ObservableObject {
-  public var objectWillChange: Combine.PassthroughSubject<Swift.Void, Swift.Never>
-  public var index: Swift.Int {
-    get
-    set(newValue)
-  }
-  public typealias ObjectWillChangePublisher = Combine.PassthroughSubject<Swift.Void, Swift.Never>
-  @objc deinit
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension NamiApple.Page {
-  public enum Update {
-    case next
-    case previous
-    case moveToFirst
-    case move(increment: Swift.Int)
-    case moveToLast
-    case new(index: Swift.Int)
-  }
-  public static func withIndex(_ index: Swift.Int) -> NamiApple.Page
-  public static func first() -> NamiApple.Page
-  public func update(_ update: NamiApple.Page.Update)
 }
 extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   public var id: Swift.Int {
@@ -142,8 +181,33 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-public typealias NamiLanguageCode = Swift.String
-@objc public class NamiConfiguration : ObjectiveC.NSObject {
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public typealias DraggingAnimation = NamiApple.PagingAnimation
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public enum PagingAnimation : Swift.Equatable {
+  case steep(duration: Foundation.TimeInterval)
+  case standard(duration: Foundation.TimeInterval)
+  case interactive
+  case custom(animation: SwiftUI.Animation?)
+  public static var standard: NamiApple.PagingAnimation
+  public static var steep: NamiApple.PagingAnimation
+  public static var none: NamiApple.PagingAnimation
+  public static func == (a: NamiApple.PagingAnimation, b: NamiApple.PagingAnimation) -> Swift.Bool
+}
+@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
+@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImage")
+@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
+@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImage")
+public struct BackportAsyncImage<Content> : SwiftUI.View where Content : SwiftUI.View {
+  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1) where Content == SwiftUI.Image
+  public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, @SwiftUI.ViewBuilder content: @escaping (SwiftUI.Image) -> I, @SwiftUI.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
+  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple18BackportAsyncImageV4bodyQrvp", 0) __<Content>
+}
+@objc public class NamiConfiguration : ObjectiveC.NSObject, Swift.Codable {
   public init(appPlatformId: NamiApple.NamiAppPlatformID)
   @objc public static func configuration(forAppPlatformId appPlatformId: NamiApple.NamiAppPlatformID) -> NamiApple.NamiConfiguration
   @objc public var appPlatformId: NamiApple.NamiAppPlatformID {
@@ -158,122 +222,10 @@ public typealias NamiLanguageCode = Swift.String
   @objc public var provisionalGrantTTL: Swift.Double
   @objc public var customHostname: Swift.String?
   @objc public var namiCommands: [Swift.String]
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class NamiLanguageCodes : ObjectiveC.NSObject {
-  @objc public static func namiLanguageCode(fromLocale locale: Foundation.Locale) -> NamiApple.NamiLanguageCode
-  @objc public static var allAvailableNamiLanguageCodes: Swift.Set<NamiApple.NamiLanguageCode>
-  @objc public static var af: Swift.String
-  @objc public static var ar: Swift.String
-  @objc public static var ar_dz: Swift.String
-  @objc public static var ast: Swift.String
-  @objc public static var az: Swift.String
-  @objc public static var bg: Swift.String
-  @objc public static var be: Swift.String
-  @objc public static var bn: Swift.String
-  @objc public static var br: Swift.String
-  @objc public static var bs: Swift.String
-  @objc public static var ca: Swift.String
-  @objc public static var cs: Swift.String
-  @objc public static var cy: Swift.String
-  @objc public static var da: Swift.String
-  @objc public static var de: Swift.String
-  @objc public static var dsb: Swift.String
-  @objc public static var el: Swift.String
-  @objc public static var en: Swift.String
-  @objc public static var en_au: Swift.String
-  @objc public static var en_gb: Swift.String
-  @objc public static var eo: Swift.String
-  @objc public static var es: Swift.String
-  @objc public static var es_ar: Swift.String
-  @objc public static var es_co: Swift.String
-  @objc public static var es_mx: Swift.String
-  @objc public static var es_ni: Swift.String
-  @objc public static var es_ve: Swift.String
-  @objc public static var et: Swift.String
-  @objc public static var eu: Swift.String
-  @objc public static var fa: Swift.String
-  @objc public static var fi: Swift.String
-  @objc public static var fr: Swift.String
-  @objc public static var fy: Swift.String
-  @objc public static var ga: Swift.String
-  @objc public static var gd: Swift.String
-  @objc public static var gl: Swift.String
-  @objc public static var he: Swift.String
-  @objc public static var hi: Swift.String
-  @objc public static var hr: Swift.String
-  @objc public static var hsb: Swift.String
-  @objc public static var hu: Swift.String
-  @objc public static var hy: Swift.String
-  @objc public static var ia: Swift.String
-  @objc public static var id: Swift.String
-  @objc public static var ig: Swift.String
-  @objc public static var io: Swift.String
-  @objc public static var is_is: Swift.String
-  @objc public static var it: Swift.String
-  @objc public static var ja: Swift.String
-  @objc public static var ka: Swift.String
-  @objc public static var kab: Swift.String
-  @objc public static var kk: Swift.String
-  @objc public static var km: Swift.String
-  @objc public static var kn: Swift.String
-  @objc public static var ko: Swift.String
-  @objc public static var ky: Swift.String
-  @objc public static var lb: Swift.String
-  @objc public static var lt: Swift.String
-  @objc public static var lv: Swift.String
-  @objc public static var mk: Swift.String
-  @objc public static var ml: Swift.String
-  @objc public static var mn: Swift.String
-  @objc public static var mr: Swift.String
-  @objc public static var my: Swift.String
-  @objc public static var nb: Swift.String
-  @objc public static var ne: Swift.String
-  @objc public static var nl: Swift.String
-  @objc public static var nn: Swift.String
-  @objc public static var os: Swift.String
-  @objc public static var pa: Swift.String
-  @objc public static var pl: Swift.String
-  @objc public static var pt: Swift.String
-  @objc public static var pt_br: Swift.String
-  @objc public static var ro: Swift.String
-  @objc public static var ru: Swift.String
-  @objc public static var sk: Swift.String
-  @objc public static var sl: Swift.String
-  @objc public static var sq: Swift.String
-  @objc public static var sr: Swift.String
-  @objc public static var sr_latn: Swift.String
-  @objc public static var sv: Swift.String
-  @objc public static var sw: Swift.String
-  @objc public static var ta: Swift.String
-  @objc public static var te: Swift.String
-  @objc public static var tg: Swift.String
-  @objc public static var th: Swift.String
-  @objc public static var tk: Swift.String
-  @objc public static var tr: Swift.String
-  @objc public static var tt: Swift.String
-  @objc public static var udm: Swift.String
-  @objc public static var uk: Swift.String
-  @objc public static var ur: Swift.String
-  @objc public static var uz: Swift.String
-  @objc public static var vi: Swift.String
-  @objc public static var zh_hans: Swift.String
-  @objc public static var zh_hant: Swift.String
-  @objc override dynamic public init()
-  @objc deinit
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public enum SwipeInteractionArea {
-  case allAvailable
-  case page
-  public static func == (a: NamiApple.SwipeInteractionArea, b: NamiApple.SwipeInteractionArea) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public protocol ImageProcessor {
-  func process(image: UIKit.UIImage) -> UIKit.UIImage
 }
 extension Swift.String {
   public func uuidHash() -> Foundation.UUID
@@ -292,6 +244,27 @@ extension Swift.String {
     }
   }
   public func trimming(spaces: Swift.String.TrimmingOptions, using characterSet: Foundation.CharacterSet = .whitespacesAndNewlines) -> Swift.String
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct Pager<Element, ID, PageView> : SwiftUI.View where Element : Swift.Equatable, ID : Swift.Hashable, PageView : SwiftUI.View {
+  public init<Data>(page: NamiApple.Page, data: Data, id: Swift.KeyPath<Element, ID>, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple5PagerV4bodyQrvp", 0) __<Element, ID, PageView>
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.Pager where Element : Swift.Identifiable, ID == Element.ID {
+  public init<Data>(page: NamiApple.Page, data: Data, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public enum PaginationSensitivity : Swift.Equatable {
+  case low
+  case medium
+  case high
+  case custom(CoreGraphics.CGFloat)
+  public static var `default`: NamiApple.PaginationSensitivity
+  public static func == (a: NamiApple.PaginationSensitivity, b: NamiApple.PaginationSensitivity) -> Swift.Bool
 }
 public enum NamiEntitlementKeys : Swift.String {
   case id
@@ -321,6 +294,45 @@ public enum NamiSKUKeys : Swift.String {
   public var rawValue: Swift.String {
     get
   }
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public struct PageTransition {
+  public let currentPage: Swift.Int
+  public let nextPage: Swift.Int
+  public let pageIncrement: Swift.Int
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public enum PageTransitionError : Swift.Error {
+  case draggingStopped
+  public static func == (a: NamiApple.PageTransitionError, b: NamiApple.PageTransitionError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public class Page : Combine.ObservableObject {
+  public var objectWillChange: Combine.PassthroughSubject<Swift.Void, Swift.Never>
+  public var index: Swift.Int {
+    get
+    set(newValue)
+  }
+  public typealias ObjectWillChangePublisher = Combine.PassthroughSubject<Swift.Void, Swift.Never>
+  @objc deinit
+}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.Page {
+  public enum Update {
+    case next
+    case previous
+    case moveToFirst
+    case move(increment: Swift.Int)
+    case moveToLast
+    case new(index: Swift.Int)
+  }
+  public static func withIndex(_ index: Swift.Int) -> NamiApple.Page
+  public static func first() -> NamiApple.Page
+  public func update(_ update: NamiApple.Page.Update)
 }
 public enum NamiCampaignType : Swift.String, Swift.Codable {
   case `default`
@@ -369,12 +381,6 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc override dynamic public init()
   @objc public func register(activeEntitlementsHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc deinit
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public enum ContentLoadingPolicy : Swift.Equatable {
-  case lazy(recyclingRatio: Swift.UInt)
-  case eager
-  public static func == (a: NamiApple.ContentLoadingPolicy, b: NamiApple.ContentLoadingPolicy) -> Swift.Bool
 }
 public var mockSubscriptionGroupID: Swift.String
 public typealias StoreKitProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.SKProduct]?, _ invalidProductIDs: [NamiApple.StoreId]?, _ error: Swift.Error?) -> Swift.Void
@@ -480,104 +486,17 @@ extension NamiApple.NamiPurchaseSource : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension NamiApple.Pager {
-  public typealias DragResult = (page: Swift.Int, newPage: Swift.Int, translation: CoreGraphics.CGFloat, velocity: Swift.Double)
-  @available(*, deprecated, message: "This method will no longer be mantained in future versions. Please use `draggingAnimation(_:)` instead")
-  public func pagingAnimation(_ value: ((NamiApple.Pager<Element, ID, PageView>.DragResult) -> NamiApple.PagingAnimation)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func multiplePagination() -> NamiApple.Pager<Element, ID, PageView>
-  public func singlePagination(ratio: CoreGraphics.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
-  public func contentLoadingPolicy(_ value: NamiApple.ContentLoadingPolicy) -> NamiApple.Pager<Element, ID, PageView>
-  public func loopPages(_ value: Swift.Bool = true, repeating count: Swift.UInt = 1) -> NamiApple.Pager<Element, ID, PageView>
-  public func dragForwardOnly(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func draggingAnimation(onChange anim1: NamiApple.DraggingAnimation, onEnded anim2: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
-  public func sensitivity(_ value: NamiApple.PaginationSensitivity) -> NamiApple.Pager<Element, ID, PageView>
-  public func delaysTouches(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
-  public func disableDragging() -> NamiApple.Pager<Element, ID, PageView>
-  public func allowsDragging(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func pagingPriority(_ value: NamiApple.GesturePriority) -> NamiApple.Pager<Element, ID, PageView>
-  public func swipeInteractionArea(_ value: NamiApple.SwipeInteractionArea) -> NamiApple.Pager<Element, ID, PageView>
-  public func bounces(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingBegan(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingChanged(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingEnded(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  @available(watchOS 7.0, *)
-  @available(iOS, unavailable)
-  @available(macOS, unavailable)
-  @available(tvOS, unavailable)
-  public func onDigitalCrownRotated(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  @available(watchOS 7.0, *)
-  @available(iOS, unavailable)
-  @available(macOS, unavailable)
-  @available(tvOS, unavailable)
-  public func disableDigitalCrownRotation() -> NamiApple.Pager<Element, ID, PageView>
-  @available(watchOS 7.0, *)
-  @available(iOS, unavailable)
-  @available(macOS, unavailable)
-  @available(tvOS, unavailable)
-  public func allowsDigitalCrownRotation(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func draggingAnimation(_ value: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
-  public func alignment(_ value: NamiApple.PositionAlignment) -> NamiApple.Pager<Element, ID, PageView>
-  public func horizontal(_ swipeDirection: NamiApple.HorizontalSwipeDirection = .startToEnd) -> NamiApple.Pager<Element, ID, PageView>
-  public func vertical(_ swipeDirection: NamiApple.VerticalSwipeDirection = .topToBottom) -> NamiApple.Pager<Element, ID, PageView>
-  @available(*, deprecated, renamed: "interactive(scale:)")
-  public func interactive(_ scale: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(scale ratio: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(opacity decrement: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(rotation shouldRotate: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
-  @available(*, deprecated, renamed: "interactive(rotation:)")
-  public func rotation3D(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageOffset(_ value: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemSpacing(_ value: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemAspectRatio(_ value: CoreGraphics.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
-  public func preferredItemSize(_ value: CoreGraphics.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
-  public func expandPageToEdges() -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageChanged(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageWillTransition(_ callback: ((Swift.Result<NamiApple.PageTransition, NamiApple.PageTransitionError>) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageWillChange(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ length: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ insets: SwiftUI.EdgeInsets) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageIndicatorHidden(_ hidden: Swift.Bool = false) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func currentPageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
-}
-@_inheritsConvenienceInitializers @objc public class NamiCommand : ObjectiveC.NSObject {
-  @objc public static func performCommands(_ commands: [Swift.String])
-  @objc public static func performCommand(_ commandString: Swift.String)
-  @objc override dynamic public init()
+@objc public class NamiPromo : ObjectiveC.NSObject, Swift.Codable {
+  public var keyID: Swift.String?
+  public var nonce: Foundation.UUID?
+  public var signature: Foundation.Data?
+  public var timestamp: Swift.Int?
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to _: Swift.Encoder) throws
   @objc deinit
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct Pager<Element, ID, PageView> : SwiftUI.View where Element : Swift.Equatable, ID : Swift.Hashable, PageView : SwiftUI.View {
-  public init<Data>(page: NamiApple.Page, data: Data, id: Swift.KeyPath<Element, ID>, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
-    get
-  }
-  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple5PagerV4bodyQrvp", 0) __<Element, ID, PageView>
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension NamiApple.Pager where Element : Swift.Identifiable, ID == Element.ID {
-  public init<Data>(page: NamiApple.Page, data: Data, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
 }
 public typealias NamiLoginLogoutCompleteHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceiptWrapper?) -> Swift.Void
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ImageService : ObjectiveC.NSObject {
-  public enum ImageError : Swift.Error {
-    case decodingError
-    case taskCancel
-    case downloadError(Swift.Error)
-    case invalidURLResponse
-    public var isCanceled: Swift.Bool {
-      get
-    }
-  }
-  public static var shared: NamiApple.ImageService
-  final public func fetchImage(url: Foundation.URL, scale: CoreGraphics.CGFloat, completionHandler: @escaping (Swift.Result<UIKit.UIImage, NamiApple.ImageService.ImageError>) -> Swift.Void) -> NamiApple.DownloadTask?
-  @objc deinit
-}
-public struct DownloadTask {
-}
 public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swift.Hashable, Content : SwiftUI.View {
   public let sources: [Data]
   @SwiftUI.Binding @_projectedValueProperty($selection) public var selection: Data? {
@@ -597,9 +516,22 @@ public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swi
 }
 public typealias NamiWorker = () -> Swift.Void
 public typealias NamiAppPlatformID = Swift.String
+@objc public enum NamiConfigureState : Swift.Int {
+  case initial_success
+  case reconfig_success
+  case already_configured
+  case not_configured
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 public typealias NamiConfigurationHandler = (_ sdkInitialized: Swift.Bool) -> Swift.Void
+public typealias NamiConfigurationStateHandler = (_ sdkInitialized: Swift.Bool, _ configureState: NamiApple.NamiConfigureState) -> Swift.Void
 @objc extension NamiApple.Nami {
   @objc public static func configure(with namiConfig: NamiApple.NamiConfiguration, _ sdkInitHandler: NamiApple.NamiConfigurationHandler? = .none)
+  @objc public static func configure(withConfig namiConfig: NamiApple.NamiConfiguration, _ sdkInitStateHandler: NamiApple.NamiConfigurationStateHandler? = .none)
   @objc public static func setLogLevel(_ logLevel: NamiApple.NamiLogLevel)
   @objc public static func namiWindowEnabled() -> Swift.Bool
   @objc public static func isPurchaseManagementEnabled() -> Swift.Bool
@@ -764,15 +696,6 @@ public typealias NamiAccountStateHandler = (_ accountStateAction: NamiApple.Acco
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCustomerManager : ObjectiveC.NSObject {
   @objc deinit
 }
-extension Swift.KeyedDecodingContainer {
-  public func decode(_: UIKit.UIImage.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> UIKit.UIImage
-}
-extension Swift.String {
-  public func sanitizedForFilename() -> Swift.String?
-}
-extension StoreKit.SKPaymentTransactionState {
-  public func readableString() -> Swift.String
-}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum HorizontalSwipeDirection {
   case startToEnd
@@ -793,6 +716,118 @@ public enum VerticalSwipeDirection {
     get
   }
 }
+extension Swift.KeyedDecodingContainer {
+  public func decode(_: UIKit.UIImage.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> UIKit.UIImage
+}
+extension Swift.String {
+  public func sanitizedForFilename() -> Swift.String?
+}
+public typealias NamiLanguageCode = Swift.String
+@_inheritsConvenienceInitializers @objc public class NamiLanguageCodes : ObjectiveC.NSObject {
+  @objc public static func namiLanguageCode(fromLocale locale: Foundation.Locale) -> NamiApple.NamiLanguageCode
+  @objc public static var allAvailableNamiLanguageCodes: Swift.Set<NamiApple.NamiLanguageCode>
+  @objc public static var af: Swift.String
+  @objc public static var ar: Swift.String
+  @objc public static var ar_dz: Swift.String
+  @objc public static var ast: Swift.String
+  @objc public static var az: Swift.String
+  @objc public static var bg: Swift.String
+  @objc public static var be: Swift.String
+  @objc public static var bn: Swift.String
+  @objc public static var br: Swift.String
+  @objc public static var bs: Swift.String
+  @objc public static var ca: Swift.String
+  @objc public static var cs: Swift.String
+  @objc public static var cy: Swift.String
+  @objc public static var da: Swift.String
+  @objc public static var de: Swift.String
+  @objc public static var dsb: Swift.String
+  @objc public static var el: Swift.String
+  @objc public static var en: Swift.String
+  @objc public static var en_au: Swift.String
+  @objc public static var en_gb: Swift.String
+  @objc public static var eo: Swift.String
+  @objc public static var es: Swift.String
+  @objc public static var es_ar: Swift.String
+  @objc public static var es_co: Swift.String
+  @objc public static var es_mx: Swift.String
+  @objc public static var es_ni: Swift.String
+  @objc public static var es_ve: Swift.String
+  @objc public static var et: Swift.String
+  @objc public static var eu: Swift.String
+  @objc public static var fa: Swift.String
+  @objc public static var fi: Swift.String
+  @objc public static var fr: Swift.String
+  @objc public static var fy: Swift.String
+  @objc public static var ga: Swift.String
+  @objc public static var gd: Swift.String
+  @objc public static var gl: Swift.String
+  @objc public static var he: Swift.String
+  @objc public static var hi: Swift.String
+  @objc public static var hr: Swift.String
+  @objc public static var hsb: Swift.String
+  @objc public static var hu: Swift.String
+  @objc public static var hy: Swift.String
+  @objc public static var ia: Swift.String
+  @objc public static var id: Swift.String
+  @objc public static var ig: Swift.String
+  @objc public static var io: Swift.String
+  @objc public static var is_is: Swift.String
+  @objc public static var it: Swift.String
+  @objc public static var ja: Swift.String
+  @objc public static var ka: Swift.String
+  @objc public static var kab: Swift.String
+  @objc public static var kk: Swift.String
+  @objc public static var km: Swift.String
+  @objc public static var kn: Swift.String
+  @objc public static var ko: Swift.String
+  @objc public static var ky: Swift.String
+  @objc public static var lb: Swift.String
+  @objc public static var lt: Swift.String
+  @objc public static var lv: Swift.String
+  @objc public static var mk: Swift.String
+  @objc public static var ml: Swift.String
+  @objc public static var mn: Swift.String
+  @objc public static var mr: Swift.String
+  @objc public static var my: Swift.String
+  @objc public static var nb: Swift.String
+  @objc public static var ne: Swift.String
+  @objc public static var nl: Swift.String
+  @objc public static var nn: Swift.String
+  @objc public static var os: Swift.String
+  @objc public static var pa: Swift.String
+  @objc public static var pl: Swift.String
+  @objc public static var pt: Swift.String
+  @objc public static var pt_br: Swift.String
+  @objc public static var ro: Swift.String
+  @objc public static var ru: Swift.String
+  @objc public static var sk: Swift.String
+  @objc public static var sl: Swift.String
+  @objc public static var sq: Swift.String
+  @objc public static var sr: Swift.String
+  @objc public static var sr_latn: Swift.String
+  @objc public static var sv: Swift.String
+  @objc public static var sw: Swift.String
+  @objc public static var ta: Swift.String
+  @objc public static var te: Swift.String
+  @objc public static var tg: Swift.String
+  @objc public static var th: Swift.String
+  @objc public static var tk: Swift.String
+  @objc public static var tr: Swift.String
+  @objc public static var tt: Swift.String
+  @objc public static var udm: Swift.String
+  @objc public static var uk: Swift.String
+  @objc public static var ur: Swift.String
+  @objc public static var uz: Swift.String
+  @objc public static var vi: Swift.String
+  @objc public static var zh_hans: Swift.String
+  @objc public static var zh_hant: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension StoreKit.SKPaymentTransactionState {
+  public func readableString() -> Swift.String
+}
 @_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
   @objc public var id: Swift.String
   @objc public var skuId: Swift.String
@@ -808,26 +843,13 @@ public enum VerticalSwipeDirection {
   public typealias ID = Swift.String
   @objc deinit
 }
-public enum AsyncImagePhase {
-  case empty
-  case success(SwiftUI.Image)
-  case failure(Swift.Error)
-}
-@_Concurrency.MainActor(unsafe) public struct AsyncImageiOS13<Content> : SwiftUI.View where Content : SwiftUI.View {
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
-    get
-  }
-  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil) where Content == SwiftUI.Image
-  @_Concurrency.MainActor(unsafe) public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, content: @escaping (SwiftUI.Image) -> I, placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
-  @_Concurrency.MainActor(unsafe) public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, processor: NamiApple.ImageProcessor? = nil, transaction _: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
-  public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple15AsyncImageiOS13V4bodyQrvp", 0) __<Content>
-}
 public typealias NamiPaywallActionHandler = (_ event: NamiApple.NamiPaywallEvent) -> Swift.Void
 public typealias NamiSignInHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewController?) -> Swift.Void
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void
 public typealias NamiPaywallRestoreRequestHandler = () -> Swift.Void
 public typealias NamiPaywallDeeplinkActionHandler = (_ action: Swift.String) -> Swift.Void
+public typealias NamiPaywallPromoHandler = (_ promo: NamiApple.NamiPromo?) -> Swift.Void
 public typealias PreparePaywallHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public typealias NamiUUID = Swift.String
 @objc extension NamiApple.NamiPaywallManager {
@@ -847,6 +869,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func isHidden() -> Swift.Bool
   @objc public static func hide()
   @objc public static func isPaywallOpen() -> Swift.Bool
+  @objc public static func getSignedPromo(skuId: Swift.String, promoId: Swift.String, completeHandler: NamiApple.NamiPaywallPromoHandler? = nil)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
@@ -883,19 +906,38 @@ public typealias NamiUUID = Swift.String
   public func encode(to _: Swift.Encoder) throws
   @objc deinit
 }
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public typealias DraggingAnimation = NamiApple.PagingAnimation
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public enum PagingAnimation : Swift.Equatable {
-  case steep(duration: Foundation.TimeInterval)
-  case standard(duration: Foundation.TimeInterval)
-  case interactive
-  case custom(animation: SwiftUI.Animation?)
-  public static var standard: NamiApple.PagingAnimation
-  public static var steep: NamiApple.PagingAnimation
-  public static var none: NamiApple.PagingAnimation
-  public static func == (a: NamiApple.PagingAnimation, b: NamiApple.PagingAnimation) -> Swift.Bool
+@objc public enum NamiLogLevel : Swift.Int, Swift.Codable, Swift.Equatable {
+  case error = 0
+  case warn = 1
+  case info = 2
+  case debug = 3
+  public static func == (left: NamiApple.NamiLogLevel, right: NamiApple.NamiLogLevel) -> Swift.Bool
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
+@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImagePhase")
+@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImagePhase")
+@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImagePhase")
+@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImagePhase")
+public enum AsyncImagePhase {
+  case empty
+  case success(SwiftUI.Image)
+  case failure(Swift.Error)
+  public var image: SwiftUI.Image? {
+    get
+  }
+  public var error: Swift.Error? {
+    get
+  }
+}
+@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
+@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImage")
+@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
+@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImage")
+public typealias AsyncImage = NamiApple.BackportAsyncImage
 public enum NamiPaywallAction : Swift.String, Swift.Codable {
   case close_paywall
   case restore_purchases
@@ -942,35 +984,15 @@ public func clearAllNamiStorage()
     get
   }
 }
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct PageTransition {
-  public let currentPage: Swift.Int
-  public let nextPage: Swift.Int
-  public let pageIncrement: Swift.Int
-}
-@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public enum PageTransitionError : Swift.Error {
-  case draggingStopped
-  public static func == (a: NamiApple.PageTransitionError, b: NamiApple.PageTransitionError) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
 @objc public protocol NamiLoggerClient : ObjectiveC.NSObjectProtocol {
   @objc func logHTTP(request: Foundation.URLRequest, response: Foundation.HTTPURLResponse, responseData: Foundation.Data?, message: Swift.String)
   @objc func logMessage(_ message: Swift.String)
 }
-@objc public enum NamiLogLevel : Swift.Int {
-  case error = 0
-  case warn = 1
-  case info = 2
-  case debug = 3
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+public enum ContentLoadingPolicy : Swift.Equatable {
+  case lazy(recyclingRatio: Swift.UInt)
+  case eager
+  public static func == (a: NamiApple.ContentLoadingPolicy, b: NamiApple.ContentLoadingPolicy) -> Swift.Bool
 }
 @objc public class NamiPurchase : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let skuId: NamiApple.StoreId
