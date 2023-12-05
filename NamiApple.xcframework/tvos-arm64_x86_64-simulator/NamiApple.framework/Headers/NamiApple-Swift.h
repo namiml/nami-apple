@@ -247,16 +247,6 @@ SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @end
 
 
-
-SWIFT_CLASS("_TtC9NamiApple12ImageService")
-@interface ImageService : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-
 /// Possible campaign errors from the launch call.
 typedef SWIFT_ENUM(NSInteger, LaunchCampaignError, open) {
   LaunchCampaignErrorDEFAULT_CAMPAIGN_NOT_FOUND = 0,
@@ -283,6 +273,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Nami * _Nonn
 @end
 
 @class NamiConfiguration;
+enum NamiConfigureState : NSInteger;
 enum NamiLogLevel : NSInteger;
 
 @interface Nami (SWIFT_EXTENSION(NamiApple))
@@ -291,6 +282,12 @@ enum NamiLogLevel : NSInteger;
 /// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
 ///
 + (void)configureWith:(NamiConfiguration * _Nonnull)namiConfig :(void (^ _Nullable)(BOOL))sdkInitHandler;
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).
+/// It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+/// If called again during runtime, this method will evaluate what changes to the previous configuration occured and react accordingly.
+///
++ (void)configureWithConfig:(NamiConfiguration * _Nonnull)namiConfig :(void (^ _Nullable)(BOOL, enum NamiConfigureState))sdkInitStateHandler;
 /// Allows for dynamic re-adjustment of SDK log level if desired, from the log level set in the <code>NamiConfiguration</code> object.
 /// \param logLevel New log level you wish to set, same as the log levels that can be set in the Nami.configure() call.
 ///
@@ -389,14 +386,6 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple11NamiCommand")
-@interface NamiCommand : NSObject
-+ (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
-+ (void)performCommand:(NSString * _Nonnull)commandString;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 /// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @interface NamiConfiguration : NSObject
@@ -422,9 +411,17 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic, copy) NSString * _Nullable customHostname;
 /// Used to activate internal features of the SDK not generally used by Nami customers.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiConfigureState, open) {
+  NamiConfigureStateInitial_success = 0,
+  NamiConfigureStateReconfig_success = 1,
+  NamiConfigureStateAlready_configured = 2,
+  NamiConfigureStateNot_configured = 3,
+};
 
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
@@ -958,6 +955,7 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
+@class NamiPromo;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
@@ -1026,6 +1024,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)hide;
 /// Use this to check if a paywall is currently being shown to the end user
 + (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
+/// Receive a signed signature for applying to a promotion. Requires a proper entitlement to use.
++ (void)getSignedPromoWithSkuId:(NSString * _Nonnull)skuId promoId:(NSString * _Nonnull)promoId completeHandler:(void (^ _Nullable)(NamiPromo * _Nullable))completeHandler;
 @end
 
 
@@ -1035,6 +1035,13 @@ SWIFT_CLASS("_TtC9NamiApple18NamiProductManager")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC9NamiApple9NamiPromo")
+@interface NamiPromo : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class NSDate;
 enum NamiPurchaseSource : NSInteger;
@@ -1568,16 +1575,6 @@ SWIFT_CLASS("_TtC9NamiApple20CustomerJourneyState")
 @end
 
 
-
-SWIFT_CLASS("_TtC9NamiApple12ImageService")
-@interface ImageService : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-
 /// Possible campaign errors from the launch call.
 typedef SWIFT_ENUM(NSInteger, LaunchCampaignError, open) {
   LaunchCampaignErrorDEFAULT_CAMPAIGN_NOT_FOUND = 0,
@@ -1604,6 +1601,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Nami * _Nonn
 @end
 
 @class NamiConfiguration;
+enum NamiConfigureState : NSInteger;
 enum NamiLogLevel : NSInteger;
 
 @interface Nami (SWIFT_EXTENSION(NamiApple))
@@ -1612,6 +1610,12 @@ enum NamiLogLevel : NSInteger;
 /// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
 ///
 + (void)configureWith:(NamiConfiguration * _Nonnull)namiConfig :(void (^ _Nullable)(BOOL))sdkInitHandler;
+/// This is the initial call that activates the Nami SDK, it should be called as soon as possible within your app (preferably first in ApplicationDidFinishLaunching).
+/// It is passed a configuration object that  defines at a minimum the App Platform ID Nami should use, but also other adjustments to how Nami should operate.
+/// \param namiConfig NamiConfiguration object instance with appPlatformID set to value defined for this app in the Control Center.
+/// If called again during runtime, this method will evaluate what changes to the previous configuration occured and react accordingly.
+///
++ (void)configureWithConfig:(NamiConfiguration * _Nonnull)namiConfig :(void (^ _Nullable)(BOOL, enum NamiConfigureState))sdkInitStateHandler;
 /// Allows for dynamic re-adjustment of SDK log level if desired, from the log level set in the <code>NamiConfiguration</code> object.
 /// \param logLevel New log level you wish to set, same as the log levels that can be set in the Nami.configure() call.
 ///
@@ -1710,14 +1714,6 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple11NamiCommand")
-@interface NamiCommand : NSObject
-+ (void)performCommands:(NSArray<NSString *> * _Nonnull)commands;
-+ (void)performCommand:(NSString * _Nonnull)commandString;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 /// Configuration object to use with the Nami.configure() call.
 SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @interface NamiConfiguration : NSObject
@@ -1743,9 +1739,17 @@ SWIFT_CLASS("_TtC9NamiApple17NamiConfiguration")
 @property (nonatomic, copy) NSString * _Nullable customHostname;
 /// Used to activate internal features of the SDK not generally used by Nami customers.
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull namiCommands;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM(NSInteger, NamiConfigureState, open) {
+  NamiConfigureStateInitial_success = 0,
+  NamiConfigureStateReconfig_success = 1,
+  NamiConfigureStateAlready_configured = 2,
+  NamiConfigureStateNot_configured = 3,
+};
 
 
 SWIFT_CLASS("_TtC9NamiApple19NamiCustomerManager")
@@ -2279,6 +2283,7 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
+@class NamiPromo;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
@@ -2347,6 +2352,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)hide;
 /// Use this to check if a paywall is currently being shown to the end user
 + (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
+/// Receive a signed signature for applying to a promotion. Requires a proper entitlement to use.
++ (void)getSignedPromoWithSkuId:(NSString * _Nonnull)skuId promoId:(NSString * _Nonnull)promoId completeHandler:(void (^ _Nullable)(NamiPromo * _Nullable))completeHandler;
 @end
 
 
@@ -2356,6 +2363,13 @@ SWIFT_CLASS("_TtC9NamiApple18NamiProductManager")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC9NamiApple9NamiPromo")
+@interface NamiPromo : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class NSDate;
 enum NamiPurchaseSource : NSInteger;
