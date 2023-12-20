@@ -309,6 +309,8 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @property (nonatomic, copy) NSString * _Nullable value;
 @property (nonatomic, copy) NSString * _Nullable external_segment;
 @property (nonatomic, copy) NSString * _Nullable name;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
 @end
 
 @class NSURL;
@@ -1637,6 +1639,8 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @property (nonatomic, copy) NSString * _Nullable value;
 @property (nonatomic, copy) NSString * _Nullable external_segment;
 @property (nonatomic, copy) NSString * _Nullable name;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) NSUInteger hash;
 @end
 
 @class NSURL;
