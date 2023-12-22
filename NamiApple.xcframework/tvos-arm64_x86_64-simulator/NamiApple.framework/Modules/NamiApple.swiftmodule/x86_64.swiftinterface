@@ -163,6 +163,10 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   @objc public var value: Swift.String?
   @objc public var external_segment: Swift.String?
   @objc public var name: Swift.String?
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
   public typealias ID = Swift.String
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
@@ -181,14 +185,10 @@ public enum PagingAnimation : Swift.Equatable {
   public static var none: NamiApple.PagingAnimation
   public static func == (a: NamiApple.PagingAnimation, b: NamiApple.PagingAnimation) -> Swift.Bool
 }
-@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
-@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImage")
-@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
-@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImage")
 public struct BackportAsyncImage<Content> : SwiftUI.View where Content : SwiftUI.View {
   public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1) where Content == SwiftUI.Image
   public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, @SwiftUI.ViewBuilder content: @escaping (SwiftUI.Image) -> I, @SwiftUI.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
-  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.AsyncImagePhase) -> Content)
+  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.BackportAsyncImagePhase) -> Content)
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
@@ -905,11 +905,7 @@ public typealias NamiUUID = Swift.String
     get
   }
 }
-@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImagePhase")
-@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImagePhase")
-@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImagePhase")
-@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImagePhase")
-public enum AsyncImagePhase {
+public enum BackportAsyncImagePhase {
   case empty
   case success(SwiftUI.Image)
   case failure(Swift.Error)
@@ -920,11 +916,6 @@ public enum AsyncImagePhase {
     get
   }
 }
-@available(iOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
-@available(macOS, deprecated: 12.0, renamed: "SwiftUI.AsyncImage")
-@available(tvOS, deprecated: 15.0, renamed: "SwiftUI.AsyncImage")
-@available(watchOS, deprecated: 8.0, renamed: "SwiftUI.AsyncImage")
-public typealias AsyncImage = NamiApple.BackportAsyncImage
 public enum NamiPaywallAction : Swift.String, Swift.Codable {
   case close_paywall
   case restore_purchases
