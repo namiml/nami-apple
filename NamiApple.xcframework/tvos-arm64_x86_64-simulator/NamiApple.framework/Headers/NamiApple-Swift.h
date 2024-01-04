@@ -385,6 +385,12 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
+/// Provide the list of product groups supported by the provided placement label
+/// \param label Campaign placement label defined in Nami Control Center for launching a specific campaign.
+///
+/// \param url Campaign placement URL defined in Nami Control Center for launching a specific campaign.
+///
++ (NSArray<NSString *> * _Nonnull)productGroupsWithLabel:(NSString * _Nullable)label url:(NSURL * _Nullable)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1715,6 +1721,12 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
+/// Provide the list of product groups supported by the provided placement label
+/// \param label Campaign placement label defined in Nami Control Center for launching a specific campaign.
+///
+/// \param url Campaign placement URL defined in Nami Control Center for launching a specific campaign.
+///
++ (NSArray<NSString *> * _Nonnull)productGroupsWithLabel:(NSString * _Nullable)label url:(NSURL * _Nullable)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
