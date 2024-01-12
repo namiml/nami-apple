@@ -1,0 +1,11 @@
+framework module NamiApple {
+  umbrella header "NamiApple.h"
+
+  export *
+  module * { export * }
+}
+
+module NamiApple.Swift {
+    header "NamiApple-Swift.h"
+    requires objc
+}
