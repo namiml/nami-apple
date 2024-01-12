@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
 import CoreGraphics
 import CoreML
@@ -18,6 +19,7 @@ import SwiftUI
 import UIKit
 import _AVKit_SwiftUI
 import _Concurrency
+import _StringProcessing
 import os.log
 import os
 @_hasMissingDesignatedInitializers public class NamiSignalManager {
@@ -60,11 +62,11 @@ public enum PaywallType : Swift.String, Swift.Codable {
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.Pager {
-  public typealias DragResult = (page: Swift.Int, newPage: Swift.Int, translation: CoreGraphics.CGFloat, velocity: Swift.Double)
+  public typealias DragResult = (page: Swift.Int, newPage: Swift.Int, translation: CoreFoundation.CGFloat, velocity: Swift.Double)
   @available(*, deprecated, message: "This method will no longer be mantained in future versions. Please use `draggingAnimation(_:)` instead")
   public func pagingAnimation(_ value: ((NamiApple.Pager<Element, ID, PageView>.DragResult) -> NamiApple.PagingAnimation)?) -> NamiApple.Pager<Element, ID, PageView>
   public func multiplePagination() -> NamiApple.Pager<Element, ID, PageView>
-  public func singlePagination(ratio: CoreGraphics.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
+  public func singlePagination(ratio: CoreFoundation.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
   public func contentLoadingPolicy(_ value: NamiApple.ContentLoadingPolicy) -> NamiApple.Pager<Element, ID, PageView>
   public func loopPages(_ value: Swift.Bool = true, repeating count: Swift.UInt = 1) -> NamiApple.Pager<Element, ID, PageView>
   public func dragForwardOnly(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
@@ -99,23 +101,23 @@ extension NamiApple.Pager {
   public func horizontal(_ swipeDirection: NamiApple.HorizontalSwipeDirection = .startToEnd) -> NamiApple.Pager<Element, ID, PageView>
   public func vertical(_ swipeDirection: NamiApple.VerticalSwipeDirection = .topToBottom) -> NamiApple.Pager<Element, ID, PageView>
   @available(*, deprecated, renamed: "interactive(scale:)")
-  public func interactive(_ scale: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(scale ratio: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  public func interactive(_ scale: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func interactive(scale ratio: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
   public func interactive(opacity decrement: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
   public func interactive(rotation shouldRotate: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
   @available(*, deprecated, renamed: "interactive(rotation:)")
   public func rotation3D(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
   public func pageOffset(_ value: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemSpacing(_ value: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemAspectRatio(_ value: CoreGraphics.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
-  public func preferredItemSize(_ value: CoreGraphics.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  public func itemSpacing(_ value: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func itemAspectRatio(_ value: CoreFoundation.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  public func preferredItemSize(_ value: CoreFoundation.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
   public func expandPageToEdges() -> NamiApple.Pager<Element, ID, PageView>
   public func onPageChanged(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
   public func onPageWillTransition(_ callback: ((Swift.Result<NamiApple.PageTransition, NamiApple.PageTransitionError>) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
   public func onPageWillChange(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ length: CoreGraphics.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  public func padding(_ length: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
   public func padding(_ insets: SwiftUI.EdgeInsets) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreGraphics.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
   public func pageIndicatorHidden(_ hidden: Swift.Bool = false) -> NamiApple.Pager<Element, ID, PageView>
   public func pageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
   public func currentPageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
@@ -199,9 +201,9 @@ public enum PagingAnimation : Swift.Equatable {
   public static func == (a: NamiApple.PagingAnimation, b: NamiApple.PagingAnimation) -> Swift.Bool
 }
 public struct BackportAsyncImage<Content> : SwiftUI.View where Content : SwiftUI.View {
-  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1) where Content == SwiftUI.Image
-  public init<I, P>(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, @SwiftUI.ViewBuilder content: @escaping (SwiftUI.Image) -> I, @SwiftUI.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
-  public init(url: Foundation.URL?, scale: CoreGraphics.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.BackportAsyncImagePhase) -> Content)
+  public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1) where Content == SwiftUI.Image
+  public init<I, P>(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, @SwiftUI.ViewBuilder content: @escaping (SwiftUI.Image) -> I, @SwiftUI.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
+  public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.BackportAsyncImagePhase) -> Content)
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
@@ -216,7 +218,7 @@ public struct BackportAsyncImage<Content> : SwiftUI.View where Content : SwiftUI
   @objc public var logLevel: NamiApple.NamiLogLevel
   @objc public var namiLanguageCode: NamiApple.NamiLanguageCode {
     @objc get
-    @objc set(value)
+    @objc set
   }
   @objc public var initialConfig: Swift.String?
   @objc public var provisionalGrantTTL: Swift.Double
@@ -262,7 +264,7 @@ public enum PaginationSensitivity : Swift.Equatable {
   case low
   case medium
   case high
-  case custom(CoreGraphics.CGFloat)
+  case custom(CoreFoundation.CGFloat)
   public static var `default`: NamiApple.PaginationSensitivity
   public static func == (a: NamiApple.PaginationSensitivity, b: NamiApple.PaginationSensitivity) -> Swift.Bool
 }
@@ -315,7 +317,7 @@ public class Page : Combine.ObservableObject {
   public var objectWillChange: Combine.PassthroughSubject<Swift.Void, Swift.Never>
   public var index: Swift.Int {
     get
-    set(newValue)
+    set
   }
   public typealias ObjectWillChangePublisher = Combine.PassthroughSubject<Swift.Void, Swift.Never>
   @objc deinit
@@ -382,11 +384,11 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc public func register(activeEntitlementsHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc deinit
 }
-public var mockSubscriptionGroupID: Swift.String
+public let mockSubscriptionGroupID: Swift.String
 public typealias StoreKitProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.SKProduct]?, _ invalidProductIDs: [NamiApple.StoreId]?, _ error: Swift.Error?) -> Swift.Void
 extension Foundation.NSNotification.Name {
-  public static var NamiStoreKitHelperPurchaseNotification: Foundation.Notification.Name
-  public static var NamiStoreKitPurchaseFailureNotification: Foundation.Notification.Name
+  public static let NamiStoreKitHelperPurchaseNotification: Foundation.Notification.Name
+  public static let NamiStoreKitPurchaseFailureNotification: Foundation.Notification.Name
 }
 public typealias RestorePurchaseCompleteHandler = (_ success: Swift.Bool, _ error: Swift.Error?) -> Swift.Void
 public enum StoreKitEnvironment : Swift.String {
@@ -435,8 +437,8 @@ public enum StoreKitEnvironment : Swift.String {
   }
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiStoreKitHelper : ObjectiveC.NSObject {
-  @objc public static var shared: NamiApple.NamiStoreKitHelper
-  @objc public static var noProductIdentifier: Swift.String
+  @objc public static let shared: NamiApple.NamiStoreKitHelper
+  @objc public static let noProductIdentifier: Swift.String
   public var subscriptionAccelerationToMinutesMap: [NamiApple.SandboxAccelerationItemUnit : Swift.Double] {
     get
   }
@@ -459,7 +461,7 @@ public enum StoreKitEnvironment : Swift.String {
   @objc deinit
 }
 extension StoreKit.SKProduct {
-  public convenience init(identifier: Swift.String, price: Swift.String, priceLocale: Foundation.Locale, subscriptionGroupIdentifier: Swift.String)
+  convenience public init(identifier: Swift.String, price: Swift.String, priceLocale: Foundation.Locale, subscriptionGroupIdentifier: Swift.String)
 }
 @objc extension NamiApple.NamiMLManager {
   @objc public static func enterCoreContent(labels: [Swift.String])
@@ -501,14 +503,14 @@ public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swi
   public let sources: [Data]
   @SwiftUI.Binding @_projectedValueProperty($selection) public var selection: Data? {
     get
-    nonmutating set(value)
+    nonmutating set
     nonmutating _modify
   }
   public var $selection: SwiftUI.Binding<Data?> {
     get
   }
-  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreGraphics.CGFloat? = nil, indicatorBuilder: (() -> SwiftUI.AnyView)? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
-  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>? = nil, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreGraphics.CGFloat? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, indicatorBuilder: (() -> SwiftUI.AnyView)? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>? = nil, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
     get
   }
@@ -538,7 +540,7 @@ public typealias NamiConfigurationStateHandler = (_ sdkInitialized: Swift.Bool, 
   @objc public static func sdkConfigured() -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
-  @objc public static var shared: NamiApple.Nami
+  @objc public static let shared: NamiApple.Nami
   @objc deinit
 }
 public typealias StoreId = Swift.String
@@ -567,9 +569,9 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurc
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum PositionAlignment {
   case center
-  case justified(CoreGraphics.CGFloat)
-  case start(CoreGraphics.CGFloat)
-  case end(CoreGraphics.CGFloat)
+  case justified(CoreFoundation.CGFloat)
+  case start(CoreFoundation.CGFloat)
+  case end(CoreFoundation.CGFloat)
   public static var start: NamiApple.PositionAlignment {
     get
   }
@@ -605,6 +607,9 @@ public enum CustomerJourneyStateKeys {
   case unknown = 0
   case one_time_purchase
   case subscription
+  public var description: Swift.String {
+    get
+  }
   public init(from decoder: Swift.Decoder) throws
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
@@ -727,102 +732,102 @@ public typealias NamiLanguageCode = Swift.String
 @_inheritsConvenienceInitializers @objc public class NamiLanguageCodes : ObjectiveC.NSObject {
   @objc public static func namiLanguageCode(fromLocale locale: Foundation.Locale) -> NamiApple.NamiLanguageCode
   @objc public static var allAvailableNamiLanguageCodes: Swift.Set<NamiApple.NamiLanguageCode>
-  @objc public static var af: Swift.String
-  @objc public static var ar: Swift.String
-  @objc public static var ar_dz: Swift.String
-  @objc public static var ast: Swift.String
-  @objc public static var az: Swift.String
-  @objc public static var bg: Swift.String
-  @objc public static var be: Swift.String
-  @objc public static var bn: Swift.String
-  @objc public static var br: Swift.String
-  @objc public static var bs: Swift.String
-  @objc public static var ca: Swift.String
-  @objc public static var cs: Swift.String
-  @objc public static var cy: Swift.String
-  @objc public static var da: Swift.String
-  @objc public static var de: Swift.String
-  @objc public static var dsb: Swift.String
-  @objc public static var el: Swift.String
-  @objc public static var en: Swift.String
-  @objc public static var en_au: Swift.String
-  @objc public static var en_gb: Swift.String
-  @objc public static var eo: Swift.String
-  @objc public static var es: Swift.String
-  @objc public static var es_ar: Swift.String
-  @objc public static var es_co: Swift.String
-  @objc public static var es_mx: Swift.String
-  @objc public static var es_ni: Swift.String
-  @objc public static var es_ve: Swift.String
-  @objc public static var et: Swift.String
-  @objc public static var eu: Swift.String
-  @objc public static var fa: Swift.String
-  @objc public static var fi: Swift.String
-  @objc public static var fr: Swift.String
-  @objc public static var fy: Swift.String
-  @objc public static var ga: Swift.String
-  @objc public static var gd: Swift.String
-  @objc public static var gl: Swift.String
-  @objc public static var he: Swift.String
-  @objc public static var hi: Swift.String
-  @objc public static var hr: Swift.String
-  @objc public static var hsb: Swift.String
-  @objc public static var hu: Swift.String
-  @objc public static var hy: Swift.String
-  @objc public static var ia: Swift.String
-  @objc public static var id: Swift.String
-  @objc public static var ig: Swift.String
-  @objc public static var io: Swift.String
-  @objc public static var is_is: Swift.String
-  @objc public static var it: Swift.String
-  @objc public static var ja: Swift.String
-  @objc public static var ka: Swift.String
-  @objc public static var kab: Swift.String
-  @objc public static var kk: Swift.String
-  @objc public static var km: Swift.String
-  @objc public static var kn: Swift.String
-  @objc public static var ko: Swift.String
-  @objc public static var ky: Swift.String
-  @objc public static var lb: Swift.String
-  @objc public static var lt: Swift.String
-  @objc public static var lv: Swift.String
-  @objc public static var mk: Swift.String
-  @objc public static var ml: Swift.String
-  @objc public static var mn: Swift.String
-  @objc public static var mr: Swift.String
-  @objc public static var my: Swift.String
-  @objc public static var nb: Swift.String
-  @objc public static var ne: Swift.String
-  @objc public static var nl: Swift.String
-  @objc public static var nn: Swift.String
-  @objc public static var os: Swift.String
-  @objc public static var pa: Swift.String
-  @objc public static var pl: Swift.String
-  @objc public static var pt: Swift.String
-  @objc public static var pt_br: Swift.String
-  @objc public static var ro: Swift.String
-  @objc public static var ru: Swift.String
-  @objc public static var sk: Swift.String
-  @objc public static var sl: Swift.String
-  @objc public static var sq: Swift.String
-  @objc public static var sr: Swift.String
-  @objc public static var sr_latn: Swift.String
-  @objc public static var sv: Swift.String
-  @objc public static var sw: Swift.String
-  @objc public static var ta: Swift.String
-  @objc public static var te: Swift.String
-  @objc public static var tg: Swift.String
-  @objc public static var th: Swift.String
-  @objc public static var tk: Swift.String
-  @objc public static var tr: Swift.String
-  @objc public static var tt: Swift.String
-  @objc public static var udm: Swift.String
-  @objc public static var uk: Swift.String
-  @objc public static var ur: Swift.String
-  @objc public static var uz: Swift.String
-  @objc public static var vi: Swift.String
-  @objc public static var zh_hans: Swift.String
-  @objc public static var zh_hant: Swift.String
+  @objc public static let af: Swift.String
+  @objc public static let ar: Swift.String
+  @objc public static let ar_dz: Swift.String
+  @objc public static let ast: Swift.String
+  @objc public static let az: Swift.String
+  @objc public static let bg: Swift.String
+  @objc public static let be: Swift.String
+  @objc public static let bn: Swift.String
+  @objc public static let br: Swift.String
+  @objc public static let bs: Swift.String
+  @objc public static let ca: Swift.String
+  @objc public static let cs: Swift.String
+  @objc public static let cy: Swift.String
+  @objc public static let da: Swift.String
+  @objc public static let de: Swift.String
+  @objc public static let dsb: Swift.String
+  @objc public static let el: Swift.String
+  @objc public static let en: Swift.String
+  @objc public static let en_au: Swift.String
+  @objc public static let en_gb: Swift.String
+  @objc public static let eo: Swift.String
+  @objc public static let es: Swift.String
+  @objc public static let es_ar: Swift.String
+  @objc public static let es_co: Swift.String
+  @objc public static let es_mx: Swift.String
+  @objc public static let es_ni: Swift.String
+  @objc public static let es_ve: Swift.String
+  @objc public static let et: Swift.String
+  @objc public static let eu: Swift.String
+  @objc public static let fa: Swift.String
+  @objc public static let fi: Swift.String
+  @objc public static let fr: Swift.String
+  @objc public static let fy: Swift.String
+  @objc public static let ga: Swift.String
+  @objc public static let gd: Swift.String
+  @objc public static let gl: Swift.String
+  @objc public static let he: Swift.String
+  @objc public static let hi: Swift.String
+  @objc public static let hr: Swift.String
+  @objc public static let hsb: Swift.String
+  @objc public static let hu: Swift.String
+  @objc public static let hy: Swift.String
+  @objc public static let ia: Swift.String
+  @objc public static let id: Swift.String
+  @objc public static let ig: Swift.String
+  @objc public static let io: Swift.String
+  @objc public static let is_is: Swift.String
+  @objc public static let it: Swift.String
+  @objc public static let ja: Swift.String
+  @objc public static let ka: Swift.String
+  @objc public static let kab: Swift.String
+  @objc public static let kk: Swift.String
+  @objc public static let km: Swift.String
+  @objc public static let kn: Swift.String
+  @objc public static let ko: Swift.String
+  @objc public static let ky: Swift.String
+  @objc public static let lb: Swift.String
+  @objc public static let lt: Swift.String
+  @objc public static let lv: Swift.String
+  @objc public static let mk: Swift.String
+  @objc public static let ml: Swift.String
+  @objc public static let mn: Swift.String
+  @objc public static let mr: Swift.String
+  @objc public static let my: Swift.String
+  @objc public static let nb: Swift.String
+  @objc public static let ne: Swift.String
+  @objc public static let nl: Swift.String
+  @objc public static let nn: Swift.String
+  @objc public static let os: Swift.String
+  @objc public static let pa: Swift.String
+  @objc public static let pl: Swift.String
+  @objc public static let pt: Swift.String
+  @objc public static let pt_br: Swift.String
+  @objc public static let ro: Swift.String
+  @objc public static let ru: Swift.String
+  @objc public static let sk: Swift.String
+  @objc public static let sl: Swift.String
+  @objc public static let sq: Swift.String
+  @objc public static let sr: Swift.String
+  @objc public static let sr_latn: Swift.String
+  @objc public static let sv: Swift.String
+  @objc public static let sw: Swift.String
+  @objc public static let ta: Swift.String
+  @objc public static let te: Swift.String
+  @objc public static let tg: Swift.String
+  @objc public static let th: Swift.String
+  @objc public static let tk: Swift.String
+  @objc public static let tr: Swift.String
+  @objc public static let tt: Swift.String
+  @objc public static let udm: Swift.String
+  @objc public static let uk: Swift.String
+  @objc public static let ur: Swift.String
+  @objc public static let uz: Swift.String
+  @objc public static let vi: Swift.String
+  @objc public static let zh_hans: Swift.String
+  @objc public static let zh_hant: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -871,6 +876,10 @@ public typealias NamiUUID = Swift.String
   @objc public static func hide()
   @objc public static func isPaywallOpen() -> Swift.Bool
   @objc public static func getSignedPromo(skuId: Swift.String, promoId: Swift.String, completeHandler: NamiApple.NamiPaywallPromoHandler? = nil)
+}
+@available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
+extension NamiApple.NamiPaywallManager {
+  public static func buySkuComplete(sku: NamiApple.NamiSKU, product: StoreKit.Product, transaction: StoreKit.Transaction)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiPaywallManager : ObjectiveC.NSObject {
   @objc deinit
@@ -1004,7 +1013,7 @@ public enum ContentLoadingPolicy : Swift.Equatable {
   @objc public var isSubscription: Swift.Bool
   @objc public var sku: NamiApple.NamiSKU? {
     @objc get
-    @objc set(value)
+    @objc set
   }
   public var transaction: StoreKit.SKPaymentTransaction?
   public var complete: Swift.Bool
@@ -1107,3 +1116,87 @@ public enum StoreKitReceiptPendingRenewalKeys : Swift.String {
   @objc public var iapJSONDict: [Swift.String : Any]
   @objc deinit
 }
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.SwipeInteractionArea : Swift.Equatable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.SwipeInteractionArea : Swift.Hashable {}
+extension NamiApple.PaywallType : Swift.Equatable {}
+extension NamiApple.PaywallType : Swift.Hashable {}
+extension NamiApple.PaywallType : Swift.RawRepresentable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.GesturePriority : Swift.Equatable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.GesturePriority : Swift.Hashable {}
+extension NamiApple.NamiPurchaseState : Swift.Equatable {}
+extension NamiApple.NamiPurchaseState : Swift.Hashable {}
+extension NamiApple.NamiPurchaseState : Swift.RawRepresentable {}
+extension Swift.String.TrimmingOptions : Swift.Equatable {}
+extension Swift.String.TrimmingOptions : Swift.Hashable {}
+extension NamiApple.NamiEntitlementKeys : Swift.Equatable {}
+extension NamiApple.NamiEntitlementKeys : Swift.Hashable {}
+extension NamiApple.NamiEntitlementKeys : Swift.RawRepresentable {}
+extension NamiApple.NamiSKUKeys : Swift.Equatable {}
+extension NamiApple.NamiSKUKeys : Swift.Hashable {}
+extension NamiApple.NamiSKUKeys : Swift.RawRepresentable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.PageTransitionError : Swift.Equatable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.PageTransitionError : Swift.Hashable {}
+extension NamiApple.NamiCampaignType : Swift.Equatable {}
+extension NamiApple.NamiCampaignType : Swift.Hashable {}
+extension NamiApple.NamiCampaignType : Swift.RawRepresentable {}
+extension NamiApple.StoreKitEnvironment : Swift.Equatable {}
+extension NamiApple.StoreKitEnvironment : Swift.Hashable {}
+extension NamiApple.StoreKitEnvironment : Swift.RawRepresentable {}
+extension NamiApple.StoreKitEnvironmentObjC : Swift.Equatable {}
+extension NamiApple.StoreKitEnvironmentObjC : Swift.Hashable {}
+extension NamiApple.StoreKitEnvironmentObjC : Swift.RawRepresentable {}
+extension NamiApple.NamiRestorePurchasesState : Swift.Equatable {}
+extension NamiApple.NamiRestorePurchasesState : Swift.Hashable {}
+extension NamiApple.NamiRestorePurchasesState : Swift.RawRepresentable {}
+extension NamiApple.SandboxAccelerationItemUnit : Swift.Equatable {}
+extension NamiApple.SandboxAccelerationItemUnit : Swift.Hashable {}
+extension NamiApple.SandboxAccelerationItemUnit : Swift.RawRepresentable {}
+extension NamiApple.NamiPurchaseSource : Swift.Equatable {}
+extension NamiApple.NamiPurchaseSource : Swift.Hashable {}
+extension NamiApple.NamiPurchaseSource : Swift.RawRepresentable {}
+extension NamiApple.NamiConfigureState : Swift.Equatable {}
+extension NamiApple.NamiConfigureState : Swift.Hashable {}
+extension NamiApple.NamiConfigureState : Swift.RawRepresentable {}
+extension NamiApple.NamiSKUType : Swift.Equatable {}
+extension NamiApple.NamiSKUType : Swift.Hashable {}
+extension NamiApple.NamiSKUType : Swift.RawRepresentable {}
+extension NamiApple.LaunchCampaignError : Swift.Equatable {}
+extension NamiApple.LaunchCampaignError : Swift.Hashable {}
+extension NamiApple.LaunchCampaignError : Swift.RawRepresentable {}
+extension NamiApple.AccountStateAction : Swift.Equatable {}
+extension NamiApple.AccountStateAction : Swift.Hashable {}
+extension NamiApple.AccountStateAction : Swift.RawRepresentable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.HorizontalSwipeDirection : Swift.Equatable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.HorizontalSwipeDirection : Swift.Hashable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.VerticalSwipeDirection : Swift.Equatable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.VerticalSwipeDirection : Swift.Hashable {}
+extension NamiApple.NamiLogLevel : Swift.Hashable {}
+extension NamiApple.NamiLogLevel : Swift.RawRepresentable {}
+extension NamiApple.NamiPaywallAction : Swift.Equatable {}
+extension NamiApple.NamiPaywallAction : Swift.Hashable {}
+extension NamiApple.NamiPaywallAction : Swift.RawRepresentable {}
+extension NamiApple.NamiEntitlementType : Swift.Equatable {}
+extension NamiApple.NamiEntitlementType : Swift.Hashable {}
+extension NamiApple.NamiEntitlementType : Swift.RawRepresentable {}
+extension NamiApple.StoreKitReceiptKeys : Swift.Equatable {}
+extension NamiApple.StoreKitReceiptKeys : Swift.Hashable {}
+extension NamiApple.StoreKitReceiptKeys : Swift.RawRepresentable {}
+extension NamiApple.StoreKitReceiptInAppItemKeys : Swift.Equatable {}
+extension NamiApple.StoreKitReceiptInAppItemKeys : Swift.Hashable {}
+extension NamiApple.StoreKitReceiptInAppItemKeys : Swift.RawRepresentable {}
+extension NamiApple.StoreKitReceiptPendingRenewalKeys : Swift.Equatable {}
+extension NamiApple.StoreKitReceiptPendingRenewalKeys : Swift.Hashable {}
+extension NamiApple.StoreKitReceiptPendingRenewalKeys : Swift.RawRepresentable {}
+extension NamiApple.StoreKitStatusCodes : Swift.Equatable {}
+extension NamiApple.StoreKitStatusCodes : Swift.Hashable {}
+extension NamiApple.StoreKitStatusCodes : Swift.RawRepresentable {}
