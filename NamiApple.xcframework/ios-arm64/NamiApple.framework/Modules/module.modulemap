@@ -6,6 +6,6 @@ framework module NamiApple {
 }
 
 module NamiApple.Swift {
-    header "NamiApple-Swift.h"
-    requires objc
+  header "NamiApple-Swift.h"
+  requires objc
 }
