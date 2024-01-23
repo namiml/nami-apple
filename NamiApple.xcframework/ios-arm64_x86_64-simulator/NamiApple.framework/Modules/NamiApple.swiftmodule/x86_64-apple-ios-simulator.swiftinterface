@@ -1,11 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Combine
 import CoreGraphics
 import CoreML
-import CoreText
 import CryptoKit
 import Foundation
 import MobileCoreServices
@@ -268,35 +267,6 @@ public enum PaginationSensitivity : Swift.Equatable {
   public static var `default`: NamiApple.PaginationSensitivity
   public static func == (a: NamiApple.PaginationSensitivity, b: NamiApple.PaginationSensitivity) -> Swift.Bool
 }
-public enum NamiEntitlementKeys : Swift.String {
-  case id
-  case entitlement_ref_id
-  case name
-  case description
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum NamiSKUKeys : Swift.String {
-  case sku_ref_id
-  case sku_type
-  case name
-  case sku_nami_id
-  case featured
-  case featured_text
-  case entitlements
-  case display_text
-  case sub_display_text
-  case language
-  case presentation_position
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
-    get
-  }
-}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public struct PageTransition {
   public let currentPage: Swift.Int
@@ -384,7 +354,6 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc public func register(activeEntitlementsHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc deinit
 }
-public let mockSubscriptionGroupID: Swift.String
 public typealias StoreKitProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.SKProduct]?, _ invalidProductIDs: [NamiApple.StoreId]?, _ error: Swift.Error?) -> Swift.Void
 extension Foundation.NSNotification.Name {
   public static let NamiStoreKitHelperPurchaseNotification: Foundation.Notification.Name
@@ -394,7 +363,6 @@ public typealias RestorePurchaseCompleteHandler = (_ success: Swift.Bool, _ erro
 public enum StoreKitEnvironment : Swift.String {
   case production
   case sandbox
-  case namiStoreKitBypass
   case environmentNotYetDetected
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
@@ -405,7 +373,6 @@ public enum StoreKitEnvironment : Swift.String {
 @objc public enum StoreKitEnvironmentObjC : Swift.Int {
   case production
   case sandbox
-  case namiStoreKitBypass
   case environmentNotYetDetected
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
@@ -548,10 +515,12 @@ public typealias SKUsRequestCompletionHandler = (_ success: Swift.Bool, _ produc
 public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurchase], _ state: NamiApple.NamiPurchaseState, _ error: Swift.Error?) -> Swift.Void
 @_inheritsConvenienceInitializers @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiRestorePurchasesStateHandler = (_ state: NamiApple.NamiRestorePurchasesState, _ newPurchases: [NamiApple.NamiPurchase], _ oldPurchases: [NamiApple.NamiPurchase], _ error: Swift.Error?) -> Swift.Void
-  @objc public static func skuPurchased(_ skuId: NamiApple.StoreId) -> Swift.Bool
-  @objc public static func anySkuPurchased(_ skuIds: [NamiApple.StoreId]) -> Swift.Bool
-  @objc public static func getRecord(forSKU skuId: NamiApple.StoreId) -> NamiApple.NamiPurchase?
-  @objc public static func skusForSKUIds(skuIds: [NamiApple.StoreId], productHandler: @escaping NamiApple.SKUsRequestCompletionHandler)
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc public static func skuPurchased(_ skuId: NamiApple.StoreId) async -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @objc public static func anySkuPurchased(_ skuIds: [NamiApple.StoreId]) async -> Swift.Bool
+  #endif
   @objc public static func allPurchases() -> [NamiApple.NamiPurchase]
   @objc public static func registerPurchasesChangedHandler(_ responseHandler: NamiApple.NamiPurchaseResponseHandler?)
   @available(*, deprecated, renamed: "registerPurchasesChangedHandler")
@@ -559,10 +528,12 @@ public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurc
   @objc public static func registerRestorePurchasesHandler(restorePurchasesStateHandler changeHandler: NamiApple.NamiPurchaseManager.NamiRestorePurchasesStateHandler?)
   @objc public static func restorePurchases()
   @objc public static func restorePurchases(statehandler: @escaping NamiApple.NamiPurchaseManager.NamiRestorePurchasesStateHandler)
-  @available(*, deprecated)
-  @objc public static func restorePurchases(handler: @escaping NamiApple.RestorePurchaseCompleteHandler)
   @objc public static func consumePurchasedSku(skuId: NamiApple.StoreId)
   @objc public static func presentCodeRedemptionSheet()
+  @available(*, deprecated, renamed: "getPurchase")
+  @objc public static func getRecord(forSKU skuId: NamiApple.StoreId) -> NamiApple.NamiPurchase?
+  @available(*, deprecated)
+  @objc public static func skusForSKUIds(skuIds: [NamiApple.StoreId], productHandler: @escaping NamiApple.SKUsRequestCompletionHandler)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -997,29 +968,21 @@ public enum ContentLoadingPolicy : Swift.Equatable {
 }
 @objc public class NamiPurchase : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let skuId: NamiApple.StoreId
+  @objc public var originalTransactionId: Swift.String?
   @objc public var transactionIdentifier: Swift.String?
   @objc public var purchaseInitiatedTimestamp: Foundation.Date
   @objc public var expires: Foundation.Date?
-  @objc public var purchaseSource: NamiApple.NamiPurchaseSource
-  @objc public var consumptionCount: Swift.Int
   @objc public var entitlementsGranted: [NamiApple.NamiEntitlement] {
     @objc get
   }
+  public var transaction: Any?
   @objc public init(productIdentifier: NamiApple.StoreId, purchaseSource: NamiApple.NamiPurchaseSource)
-  @available(iOS 15.0, *)
-  public init(transaction: StoreKit.Transaction, source: NamiApple.NamiPurchaseSource?)
+  @available(iOS 15.0, tvOS 15.0, *)
+  public init(transaction: StoreKit.Transaction)
   required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
-  @objc public var isSubscription: Swift.Bool
   @objc public var sku: NamiApple.NamiSKU? {
     @objc get
-    @objc set
-  }
-  public var transaction: StoreKit.SKPaymentTransaction?
-  public var complete: Swift.Bool
-  public var state: NamiApple.NamiPurchaseState
-  public var isPurchased: Swift.Bool {
-    get
   }
   @objc deinit
 }
@@ -1132,12 +1095,6 @@ extension NamiApple.NamiPurchaseState : Swift.Hashable {}
 extension NamiApple.NamiPurchaseState : Swift.RawRepresentable {}
 extension Swift.String.TrimmingOptions : Swift.Equatable {}
 extension Swift.String.TrimmingOptions : Swift.Hashable {}
-extension NamiApple.NamiEntitlementKeys : Swift.Equatable {}
-extension NamiApple.NamiEntitlementKeys : Swift.Hashable {}
-extension NamiApple.NamiEntitlementKeys : Swift.RawRepresentable {}
-extension NamiApple.NamiSKUKeys : Swift.Equatable {}
-extension NamiApple.NamiSKUKeys : Swift.Hashable {}
-extension NamiApple.NamiSKUKeys : Swift.RawRepresentable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.PageTransitionError : Swift.Equatable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)

@@ -8330,845 +8330,6 @@
       },
       {
         "kind": "Import",
-        "name": "CoreGraphics",
-        "printedName": "CoreGraphics",
-        "declKind": "Import",
-        "moduleName": "NamiApple",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "CoreText",
-        "printedName": "CoreText",
-        "declKind": "Import",
-        "moduleName": "NamiApple"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "NamiApple"
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "NamiApple"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "NamiEntitlementKeys",
-        "printedName": "NamiEntitlementKeys",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "id",
-            "printedName": "id",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiEntitlementKeys.Type) -> NamiApple.NamiEntitlementKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiEntitlementKeys",
-                    "printedName": "NamiApple.NamiEntitlementKeys",
-                    "usr": "s:9NamiApple0A15EntitlementKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiEntitlementKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiEntitlementKeys",
-                        "printedName": "NamiApple.NamiEntitlementKeys",
-                        "usr": "s:9NamiApple0A15EntitlementKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A15EntitlementKeysO2idyA2CmF",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO2idyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "entitlement_ref_id",
-            "printedName": "entitlement_ref_id",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiEntitlementKeys.Type) -> NamiApple.NamiEntitlementKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiEntitlementKeys",
-                    "printedName": "NamiApple.NamiEntitlementKeys",
-                    "usr": "s:9NamiApple0A15EntitlementKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiEntitlementKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiEntitlementKeys",
-                        "printedName": "NamiApple.NamiEntitlementKeys",
-                        "usr": "s:9NamiApple0A15EntitlementKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A15EntitlementKeysO18entitlement_ref_idyA2CmF",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO18entitlement_ref_idyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "name",
-            "printedName": "name",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiEntitlementKeys.Type) -> NamiApple.NamiEntitlementKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiEntitlementKeys",
-                    "printedName": "NamiApple.NamiEntitlementKeys",
-                    "usr": "s:9NamiApple0A15EntitlementKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiEntitlementKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiEntitlementKeys",
-                        "printedName": "NamiApple.NamiEntitlementKeys",
-                        "usr": "s:9NamiApple0A15EntitlementKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A15EntitlementKeysO4nameyA2CmF",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO4nameyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "description",
-            "printedName": "description",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiEntitlementKeys.Type) -> NamiApple.NamiEntitlementKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiEntitlementKeys",
-                    "printedName": "NamiApple.NamiEntitlementKeys",
-                    "usr": "s:9NamiApple0A15EntitlementKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiEntitlementKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiEntitlementKeys",
-                        "printedName": "NamiApple.NamiEntitlementKeys",
-                        "usr": "s:9NamiApple0A15EntitlementKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A15EntitlementKeysO11descriptionyA2CmF",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO11descriptionyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "NamiApple.NamiEntitlementKeys?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiEntitlementKeys",
-                    "printedName": "NamiApple.NamiEntitlementKeys",
-                    "usr": "s:9NamiApple0A15EntitlementKeysO"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:9NamiApple0A15EntitlementKeysO8rawValueACSgSS_tcfc",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO8rawValueACSgSS_tcfc",
-            "moduleName": "NamiApple",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A15EntitlementKeysO8rawValueSSvp",
-            "mangledName": "$s9NamiApple0A15EntitlementKeysO8rawValueSSvp",
-            "moduleName": "NamiApple",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A15EntitlementKeysO8rawValueSSvg",
-                "mangledName": "$s9NamiApple0A15EntitlementKeysO8rawValueSSvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:9NamiApple0A15EntitlementKeysO",
-        "mangledName": "$s9NamiApple0A15EntitlementKeysO",
-        "moduleName": "NamiApple",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "enumRawTypeName": "String",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "NamiSKUKeys",
-        "printedName": "NamiSKUKeys",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "sku_ref_id",
-            "printedName": "sku_ref_id",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO10sku_ref_idyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO10sku_ref_idyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "sku_type",
-            "printedName": "sku_type",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO8sku_typeyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO8sku_typeyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "name",
-            "printedName": "name",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO4nameyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO4nameyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "sku_nami_id",
-            "printedName": "sku_nami_id",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO11sku_nami_idyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO11sku_nami_idyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "featured",
-            "printedName": "featured",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO8featuredyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO8featuredyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "featured_text",
-            "printedName": "featured_text",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO13featured_textyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO13featured_textyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "entitlements",
-            "printedName": "entitlements",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO12entitlementsyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO12entitlementsyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "display_text",
-            "printedName": "display_text",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO12display_textyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO12display_textyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "sub_display_text",
-            "printedName": "sub_display_text",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO16sub_display_textyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO16sub_display_textyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "language",
-            "printedName": "language",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO8languageyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO8languageyA2CmF",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "RawDocComment"
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "presentation_position",
-            "printedName": "presentation_position",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.NamiSKUKeys.Type) -> NamiApple.NamiSKUKeys",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.NamiSKUKeys.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKUKeys",
-                        "printedName": "NamiApple.NamiSKUKeys",
-                        "usr": "s:9NamiApple0A7SKUKeysO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple0A7SKUKeysO21presentation_positionyA2CmF",
-            "mangledName": "$s9NamiApple0A7SKUKeysO21presentation_positionyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "NamiApple.NamiSKUKeys?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiSKUKeys",
-                    "printedName": "NamiApple.NamiSKUKeys",
-                    "usr": "s:9NamiApple0A7SKUKeysO"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:9NamiApple0A7SKUKeysO8rawValueACSgSS_tcfc",
-            "mangledName": "$s9NamiApple0A7SKUKeysO8rawValueACSgSS_tcfc",
-            "moduleName": "NamiApple",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A7SKUKeysO8rawValueSSvp",
-            "mangledName": "$s9NamiApple0A7SKUKeysO8rawValueSSvp",
-            "moduleName": "NamiApple",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A7SKUKeysO8rawValueSSvg",
-                "mangledName": "$s9NamiApple0A7SKUKeysO8rawValueSSvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:9NamiApple0A7SKUKeysO",
-        "mangledName": "$s9NamiApple0A7SKUKeysO",
-        "moduleName": "NamiApple",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "enumRawTypeName": "String",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -9550,6 +8711,16 @@
         "printedName": "SwiftUI",
         "declKind": "Import",
         "moduleName": "NamiApple"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NamiApple",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -11926,52 +11097,6 @@
         "moduleName": "NamiApple"
       },
       {
-        "kind": "Var",
-        "name": "mockSubscriptionGroupID",
-        "printedName": "mockSubscriptionGroupID",
-        "children": [
-          {
-            "kind": "TypeNominal",
-            "name": "String",
-            "printedName": "Swift.String",
-            "usr": "s:SS"
-          }
-        ],
-        "declKind": "Var",
-        "usr": "s:9NamiApple23mockSubscriptionGroupIDSSvp",
-        "mangledName": "$s9NamiApple23mockSubscriptionGroupIDSSvp",
-        "moduleName": "NamiApple",
-        "declAttributes": [
-          "HasInitialValue",
-          "HasStorage",
-          "AccessControl",
-          "RawDocComment"
-        ],
-        "isLet": true,
-        "hasStorage": true,
-        "accessors": [
-          {
-            "kind": "Accessor",
-            "name": "Get",
-            "printedName": "Get()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Accessor",
-            "usr": "s:9NamiApple23mockSubscriptionGroupIDSSvg",
-            "mangledName": "$s9NamiApple23mockSubscriptionGroupIDSSvg",
-            "moduleName": "NamiApple",
-            "implicit": true,
-            "accessorKind": "get"
-          }
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "StoreKitEnvironment",
         "printedName": "StoreKitEnvironment",
@@ -12048,43 +11173,6 @@
             "declKind": "EnumElement",
             "usr": "s:9NamiApple19StoreKitEnvironmentO7sandboxyA2CmF",
             "mangledName": "$s9NamiApple19StoreKitEnvironmentO7sandboxyA2CmF",
-            "moduleName": "NamiApple"
-          },
-          {
-            "kind": "Var",
-            "name": "namiStoreKitBypass",
-            "printedName": "namiStoreKitBypass",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.StoreKitEnvironment.Type) -> NamiApple.StoreKitEnvironment",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "StoreKitEnvironment",
-                    "printedName": "NamiApple.StoreKitEnvironment",
-                    "usr": "s:9NamiApple19StoreKitEnvironmentO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.StoreKitEnvironment.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "StoreKitEnvironment",
-                        "printedName": "NamiApple.StoreKitEnvironment",
-                        "usr": "s:9NamiApple19StoreKitEnvironmentO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:9NamiApple19StoreKitEnvironmentO04namicD6BypassyA2CmF",
-            "mangledName": "$s9NamiApple19StoreKitEnvironmentO04namicD6BypassyA2CmF",
             "moduleName": "NamiApple"
           },
           {
@@ -12334,47 +11422,6 @@
           },
           {
             "kind": "Var",
-            "name": "namiStoreKitBypass",
-            "printedName": "namiStoreKitBypass",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(NamiApple.StoreKitEnvironmentObjC.Type) -> NamiApple.StoreKitEnvironmentObjC",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "StoreKitEnvironmentObjC",
-                    "printedName": "NamiApple.StoreKitEnvironmentObjC",
-                    "usr": "c:@M@NamiApple@E@StoreKitEnvironmentObjC"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "NamiApple.StoreKitEnvironmentObjC.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "StoreKitEnvironmentObjC",
-                        "printedName": "NamiApple.StoreKitEnvironmentObjC",
-                        "usr": "c:@M@NamiApple@E@StoreKitEnvironmentObjC"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@NamiApple@E@StoreKitEnvironmentObjC@StoreKitEnvironmentObjCNamiStoreKitBypass",
-            "mangledName": "$s9NamiApple23StoreKitEnvironmentObjCO04namicD6BypassyA2CmF",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 2
-          },
-          {
-            "kind": "Var",
             "name": "environmentNotYetDetected",
             "printedName": "environmentNotYetDetected",
             "children": [
@@ -12412,7 +11459,7 @@
             "declAttributes": [
               "ObjC"
             ],
-            "fixedbinaryorder": 3
+            "fixedbinaryorder": 2
           },
           {
             "kind": "Constructor",
@@ -16590,8 +15637,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)skuPurchased:",
-            "mangledName": "$s9NamiApple0A15PurchaseManagerC12skuPurchasedySbSSFZ",
+            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)skuPurchased:completionHandler:",
+            "mangledName": "$s9NamiApple0A15PurchaseManagerC12skuPurchasedySbSSYaFZ",
             "moduleName": "NamiApple",
             "static": true,
             "declAttributes": [
@@ -16629,172 +15676,10 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)anySkuPurchased:",
-            "mangledName": "$s9NamiApple0A15PurchaseManagerC15anySkuPurchasedySbSaySSGFZ",
+            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)anySkuPurchased:completionHandler:",
+            "mangledName": "$s9NamiApple0A15PurchaseManagerC15anySkuPurchasedySbSaySSGYaFZ",
             "moduleName": "NamiApple",
             "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getRecord",
-            "printedName": "getRecord(forSKU:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "NamiApple.NamiPurchase?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchase",
-                    "printedName": "NamiApple.NamiPurchase",
-                    "usr": "c:@M@NamiApple@objc(cs)NamiPurchase"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)getRecordForSKU:",
-            "mangledName": "$s9NamiApple0A15PurchaseManagerC9getRecord6forSKUAA0aC0CSgSS_tFZ",
-            "moduleName": "NamiApple",
-            "static": true,
-            "objc_name": "getRecordForSKU:",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "skusForSKUIds",
-            "printedName": "skusForSKUIds(skuIds:productHandler:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Array",
-                "printedName": "[Swift.String]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sa"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Bool, [NamiApple.NamiSKU]?, [Swift.String]?, Swift.Error?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Tuple",
-                    "printedName": "(Swift.Bool, [NamiApple.NamiSKU]?, [Swift.String]?, Swift.Error?)",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Bool",
-                        "printedName": "Swift.Bool",
-                        "usr": "s:Sb"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "[NamiApple.NamiSKU]?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Array",
-                            "printedName": "[NamiApple.NamiSKU]",
-                            "children": [
-                              {
-                                "kind": "TypeNominal",
-                                "name": "NamiSKU",
-                                "printedName": "NamiApple.NamiSKU",
-                                "usr": "c:@M@NamiApple@objc(cs)NamiSKU"
-                              }
-                            ],
-                            "usr": "s:Sa"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "[Swift.String]?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Array",
-                            "printedName": "[Swift.String]",
-                            "children": [
-                              {
-                                "kind": "TypeNominal",
-                                "name": "String",
-                                "printedName": "Swift.String",
-                                "usr": "s:SS"
-                              }
-                            ],
-                            "usr": "s:Sa"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Swift.Error?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Error",
-                            "printedName": "Swift.Error",
-                            "usr": "s:s5ErrorP"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)skusForSKUIdsWithSkuIds:productHandler:",
-            "mangledName": "$s9NamiApple0A15PurchaseManagerC13skusForSKUIds6skuIds14productHandlerySaySSG_ySb_SayAA0A3SKUCGSgAGSgs5Error_pSgtctFZ",
-            "moduleName": "NamiApple",
-            "static": true,
-            "objc_name": "skusForSKUIdsWithSkuIds:productHandler:",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -17227,72 +16112,6 @@
           },
           {
             "kind": "Function",
-            "name": "restorePurchases",
-            "printedName": "restorePurchases(handler:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Tuple",
-                    "printedName": "(Swift.Bool, Swift.Error?)",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Bool",
-                        "printedName": "Swift.Bool",
-                        "usr": "s:Sb"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Swift.Error?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Error",
-                            "printedName": "Swift.Error",
-                            "usr": "s:s5ErrorP"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)restorePurchasesWithHandler:",
-            "mangledName": "$s9NamiApple0A15PurchaseManagerC16restorePurchases7handleryySb_s5Error_pSgtc_tFZ",
-            "moduleName": "NamiApple",
-            "static": true,
-            "deprecated": true,
-            "objc_name": "restorePurchasesWithHandler:",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "Available",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "consumePurchasedSku",
             "printedName": "consumePurchasedSku(skuId:)",
             "children": [
@@ -17342,6 +16161,172 @@
               "Final",
               "AccessControl",
               "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRecord",
+            "printedName": "getRecord(forSKU:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NamiApple.NamiPurchase?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NamiPurchase",
+                    "printedName": "NamiApple.NamiPurchase",
+                    "usr": "c:@M@NamiApple@objc(cs)NamiPurchase"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)getRecordForSKU:",
+            "mangledName": "$s9NamiApple0A15PurchaseManagerC9getRecord6forSKUAA0aC0CSgSS_tFZ",
+            "moduleName": "NamiApple",
+            "static": true,
+            "deprecated": true,
+            "objc_name": "getRecordForSKU:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "Available",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "skusForSKUIds",
+            "printedName": "skusForSKUIds(skuIds:productHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, [NamiApple.NamiSKU]?, [Swift.String]?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, [NamiApple.NamiSKU]?, [Swift.String]?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[NamiApple.NamiSKU]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[NamiApple.NamiSKU]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "NamiSKU",
+                                "printedName": "NamiApple.NamiSKU",
+                                "usr": "c:@M@NamiApple@objc(cs)NamiSKU"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Array",
+                            "printedName": "[Swift.String]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sa"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NamiApple@objc(cs)NamiPurchaseManager(cm)skusForSKUIdsWithSkuIds:productHandler:",
+            "mangledName": "$s9NamiApple0A15PurchaseManagerC13skusForSKUIds6skuIds14productHandlerySaySSG_ySb_SayAA0A3SKUCGSgAGSgs5Error_pSgtctFZ",
+            "moduleName": "NamiApple",
+            "static": true,
+            "deprecated": true,
+            "objc_name": "skusForSKUIdsWithSkuIds:productHandler:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -29236,6 +28221,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NamiApple",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "SwiftUI",
         "printedName": "SwiftUI",
         "declKind": "Import",
@@ -35268,6 +34263,123 @@
           },
           {
             "kind": "Var",
+            "name": "originalTransactionId",
+            "printedName": "originalTransactionId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(py)originalTransactionId",
+            "mangledName": "$s9NamiApple0A8PurchaseC21originalTransactionIdSSSgvp",
+            "moduleName": "NamiApple",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)originalTransactionId",
+                "mangledName": "$s9NamiApple0A8PurchaseC21originalTransactionIdSSSgvg",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)setOriginalTransactionId:",
+                "mangledName": "$s9NamiApple0A8PurchaseC21originalTransactionIdSSSgvs",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9NamiApple0A8PurchaseC21originalTransactionIdSSSgvM",
+                "mangledName": "$s9NamiApple0A8PurchaseC21originalTransactionIdSSSgvM",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "transactionIdentifier",
             "printedName": "transactionIdentifier",
             "children": [
@@ -35595,191 +34707,6 @@
           },
           {
             "kind": "Var",
-            "name": "purchaseSource",
-            "printedName": "purchaseSource",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NamiPurchaseSource",
-                "printedName": "NamiApple.NamiPurchaseSource",
-                "usr": "c:@M@NamiApple@E@NamiPurchaseSource"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(py)purchaseSource",
-            "mangledName": "$s9NamiApple0A8PurchaseC14purchaseSourceAA0acE0Ovp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchaseSource",
-                    "printedName": "NamiApple.NamiPurchaseSource",
-                    "usr": "c:@M@NamiApple@E@NamiPurchaseSource"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)purchaseSource",
-                "mangledName": "$s9NamiApple0A8PurchaseC14purchaseSourceAA0acE0Ovg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchaseSource",
-                    "printedName": "NamiApple.NamiPurchaseSource",
-                    "usr": "c:@M@NamiApple@E@NamiPurchaseSource"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)setPurchaseSource:",
-                "mangledName": "$s9NamiApple0A8PurchaseC14purchaseSourceAA0acE0Ovs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC14purchaseSourceAA0acE0OvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC14purchaseSourceAA0acE0OvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "consumptionCount",
-            "printedName": "consumptionCount",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(py)consumptionCount",
-            "mangledName": "$s9NamiApple0A8PurchaseC16consumptionCountSivp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)consumptionCount",
-                "mangledName": "$s9NamiApple0A8PurchaseC16consumptionCountSivg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)setConsumptionCount:",
-                "mangledName": "$s9NamiApple0A8PurchaseC16consumptionCountSivs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC16consumptionCountSivM",
-                "mangledName": "$s9NamiApple0A8PurchaseC16consumptionCountSivM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "entitlementsGranted",
             "printedName": "entitlementsGranted",
             "children": [
@@ -35839,6 +34766,113 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "transaction",
+            "printedName": "transaction",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9NamiApple0A8PurchaseC11transactionypSgvp",
+            "mangledName": "$s9NamiApple0A8PurchaseC11transactionypSgvp",
+            "moduleName": "NamiApple",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9NamiApple0A8PurchaseC11transactionypSgvg",
+                "mangledName": "$s9NamiApple0A8PurchaseC11transactionypSgvg",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9NamiApple0A8PurchaseC11transactionypSgvs",
+                "mangledName": "$s9NamiApple0A8PurchaseC11transactionypSgvs",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9NamiApple0A8PurchaseC11transactionypSgvM",
+                "mangledName": "$s9NamiApple0A8PurchaseC11transactionypSgvM",
+                "moduleName": "NamiApple",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(productIdentifier:purchaseSource:)",
@@ -35876,7 +34910,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(transaction:source:)",
+            "printedName": "init(transaction:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -35889,29 +34923,17 @@
                 "name": "Transaction",
                 "printedName": "StoreKit.Transaction",
                 "usr": "s:8StoreKit11TransactionV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "NamiApple.NamiPurchaseSource?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchaseSource",
-                    "printedName": "NamiApple.NamiPurchaseSource",
-                    "usr": "c:@M@NamiApple@E@NamiPurchaseSource"
-                  }
-                ],
-                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:9NamiApple0A8PurchaseC11transaction6sourceAC8StoreKit11TransactionV_AA0aC6SourceOSgtcfc",
-            "mangledName": "$s9NamiApple0A8PurchaseC11transaction6sourceAC8StoreKit11TransactionV_AA0aC6SourceOSgtcfc",
+            "usr": "s:9NamiApple0A8PurchaseC11transactionAC8StoreKit11TransactionV_tcfc",
+            "mangledName": "$s9NamiApple0A8PurchaseC11transactionAC8StoreKit11TransactionV_tcfc",
             "moduleName": "NamiApple",
             "intro_iOS": "15.0",
+            "intro_tvOS": "15.0",
             "declAttributes": [
               "AccessControl",
+              "Available",
               "Available"
             ],
             "init_kind": "Designated"
@@ -35974,99 +34996,6 @@
           },
           {
             "kind": "Var",
-            "name": "isSubscription",
-            "printedName": "isSubscription",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(py)isSubscription",
-            "mangledName": "$s9NamiApple0A8PurchaseC14isSubscriptionSbvp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)isSubscription",
-                "mangledName": "$s9NamiApple0A8PurchaseC14isSubscriptionSbvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)setIsSubscription:",
-                "mangledName": "$s9NamiApple0A8PurchaseC14isSubscriptionSbvs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC14isSubscriptionSbvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC14isSubscriptionSbvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "sku",
             "printedName": "sku",
             "children": [
@@ -36090,12 +35019,9 @@
             "mangledName": "$s9NamiApple0A8PurchaseC3skuAA0A3SKUCSgvp",
             "moduleName": "NamiApple",
             "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
               "AccessControl",
               "ObjC"
             ],
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -36121,385 +35047,9 @@
                 "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)sku",
                 "mangledName": "$s9NamiApple0A8PurchaseC3skuAA0A3SKUCSgvg",
                 "moduleName": "NamiApple",
-                "implicit": true,
                 "declAttributes": [
                   "ObjC"
                 ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "NamiApple.NamiSKU?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "NamiSKU",
-                        "printedName": "NamiApple.NamiSKU",
-                        "usr": "c:@M@NamiApple@objc(cs)NamiSKU"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@NamiApple@objc(cs)NamiPurchase(im)setSku:",
-                "mangledName": "$s9NamiApple0A8PurchaseC3skuAA0A3SKUCSgvs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC3skuAA0A3SKUCSgvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC3skuAA0A3SKUCSgvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "transaction",
-            "printedName": "transaction",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "StoreKit.SKPaymentTransaction?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "SKPaymentTransaction",
-                    "printedName": "StoreKit.SKPaymentTransaction",
-                    "usr": "c:objc(cs)SKPaymentTransaction"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvp",
-            "mangledName": "$s9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "StoreKit.SKPaymentTransaction?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "SKPaymentTransaction",
-                        "printedName": "StoreKit.SKPaymentTransaction",
-                        "usr": "c:objc(cs)SKPaymentTransaction"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvg",
-                "mangledName": "$s9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "StoreKit.SKPaymentTransaction?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "SKPaymentTransaction",
-                        "printedName": "StoreKit.SKPaymentTransaction",
-                        "usr": "c:objc(cs)SKPaymentTransaction"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvs",
-                "mangledName": "$s9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC11transactionSo20SKPaymentTransactionCSgvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "complete",
-            "printedName": "complete",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A8PurchaseC8completeSbvp",
-            "mangledName": "$s9NamiApple0A8PurchaseC8completeSbvp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC8completeSbvg",
-                "mangledName": "$s9NamiApple0A8PurchaseC8completeSbvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC8completeSbvs",
-                "mangledName": "$s9NamiApple0A8PurchaseC8completeSbvs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC8completeSbvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC8completeSbvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "state",
-            "printedName": "state",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NamiPurchaseState",
-                "printedName": "NamiApple.NamiPurchaseState",
-                "usr": "c:@M@NamiApple@E@NamiPurchaseState"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A8PurchaseC5stateAA0aC5StateOvp",
-            "mangledName": "$s9NamiApple0A8PurchaseC5stateAA0aC5StateOvp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchaseState",
-                    "printedName": "NamiApple.NamiPurchaseState",
-                    "usr": "c:@M@NamiApple@E@NamiPurchaseState"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC5stateAA0aC5StateOvg",
-                "mangledName": "$s9NamiApple0A8PurchaseC5stateAA0aC5StateOvg",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "NamiPurchaseState",
-                    "printedName": "NamiApple.NamiPurchaseState",
-                    "usr": "c:@M@NamiApple@E@NamiPurchaseState"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC5stateAA0aC5StateOvs",
-                "mangledName": "$s9NamiApple0A8PurchaseC5stateAA0aC5StateOvs",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC5stateAA0aC5StateOvM",
-                "mangledName": "$s9NamiApple0A8PurchaseC5stateAA0aC5StateOvM",
-                "moduleName": "NamiApple",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isPurchased",
-            "printedName": "isPurchased",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:9NamiApple0A8PurchaseC11isPurchasedSbvp",
-            "mangledName": "$s9NamiApple0A8PurchaseC11isPurchasedSbvp",
-            "moduleName": "NamiApple",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:9NamiApple0A8PurchaseC11isPurchasedSbvg",
-                "mangledName": "$s9NamiApple0A8PurchaseC11isPurchasedSbvg",
-                "moduleName": "NamiApple",
                 "accessorKind": "get"
               }
             ]
@@ -42034,44 +40584,44 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "StringLiteral",
-      "offset": 757,
+      "offset": 719,
       "length": 17,
       "value": "\"namiSignalQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "Dictionary",
-      "offset": 842,
+      "offset": 804,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "StringLiteral",
-      "offset": 1001,
+      "offset": 927,
       "length": 9,
       "value": "\"unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4448,
+      "offset": 4416,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4557,
+      "offset": 4525,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSignalManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSignalManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 4601,
+      "offset": 4569,
       "length": 1,
       "value": "4"
     },
@@ -42454,100 +41004,100 @@
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "StringLiteral",
       "offset": 297,
       "length": 20,
       "value": "\"NamiSKManagerQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "StringLiteral",
       "offset": 397,
       "length": 16,
       "value": "\"com.namiml.sk2\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "StringLiteral",
       "offset": 494,
       "length": 16,
       "value": "\"com.namiml.sku\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "StringLiteral",
       "offset": 594,
       "length": 23,
       "value": "\"com.namiml.invalidsku\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "StringLiteral",
       "offset": 708,
       "length": 24,
       "value": "\"com.namiml.eligibility\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Array",
       "offset": 793,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
       "offset": 846,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
-      "offset": 984,
+      "offset": 993,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Array",
-      "offset": 1036,
+      "offset": 1258,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Array",
-      "offset": 1306,
+      "offset": 1528,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
-      "offset": 1599,
+      "offset": 1821,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
-      "offset": 1666,
+      "offset": 1888,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
-      "offset": 1719,
+      "offset": 1941,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProductManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProductManager.swift",
       "kind": "Dictionary",
-      "offset": 1780,
+      "offset": 2002,
       "length": 3,
       "value": "[]"
     },
@@ -42664,72 +41214,72 @@
       "value": "8"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
       "offset": 2604,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
       "offset": 2633,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
       "offset": 2712,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "Array",
-      "offset": 8346,
+      "offset": 8358,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "FloatLiteral",
-      "offset": 8375,
+      "offset": 8387,
       "length": 3,
       "value": "0.4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 13921,
+      "offset": 13933,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 21252,
+      "offset": 21270,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 22464,
+      "offset": 22482,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "FloatLiteral",
-      "offset": 29165,
+      "offset": 29183,
       "length": 9,
       "value": "604800.0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiTimeStateManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiTimeStateManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 29273,
+      "offset": 29291,
       "length": 5,
       "value": "false"
     },
@@ -42897,77 +41447,77 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "StringLiteral",
-      "offset": 931,
+      "offset": 1012,
       "length": 20,
       "value": "\"NamiSKManagerQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 1803,
+      "offset": 1884,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 1979,
+      "offset": 2060,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 21355,
+      "offset": 21219,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 21568,
+      "offset": 21432,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Array",
-      "offset": 21648,
+      "offset": 21512,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Array",
-      "offset": 21748,
+      "offset": 21612,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 27219,
+      "offset": 27093,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 27340,
+      "offset": 27214,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 30145,
+      "offset": 30146,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "BooleanLiteral",
-      "offset": 30166,
+      "offset": 30167,
       "length": 5,
       "value": "false"
     },
@@ -42981,35 +41531,35 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "StringLiteral",
-      "offset": 46273,
+      "offset": 46370,
       "length": 20,
       "value": "\"NamiSKProductQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 46390,
+      "offset": 46487,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 46632,
+      "offset": 46729,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Dictionary",
-      "offset": 55099,
+      "offset": 54595,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKit1Observer.swift",
       "kind": "Array",
-      "offset": 80736,
+      "offset": 80195,
       "length": 2,
       "value": "[]"
     },
@@ -43044,56 +41594,56 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "Dictionary",
-      "offset": 8759,
+      "offset": 8765,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "StringLiteral",
-      "offset": 8851,
+      "offset": 8857,
       "length": 25,
       "value": "\"NamiRequestHandlerQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 15365,
+      "offset": 15371,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15390,
+      "offset": 15396,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15415,
+      "offset": 15421,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "StringLiteral",
-      "offset": 35849,
+      "offset": 35794,
       "length": 5,
       "value": "\"All\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "Array",
-      "offset": 40871,
+      "offset": 40816,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/RFV\/NamiRFVManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 41917,
+      "offset": 41862,
       "length": 5,
       "value": "false"
     },
@@ -43107,35 +41657,42 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
       "kind": "StringLiteral",
-      "offset": 1423,
+      "offset": 325,
+      "length": 20,
+      "value": "\"com.namiml.session\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
+      "kind": "StringLiteral",
+      "offset": 1548,
       "length": 12,
       "value": "\"session_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
       "kind": "StringLiteral",
-      "offset": 1423,
+      "offset": 1548,
       "length": 12,
       "value": "\"session_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
       "kind": "BooleanLiteral",
-      "offset": 2849,
+      "offset": 2742,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
       "kind": "BooleanLiteral",
-      "offset": 2884,
+      "offset": 2777,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiSession.swift",
       "kind": "BooleanLiteral",
-      "offset": 2921,
+      "offset": 2814,
       "length": 5,
       "value": "false"
     },
@@ -43392,41 +41949,6 @@
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAppConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 396,
-      "length": 4,
-      "value": "\"id\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAppConfig.swift",
-      "kind": "StringLiteral",
-      "offset": 396,
-      "length": 4,
-      "value": "\"id\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAppConfig.swift",
-      "kind": "Dictionary",
-      "offset": 773,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAppConfig.swift",
-      "kind": "Dictionary",
-      "offset": 839,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAppConfig.swift",
-      "kind": "Dictionary",
-      "offset": 893,
-      "length": 3,
-      "value": "[]"
-    },
-    {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Custom\/TextLinkDestination.swift",
       "kind": "StringLiteral",
       "offset": 200,
@@ -43527,7 +42049,7 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiEntitlement.swift",
       "kind": "Array",
-      "offset": 3346,
+      "offset": 3341,
       "length": 2,
       "value": "[]"
     },
@@ -43749,49 +42271,49 @@
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "StringLiteral",
       "offset": 373,
       "length": 43,
       "value": "\"storeLastSetEntitlementsManuallyTimestamp\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "Array",
       "offset": 5383,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "Array",
       "offset": 5443,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "Array",
       "offset": 5507,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "StringLiteral",
       "offset": 5646,
       "length": 24,
       "value": "\"NamiEntitlementManager\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "IntegerLiteral",
       "offset": 5784,
       "length": 5,
       "value": "86400"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiEntitlementManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiEntitlementManager.swift",
       "kind": "IntegerLiteral",
       "offset": 5872,
       "length": 3,
@@ -43814,280 +42336,245 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 304,
-      "length": 27,
-      "value": "\"NamiMockSubscriptionGroup\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
-      "kind": "StringLiteral",
-      "offset": 607,
+      "offset": 427,
       "length": 40,
       "value": "\"NamiStoreKitHelperPurchaseNotification\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 724,
+      "offset": 544,
       "length": 41,
       "value": "\"NamiStoreKitPurchaseFailureNotification\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 999,
+      "offset": 819,
       "length": 12,
       "value": "\"Production\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 1031,
+      "offset": 851,
       "length": 9,
       "value": "\"Sandbox\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 1071,
-      "length": 20,
-      "value": "\"NamiStoreKitBypass\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
-      "kind": "StringLiteral",
-      "offset": 999,
+      "offset": 819,
       "length": 12,
       "value": "\"Production\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 1031,
+      "offset": 851,
       "length": 9,
       "value": "\"Sandbox\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
-      "kind": "StringLiteral",
-      "offset": 1071,
-      "length": 20,
-      "value": "\"NamiStoreKitBypass\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1301,
+      "offset": 1070,
       "length": 7,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1318,
-      "length": 18,
+      "offset": 1087,
+      "length": 25,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1346,
-      "length": 25,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1301,
+      "offset": 1070,
       "length": 7,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1318,
-      "length": 18,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1346,
+      "offset": 1087,
       "length": 25,
-      "value": "3"
+      "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1452,
+      "offset": 1193,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1470,
+      "offset": 1211,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1452,
+      "offset": 1193,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 1470,
+      "offset": 1211,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2712,
+      "offset": 2453,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2726,
+      "offset": 2467,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2741,
+      "offset": 2482,
       "length": 8,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2759,
+      "offset": 2500,
       "length": 4,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2712,
+      "offset": 2453,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2726,
+      "offset": 2467,
       "length": 5,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2741,
+      "offset": 2482,
       "length": 8,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2759,
+      "offset": 2500,
       "length": 4,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 4991,
+      "offset": 4732,
       "length": 14,
       "value": "\"NO_PRODUCTID\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "Dictionary",
-      "offset": 5382,
+      "offset": 5123,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 5455,
+      "offset": 5196,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "FloatLiteral",
-      "offset": 5624,
+      "offset": 5365,
       "length": 3,
       "value": "2.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "FloatLiteral",
-      "offset": 5636,
+      "offset": 5377,
       "length": 3,
       "value": "3.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "FloatLiteral",
-      "offset": 5649,
+      "offset": 5390,
       "length": 3,
       "value": "5.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "FloatLiteral",
-      "offset": 5665,
+      "offset": 5406,
       "length": 4,
       "value": "30.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "FloatLiteral",
-      "offset": 5678,
+      "offset": 5419,
       "length": 4,
       "value": "60.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "IntegerLiteral",
-      "offset": 5739,
+      "offset": 5480,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "Array",
-      "offset": 11089,
+      "offset": 10981,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "BooleanLiteral",
-      "offset": 11129,
+      "offset": 11021,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 11193,
+      "offset": 11085,
       "length": 25,
       "value": "\"NamiStoreKitHelperQueue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiStoreKitHelper.swift",
       "kind": "StringLiteral",
-      "offset": 14493,
+      "offset": 13934,
       "length": 21,
       "value": "\"NamiApple.ProductRequestHandler\""
     },
@@ -44346,84 +42833,84 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "IntegerLiteral",
-      "offset": 9391,
+      "offset": 9409,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9482,
+      "offset": 9500,
       "length": 11,
       "value": "\"vendor_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9523,
+      "offset": 9541,
       "length": 16,
       "value": "\"advertising_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9561,
+      "offset": 9579,
       "length": 27,
       "value": "\"customer_data_platform_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9482,
+      "offset": 9500,
       "length": 11,
       "value": "\"vendor_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9523,
+      "offset": 9541,
       "length": 16,
       "value": "\"advertising_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "StringLiteral",
-      "offset": 9561,
+      "offset": 9579,
       "length": 27,
       "value": "\"customer_data_platform_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "IntegerLiteral",
-      "offset": 9645,
+      "offset": 9663,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "IntegerLiteral",
-      "offset": 9691,
+      "offset": 9709,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "FloatLiteral",
-      "offset": 11343,
+      "offset": 11361,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 11372,
+      "offset": 11390,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiAPI.swift",
       "kind": "BooleanLiteral",
-      "offset": 11401,
+      "offset": 11419,
       "length": 5,
       "value": "false"
     },
@@ -44442,212 +42929,219 @@
       "value": "\"NamiApple.NamiUIWindow\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 309,
       "length": 16,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 335,
       "length": 18,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 363,
       "length": 14,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 309,
       "length": 16,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 335,
       "length": 18,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
       "offset": 363,
       "length": 14,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 4310,
+      "offset": 4316,
       "length": 20,
       "value": "\"com.namiml.manager\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4399,
+      "offset": 4405,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4935,
+      "offset": 4941,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5206,
+      "offset": 5212,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5809,
+      "offset": 5815,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6129,
+      "offset": 6135,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6567,
+      "offset": 6573,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6920,
+      "offset": 6926,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7217,
+      "offset": 7223,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 7714,
+      "offset": 7720,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8086,
+      "offset": 8092,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8821,
+      "offset": 8827,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8926,
+      "offset": 8932,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 9090,
+      "offset": 9096,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 9368,
+      "offset": 9374,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 9820,
+      "offset": 9826,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10049,
+      "offset": 10055,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10365,
+      "offset": 10368,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10485,
+      "offset": 10690,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10654,
+      "offset": 10810,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10746,
+      "offset": 10979,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 10866,
+      "offset": 11071,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11191,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 11041,
+      "offset": 11366,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 11086,
+      "offset": 11411,
       "length": 2,
       "value": "\"\""
     },
@@ -44778,140 +43272,140 @@
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 263,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 303,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 340,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 379,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 412,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 451,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 487,
       "length": 1,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 523,
       "length": 1,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 561,
       "length": 1,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 263,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 303,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 340,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 379,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 412,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 451,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 487,
       "length": 1,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 523,
       "length": 1,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
       "offset": 561,
       "length": 1,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
       "offset": 11484,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCampaignManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
       "offset": 11531,
       "length": 2,
@@ -44960,212 +43454,212 @@
       "value": "\"NamiApple.TextListComponent\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 206,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 237,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 269,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 206,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 237,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
       "offset": 269,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25112,
+      "offset": 25148,
       "length": 6,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25128,
+      "offset": 25164,
       "length": 18,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25156,
+      "offset": 25192,
       "length": 22,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25188,
+      "offset": 25224,
       "length": 13,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25211,
+      "offset": 25247,
       "length": 17,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25238,
+      "offset": 25274,
       "length": 29,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25277,
+      "offset": 25313,
       "length": 33,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25320,
+      "offset": 25356,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25347,
+      "offset": 25383,
       "length": 18,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25375,
+      "offset": 25411,
       "length": 18,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25403,
+      "offset": 25439,
       "length": 22,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25112,
+      "offset": 25148,
       "length": 6,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25128,
+      "offset": 25164,
       "length": 18,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25156,
+      "offset": 25192,
       "length": 22,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25188,
+      "offset": 25224,
       "length": 13,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25211,
+      "offset": 25247,
       "length": 17,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25238,
+      "offset": 25274,
       "length": 29,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25277,
+      "offset": 25313,
       "length": 33,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25320,
+      "offset": 25356,
       "length": 17,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25347,
+      "offset": 25383,
       "length": 18,
       "value": "9"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25375,
+      "offset": 25411,
       "length": 18,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 25403,
+      "offset": 25439,
       "length": 22,
       "value": "11"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "Dictionary",
-      "offset": 25925,
+      "offset": 25961,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiCustomerManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCustomerManager.swift",
       "kind": "StringLiteral",
-      "offset": 31746,
+      "offset": 31782,
       "length": 25,
       "value": "\"customerAttributes.json\""
     },
@@ -45283,22 +43777,22 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ContainerViews\/ButtonContainerView.swift",
-      "kind": "IntegerLiteral",
+      "kind": "FloatLiteral",
       "offset": 1871,
-      "length": 3,
-      "value": "120"
+      "length": 5,
+      "value": "120.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ContainerViews\/ButtonContainerView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1958,
+      "offset": 1960,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ContainerViews\/ButtonContainerView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2006,
+      "offset": 2008,
       "length": 5,
       "value": "false"
     },
@@ -45429,42 +43923,42 @@
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "Dictionary",
       "offset": 2316,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "Dictionary",
       "offset": 2379,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "Dictionary",
       "offset": 2448,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "StringLiteral",
       "offset": 2496,
       "length": 25,
       "value": "\"NamiRequestHandlerQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "StringLiteral",
       "offset": 2568,
       "length": 26,
       "value": "\"NamiResponseHandlerQueue\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiCommunicationsManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiCommunicationsManager.swift",
       "kind": "BooleanLiteral",
       "offset": 2669,
       "length": 5,
@@ -45501,70 +43995,70 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "BooleanLiteral",
-      "offset": 3352,
+      "offset": 3665,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "BooleanLiteral",
-      "offset": 3719,
+      "offset": 4032,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "IntegerLiteral",
-      "offset": 3771,
+      "offset": 4084,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "IntegerLiteral",
-      "offset": 3862,
+      "offset": 4175,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "IntegerLiteral",
-      "offset": 3868,
+      "offset": 4181,
       "length": 2,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "BooleanLiteral",
-      "offset": 4020,
+      "offset": 4333,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "IntegerLiteral",
-      "offset": 4097,
+      "offset": 4410,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "BooleanLiteral",
-      "offset": 4130,
+      "offset": 4443,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "StringLiteral",
-      "offset": 4378,
+      "offset": 4691,
       "length": 6,
       "value": "\"TMP-\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "StringLiteral",
-      "offset": 10362,
+      "offset": 10675,
       "length": 65,
       "value": "\"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-\""
     },
@@ -46801,142 +45295,128 @@
       "value": "\"NamiApple.ContainerComponent\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 316,
-      "length": 5,
-      "value": "240.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
-      "kind": "FloatLiteral",
-      "offset": 379,
-      "length": 3,
-      "value": "2.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2784,
+      "offset": 2562,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2820,
+      "offset": 2598,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2860,
+      "offset": 2638,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2899,
+      "offset": 2677,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2938,
+      "offset": 2716,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2974,
+      "offset": 2752,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 3015,
+      "offset": 2793,
       "length": 1,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2784,
+      "offset": 2562,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2820,
+      "offset": 2598,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2860,
+      "offset": 2638,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2899,
+      "offset": 2677,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2938,
+      "offset": 2716,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 2974,
+      "offset": 2752,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 3015,
+      "offset": 2793,
       "length": 1,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "Array",
-      "offset": 32283,
+      "offset": 32354,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 32314,
+      "offset": 32385,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "Array",
-      "offset": 32363,
+      "offset": 32434,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Public Managers\/NamiPaywallManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiPaywallManager.swift",
       "kind": "Array",
-      "offset": 32460,
+      "offset": 32531,
       "length": 2,
       "value": "[]"
     },
@@ -47172,37 +45652,30 @@
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSessionManager.swift",
-      "kind": "Array",
-      "offset": 421,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSessionManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSessionManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 573,
+      "offset": 433,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSessionManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSessionManager.swift",
       "kind": "Array",
-      "offset": 789,
+      "offset": 649,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSessionManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSessionManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 456,
+      "offset": 316,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiSessionManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiSessionManager.swift",
       "kind": "Array",
-      "offset": 986,
+      "offset": 846,
       "length": 2,
       "value": "[]"
     },
@@ -47211,7 +45684,7 @@
       "kind": "IntegerLiteral",
       "offset": 150,
       "length": 2,
-      "value": "30"
+      "value": "20"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallState.swift",
@@ -47319,58 +45792,58 @@
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
       "offset": 355,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
       "offset": 385,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
       "offset": 414,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "StringLiteral",
       "offset": 467,
       "length": 20,
       "value": "\"com.namiml.profile\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "Dictionary",
-      "offset": 881,
+      "offset": 893,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 909,
+      "offset": 929,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1430,
+      "offset": 1458,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiProfileManager.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiProfileManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 1476,
+      "offset": 1504,
       "length": 5,
       "value": "false"
     },
@@ -47592,30 +46065,30 @@
       "value": "\"NamiApple.NamiPurchaseSuccess\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiPreferences.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiPreferences.swift",
       "kind": "StringLiteral",
       "offset": 146,
       "length": 25,
       "value": "\"app_platform_id_not_set\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiPreferences.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiPreferences.swift",
       "kind": "StringLiteral",
       "offset": 191,
       "length": 24,
       "value": "\"nami_device_id_not_set\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiPreferences.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiPreferences.swift",
       "kind": "StringLiteral",
       "offset": 3161,
       "length": 14,
       "value": "\"namiPostedID\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Internal Managers\/NamiPreferences.swift",
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiPreferences.swift",
       "kind": "BooleanLiteral",
-      "offset": 4540,
+      "offset": 4564,
       "length": 5,
       "value": "false"
     },
@@ -47852,15 +46325,29 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/NamiStoreKitManager.swift",
+      "kind": "StringLiteral",
+      "offset": 228,
+      "length": 26,
+      "value": "\"NamiStoreKitManagerQueue\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/NamiStoreKitManager.swift",
+      "kind": "Array",
+      "offset": 412,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/NamiStoreKitManager.swift",
       "kind": "Dictionary",
-      "offset": 2404,
+      "offset": 5105,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/NamiStoreKitManager.swift",
       "kind": "Dictionary",
-      "offset": 2905,
+      "offset": 5429,
       "length": 3,
       "value": "[]"
     },
@@ -47909,112 +46396,21 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
       "kind": "IntegerLiteral",
-      "offset": 493,
+      "offset": 1057,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
       "kind": "BooleanLiteral",
-      "offset": 3680,
+      "offset": 1142,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
       "kind": "BooleanLiteral",
-      "offset": 3900,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "FloatLiteral",
-      "offset": 4987,
-      "length": 3,
-      "value": "7.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "FloatLiteral",
-      "offset": 5059,
-      "length": 4,
-      "value": "60.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5489,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5661,
-      "length": 1,
-      "value": "7"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6222,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6268,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6457,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "FloatLiteral",
-      "offset": 6549,
-      "length": 4,
-      "value": "60.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "FloatLiteral",
-      "offset": 6709,
-      "length": 4,
-      "value": "60.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7157,
-      "length": 2,
-      "value": "60"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "IntegerLiteral",
-      "offset": 7331,
-      "length": 2,
-      "value": "12"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7795,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiPurchase.swift",
-      "kind": "BooleanLiteral",
-      "offset": 7914,
+      "offset": 1296,
       "length": 5,
       "value": "false"
     },
@@ -48049,168 +46445,168 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2339,
+      "offset": 2302,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2367,
+      "offset": 2330,
       "length": 5,
       "value": "21000"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2439,
+      "offset": 2402,
       "length": 5,
       "value": "21002"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 2533,
       "length": 5,
       "value": "21003"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2637,
+      "offset": 2600,
       "length": 5,
       "value": "21004"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2759,
+      "offset": 2722,
       "length": 5,
       "value": "21005"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2870,
+      "offset": 2833,
       "length": 5,
       "value": "21006"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2989,
+      "offset": 2952,
       "length": 5,
       "value": "21007"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 3161,
+      "offset": 3124,
       "length": 5,
       "value": "21008"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 3309,
+      "offset": 3272,
       "length": 5,
       "value": "99999"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2339,
+      "offset": 2302,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2367,
+      "offset": 2330,
       "length": 5,
       "value": "21000"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2439,
+      "offset": 2402,
       "length": 5,
       "value": "21002"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 2533,
       "length": 5,
       "value": "21003"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2637,
+      "offset": 2600,
       "length": 5,
       "value": "21004"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2759,
+      "offset": 2722,
       "length": 5,
       "value": "21005"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2870,
+      "offset": 2833,
       "length": 5,
       "value": "21006"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 2989,
+      "offset": 2952,
       "length": 5,
       "value": "21007"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 3161,
+      "offset": 3124,
       "length": 5,
       "value": "21008"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 3309,
+      "offset": 3272,
       "length": 5,
       "value": "99999"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "StringLiteral",
-      "offset": 4760,
+      "offset": 4723,
       "length": 18,
       "value": "\"NamiApple.NamiReceiptWrapper\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "StringLiteral",
-      "offset": 12083,
+      "offset": 11844,
       "length": 24,
       "value": "\"yyyy-MM-dd HH:mm:ss VV\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "Dictionary",
-      "offset": 12544,
+      "offset": 12305,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/NamiReceiptWrapper.swift",
       "kind": "StringLiteral",
-      "offset": 11734,
+      "offset": 11495,
       "length": 21,
       "value": "\"NamiApple.NamiReceiptIAPWrapper\""
     }
