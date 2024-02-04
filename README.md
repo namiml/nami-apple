@@ -33,7 +33,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.1.29"
+pod "Nami", "3.0.30"
 ```
 
 Then run the command
