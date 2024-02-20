@@ -40070,6 +40070,27 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/SK2ProductExtension.swift",
+      "kind": "IntegerLiteral",
+      "offset": 18504,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/SK2ProductExtension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 18603,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/SK2ProductExtension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 20030,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Custom\/Assertion.swift",
       "kind": "StringLiteral",
       "offset": 261,
@@ -40261,14 +40282,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextComponent.swift",
       "kind": "Dictionary",
-      "offset": 7045,
+      "offset": 7105,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextComponent.swift",
       "kind": "Dictionary",
-      "offset": 9929,
+      "offset": 9989,
       "length": 3,
       "value": "[]"
     },
@@ -41253,6 +41274,27 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/SK1ProductExtension.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20144,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/SK1ProductExtension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 20627,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit1\/SK1ProductExtension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 22153,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ContainerViews\/CarouselContainerView.swift",
       "kind": "Dictionary",
       "offset": 350,
@@ -41563,28 +41605,35 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/BaseComponent.swift",
       "kind": "Dictionary",
-      "offset": 14021,
+      "offset": 14167,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/BaseComponent.swift",
       "kind": "Dictionary",
-      "offset": 20632,
+      "offset": 20778,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Custom\/NamiSmartValue\/NamiSmartString.swift",
       "kind": "StringLiteral",
-      "offset": 236,
+      "offset": 244,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Custom\/NamiSmartValue\/NamiSmartString.swift",
+      "kind": "StringLiteral",
+      "offset": 273,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Custom\/NamiSmartValue\/NamiSmartString.swift",
       "kind": "Dictionary",
-      "offset": 2556,
+      "offset": 2731,
       "length": 3,
       "value": "[]"
     },
@@ -42032,14 +42081,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ElementViews\/SegmentPickerComponentView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3814,
+      "offset": 3840,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/ComponentViews\/ElementViews\/SegmentPickerComponentView.swift",
       "kind": "IntegerLiteral",
-      "offset": 3869,
+      "offset": 3895,
       "length": 1,
       "value": "0"
     },
@@ -42753,42 +42802,42 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "Array",
-      "offset": 1965,
+      "offset": 1988,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "FloatLiteral",
-      "offset": 2061,
+      "offset": 2084,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "FloatLiteral",
-      "offset": 2113,
+      "offset": 2136,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "Array",
-      "offset": 2156,
+      "offset": 2179,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "Dictionary",
-      "offset": 6395,
+      "offset": 6439,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/TextListComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1862,
+      "offset": 1885,
       "length": 17,
       "value": "\"NamiApple.TextListComponent\""
     },
@@ -43075,14 +43124,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CollapseContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 3077,
+      "offset": 3137,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CollapseContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 3770,
+      "offset": 3830,
       "length": 3,
       "value": "[]"
     },
@@ -44391,14 +44440,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ProductContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 4292,
+      "offset": 4352,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ProductContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 5056,
+      "offset": 5116,
       "length": 3,
       "value": "[]"
     },
@@ -44492,6 +44541,13 @@
       "offset": 308,
       "length": 7,
       "value": "\"NamiApple.NamiSKU\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Observer.swift",
+      "kind": "Dictionary",
+      "offset": 6465,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/SK2LocalizeUtils.swift",
@@ -44622,7 +44678,7 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 24179,
+      "offset": 24669,
       "length": 3,
       "value": "[]"
     },
@@ -44790,14 +44846,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ImageComponent.swift",
       "kind": "Dictionary",
-      "offset": 2914,
+      "offset": 2974,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ImageComponent.swift",
       "kind": "Dictionary",
-      "offset": 3897,
+      "offset": 3957,
       "length": 3,
       "value": "[]"
     },
@@ -44986,7 +45042,7 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "Array",
-      "offset": 16010,
+      "offset": 16353,
       "length": 2,
       "value": "[]"
     },
@@ -45112,7 +45168,7 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallState.swift",
       "kind": "BooleanLiteral",
-      "offset": 2681,
+      "offset": 2733,
       "length": 5,
       "value": "false"
     },
@@ -45286,71 +45342,85 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
+      "kind": "StringLiteral",
+      "offset": 560,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
+      "kind": "StringLiteral",
+      "offset": 617,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "Array",
-      "offset": 696,
+      "offset": 692,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "Array",
-      "offset": 762,
+      "offset": 758,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "IntegerLiteral",
-      "offset": 826,
+      "offset": 822,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "IntegerLiteral",
-      "offset": 885,
+      "offset": 881,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "IntegerLiteral",
-      "offset": 946,
+      "offset": 942,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "IntegerLiteral",
-      "offset": 1001,
+      "offset": 997,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "BooleanLiteral",
-      "offset": 1057,
+      "offset": 1053,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 6560,
+      "offset": 7112,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 8311,
+      "offset": 8845,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/CarouselContainerComponent.swift",
       "kind": "Dictionary",
-      "offset": 8680,
+      "offset": 9851,
       "length": 3,
       "value": "[]"
     },
@@ -45630,14 +45700,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/SegmentPickerItemComponent.swift",
       "kind": "Dictionary",
-      "offset": 7902,
+      "offset": 7962,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/SegmentPickerItemComponent.swift",
       "kind": "Dictionary",
-      "offset": 11701,
+      "offset": 11761,
       "length": 3,
       "value": "[]"
     },
@@ -45798,14 +45868,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ButtonComponent.swift",
       "kind": "Dictionary",
-      "offset": 3482,
+      "offset": 3542,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/Components\/ButtonComponent.swift",
       "kind": "Dictionary",
-      "offset": 4200,
+      "offset": 4260,
       "length": 3,
       "value": "[]"
     },
