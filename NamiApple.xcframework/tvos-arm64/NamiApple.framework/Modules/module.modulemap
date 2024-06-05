@@ -1,7 +1,7 @@
 framework module NamiApple {
   umbrella header "NamiApple.h"
-
   export *
+
   module * { export * }
 }
 

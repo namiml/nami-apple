@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NamiApple-Swift.h</key>
 		<data>
-		3yqWbxFdQfvJYIb/mU4IE2se278=
+		vKRSLLplvouvrriihd+Y4GzE9Ms=
 		</data>
 		<key>Headers/NamiApple.h</key>
 		<data>
@@ -14,51 +14,51 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		y09OzndAEGi8DYYWn8aRY8fMs0w=
+		hdkxC/CLolATC6IhIbq5vtRW5QM=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		pmhaJ+TbEe8LwqGcDAByR1A2Peg=
+		pRP7eKx4d4Eo/RI+IflCn1TI1hY=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		SjqrcxLYCJCkKPQ5IC+YaeKhRQk=
+		imAU6UysXCG8vL2yKBml/YGJxbw=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1c4iqccffMsTQZJeln6gEYddTJw=
+		y9XPCTv0VhSSadfn7GkAIpiDokE=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		SjqrcxLYCJCkKPQ5IC+YaeKhRQk=
+		imAU6UysXCG8vL2yKBml/YGJxbw=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		eOzSdXPQwC6O9vO/bF4jU9yhhv0=
+		z+wDkgj+x8KdslvpOize/4orwPk=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		pmhaJ+TbEe8LwqGcDAByR1A2Peg=
+		pRP7eKx4d4Eo/RI+IflCn1TI1hY=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		65GWmcAwc8tu212sp2Xfhckd8Qk=
+		3kNiinQ5kqFYmWtZ5wne68JNjlQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		jqVBUPgZNSSKEzH/nuGKslO9iFY=
+		4qhvw8y5ikFUNLH4gpdOBlvaau8=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		65GWmcAwc8tu212sp2Xfhckd8Qk=
+		3kNiinQ5kqFYmWtZ5wne68JNjlQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		3cpCu8t9pYYBsuJq8To6H5Bzlh4=
+		Wmq4z75wunJIfMgY250nqsRE65U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		a/fWL3c2Ohty0OT93G46UCtG65o=
+		wzIgBO5pwDJgY58Y/LS6GjhOCDE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			io7lFzboVoa1PVPGUo2OdS8Kgh8Xu/e4poO6Hiy4BJs=
+			9IYDx5Zo3xD3MZIMYL3ffMM+dVKwYGbN5GttWt2JPeQ=
 			</data>
 		</dict>
 		<key>Headers/NamiApple.h</key>
@@ -81,77 +81,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EbxKbZcixZ/iKfVGuuMdvnbiiHAfjDj//kRae+on4Fc=
+			VURXpkxbmDt4JcT6wm+aZ3a/QFNn3iAI+XF71Q5u/uY=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2boLHfpTHHzRXzX1ULOAWV0ItmIG/Sv8rKg9fAWL9Og=
+			m/d61og4skjDjxYKhX36lU6kzSO1Sh5f0Nm98rqCTsc=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZzgB1EWFnk7vEXzu534OIHb1vCWOdTVs/JbRHp6J1xs=
+			VN7KQtGsseu9PU+L008RXf/6S0Mb6j74OkOT5WH97EA=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2boLHfpTHHzRXzX1ULOAWV0ItmIG/Sv8rKg9fAWL9Og=
+			m/d61og4skjDjxYKhX36lU6kzSO1Sh5f0Nm98rqCTsc=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			umpt0FFadE8rCKVq5LMabejWHBM4F6wRrdsVR7Rjqpc=
+			Vva6oAbfjCM2g5dhyMwQgZQzy+eWcYefxn9VDJJY98Q=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EbxKbZcixZ/iKfVGuuMdvnbiiHAfjDj//kRae+on4Fc=
+			VURXpkxbmDt4JcT6wm+aZ3a/QFNn3iAI+XF71Q5u/uY=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tT8KdEeDE+ci0ojKQEpe0cP95Lm1Mus8Qax+bw6FApE=
+			sGYj/PFGDtsHzlegDFp6fDJ/ZM1+xR6Tmv5o8QtnD+A=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GQk5uwP6PibvoTdcY67G5SCwxWGz5hW99FEj/T2lrKA=
+			zkccA0yf4DMnwzomRcExckDfnleIT91WFTH24fbAHlE=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tT8KdEeDE+ci0ojKQEpe0cP95Lm1Mus8Qax+bw6FApE=
+			sGYj/PFGDtsHzlegDFp6fDJ/ZM1+xR6Tmv5o8QtnD+A=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			X2BWz8jiOqqKZMfYWQq1O582sQQ79vrBxuH5IXUl2TQ=
+			fj0W49MvwdkgTjZsDV68nefRM9TUpTYVUYS0bucTRfc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vo3jTp2UzBML6VUazTCoihCQ5PGMenmgaJ+0xXdWj64=
+			knHYRGXA39ncDJE/POGcxAsGn034bBuK7RqpIF+V8pQ=
 			</data>
 		</dict>
 	</dict>
