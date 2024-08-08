@@ -280,6 +280,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import StoreKit;
+@import UIKit;
 #endif
 
 #endif
@@ -388,6 +389,15 @@ enum NamiLogLevel : NSInteger;
 @end
 
 @class NSString;
+
+SWIFT_CLASS("_TtC9NamiApple27NamiAppSuppliedVideoDetails")
+@interface NamiAppSuppliedVideoDetails : NSObject
+@property (nonatomic, copy) NSString * _Nonnull url;
+@property (nonatomic, copy) NSString * _Nullable name;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @interface NamiCampaign : NSObject
@@ -1027,15 +1037,25 @@ SWIFT_CLASS("_TtC9NamiApple13NamiMLManager")
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple26NamiPaywallComponentChange")
-@interface NamiPaywallComponentChange : NSObject
+SWIFT_CLASS("_TtC9NamiApple16NamiPaywallEvent")
+@interface NamiPaywallEvent : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple16NamiPaywallEvent")
-@interface NamiPaywallEvent : NSObject
+SWIFT_CLASS("_TtC9NamiApple31NamiPaywallEventComponentChange")
+@interface NamiPaywallEventComponentChange : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9NamiApple29NamiPaywallEventVideoMetadata")
+@interface NamiPaywallEventVideoMetadata : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1053,7 +1073,6 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
-@class NamiPromo;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
@@ -1122,10 +1141,10 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)hide;
 /// Use this to check if a paywall is currently being shown to the end user
 + (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
-/// Receive a signed signature for applying to a promotion. Requires a proper entitlement to use.
-+ (void)getSignedPromoWithSkuId:(NSString * _Nonnull)skuId promoId:(NSString * _Nonnull)promoId completeHandler:(void (^ _Nullable)(NamiPromo * _Nullable))completeHandler;
 /// Used to set product details when StoreKit is unavailable. For advanced use cases only.
 + (void)setProductDetailsWithProductDetails:(NSString * _Nonnull)productDetails;
+/// Used to asynchronously set a video URL for use by the paywall video component. For advanced use cases only.
++ (void)setAppSuppliedVideoDetailsWithUrl:(NSString * _Nonnull)url name:(NSString * _Nullable)name;
 @end
 
 
@@ -1415,6 +1434,13 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
 
 
 
+
+
+@class UIEvent;
+
+@interface UIWindow (SWIFT_EXTENSION(NamiApple))
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent * _Nullable)_;
+@end
 
 #endif
 #if __has_attribute(external_source_symbol)
@@ -1706,6 +1732,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import ObjectiveC;
 @import StoreKit;
+@import UIKit;
 #endif
 
 #endif
@@ -1814,6 +1841,15 @@ enum NamiLogLevel : NSInteger;
 @end
 
 @class NSString;
+
+SWIFT_CLASS("_TtC9NamiApple27NamiAppSuppliedVideoDetails")
+@interface NamiAppSuppliedVideoDetails : NSObject
+@property (nonatomic, copy) NSString * _Nonnull url;
+@property (nonatomic, copy) NSString * _Nullable name;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 @interface NamiCampaign : NSObject
@@ -2453,15 +2489,25 @@ SWIFT_CLASS("_TtC9NamiApple13NamiMLManager")
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple26NamiPaywallComponentChange")
-@interface NamiPaywallComponentChange : NSObject
+SWIFT_CLASS("_TtC9NamiApple16NamiPaywallEvent")
+@interface NamiPaywallEvent : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
-SWIFT_CLASS("_TtC9NamiApple16NamiPaywallEvent")
-@interface NamiPaywallEvent : NSObject
+SWIFT_CLASS("_TtC9NamiApple31NamiPaywallEventComponentChange")
+@interface NamiPaywallEventComponentChange : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC9NamiApple29NamiPaywallEventVideoMetadata")
+@interface NamiPaywallEventVideoMetadata : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2479,7 +2525,6 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
-@class NamiPromo;
 
 @interface NamiPaywallManager (SWIFT_EXTENSION(NamiApple))
 /// Provides Nami a callback to activate addiitonal UI required for the user to attempt to log in.  This is called when a paywall is raised that has a “sign in” button the user taps.
@@ -2548,10 +2593,10 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)hide;
 /// Use this to check if a paywall is currently being shown to the end user
 + (BOOL)isPaywallOpen SWIFT_WARN_UNUSED_RESULT;
-/// Receive a signed signature for applying to a promotion. Requires a proper entitlement to use.
-+ (void)getSignedPromoWithSkuId:(NSString * _Nonnull)skuId promoId:(NSString * _Nonnull)promoId completeHandler:(void (^ _Nullable)(NamiPromo * _Nullable))completeHandler;
 /// Used to set product details when StoreKit is unavailable. For advanced use cases only.
 + (void)setProductDetailsWithProductDetails:(NSString * _Nonnull)productDetails;
+/// Used to asynchronously set a video URL for use by the paywall video component. For advanced use cases only.
++ (void)setAppSuppliedVideoDetailsWithUrl:(NSString * _Nonnull)url name:(NSString * _Nullable)name;
 @end
 
 
@@ -2841,6 +2886,13 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
 
 
 
+
+
+@class UIEvent;
+
+@interface UIWindow (SWIFT_EXTENSION(NamiApple))
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent * _Nullable)_;
+@end
 
 #endif
 #if __has_attribute(external_source_symbol)

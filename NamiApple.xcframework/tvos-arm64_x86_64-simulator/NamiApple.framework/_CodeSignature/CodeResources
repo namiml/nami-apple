@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NamiApple-Swift.h</key>
 		<data>
-		vKRSLLplvouvrriihd+Y4GzE9Ms=
+		DT2hyAtihRYOrpDMtQh5GriPTLg=
 		</data>
 		<key>Headers/NamiApple.h</key>
 		<data>
@@ -14,47 +14,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7ZdgORXYwlr3fvEA4QxN4yufjqc=
+		9KoEgA1qcZ7Nw0oOJTCTNwuS/TY=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		SR1BSt3EyVDfRaGOmIZDrUPimYo=
+		WuKhw28ip8G6poQbPXF0EUt/yKM=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		jzhy1YaWrkYNxJ8U/kv5WGWMOnk=
+		yuWF/BSce9/UFzs/nog2ykMDUPQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		i6TgjJbl7fDBysT7exPy5ktu53g=
+		euQ/SeTI9v7N4SgBgBM+eq7vkvo=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		jzhy1YaWrkYNxJ8U/kv5WGWMOnk=
+		yuWF/BSce9/UFzs/nog2ykMDUPQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		gMA68ikrjZMIEhuy2ZXkiUiLi8k=
+		YxJ3cbJpcJLrGku0SxC1KWn3LO0=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		SR1BSt3EyVDfRaGOmIZDrUPimYo=
+		WuKhw28ip8G6poQbPXF0EUt/yKM=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
-		IERApKIBpOfQSso1PSRbb8dsAeM=
+		kuBaoSwIp8gGmq9GBxCO0ZT4+Js=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		lgyvBSTYlVMgd3X/xYe0zySv/4o=
+		uldAb3P/Sh1tw93QjC5qt9dRh4g=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<data>
-		IERApKIBpOfQSso1PSRbb8dsAeM=
+		kuBaoSwIp8gGmq9GBxCO0ZT4+Js=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		X3rRqIWcjwuHkHsc5usHYKYoJyc=
+		DF/Wh+KSKQhrOpOemkH05YwY3IM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9IYDx5Zo3xD3MZIMYL3ffMM+dVKwYGbN5GttWt2JPeQ=
+			UT3mxChSVqVlPotZMypkdq7VP25NdFGVMr8pVeqC1cI=
 			</data>
 		</dict>
 		<key>Headers/NamiApple.h</key>
@@ -81,70 +81,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8AjACbG75DSmtk2tZx4MamkjaTSSuH1Fc2GGOFcRegE=
+			+r8VcnQawIFKU0o6ZLOHeO3b8iHZ6/smmFdnaN0Gsik=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MrIiLijDdyrIgVvEEKrUYL60p0k892LCwZ2hCFssMZ8=
+			6lGis51GsXDXpFc627f2XcuBudkbH2Rnc5d/hgUiBfs=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/WcQjq+98ztbySf5pGpzKv+kIfu6ExGXK4J9DaZLO+I=
+			gYXgY/NnEhehCINl+bN3QCVwvNqWKKlpIQ+DZZdxniU=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MrIiLijDdyrIgVvEEKrUYL60p0k892LCwZ2hCFssMZ8=
+			6lGis51GsXDXpFc627f2XcuBudkbH2Rnc5d/hgUiBfs=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PYfO3CqYoTuwuO5RT2wL3y/4YiLRqWWeH9xTNVwyBYk=
+			EGkZkAi6g4v+2vDHzzdgeXwLcgT9m94mxkqMCY0bjoc=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8AjACbG75DSmtk2tZx4MamkjaTSSuH1Fc2GGOFcRegE=
+			+r8VcnQawIFKU0o6ZLOHeO3b8iHZ6/smmFdnaN0Gsik=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RP4Bgp2FRXfUEKDWwRtHAPZiHuZn5v0ciG7qq+cDoM4=
+			wvwHMRNnz6SslKOPHggewjvLMowb2B8rKOA7CAEY5U8=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			heiCS4bfDUyH1zzMEOj5T+EesVnuOTB7dAOYpkRxrmg=
+			8RGUmM5Asj/CVV5DRusimWACiI9wSjENFgFDVLiAlZg=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RP4Bgp2FRXfUEKDWwRtHAPZiHuZn5v0ciG7qq+cDoM4=
+			wvwHMRNnz6SslKOPHggewjvLMowb2B8rKOA7CAEY5U8=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VCMIEIL8BwjWtCE7HonquLa/Z5mTAdnesHOCVtOYmns=
+			P27y565vA6MAXTv5Xky1fjhukOFzyAJsHPbp+0ELR4U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
