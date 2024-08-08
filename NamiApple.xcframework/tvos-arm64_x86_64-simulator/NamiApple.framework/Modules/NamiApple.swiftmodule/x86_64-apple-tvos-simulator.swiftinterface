@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target x86_64-apple-tvos15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
 // swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVKit
 import Combine
 import CoreGraphics
 import CoreML
@@ -25,6 +26,9 @@ import os
   public static var shared: NamiApple.NamiSignalManager
   public func paywallRaisedImpression()
   @objc deinit
+}
+extension UIKit.UIWindow {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func motionEnded(_ motion: UIKit.UIEvent.EventSubtype, with _: UIKit.UIEvent?)
 }
 extension Swift.Encodable where Self : UIKit.UIColor {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -54,9 +58,13 @@ public enum PaywallType : Swift.String, Swift.Codable {
     get
   }
 }
-@objc public class PaywallLaunchContext : ObjectiveC.NSObject {
-  public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none)
+@objc public class PaywallLaunchContext : ObjectiveC.NSObject, Swift.Codable {
+  public var productGroups: [Swift.String]?
+  public var customAttributes: [Swift.String : Any]
+  public var customObject: [Swift.String : Any]
+  public init(productGroups: [Swift.String]? = .none, customAttributes: [Swift.String : Any]? = .none, customObject: [Swift.String : Any]? = .none)
   required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to _: any Swift.Encoder) throws
   @objc deinit
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -342,6 +350,22 @@ public typealias NamiEntitlementsResponseHandler = (_ activeEntitlements: [NamiA
   @objc public func register(activeEntitlementsHandler: NamiApple.NamiEntitlementsResponseHandler?)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc public class NamiPaywallEventVideoMetadata : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var url: Swift.String?
+  public var loopVideo: Swift.Bool
+  public var muteByDefault: Swift.Bool
+  public var autoplayVideo: Swift.Bool
+  public var contentTimecode: Swift.Double?
+  public var contentDuration: Swift.Double?
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
 public typealias StoreKitProductsRequestCompletionHandler = (_ success: Swift.Bool, _ products: [StoreKit.SKProduct]?, _ invalidProductIDs: [NamiApple.StoreId]?, _ error: (any Swift.Error)?) -> Swift.Void
 extension Foundation.NSNotification.Name {
   public static let NamiStoreKitHelperPurchaseNotification: Foundation.Notification.Name
@@ -454,6 +478,24 @@ extension NamiApple.NamiPurchaseSource : Swift.Codable {
 }
 public typealias NamiLoginLogoutCompleteHandler = (_ success: Swift.Bool, _ error: (any Swift.Error)?) -> Swift.Void
 public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceiptWrapper?) -> Swift.Void
+@objc public class NamiAppSuppliedVideoDetails : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var url: Swift.String
+  @objc public var name: Swift.String?
+  required public init(from _: any Swift.Decoder) throws
+  public func encode(to _: any Swift.Encoder) throws
+  public init(url: Swift.String, name: Swift.String?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class NamiPaywallEventComponentChange : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
 public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swift.Hashable, Content : SwiftUI.View {
   public let sources: [Data]
   @SwiftUI.Binding @_projectedValueProperty($selection) public var selection: Data? {
@@ -690,6 +732,15 @@ extension Swift.KeyedDecodingContainer {
 extension Swift.String {
   public func sanitizedForFilename() -> Swift.String?
 }
+public enum NamiCampaignConversionEventType : Swift.String, Swift.Codable {
+  case deeplink
+  case in_app
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 public typealias NamiLanguageCode = Swift.String
 @_inheritsConvenienceInitializers @objc public class NamiLanguageCodes : ObjectiveC.NSObject {
   @objc public static func namiLanguageCode(fromLocale locale: Foundation.Locale) -> NamiApple.NamiLanguageCode
@@ -837,8 +888,8 @@ public typealias NamiUUID = Swift.String
   @objc public static func isHidden() -> Swift.Bool
   @objc public static func hide()
   @objc public static func isPaywallOpen() -> Swift.Bool
-  @objc public static func getSignedPromo(skuId: Swift.String, promoId: Swift.String, completeHandler: NamiApple.NamiPaywallPromoHandler? = nil)
   @objc public static func setProductDetails(productDetails: Swift.String)
+  @objc public static func setAppSuppliedVideoDetails(url: Swift.String, name: Swift.String?)
 }
 @available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
 extension NamiApple.NamiPaywallManager {
@@ -851,15 +902,9 @@ extension NamiApple.NamiPaywallManager {
   @objc dynamic public func namiInfoDict() -> [Swift.String : Any]
   @objc dynamic public func namiInfoDict(withPurchaseSource _: NamiApple.NamiPurchaseSource) -> [Swift.String : Any]
 }
-@_hasMissingDesignatedInitializers @objc public class NamiPaywallComponentChange : ObjectiveC.NSObject, Swift.Codable {
-  public var id: Swift.String?
-  public var name: Swift.String?
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
-}
 @_hasMissingDesignatedInitializers @objc public class NamiPaywallEvent : ObjectiveC.NSObject, Swift.Codable {
   public var action: NamiApple.NamiPaywallAction
+  public var eventTime: Foundation.Date?
   public var campaignId: Swift.String?
   public var campaignName: Swift.String?
   public var campaignType: NamiApple.NamiCampaignType
@@ -867,7 +912,7 @@ extension NamiApple.NamiPaywallManager {
   public var campaignUrl: Swift.String?
   public var paywallId: Swift.String?
   public var paywallName: Swift.String?
-  public var componentChange: NamiApple.NamiPaywallComponentChange?
+  public var componentChange: NamiApple.NamiPaywallEventComponentChange?
   public var segmentId: Swift.String?
   public var externalSegmentId: Swift.String?
   public var paywallLaunchContext: NamiApple.PaywallLaunchContext?
@@ -875,8 +920,13 @@ extension NamiApple.NamiPaywallManager {
   public var sku: NamiApple.NamiSKU?
   public var purchaseError: (any Swift.Error)?
   public var purchases: [NamiApple.NamiPurchase]
+  public var videoMetadata: NamiApple.NamiPaywallEventVideoMetadata?
+  public var timeSpentOnPaywall: Swift.Double?
   required public init(from decoder: any Swift.Decoder) throws
   public func encode(to _: any Swift.Encoder) throws
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc deinit
 }
 @objc public enum NamiLogLevel : Swift.Int, Swift.Codable, Swift.Equatable {
@@ -923,6 +973,13 @@ public enum NamiPaywallAction : Swift.String, Swift.Codable {
   case nami_reload_products
   case nami_collapsible_drawer_open
   case nami_collapsible_drawer_close
+  case video_play
+  case video_pause
+  case video_resume
+  case video_end
+  case video_change
+  case video_mute
+  case video_unmute
   case unknown
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
@@ -1142,6 +1199,9 @@ extension NamiApple.HorizontalSwipeDirection : Swift.Hashable {}
 extension NamiApple.VerticalSwipeDirection : Swift.Equatable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.VerticalSwipeDirection : Swift.Hashable {}
+extension NamiApple.NamiCampaignConversionEventType : Swift.Equatable {}
+extension NamiApple.NamiCampaignConversionEventType : Swift.Hashable {}
+extension NamiApple.NamiCampaignConversionEventType : Swift.RawRepresentable {}
 extension NamiApple.NamiLogLevel : Swift.Hashable {}
 extension NamiApple.NamiLogLevel : Swift.RawRepresentable {}
 extension NamiApple.NamiPaywallAction : Swift.Equatable {}
