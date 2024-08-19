@@ -6,7 +6,7 @@
 
 Nami ML gives you everything you need to power your paywall, streamline subscription management, and drive revenue growth through instantly deployable paywalls, precise targeting and segmentation, and enterprise-grade security and scaleability.
 
-Go beyond basic Google Play Billing infrastructure and focus on results with:
+Go beyond basic StoreKit IAP infrastructure and focus on results with:
 
 * Library of smart paywall templates to choose from, implemented natively using Jetpack Compose
 * No-code paywall creator so you can launch a new paywall design instantly, without submitting an app update
