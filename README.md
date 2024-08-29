@@ -4,18 +4,17 @@
 
 ## What is Nami?
 
-Nami ML gives you everything you need to power your paywall, streamline subscription management, and drive revenue growth through instantly deployable paywalls, precise targeting and segmentation, and enterprise-grade security and scaleability.
+Nami is on a mission to help you grow your app business using IAPs and subscriptions.
+Go beyond basic StoreKit infrastructure and focus on results with:
 
-Go beyond basic StoreKit IAP infrastructure and focus on results with:
-
-* Library of smart paywall templates to choose from, implemented natively using Jetpack Compose
-* No-code paywall creator so you can launch a new paywall design instantly, without submitting an app update
+* Growing library of smart paywall templates to choose from, implemented natively using UIKit and SwiftUI
+* Paywall CMS so you can make change instantly, without submitting an app update
 * Experimentation engine to run paywall A/B tests so you can improve your conversion rates
 * Built-in IAP & subscription management and analytics, so you don't need another solution
 
 Nami is simple adopt while giving you the tools you need to improve revenue. Our free tier is generous, and gives you everything you need to get started. [Sign up for a free account](https://app.namiml.com/join/)
 
-Get started by heading over to our [quick start guide](https://learn.namiml.com/public-docs/get-started/quickstart-guide)
+Get started by heading over to our [quick start guide](https://docs.namiml.com/docs/nami-quickstart-guide)
 
 ## Getting the Nami Framework
 
@@ -34,7 +33,7 @@ Get started by heading over to our [quick start guide](https://learn.namiml.com/
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.2.2"
+pod "Nami", "3.2.3"
 ```
 
 Then run the command
