@@ -8,7 +8,8 @@ Nami is on a mission to help you grow your app business using IAPs and subscript
 Go beyond basic StoreKit infrastructure and focus on results with:
 
 * Growing library of smart paywall templates to choose from, implemented natively using UIKit and SwiftUI
-* Paywall CMS so you can make change instantly, without submitting an app update
+* No-code paywall builder so you can design your own native paywall from your browsre
+* Web-based CMS so you can make paywall changes instantly, without submitting an app update
 * Experimentation engine to run paywall A/B tests so you can improve your conversion rates
 * Built-in IAP & subscription management and analytics, so you don't need another solution
 
@@ -33,7 +34,7 @@ Get started by heading over to our [quick start guide](https://docs.namiml.com/d
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.2.3"
+pod "Nami", "3.2.4"
 ```
 
 Then run the command
