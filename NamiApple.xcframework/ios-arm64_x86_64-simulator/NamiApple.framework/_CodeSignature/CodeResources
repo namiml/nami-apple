@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VersOGZjEMxc31AwyemJ+k9ADlg=
+		H58QT4puUV5Br0uK5x+40H+S24I=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		loOXTTitXakvk27yrX3t7vD74pI=
+		wewD93wwlnFyrLjW9Xb3IVbIZuQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		loOXTTitXakvk27yrX3t7vD74pI=
+		wewD93wwlnFyrLjW9Xb3IVbIZuQ=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -81,7 +81,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h3Ra4DDlDyLCDs/+C9rQwRWLJu+PQyRRoygRyAUoR8c=
+			PHzhX4pyqi5KYpv1hbccjbEYeeae3Co/5rXRaZfizFM=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -116,7 +116,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			h3Ra4DDlDyLCDs/+C9rQwRWLJu+PQyRRoygRyAUoR8c=
+			PHzhX4pyqi5KYpv1hbccjbEYeeae3Co/5rXRaZfizFM=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
