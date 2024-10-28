@@ -15,7 +15,7 @@ Go beyond basic StoreKit infrastructure and focus on results with:
 
 Nami is simple adopt while giving you the tools you need to improve revenue. Our free tier is generous, and gives you everything you need to get started. [Sign up for a free account](https://app.namiml.com/join/)
 
-Get started by heading over to our [quick start guide](https://learn.namiml.com/public-docs/get-started/quickstart-guide)
+Get started by heading over to our [quick start guide](https://docs.namiml.com/docs/nami-quickstart-guide)
 
 ## Getting the Nami Framework
 
@@ -34,7 +34,7 @@ Get started by heading over to our [quick start guide](https://learn.namiml.com/
 Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
 
 ```
-pod "Nami", "3.2.6"
+pod "Nami", "3.2.7"
 ```
 
 Then run the command
@@ -77,5 +77,5 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 - [Early Access](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Early-Access-Releases)
 
 ### Documentation
-- [Getting Started](https://learn.namiml.com/public-docs/get-started/quickstart-guide)
-- [SDK Reference](https://learn.namiml.com/public-docs/sdk-reference)
+- [Getting Started](https://docs.namiml.com/docs/nami-quickstart-guide)
+- [SDK Reference](https://docs.namiml.com/reference/)
