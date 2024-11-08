@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uO3pooH/98ji395mq/Ac/x1BPt0=
+		Tk0bWFV83CNYYl486aa5Dke7jZw=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.abi.json</key>
 		<data>
-		R06R0WLJ2yDX2/XZMh383pmszFc=
+		xrCNyIIFQ/N205q5x1sg13LKxJc=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		RuRIdV6Hiqntl8Fa8hPMmD5tyzE=
+		VQzUeMXHkUg7/KDbEfj7EUVp0N8=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<data>
-		R06R0WLJ2yDX2/XZMh383pmszFc=
+		xrCNyIIFQ/N205q5x1sg13LKxJc=
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		UyH7Vrxg5hxhv+O0drazopuhM8s=
+		zjRRDFglJfp2FiVVGIx8B5JY2Dw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -81,7 +81,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7P7CWAgheP8orRHga5OcxXuOoQG4zHFmrRju9zPVLvQ=
+			vBkIRyUMFlYUKRHKMwBZcLKYLR19qdSm7ertlm7oR3Q=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/arm64-apple-tvos-simulator.private.swiftinterface</key>
@@ -109,14 +109,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jkfte5zUKGB3iCd8cgtCE1CIMCKYvuVIVsBpXDMFHm8=
+			Is0iZKN+iFtSUmfCCIJAf39j6roGhHDbPez1MK0BRis=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7P7CWAgheP8orRHga5OcxXuOoQG4zHFmrRju9zPVLvQ=
+			vBkIRyUMFlYUKRHKMwBZcLKYLR19qdSm7ertlm7oR3Q=
 			</data>
 		</dict>
 		<key>Modules/NamiApple.swiftmodule/x86_64-apple-tvos-simulator.private.swiftinterface</key>
@@ -144,7 +144,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IYzuVwEYslpXObZ1KEW760APffezMowdee261Qwba6A=
+			xtq1I0Fbdv+U2zN9XGOyo1NlsCy8JP1LIobC/bP8qQc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
