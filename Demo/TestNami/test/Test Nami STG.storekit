@@ -1,4 +1,14 @@
 {
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
   "identifier" : "58E4DBF5",
   "nonRenewingSubscriptions" : [
 
@@ -9,7 +19,57 @@
   "settings" : {
     "_applicationInternalID" : "6444032561",
     "_developerTeamID" : "K6APTMK8Y8",
-    "_lastSynchronizedDate" : 696971116.31861901
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 696971116.31861901,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
   },
   "subscriptionGroups" : [
     {
@@ -47,7 +107,10 @@
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Plus Annual STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -72,7 +135,10 @@
           "recurringSubscriptionPeriod" : "P6M",
           "referenceName" : "Plus Bi-Annual STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -102,7 +168,10 @@
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Plus Monthly STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -135,7 +204,10 @@
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "VIP Annual STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -161,7 +233,10 @@
           "recurringSubscriptionPeriod" : "P6M",
           "referenceName" : "VIP Bi-Annual STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -182,13 +257,16 @@
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "VIP Monthly STG",
           "subscriptionGroupID" : "21037742",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         }
       ]
     }
   ],
   "version" : {
-    "major" : 2,
+    "major" : 4,
     "minor" : 0
   }
 }
