@@ -27,7 +27,8 @@ class NamiDataSource: ObservableObject {
     init() {
         if #available(iOS 15.0, tvOS 15.0, *) {
             NamiPaywallManager.registerBuySkuHandler { _ in
-                print("For customers implementing Nami paywalls with their own billing code or third-party such as RevenueCat")
+                // Subscription Studio customers implement this handler. If you are on Subscription Studio+, this is not necessary.
+                print("For customers implementing Nami paywalls with their own billing code or third-party such as RevenueCat.")
             }
         }
 
@@ -48,12 +49,13 @@ class NamiDataSource: ObservableObject {
 //        }
 
         // This handler is called whenever customer journey state is received from the Nami service
+        // For Subscription Studio+ customers using Nami's purchase engine
         NamiCustomerManager.registerJourneyStateHandler { journeyState in
-
             self.journeyState = journeyState
         }
 
         // This handler is called whenever the latest active entilements state is received from the Nami service
+        // For Subscription Studio+ customers using Nami's purchase engine
         NamiEntitlementManager.registerActiveEntitlementsHandler { (activeEntitlements: [NamiEntitlement]) in
             self.activeEntitlements = activeEntitlements
         }
@@ -130,16 +132,18 @@ class NamiDataSource: ObservableObject {
         }
 
         NamiPaywallManager.registerRestoreHandler {
+            // For Subscription Studio customers not using Nami's purchase engine
             print("registerRestoreRequestHandler from paywalls only plans \n")
         }
 
         NamiPurchaseManager.registerPurchasesChangedHandler { purchases, purchaseState, _ in
+            // For Subscription Studio+ customers using Nami's purchase engine
             print("purchasesChangesHandler \(purchaseState)\n")
             for purchase in purchases {
                 print("purchased sku_ref_id: \(purchase.skuId)\n")
                 print("purchased transaction id: \(String(describing: purchase.transactionIdentifier))\n")
 
-                if let originalTransactionID = purchase.transaction?.original?.transactionIdentifier {
+                if let originalTransactionID = purchase.originalTransactionId {
                     print("purchased original transaction id: \(originalTransactionID)\n")
                 }
             }
