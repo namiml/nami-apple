@@ -484,6 +484,7 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
++ (void)launchURLWithUrl:(NSURL * _Nonnull)url paywallContext:(PaywallLaunchContext * _Nonnull)paywallContext campaign:(NamiCampaign * _Nullable)campaign viewController:(UIViewController * _Nullable)viewController launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
 /// Provide the list of product groups supported by the provided placement label
 /// \param label Campaign placement label defined in Nami Control Center for launching a specific campaign.
 ///
@@ -1019,7 +1020,7 @@ SWIFT_CLASS("_TtC9NamiApple13NamiMLManager")
 ///
 + (void)enterCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
 /// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.
-/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://docs.namiml.com for best practices.
+/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://learn.namiml.com for best practices.
 ///
 + (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
 /// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContentPath(labels:) call.
@@ -1936,6 +1937,7 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 /// \param paywallActionHandler Handler to be invoked when a paywall action occurs during this launch.
 ///
 + (void)launchWithUrl:(NSURL * _Nonnull)url viewController:(UIViewController * _Nullable)viewController context:(PaywallLaunchContext * _Nullable)context launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
++ (void)launchURLWithUrl:(NSURL * _Nonnull)url paywallContext:(PaywallLaunchContext * _Nonnull)paywallContext campaign:(NamiCampaign * _Nullable)campaign viewController:(UIViewController * _Nullable)viewController launchHandler:(void (^ _Nullable)(BOOL, NSError * _Nullable))launchHandler paywallActionHandler:(void (^ _Nullable)(NamiPaywallEvent * _Nonnull))paywallActionHandler;
 /// Provide the list of product groups supported by the provided placement label
 /// \param label Campaign placement label defined in Nami Control Center for launching a specific campaign.
 ///
@@ -2471,7 +2473,7 @@ SWIFT_CLASS("_TtC9NamiApple13NamiMLManager")
 ///
 + (void)enterCoreContentWithLabels:(NSArray<NSString *> * _Nonnull)labels;
 /// Labeling method to help train the machine learning.  Use to identify important consumption patterns in your app that you believe drive customer loyalty.  Must be paired with a matching exitCoreContent call with the same label.
-/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://docs.namiml.com for best practices.
+/// \param label Keyword describing the portion of the app entered.  Machine learning will work best when using somewhat generic labels like “video” or “sports” rather than being very specific like “video_basketball_michael_jordan_dunk”.  Consult https://learn.namiml.com for best practices.
 ///
 + (void)enterCoreContentWithLabel:(NSString * _Nonnull)label;
 /// Labeling method for training machine learning.  Called whenver the user exits a key part of your application.  Labels passed in should match labels passed into a corresponding enterCoreContentPath(labels:) call.
