@@ -22991,6 +22991,145 @@
           },
           {
             "kind": "Function",
+            "name": "launchURLWith",
+            "printedName": "launchURLWith(url:paywallContext:campaign:viewController:launchHandler:paywallActionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "URL",
+                "printedName": "Foundation.URL",
+                "usr": "s:10Foundation3URLV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PaywallLaunchContext",
+                "printedName": "NamiApple.PaywallLaunchContext",
+                "usr": "c:@M@NamiApple@objc(cs)PaywallLaunchContext"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "NamiApple.NamiCampaign?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NamiCampaign",
+                    "printedName": "NamiApple.NamiCampaign",
+                    "usr": "c:@M@NamiApple@objc(cs)NamiCampaign"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, Swift.Error?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, Swift.Error?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.Error?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((NamiApple.NamiPaywallEvent) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(NamiApple.NamiPaywallEvent) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NamiPaywallEvent",
+                        "printedName": "NamiApple.NamiPaywallEvent",
+                        "usr": "c:@M@NamiApple@objc(cs)NamiPaywallEvent"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@NamiApple@objc(cs)NamiCampaignManager(cm)launchURLWithUrl:paywallContext:campaign:viewController:launchHandler:paywallActionHandler:",
+            "mangledName": "$s9NamiApple0A15CampaignManagerC13launchURLWith3url14paywallContext8campaign14viewController0E7Handler0h6ActionM0y10Foundation3URLV_AA013PaywallLaunchI0CAA0aC0CSgSo06UIViewL0CSgySb_s5Error_pSgtcSgyAA0aQ5EventCcSgtFZ",
+            "moduleName": "NamiApple",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "productGroups",
             "printedName": "productGroups(label:url:)",
             "children": [
@@ -53704,14 +53843,7 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/SwiftUIHostingController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3526,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/SwiftUIHostingController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3707,
+      "offset": 3939,
       "length": 4,
       "value": "true"
     },
@@ -58247,91 +58379,91 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 4848,
+      "offset": 4876,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 4936,
+      "offset": 4964,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 4973,
+      "offset": 5001,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 5147,
+      "offset": 5175,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "IntegerLiteral",
-      "offset": 5397,
+      "offset": 5425,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 5849,
+      "offset": 5877,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 5913,
+      "offset": 5941,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "IntegerLiteral",
-      "offset": 6207,
+      "offset": 6235,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 6577,
+      "offset": 6605,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "FloatLiteral",
-      "offset": 6730,
+      "offset": 6758,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 6744,
+      "offset": 6772,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "BooleanLiteral",
-      "offset": 6801,
+      "offset": 6829,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallStateProductLoad.swift",
       "kind": "IntegerLiteral",
-      "offset": 6886,
+      "offset": 6914,
       "length": 1,
       "value": "1"
     },
@@ -63014,322 +63146,336 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 987,
+      "offset": 1017,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 1055,
+      "offset": 1085,
       "length": 15,
       "value": "\"useStagingAPI\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 1140,
+      "offset": 1170,
       "length": 13,
       "value": "\"namiAPIHost\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 1220,
+      "offset": 1250,
       "length": 15,
       "value": "\"useStagingAPI\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 1305,
+      "offset": 1335,
       "length": 13,
       "value": "\"namiAPIHost\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1398,
+      "offset": 1428,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1497,
+      "offset": 1527,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1624,
+      "offset": 1654,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1667,
+      "offset": 1697,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1711,
+      "offset": 1741,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1753,
+      "offset": 1783,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1807,
+      "offset": 1837,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1858,
+      "offset": 1888,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1907,
+      "offset": 1937,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1949,
+      "offset": 1979,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 1999,
+      "offset": 2029,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2053,
+      "offset": 2083,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2096,
+      "offset": 2126,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 2192,
+      "offset": 2222,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 2241,
+      "offset": 2271,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2283,
+      "offset": 2313,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2329,
+      "offset": 2359,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2381,
+      "offset": 2411,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2600,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2702,
+      "offset": 2460,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2804,
+      "offset": 2679,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 2907,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3006,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3140,
+      "offset": 2781,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3258,
+      "offset": 2883,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3371,
+      "offset": 2986,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3470,
+      "offset": 3085,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3585,
+      "offset": 3219,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3337,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3708,
+      "offset": 3450,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3810,
+      "offset": 3549,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 3915,
+      "offset": 3664,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 4077,
+      "offset": 3787,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "BooleanLiteral",
-      "offset": 4196,
+      "offset": 3889,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3994,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4156,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4275,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4388,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 4345,
+      "offset": 4537,
       "length": 3,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "IntegerLiteral",
-      "offset": 4387,
+      "offset": 4579,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "IntegerLiteral",
-      "offset": 4439,
+      "offset": 4631,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "IntegerLiteral",
-      "offset": 4493,
+      "offset": 4685,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 4780,
+      "offset": 4972,
       "length": 3,
       "value": "\"=\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "IntegerLiteral",
-      "offset": 4822,
+      "offset": 5014,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "StringLiteral",
-      "offset": 5176,
+      "offset": 5368,
       "length": 3,
       "value": "\"=\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/InternalManagers\/NamiFeatureFlag.swift",
       "kind": "IntegerLiteral",
-      "offset": 5218,
+      "offset": 5410,
       "length": 1,
       "value": "2"
     },
@@ -64918,21 +65064,14 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 11007,
+      "offset": 10943,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 11127,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11296,
+      "offset": 11277,
       "length": 5,
       "value": "false"
     },
@@ -64946,399 +65085,413 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 11526,
+      "offset": 11566,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 11683,
+      "offset": 11667,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11796,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
+      "kind": "BooleanLiteral",
+      "offset": 11953,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 11858,
+      "offset": 12128,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 11903,
+      "offset": 12173,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 12102,
+      "offset": 12372,
       "length": 115,
       "value": "\"Nami SDK not configured.  AppPlatform ID not a valid UUID.  Check the Nami Control Center for your AppPlatformID.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 12313,
+      "offset": 12583,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 12529,
+      "offset": 12799,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 12565,
+      "offset": 12835,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 12614,
+      "offset": 12884,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 12651,
+      "offset": 12921,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 13044,
+      "offset": 13314,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 13170,
+      "offset": 13440,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 13335,
+      "offset": 13605,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 13691,
+      "offset": 14081,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 13884,
+      "offset": 14274,
       "length": 416,
       "value": "\"Nami SDK configured, settings are:\nSDKVersion: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 13948,
+      "offset": 14338,
       "length": 1,
       "value": "\"\nappPlatformID: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 13992,
+      "offset": 14382,
       "length": 1,
       "value": "\"\napiHost: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14019,
+      "offset": 14409,
       "length": 1,
       "value": "\"\nnamiLanguageCode: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14069,
+      "offset": 14459,
       "length": 1,
       "value": "\"\nlogLevel: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14133,
+      "offset": 14523,
       "length": 1,
       "value": "\"\nenvironment: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14171,
+      "offset": 14561,
       "length": 1,
       "value": "\"\ncountry: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14213,
+      "offset": 14603,
       "length": 4,
       "value": "\"UU\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14218,
+      "offset": 14608,
       "length": 1,
       "value": "\"\nOS: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14254,
+      "offset": 14644,
       "length": 1,
       "value": "\"\ndeviceID: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14299,
+      "offset": 14689,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14357,
+      "offset": 14747,
       "length": 106,
       "value": "\"Nami SDK extended platform info:\n\tName: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14423,
+      "offset": 14813,
       "length": 1,
       "value": "\"\n\tVersion: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 14462,
+      "offset": 14852,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 14502,
+      "offset": 14892,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 14670,
+      "offset": 15060,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 14868,
+      "offset": 15258,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 14983,
+      "offset": 15373,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15757,
+      "offset": 16147,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16011,
+      "offset": 16401,
       "length": 19,
       "value": "\"NamiAnonymousMode\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16073,
+      "offset": 16463,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16131,
+      "offset": 16521,
       "length": 67,
       "value": "\"Nami SDK is started in anonymous mode due stored user preference.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16526,
+      "offset": 16916,
       "length": 82,
       "value": "\"externalID: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16597,
+      "offset": 16987,
       "length": 9,
       "value": "\"not set\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16607,
+      "offset": 16997,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16812,
+      "offset": 17202,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 16904,
+      "offset": 17294,
       "length": 11,
       "value": "\"NamiAppID\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17018,
+      "offset": 17408,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17045,
+      "offset": 17435,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17089,
+      "offset": 17479,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17190,
+      "offset": 17580,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 17662,
+      "offset": 18052,
       "length": 11,
       "value": "\"NamiAppID\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 17775,
+      "offset": 18165,
       "length": 19,
       "value": "\"NamiServerAppDict\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17847,
+      "offset": 18237,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 18035,
+      "offset": 18425,
       "length": 10,
       "value": "25000000"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 18108,
+      "offset": 18498,
       "length": 13,
       "value": "1000000000"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 18305,
+      "offset": 18695,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 18384,
+      "offset": 18774,
       "length": 21,
       "value": "\"[\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 18402,
+      "offset": 18792,
       "length": 1,
       "value": "\"] \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 18437,
+      "offset": 18827,
       "length": 122,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "StringLiteral",
-      "offset": 18447,
+      "offset": 18837,
       "length": 8,
       "value": "\"Purchase management features are disabled for this app platform. Please contact support@namiml.com for details.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 18597,
+      "offset": 18987,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 18627,
+      "offset": 19017,
       "length": 5,
       "value": "false"
     },
@@ -65547,365 +65700,379 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
+      "kind": "StringLiteral",
+      "offset": 2577,
+      "length": 27,
+      "value": "\"conditional_product_offer\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Dictionary",
-      "offset": 2827,
+      "offset": 2938,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 2885,
+      "offset": 2996,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 3843,
+      "offset": 3954,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 4032,
+      "offset": 4143,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 5861,
+      "offset": 5972,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 6322,
+      "offset": 6433,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 8234,
+      "offset": 8345,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 8694,
+      "offset": 8805,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 8894,
+      "offset": 9005,
       "length": 78,
       "value": "\"namiBuySKU action invoked, handing off to developer for purchase management.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 9085,
+      "offset": 9196,
       "length": 117,
       "value": "\"namiBuySKU action invoked, but no NamiBuySkuHandler is registered to callback to developer for purchase management.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 9287,
+      "offset": 9398,
       "length": 70,
       "value": "\"namiBuySKU action invoked, but component had no associated Nami SKU.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 9787,
+      "offset": 9898,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 10017,
+      "offset": 10128,
       "length": 72,
       "value": "\"namiSelectSKU action invoked, but component had no associated NamiSKU.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
+      "kind": "StringLiteral",
+      "offset": 10571,
+      "length": 27,
+      "value": "\"conditional_product_offer\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 10903,
+      "offset": 11126,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 11092,
+      "offset": 11315,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 12936,
+      "offset": 13159,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 13396,
+      "offset": 13619,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 15197,
+      "offset": 15420,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 15575,
+      "offset": 15798,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 15722,
+      "offset": 15945,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 15922,
+      "offset": 16145,
       "length": 91,
       "value": "\"namiPurchaseSelectedSKU action invoked, handing off to developer for purchase management.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 16126,
+      "offset": 16349,
       "length": 130,
       "value": "\"namiPurchaseSelectedSKU action invoked, but no NamiBuySkuHandler is registered to callback to developer for purchase management.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 16341,
+      "offset": 16564,
       "length": 77,
       "value": "\"namiPurchaseSelectedSKU action invoked, but there was no selected Nami SKU.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 16787,
+      "offset": 17010,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 17430,
+      "offset": 17653,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "BooleanLiteral",
-      "offset": 17621,
+      "offset": 17844,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 17743,
+      "offset": 17966,
       "length": 68,
       "value": "\"Handing off to developer to handle response purchases from paywall\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 17913,
+      "offset": 18136,
       "length": 123,
       "value": "\"Paywall unable to hand off restore action to developer. Please implement NamiPaywallManager.requestRestoreRequestHandler.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 18734,
+      "offset": 18957,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 19373,
+      "offset": 19596,
       "length": 67,
       "value": "\"Nami is handling this paywalls deeplink action. Opening \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 19438,
+      "offset": 19661,
       "length": 1,
       "value": "\".\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 19948,
+      "offset": 20171,
       "length": 16,
       "value": "\"currentGroupId\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 20680,
+      "offset": 20903,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 20913,
+      "offset": 21136,
       "length": 15,
       "value": "\"termsAccepted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 21952,
+      "offset": 22175,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 22154,
+      "offset": 22377,
       "length": 118,
       "value": "\"setState action invoked, but component \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 22237,
+      "offset": 22460,
       "length": 2,
       "value": "\" is not a Button or SegmentPicker.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 22648,
+      "offset": 22871,
       "length": 69,
       "value": "\"namiNavigateToScreen made it to action but no tapFunction in onTap \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 23054,
+      "offset": 23277,
       "length": 7,
       "value": "\"title\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 23115,
+      "offset": 23338,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 23481,
+      "offset": 23704,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 24135,
+      "offset": 24358,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 25423,
+      "offset": 25646,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 25919,
+      "offset": 26142,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 26417,
+      "offset": 26640,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 26910,
+      "offset": 27133,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 27408,
+      "offset": 27631,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 27902,
+      "offset": 28125,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 28400,
+      "offset": 28623,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 29028,
+      "offset": 29251,
       "length": 55,
       "value": "\"No such action \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "StringLiteral",
-      "offset": 29082,
+      "offset": 29305,
       "length": 19,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/PaywallActions.swift",
       "kind": "Array",
-      "offset": 29674,
+      "offset": 29897,
       "length": 2,
       "value": "[]"
     },
@@ -66493,315 +66660,385 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 5339,
-      "length": 139,
+      "offset": 4947,
+      "length": 24,
+      "value": "\"Starting paywall raise\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 5401,
+      "length": 167,
       "value": "\"No live campaign could be launched for label \"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 5398,
+      "offset": 5460,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 5401,
+      "offset": 5463,
       "length": 1,
-      "value": "\"\". See https:\/\/docs.namiml.com\/docs\/campaign-troubleshooting for more info.\""
+      "value": "\"\". See https:\/\/learn.namiml.com\/public-docs\/campaigns\/campaigns\/campaign-troubleshooting for more info.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 5523,
+      "offset": 5613,
       "length": 32,
       "value": "\"com.namiml.LaunchCampaignError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 6053,
+      "offset": 6143,
       "length": 67,
       "value": "\"Currently known local campaign labels are: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 6119,
+      "offset": 6209,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6217,
+      "offset": 6307,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 6341,
-      "length": 118,
-      "value": "\"No live default campaign could be launched. See https:\/\/docs.namiml.com\/docs\/campaign-troubleshooting for more info.\""
+      "offset": 6431,
+      "length": 146,
+      "value": "\"No live default campaign could be launched. See https:\/\/learn.namiml.com\/public-docs\/campaigns\/campaigns\/campaign-troubleshooting for more info.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 6504,
+      "offset": 6622,
       "length": 32,
       "value": "\"com.namiml.LaunchCampaignError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6778,
+      "offset": 6896,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 7890,
+      "offset": 8008,
       "length": 32,
       "value": "\"com.namiml.LaunchCampaignError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8018,
+      "offset": 8136,
       "length": 57,
       "value": "\"App Platform ID is not set. See docs for Nami.configure\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8149,
+      "offset": 8267,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8298,
+      "offset": 8416,
       "length": 32,
       "value": "\"com.namiml.LaunchCampaignError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8432,
+      "offset": 8550,
       "length": 56,
       "value": "\"Another campaign paywall is currently being displayed.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 8561,
+      "offset": 8679,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8632,
-      "length": 26,
-      "value": "\"Starting campaign launch\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
-      "kind": "StringLiteral",
-      "offset": 8731,
+      "offset": 8789,
       "length": 144,
       "value": "\"Found PaywallLaunchContext\n\t- productGroups: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8823,
+      "offset": 8881,
       "length": 1,
       "value": "\"\n\t- customAttributes: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 8874,
+      "offset": 8932,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 9563,
-      "length": 144,
+      "offset": 9047,
+      "length": 26,
+      "value": "\"Starting campaign launch\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 9414,
+      "length": 74,
+      "value": "\"Campaigns and paywalls may still be loading. Delaying campaign launch...\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 9618,
+      "length": 34,
+      "value": "\"Starting delayed campaign launch\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 10557,
+      "length": 24,
+      "value": "\"Starting paywall raise\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 10899,
+      "length": 43,
+      "value": "\"Paywall raise success \""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 10932,
+      "length": 1,
+      "value": "\" \""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 10941,
+      "length": 20,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 11069,
+      "length": 172,
       "value": "\"No live campaign could be launched for url \"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 9630,
+      "offset": 11136,
       "length": 1,
-      "value": "\"\". See https:\/\/docs.namiml.com\/docs\/campaign-troubleshooting for more info.\""
+      "value": "\"\". See https:\/\/learn.namiml.com\/public-docs\/campaigns\/campaigns\/campaign-troubleshooting for more info.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 9748,
+      "offset": 11282,
       "length": 32,
       "value": "\"com.namiml.LaunchCampaignError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 11486,
+      "length": 36,
+      "value": "\"Paywall raise failed with \""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 11521,
+      "length": 20,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 9962,
+      "offset": 11573,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
-      "offset": 11023,
+      "offset": 12634,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
-      "offset": 11289,
+      "offset": 12984,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
-      "offset": 11336,
+      "offset": 13031,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12389,
+      "offset": 14084,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12412,
+      "offset": 14107,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 12512,
+      "offset": 14207,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12762,
+      "offset": 14457,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 12785,
+      "offset": 14480,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 12892,
+      "offset": 14587,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
-      "offset": 13672,
+      "offset": 15367,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "StringLiteral",
-      "offset": 14565,
+      "offset": 15624,
+      "length": 73,
+      "value": "\"Replacing pre-existing internal; NamiAvailableCampaignsResponseHandler.\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
+      "kind": "StringLiteral",
+      "offset": 16700,
       "length": 63,
       "value": "\"Replacing pre-existing NamiAvailableCampaignsResponseHandler.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "Array",
-      "offset": 14980,
+      "offset": 17115,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15403,
+      "offset": 17538,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15670,
+      "offset": 17805,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 15715,
+      "offset": 17850,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16147,
+      "offset": 18282,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16424,
+      "offset": 18559,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16468,
+      "offset": 18603,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 16855,
+      "offset": 18990,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17102,
+      "offset": 19237,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PublicManagers\/NamiCampaignManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 17146,
+      "offset": 19281,
       "length": 5,
       "value": "false"
     },
@@ -69757,14 +69994,14 @@
       "kind": "StringLiteral",
       "offset": 9274,
       "length": 7,
-      "value": "\"3.2.8\""
+      "value": "\"3.2.9\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
       "kind": "StringLiteral",
       "offset": 9318,
       "length": 7,
-      "value": "\"3.2.8\""
+      "value": "\"3.2.9\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/NamiUtil\/NamiUtils.swift",
@@ -70763,511 +71000,518 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 871,
+      "offset": 904,
       "length": 17,
       "value": "\"com.namiml.data\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 966,
+      "offset": 999,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 1251,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "Dictionary",
-      "offset": 1532,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "Dictionary",
-      "offset": 1797,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "BooleanLiteral",
-      "offset": 2088,
+      "offset": 1284,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 2408,
+      "offset": 1565,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 2697,
+      "offset": 1830,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 2996,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3281,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3574,
+      "offset": 2121,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 3900,
+      "offset": 2441,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 4199,
+      "offset": 2730,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 4473,
+      "offset": 3029,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 4754,
+      "offset": 3314,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 5043,
+      "offset": 3607,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 5365,
+      "offset": 3933,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 5660,
+      "offset": 4232,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 5930,
+      "offset": 4506,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 6207,
+      "offset": 4787,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 6492,
+      "offset": 5076,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 6809,
+      "offset": 5398,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "Dictionary",
+      "offset": 5693,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 7104,
+      "offset": 5963,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 7423,
+      "offset": 6240,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6525,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 7737,
+      "offset": 6842,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 8003,
+      "offset": 7137,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 8276,
+      "offset": 7456,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "Dictionary",
-      "offset": 8552,
+      "offset": 7770,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 8828,
+      "offset": 8036,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 9129,
+      "offset": 8309,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "Dictionary",
+      "offset": 8585,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8861,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 9656,
+      "offset": 9162,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9458,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9747,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10265,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 9782,
+      "offset": 10391,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 9905,
+      "offset": 10514,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 10025,
+      "offset": 10634,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 10142,
+      "offset": 10751,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 10289,
+      "offset": 10898,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 10421,
+      "offset": 11030,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 10636,
+      "offset": 11245,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11093,
+      "offset": 11702,
       "length": 17,
       "value": "\"platform_config\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 11236,
+      "offset": 11845,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11370,
+      "offset": 11979,
       "length": 16,
       "value": "\"campaign_rules\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11472,
+      "offset": 12081,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 11533,
+      "offset": 12142,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11665,
+      "offset": 12274,
       "length": 10,
       "value": "\"paywalls\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11760,
+      "offset": 12369,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 11820,
+      "offset": 12429,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 11951,
+      "offset": 12560,
       "length": 10,
       "value": "\"products\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 12045,
+      "offset": 12654,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 12105,
+      "offset": 12714,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 12208,
+      "offset": 12817,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 12298,
+      "offset": 12907,
       "length": 46,
       "value": "\"Found initialConfig but could not decode it.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 12615,
+      "offset": 13224,
       "length": 116,
       "value": "\"Could load initial state for \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 12662,
+      "offset": 13271,
       "length": 1,
       "value": "\" , error was \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 12730,
+      "offset": 13339,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 13343,
+      "offset": 13952,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 14638,
+      "offset": 15247,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 15731,
+      "offset": 16340,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 16864,
+      "offset": 17473,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17232,
+      "offset": 17841,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17379,
+      "offset": 17988,
       "length": 63,
       "value": "\"Cached \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17413,
+      "offset": 18022,
       "length": 2,
       "value": "\" to UserDefaults as fallback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17492,
+      "offset": 18101,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17682,
+      "offset": 18291,
       "length": 29,
       "value": "\"Unable to cache server data\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17781,
+      "offset": 18390,
       "length": 152,
       "value": "\"Could not cache server dictionary of type \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17841,
+      "offset": 18450,
       "length": 4,
       "value": "\" with data \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17865,
+      "offset": 18474,
       "length": 1,
       "value": "\", error was \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17932,
+      "offset": 18541,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 18780,
-      "length": 47,
-      "value": "\"Loading initial config for: \""
+      "offset": 19182,
+      "length": 64,
+      "value": "\"Loading initial config data: config, campaigns, paywalls, skus\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 18826,
-      "length": 20,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
-      "kind": "StringLiteral",
-      "offset": 18958,
+      "offset": 19848,
       "length": 51,
       "value": "\"Loading cached remote data for: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 19008,
+      "offset": 19898,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 20043,
+      "offset": 20933,
       "length": 68,
       "value": "\"Error converting dictionary to JSON: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigDictStorage.swift",
       "kind": "StringLiteral",
-      "offset": 20110,
+      "offset": 21000,
       "length": 20,
       "value": "\"\""
     },
@@ -72240,42 +72484,49 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "BooleanLiteral",
-      "offset": 22940,
+      "offset": 22801,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
+      "kind": "BooleanLiteral",
+      "offset": 23076,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "BooleanLiteral",
-      "offset": 24532,
+      "offset": 24668,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "BooleanLiteral",
-      "offset": 24563,
+      "offset": 24699,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "IntegerLiteral",
-      "offset": 24774,
+      "offset": 24910,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "BooleanLiteral",
-      "offset": 29698,
+      "offset": 29834,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/PaywallSkuSKExtension.swift",
       "kind": "BooleanLiteral",
-      "offset": 29754,
+      "offset": 29890,
       "length": 5,
       "value": "false"
     },
@@ -73954,351 +74205,365 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1973,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 2036,
+      "offset": 2131,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 2502,
-      "length": 9,
-      "value": "\"results\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
-      "kind": "Array",
-      "offset": 2978,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
-      "kind": "StringLiteral",
-      "offset": 3119,
+      "offset": 2597,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "Array",
-      "offset": 3568,
+      "offset": 3073,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3163,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
+      "kind": "StringLiteral",
+      "offset": 3306,
+      "length": 9,
+      "value": "\"results\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
+      "kind": "Array",
+      "offset": 3755,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 4590,
+      "offset": 4892,
       "length": 39,
       "value": "\"Processing Device Active Entitlements\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 4736,
+      "offset": 5038,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 5417,
+      "offset": 5719,
       "length": 27,
       "value": "\"Processing Device Profile\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 5556,
+      "offset": 5858,
       "length": 24,
       "value": "\"customer_journey_state\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 6064,
+      "offset": 6366,
       "length": 11,
       "value": "\"signed_in\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 6207,
+      "offset": 6509,
       "length": 13,
       "value": "\"external_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 6480,
+      "offset": 6782,
       "length": 60,
       "value": "\"User was successfully logged in with externalID: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 6539,
+      "offset": 6841,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 6644,
+      "offset": 6946,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 6961,
+      "offset": 7263,
       "length": 34,
       "value": "\"User was successfully logged out\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 7096,
+      "offset": 7398,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 7546,
+      "offset": 7848,
       "length": 9,
       "value": "\"results\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 8121,
+      "offset": 8423,
       "length": 57,
       "value": "\"Loading for SDK configuration from cache, if available.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 8299,
+      "offset": 8601,
       "length": 42,
       "value": "\"Updating SDK config details from server.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "IntegerLiteral",
-      "offset": 8953,
+      "offset": 9255,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 9186,
+      "offset": 9488,
       "length": 14,
       "value": "\"capabilities\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 9250,
+      "offset": 9552,
       "length": 5,
       "value": "\"sdk\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9348,
+      "offset": 9650,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 9424,
+      "offset": 9726,
       "length": 4,
       "value": "\"ml\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9472,
+      "offset": 9774,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9538,
+      "offset": 9840,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 9591,
+      "offset": 9893,
       "length": 23,
       "value": "\"third_party_analytics\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9665,
+      "offset": 9967,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9738,
+      "offset": 10040,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 9791,
+      "offset": 10093,
       "length": 26,
       "value": "\"third_party_transactions\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9877,
+      "offset": 10179,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 9960,
+      "offset": 10262,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10012,
+      "offset": 10314,
       "length": 22,
       "value": "\"override_max_logging\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 10096,
+      "offset": 10398,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10147,
+      "offset": 10449,
       "length": 25,
       "value": "\"paywall_personalization\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 10229,
+      "offset": 10531,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10280,
+      "offset": 10582,
       "length": 19,
       "value": "\"anonymous_allowed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 10354,
+      "offset": 10656,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10406,
+      "offset": 10708,
       "length": 21,
       "value": "\"language_management\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 10487,
+      "offset": 10789,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 10569,
+      "offset": 10871,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10640,
+      "offset": 10942,
       "length": 20,
       "value": "\"marketplace_app_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10860,
+      "offset": 11162,
       "length": 9,
       "value": "\"unknown\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10895,
+      "offset": 11197,
       "length": 118,
       "value": "\"Bundle Identifier \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 10931,
+      "offset": 11233,
       "length": 4,
       "value": "\" does not match the Bundle Identifier set in the Nami Control Center \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 11011,
+      "offset": 11313,
       "length": 1,
       "value": "\".\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 11086,
+      "offset": 11388,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 11216,
+      "offset": 11518,
       "length": 164,
       "value": "\"Nami does not appear to understand your App Platform ID \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "StringLiteral",
-      "offset": 11291,
+      "offset": 11593,
       "length": 1,
       "value": "\".  Please check your Nami.configure() call to ensure you have the correct AppPlatformID.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/API\/NamiServerConfigProcessing.swift",
       "kind": "BooleanLiteral",
-      "offset": 11454,
+      "offset": 11756,
       "length": 4,
       "value": "true"
     },
@@ -79147,6 +79412,13 @@
       "value": "\"\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallState.swift",
+      "kind": "BooleanLiteral",
+      "offset": 16200,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/NamiProductDetails\/AdapterModels\/StoreKitConfig\/NamiSKConfig.swift",
       "kind": "Array",
       "offset": 291,
@@ -81669,154 +81941,154 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 3702,
+      "offset": 3952,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "FloatLiteral",
-      "offset": 3930,
+      "offset": 4180,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 4696,
+      "offset": 4946,
       "length": 65,
       "value": "\"Unknown time control status \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 4760,
+      "offset": 5010,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5762,
+      "offset": 6012,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 5792,
+      "offset": 6042,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 5909,
+      "offset": 6159,
       "length": 34,
       "value": "\"NamiPaywallVideoPlayerVideoMuted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6018,
+      "offset": 6268,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6047,
+      "offset": 6297,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 6165,
+      "offset": 6415,
       "length": 36,
       "value": "\"NamiPaywallVideoPlayerVideoUnmuted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6327,
+      "offset": 6577,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6362,
+      "offset": 6612,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6397,
+      "offset": 6647,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6440,
+      "offset": 6690,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 6487,
+      "offset": 6737,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 6528,
+      "offset": 6778,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 6563,
+      "offset": 6813,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 7005,
+      "offset": 7255,
       "length": 36,
       "value": "\"NamiPaywallVideoPlayerVideoPlaying\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 7382,
+      "offset": 7632,
       "length": 35,
       "value": "\"NamiPaywallVideoPlayerVideoPaused\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 7762,
+      "offset": 8012,
       "length": 36,
       "value": "\"NamiPaywallVideoPlayerVideoResumed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 8007,
+      "offset": 8257,
       "length": 36,
       "value": "\"NamiPaywallVideoPlayerVideoChanged\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Models\/Paywall\/PaywallVideoManager.swift",
       "kind": "StringLiteral",
-      "offset": 8385,
+      "offset": 8635,
       "length": 34,
       "value": "\"NamiPaywallVideoPlayerVideoEnded\""
     },
@@ -82600,63 +82872,77 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 1307,
+      "offset": 2072,
       "length": 23,
       "value": "\"SK2: purchase pending\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 1678,
+      "offset": 2443,
       "length": 38,
       "value": "\"SK2: purchase verfied \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 1715,
+      "offset": 2480,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "BooleanLiteral",
-      "offset": 2199,
+      "offset": 2964,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "BooleanLiteral",
-      "offset": 2647,
+      "offset": 3412,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 3282,
+      "offset": 4047,
       "length": 26,
       "value": "\"SK2: purchase unverified\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 3412,
+      "offset": 4177,
       "length": 34,
       "value": "\"SK2: user canceled purchase flow\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 3631,
+      "offset": 4390,
+      "length": 27,
+      "value": "\"SK2: none purchase result\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
+      "kind": "StringLiteral",
+      "offset": 4567,
+      "length": 19,
+      "value": "\"unexpected result\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
+      "kind": "StringLiteral",
+      "offset": 4647,
       "length": 30,
       "value": "\"SK2: unknown purchase result\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/PurchaseStrategy\/StoreKit2\/NamiStoreKit2Helper.swift",
       "kind": "StringLiteral",
-      "offset": 3812,
+      "offset": 4828,
       "length": 19,
       "value": "\"unexpected result\""
     },
