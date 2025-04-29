@@ -891,6 +891,7 @@ public typealias NamiUUID = Swift.String
   @objc public static func isPaywallOpen() -> Swift.Bool
   @objc public static func setProductDetails(productDetails: Swift.String)
   @objc public static func setAppSuppliedVideoDetails(url: Swift.String, name: Swift.String?)
+  @objc public static func allowUserInteraction(_ allowed: Swift.Bool)
 }
 @available(iOS 15.0, tvOS 15.0, macOS 12.0, *)
 extension NamiApple.NamiPaywallManager {

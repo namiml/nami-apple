@@ -1071,6 +1071,7 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 
 
 
+
 @class NamiPurchaseSuccess;
 @class SKProduct;
 @class SKPaymentTransaction;
@@ -1146,6 +1147,8 @@ SWIFT_CLASS("_TtC9NamiApple18NamiPaywallManager")
 + (void)setProductDetailsWithProductDetails:(NSString * _Nonnull)productDetails;
 /// Used to asynchronously set a video URL for use by the paywall video component. For advanced use cases only.
 + (void)setAppSuppliedVideoDetailsWithUrl:(NSString * _Nonnull)url name:(NSString * _Nullable)name;
+/// Used to asynchronously disable/enable user interaction. For advanced use cases only.
++ (void)allowUserInteraction:(BOOL)allowed;
 @end
 
 
@@ -1429,6 +1432,7 @@ typedef SWIFT_ENUM(NSInteger, StoreKitStatusCodes, open) {
   StoreKitStatusCodesReceiptFromProdEnvironent = 21008,
   StoreKitStatusCodesNamiError = 99999,
 };
+
 
 
 
