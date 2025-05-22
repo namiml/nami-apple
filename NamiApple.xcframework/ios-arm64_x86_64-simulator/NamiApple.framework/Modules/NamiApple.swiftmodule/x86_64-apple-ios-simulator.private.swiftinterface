@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
-// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -module-name NamiApple
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -enable-bare-slash-regex -module-name NamiApple
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import AVKit
 import Combine
 import CoreGraphics
@@ -29,7 +29,7 @@ import os
   @objc deinit
 }
 extension UIKit.UIWindow {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func motionEnded(_ motion: UIKit.UIEvent.EventSubtype, with _: UIKit.UIEvent?)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic open func motionEnded(_ motion: UIKit.UIEvent.EventSubtype, with _: UIKit.UIEvent?)
 }
 extension Swift.Encodable where Self : UIKit.UIColor {
   public func encode(to encoder: any Swift.Encoder) throws
@@ -72,63 +72,63 @@ public enum PaywallType : Swift.String, Swift.Codable {
 extension NamiApple.Pager {
   public typealias DragResult = (page: Swift.Int, newPage: Swift.Int, translation: CoreFoundation.CGFloat, velocity: Swift.Double)
   @available(*, deprecated, message: "This method will no longer be mantained in future versions. Please use `draggingAnimation(_:)` instead")
-  public func pagingAnimation(_ value: ((NamiApple.Pager<Element, ID, PageView>.DragResult) -> NamiApple.PagingAnimation)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func multiplePagination() -> NamiApple.Pager<Element, ID, PageView>
-  public func singlePagination(ratio: CoreFoundation.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
-  public func contentLoadingPolicy(_ value: NamiApple.ContentLoadingPolicy) -> NamiApple.Pager<Element, ID, PageView>
-  public func loopPages(_ value: Swift.Bool = true, repeating count: Swift.UInt = 1) -> NamiApple.Pager<Element, ID, PageView>
-  public func dragForwardOnly(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func draggingAnimation(onChange anim1: NamiApple.DraggingAnimation, onEnded anim2: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
-  public func sensitivity(_ value: NamiApple.PaginationSensitivity) -> NamiApple.Pager<Element, ID, PageView>
-  public func delaysTouches(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
-  public func disableDragging() -> NamiApple.Pager<Element, ID, PageView>
-  public func allowsDragging(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func pagingPriority(_ value: NamiApple.GesturePriority) -> NamiApple.Pager<Element, ID, PageView>
-  public func swipeInteractionArea(_ value: NamiApple.SwipeInteractionArea) -> NamiApple.Pager<Element, ID, PageView>
-  public func bounces(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingBegan(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingChanged(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onDraggingEnded(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func pagingAnimation(_ value: ((NamiApple.Pager<Element, ID, PageView>.DragResult) -> NamiApple.PagingAnimation)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func multiplePagination() -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func singlePagination(ratio: CoreFoundation.CGFloat = 1, sensitivity: NamiApple.PaginationSensitivity = .medium) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func contentLoadingPolicy(_ value: NamiApple.ContentLoadingPolicy) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func loopPages(_ value: Swift.Bool = true, repeating count: Swift.UInt = 1) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func dragForwardOnly(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func draggingAnimation(onChange anim1: NamiApple.DraggingAnimation, onEnded anim2: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func sensitivity(_ value: NamiApple.PaginationSensitivity) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func delaysTouches(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func disableDragging() -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func allowsDragging(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func pagingPriority(_ value: NamiApple.GesturePriority) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func swipeInteractionArea(_ value: NamiApple.SwipeInteractionArea) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func bounces(_ value: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onDraggingBegan(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onDraggingChanged(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onDraggingEnded(_ callback: (() -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
   @available(watchOS 7.0, *)
   @available(iOS, unavailable)
   @available(macOS, unavailable)
   @available(tvOS, unavailable)
-  public func onDigitalCrownRotated(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onDigitalCrownRotated(_ callback: ((Swift.Double) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
   @available(watchOS 7.0, *)
   @available(iOS, unavailable)
   @available(macOS, unavailable)
   @available(tvOS, unavailable)
-  public func disableDigitalCrownRotation() -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func disableDigitalCrownRotation() -> NamiApple.Pager<Element, ID, PageView>
   @available(watchOS 7.0, *)
   @available(iOS, unavailable)
   @available(macOS, unavailable)
   @available(tvOS, unavailable)
-  public func allowsDigitalCrownRotation(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func draggingAnimation(_ value: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
-  public func alignment(_ value: NamiApple.PositionAlignment) -> NamiApple.Pager<Element, ID, PageView>
-  public func horizontal(_ swipeDirection: NamiApple.HorizontalSwipeDirection = .startToEnd) -> NamiApple.Pager<Element, ID, PageView>
-  public func vertical(_ swipeDirection: NamiApple.VerticalSwipeDirection = .topToBottom) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func allowsDigitalCrownRotation(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func draggingAnimation(_ value: NamiApple.DraggingAnimation) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func alignment(_ value: NamiApple.PositionAlignment) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func horizontal(_ swipeDirection: NamiApple.HorizontalSwipeDirection = .startToEnd) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func vertical(_ swipeDirection: NamiApple.VerticalSwipeDirection = .topToBottom) -> NamiApple.Pager<Element, ID, PageView>
   @available(*, deprecated, renamed: "interactive(scale:)")
-  public func interactive(_ scale: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(scale ratio: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(opacity decrement: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
-  public func interactive(rotation shouldRotate: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func interactive(_ scale: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func interactive(scale ratio: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func interactive(opacity decrement: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func interactive(rotation shouldRotate: Swift.Bool) -> NamiApple.Pager<Element, ID, PageView>
   @available(*, deprecated, renamed: "interactive(rotation:)")
-  public func rotation3D(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageOffset(_ value: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemSpacing(_ value: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func itemAspectRatio(_ value: CoreFoundation.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
-  public func preferredItemSize(_ value: CoreFoundation.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
-  public func expandPageToEdges() -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageChanged(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageWillTransition(_ callback: ((Swift.Result<NamiApple.PageTransition, NamiApple.PageTransitionError>) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func onPageWillChange(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ length: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ insets: SwiftUI.EdgeInsets) -> NamiApple.Pager<Element, ID, PageView>
-  public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageIndicatorHidden(_ hidden: Swift.Bool = false) -> NamiApple.Pager<Element, ID, PageView>
-  public func pageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
-  public func currentPageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func rotation3D(_ value: Swift.Bool = true) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func pageOffset(_ value: Swift.Double) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func itemSpacing(_ value: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func itemAspectRatio(_ value: CoreFoundation.CGFloat?, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func preferredItemSize(_ value: CoreFoundation.CGSize, alignment: NamiApple.PositionAlignment = .center) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func expandPageToEdges() -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onPageChanged(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onPageWillTransition(_ callback: ((Swift.Result<NamiApple.PageTransition, NamiApple.PageTransitionError>) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func onPageWillChange(_ callback: ((Swift.Int) -> Swift.Void)?) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func padding(_ length: CoreFoundation.CGFloat) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func padding(_ insets: SwiftUICore.EdgeInsets) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func padding(_ edges: SwiftUICore.Edge.Set = .all, _ length: CoreFoundation.CGFloat? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func pageIndicatorHidden(_ hidden: Swift.Bool = false) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func pageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
+  @_Concurrency.MainActor @preconcurrency public func currentPageIndicatorTintColor(_ color: UIKit.UIColor? = nil) -> NamiApple.Pager<Element, ID, PageView>
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum GesturePriority {
@@ -173,6 +173,7 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   public var id: Swift.Int {
     get
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias ID = Swift.Int
 }
 @objc public class NamiCampaign : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
@@ -190,6 +191,7 @@ extension Swift.Array : Swift.Identifiable where Element : Swift.Hashable {
   @objc override dynamic public var hash: Swift.Int {
     @objc get
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias ID = Swift.String
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
@@ -202,19 +204,20 @@ public enum PagingAnimation : Swift.Equatable {
   case steep(duration: Foundation.TimeInterval)
   case standard(duration: Foundation.TimeInterval)
   case interactive
-  case custom(animation: SwiftUI.Animation?)
+  case custom(animation: SwiftUICore.Animation?)
   public static var standard: NamiApple.PagingAnimation
   public static var steep: NamiApple.PagingAnimation
   public static var none: NamiApple.PagingAnimation
   public static func == (a: NamiApple.PagingAnimation, b: NamiApple.PagingAnimation) -> Swift.Bool
 }
-public struct BackportAsyncImage<Content> : SwiftUI.View where Content : SwiftUI.View {
-  public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1) where Content == SwiftUI.Image
-  public init<I, P>(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, @SwiftUI.ViewBuilder content: @escaping (SwiftUI.Image) -> I, @SwiftUI.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUI._ConditionalContent<I, P>, I : SwiftUI.View, P : SwiftUI.View
-  public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, transaction: SwiftUI.Transaction = Transaction(), @SwiftUI.ViewBuilder content: @escaping (NamiApple.BackportAsyncImagePhase) -> Content)
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+@_Concurrency.MainActor @preconcurrency public struct BackportAsyncImage<Content> : SwiftUICore.View where Content : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1) where Content == SwiftUICore.Image
+  @_Concurrency.MainActor @preconcurrency public init<I, P>(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, @SwiftUICore.ViewBuilder content: @escaping (SwiftUICore.Image) -> I, @SwiftUICore.ViewBuilder placeholder: @escaping () -> P) where Content == SwiftUICore._ConditionalContent<I, P>, I : SwiftUICore.View, P : SwiftUICore.View
+  @_Concurrency.MainActor @preconcurrency public init(url: Foundation.URL?, scale: CoreFoundation.CGFloat = 1, transaction: SwiftUICore.Transaction = Transaction(), @SwiftUICore.ViewBuilder content: @escaping (NamiApple.BackportAsyncImagePhase) -> Content)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple18BackportAsyncImageV4bodyQrvp", 0) __<Content>
 }
 @objc public class NamiConfiguration : ObjectiveC.NSObject, Swift.Codable {
@@ -256,16 +259,17 @@ extension Swift.String {
   public func trimming(spaces: Swift.String.TrimmingOptions, using characterSet: Foundation.CharacterSet = .whitespacesAndNewlines) -> Swift.String
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct Pager<Element, ID, PageView> : SwiftUI.View where Element : Swift.Equatable, ID : Swift.Hashable, PageView : SwiftUI.View {
-  public init<Data>(page: NamiApple.Page, data: Data, id: Swift.KeyPath<Element, ID>, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+@_Concurrency.MainActor @preconcurrency public struct Pager<Element, ID, PageView> : SwiftUICore.View where Element : Swift.Equatable, ID : Swift.Hashable, PageView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init<Data>(page: NamiApple.Page, data: Data, id: Swift.KeyPath<Element, ID>, @SwiftUICore.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple5PagerV4bodyQrvp", 0) __<Element, ID, PageView>
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.Pager where Element : Swift.Identifiable, ID == Element.ID {
-  public init<Data>(page: NamiApple.Page, data: Data, @SwiftUI.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
+  @_Concurrency.MainActor @preconcurrency public init<Data>(page: NamiApple.Page, data: Data, @SwiftUICore.ViewBuilder content: @escaping (Element) -> PageView) where Element == Data.Element, Data : Swift.RandomAccessCollection, Data.Index == Swift.Int
 }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum PaginationSensitivity : Swift.Equatable {
@@ -298,6 +302,7 @@ public class Page : Combine.ObservableObject {
     get
     set
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias ObjectWillChangePublisher = Combine.PassthroughSubject<Swift.Void, Swift.Never>
   @objc deinit
 }
@@ -480,8 +485,8 @@ extension NamiApple.NamiPurchaseSource : Swift.Codable {
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
-@objc public class NamiPromo : ObjectiveC.NSObject, Swift.Codable {
-  public var keyID: Swift.String?
+@objc public class NamiApplePromo : ObjectiveC.NSObject, Swift.Codable {
+  public var key_id: Swift.String?
   public var nonce: Foundation.UUID?
   public var signature: Foundation.Data?
   public var timestamp: Swift.Int?
@@ -509,23 +514,24 @@ public typealias NamiVerifyReceiptHandler = (_ receiptJSON: NamiApple.NamiReceip
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-public struct NamiSegmentedPicker<Data, Content> : SwiftUI.View where Data : Swift.Hashable, Content : SwiftUI.View {
-  public let sources: [Data]
-  @SwiftUI.Binding @_projectedValueProperty($selection) public var selection: Data? {
+@_Concurrency.MainActor @preconcurrency public struct NamiSegmentedPicker<Data, Content> : SwiftUICore.View where Data : Swift.Hashable, Content : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let sources: [Data]
+  @SwiftUICore.Binding @_projectedValueProperty($selection) @_Concurrency.MainActor @preconcurrency public var selection: Data? {
     get
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     nonmutating set
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
     nonmutating _modify
   }
-  public var $selection: SwiftUI.Binding<Data?> {
+  @_Concurrency.MainActor @preconcurrency public var $selection: SwiftUICore.Binding<Data?> {
     get
   }
-  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, indicatorBuilder: (() -> SwiftUI.AnyView)? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
-  public init(_ sources: [Data], selection: SwiftUI.Binding<Data?>? = nil, axis: SwiftUI.Axis.Set = .horizontal, hAlignment: SwiftUI.HorizontalAlignment = .center, vAlignment: SwiftUI.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, @SwiftUI.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
-  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+  @_Concurrency.MainActor @preconcurrency public init(_ sources: [Data], selection: SwiftUICore.Binding<Data?>, axis: SwiftUICore.Axis.Set = .horizontal, hAlignment: SwiftUICore.HorizontalAlignment = .center, vAlignment: SwiftUICore.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, indicatorBuilder: (() -> SwiftUICore.AnyView)? = nil, @SwiftUICore.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public init(_ sources: [Data], selection: SwiftUICore.Binding<Data?>? = nil, axis: SwiftUICore.Axis.Set = .horizontal, hAlignment: SwiftUICore.HorizontalAlignment = .center, vAlignment: SwiftUICore.VerticalAlignment = .center, spacing: CoreFoundation.CGFloat? = nil, @SwiftUICore.ViewBuilder itemBuilder: @escaping (Data) -> Content, onItemSelect: ((Data) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias Body = @_opaqueReturnTypeOf("$s9NamiApple0A15SegmentedPickerV4bodyQrvp", 0) __<Data, Content>
 }
 public typealias NamiWorker = () -> Swift.Void
@@ -560,12 +566,8 @@ public typealias SKUsRequestCompletionHandler = (_ success: Swift.Bool, _ produc
 public typealias NamiPurchaseResponseHandler = (_ purchases: [NamiApple.NamiPurchase], _ state: NamiApple.NamiPurchaseState, _ error: (any Swift.Error)?) -> Swift.Void
 @_inheritsConvenienceInitializers @objc public class NamiPurchaseManager : ObjectiveC.NSObject {
   public typealias NamiRestorePurchasesStateHandler = (_ state: NamiApple.NamiRestorePurchasesState, _ newPurchases: [NamiApple.NamiPurchase], _ oldPurchases: [NamiApple.NamiPurchase], _ error: (any Swift.Error)?) -> Swift.Void
-  #if compiler(>=5.3) && $AsyncAwait
   @objc public static func skuPurchased(_ skuId: NamiApple.StoreId) async -> Swift.Bool
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   @objc public static func anySkuPurchased(_ skuIds: [NamiApple.StoreId]) async -> Swift.Bool
-  #endif
   @objc public static func allPurchases() -> [NamiApple.NamiPurchase]
   @objc public static func registerPurchasesChangedHandler(_ responseHandler: NamiApple.NamiPurchaseResponseHandler?)
   @available(*, deprecated, renamed: "registerPurchasesChangedHandler")
@@ -873,6 +875,7 @@ extension StoreKit.SKPaymentTransactionState {
   public func encode(to _: any Swift.Encoder) throws
   @objc public init(namiId: Swift.String, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType)
   public init(namiId: Swift.String, storeId: NamiApple.StoreId, skuType: NamiApple.NamiSKUType, product: Any?)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
   public typealias ID = Swift.String
   @objc deinit
 }
@@ -882,7 +885,6 @@ public typealias NamiPaywallCloseHandler = (_ fromPaywallVC: UIKit.UIViewControl
 public typealias NamiPaywallBuySkuHandler = (_ sku: NamiApple.NamiSKU) -> Swift.Void
 public typealias NamiPaywallRestoreRequestHandler = () -> Swift.Void
 public typealias NamiPaywallDeeplinkActionHandler = (_ action: Swift.String) -> Swift.Void
-public typealias NamiPaywallPromoHandler = (_ promo: NamiApple.NamiPromo?) -> Swift.Void
 public typealias PreparePaywallHandler = (_ success: Swift.Bool, _ error: (any Swift.Error)?) -> Swift.Void
 public typealias NamiUUID = Swift.String
 @objc extension NamiApple.NamiPaywallManager {
@@ -958,9 +960,9 @@ extension NamiApple.NamiPaywallManager {
 }
 public enum BackportAsyncImagePhase {
   case empty
-  case success(SwiftUI.Image)
+  case success(SwiftUICore.Image)
   case failure(any Swift.Error)
-  public var image: SwiftUI.Image? {
+  public var image: SwiftUICore.Image? {
     get
   }
   public var error: (any Swift.Error)? {
@@ -1164,12 +1166,15 @@ extension NamiApple.PaywallType : Swift.Equatable {}
 extension NamiApple.PaywallType : Swift.Hashable {}
 extension NamiApple.PaywallType : Swift.RawRepresentable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+extension NamiApple.Pager : Swift.Sendable {}
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.GesturePriority : Swift.Equatable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension NamiApple.GesturePriority : Swift.Hashable {}
 extension NamiApple.NamiPurchaseState : Swift.Equatable {}
 extension NamiApple.NamiPurchaseState : Swift.Hashable {}
 extension NamiApple.NamiPurchaseState : Swift.RawRepresentable {}
+extension NamiApple.BackportAsyncImage : Swift.Sendable {}
 extension Swift.String.TrimmingOptions : Swift.Equatable {}
 extension Swift.String.TrimmingOptions : Swift.Hashable {}
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -1194,6 +1199,7 @@ extension NamiApple.SandboxAccelerationItemUnit : Swift.RawRepresentable {}
 extension NamiApple.NamiPurchaseSource : Swift.Equatable {}
 extension NamiApple.NamiPurchaseSource : Swift.Hashable {}
 extension NamiApple.NamiPurchaseSource : Swift.RawRepresentable {}
+extension NamiApple.NamiSegmentedPicker : Swift.Sendable {}
 extension NamiApple.NamiConfigureState : Swift.Equatable {}
 extension NamiApple.NamiConfigureState : Swift.Hashable {}
 extension NamiApple.NamiConfigureState : Swift.RawRepresentable {}
