@@ -1,0 +1,401 @@
+{
+  "fonts": {
+    "All-ProDisplayC-BoldItalic": {
+      "family": "All-Pro Display C",
+      "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Display_C-Bold_Italic.ttf",
+      "id": "65298def-ce10-4efe-acf6-971055ece6be",
+      "style": "Bold Italic"
+    },
+    "All-ProSans-Bold": {
+      "family": "All-Pro Sans",
+      "file": "https://hosted-content-staging.namiml.com/org/a8d39aa3-e393-46ee-8cb4-e8b8c0bd50e7/fonts/All-Pro_Sans-Bold.otf",
+      "id": "ab992c16-5905-42f7-835d-5314d61fd943",
+      "style": "Bold"
+    }
+  },
+  "id": "8e06d60a-c403-45e9-bbd5-cca9f9fb43ca",
+  "name": "Blur on Container",
+  "paywall_type": "component",
+  "sku_menus": [
+    {
+      "display_name": "Default",
+      "id": "1c58c73d-8098-4aee-98a2-4e44a78545b4",
+      "name": "Default",
+      "products": [],
+      "ref": "default"
+    }
+  ],
+  "template": {
+    "capabilities": [
+      "selected_product"
+    ],
+    "changelog": "Improve alignment support",
+    "codename": "Create your Own",
+    "displaySingleGroup": true,
+    "doc_link": "https://learn.namiml.com/public-docs/no-code-paywalls/paywall-creator",
+    "id": "6ac88c81-e928-4669-8189-a709c527b09a",
+    "initialState": {
+      "currentGroupId": "1c58c73d-8098-4aee-98a2-4e44a78545b4",
+      "currentPage": "page1",
+      "formStates": {},
+      "fullScreenPresentation": true,
+      "groups": [
+        {
+          "displayName": "Default",
+          "id": "1c58c73d-8098-4aee-98a2-4e44a78545b4",
+          "ref": "default"
+        }
+      ],
+      "loadingBackgroundColor": "rgba(0 76 84 / 1)",
+      "selectedProducts": {
+        "1c58c73d-8098-4aee-98a2-4e44a78545b4": null
+      }
+    },
+    "min_sdk_version": "3.2.4",
+    "org_id": null,
+    "pages": [
+      {
+        "backgroundContainer": {
+          "component": "container",
+          "components": [],
+          "direction": "vertical",
+          "fillColor": "rgba(0 76 84 / 1)",
+          "height": "100%",
+          "horizontalAlignment": "center",
+          "id": "backgroundContainer",
+          "namiComponentType": "group",
+          "title": "Background",
+          "verticalAlignment": "top"
+        },
+        "contentContainer": {
+          "alignment": "top",
+          "bottomPadding": 40,
+          "component": "container",
+          "components": [
+            {
+              "alignment": "center",
+              "component": "container",
+              "components": [
+                {
+                  "alignment": "center",
+                  "animation": {
+                    "circle1Color": "#3B5B52",
+                    "circle2Color": "#3B5B52",
+                    "delay": 0.5,
+                    "duration": 3,
+                    "type": "wave"
+                  },
+                  "borderRadius": 30,
+                  "component": "image",
+                  "fillColor": "#3B5B52",
+                  "height": 60,
+                  "id": "wave_image",
+                  "imageCropping": "fill",
+                  "namiComponentType": "image",
+                  "title": "Wave Animation",
+                  "url": "https://static.www.nfl.com/f_png,w_100,h_100,c_fit/league/api/clubs/logos/GB.png",
+                  "width": 60
+                }
+              ],
+              "direction": "vertical",
+              "fillColor": "transparent",
+              "height": 200,
+              "id": "animation_container",
+              "spacing": 20,
+              "title": "Content",
+              "width": "100%"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "duration": 0.5,
+                "jumpHeight": 30,
+                "type": "jump"
+              },
+              "component": "text",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "jump_text",
+              "text": "\u26bd\ufe0f",
+              "title": "Jump Animation"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "duration": 0.5,
+                "scale": 1.15,
+                "type": "pulse"
+              },
+              "component": "text",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "pulse_text",
+              "text": "\u2764\ufe0f",
+              "title": "Pulse Animation"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "angle": 360,
+                "autoreverses": false,
+                "direction": "leftToRight",
+                "duration": 1,
+                "type": "rotate3d"
+              },
+              "component": "text",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "flip360_text",
+              "text": "\ud83c\udccf",
+              "title": "Rotate3D 360 Animation"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "angle": 180,
+                "autoreverses": true,
+                "direction": "leftToRight",
+                "duration": 1,
+                "type": "rotate3d"
+              },
+              "component": "text",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "rotate_3D_180_text",
+              "text": "\ud83c\udccf",
+              "title": "Rotate3D 180 Animation"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "angle": 0,
+                "blurRadius": 10,
+                "duration": 5,
+                "shineColor": "linear-gradient(90deg, RGBA(255 255 255 / 0.3) 30%, RGBA(255 255 255 / 1) 70%, rgba(255 255 255 / 0.3) 100%)",
+                "type": "shine",
+                "width": 150
+              },
+              "component": "text",
+              "fontColor": "#000000",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "shine_text",
+              "text": "Hello World!",
+              "title": "Shine Text Animation"
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "angle": 0,
+                "blurRadius": 5,
+                "duration": 2,
+                "shineColor": "linear-gradient(90deg, RGBA(255 255 255 / 0.3) 30%, RGBA(255 255 255 / 1) 70%, rgba(255 255 255 / 0.3) 100%)",
+                "type": "shine",
+                "width": 15
+              },
+              "borderRadius": 10,
+              "component": "image",
+              "fillColor": "#3B5B52",
+              "height": 100,
+              "id": "shine_image",
+              "imageCropping": "fill",
+              "namiComponentType": "image",
+              "title": "Shine Image Animation",
+              "url": "https://static.www.nfl.com/f_png,w_100,h_100,c_fit/league/api/clubs/logos/GB.png",
+              "width": 100
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "borderColor": "linear-gradient(0deg, RGBA(255 0 0 / 0.3) 16%, RGBA(0 255 0 / 1) 50%, rgba(0 0 255 / 0.3) 83%, RGBA(255 0 0 / 0.3) 100%)",
+                "borderWidth": 5,
+                "cornerRadius": 10,
+                "duration": 1.5,
+                "type": "gradientBorder"
+              },
+              "borderRadius": 10,
+              "borderWidth": 5,
+              "component": "image",
+              "fillColor": "#3B5B52",
+              "height": 100,
+              "id": "gradientBorderImage",
+              "imageCropping": "fill",
+              "namiComponentType": "image",
+              "title": "Gradient Border Animation",
+              "url": "https://static.www.nfl.com/f_png,w_100,h_100,c_fit/league/api/clubs/logos/GB.png",
+              "width": 100
+            },
+            {
+              "alignment": "center",
+              "animation": {
+                "angle": 360,
+                "autoreverses": false,
+                "duration": 1,
+                "type": "spin"
+              },
+              "component": "text",
+              "fontName": "Helvetica",
+              "fontSize": 70,
+              "id": "spin_text",
+              "text": "\ud83c\udf00",
+              "title": "Spin Animation"
+            }
+          ],
+          "direction": "vertical",
+          "fillColor": "transparent",
+          "height": "fitContent",
+          "id": "contentContainer",
+          "leftPadding": 20,
+          "namiComponentType": "group",
+          "rightPadding": 20,
+          "spacing": 20,
+          "title": "Content",
+          "topPadding": 40,
+          "width": "100%"
+        },
+        "footer": [
+          {
+            "backgroundBlur": 6,
+            "borderRadius": 15,
+            "bottomPadding": 40,
+            "component": "container",
+            "components": [
+              {
+                "alignment": "center",
+                "animation": {
+                  "borderColor": "linear-gradient(0deg, RGBA(255 0 0 / 0.3) 16%, RGBA(0 255 0 / 1) 50%, rgba(0 0 255 / 0.3) 83%, RGBA(255 0 0 / 0.3) 100%)",
+                  "borderWidth": 5,
+                  "cornerRadius": 10,
+                  "duration": 1.5,
+                  "type": "gradientBorder"
+                },
+                "borderColor": "#1374de",
+                "borderRadius": 8,
+                "borderWidth": 1,
+                "bottomPadding": 15,
+                "component": "button",
+                "components": [
+                  {
+                    "alignment": "center",
+                    "animation": {
+                      "angle": 0,
+                      "blurRadius": 10,
+                      "duration": 5,
+                      "shineColor": "linear-gradient(90deg, RGBA(0 0 0 / 0.3) 30%, RGBA(0 0 0 / 1) 70%, rgba(0 0 0 / 0.3) 100%)",
+                      "type": "shine",
+                      "width": 150
+                    },
+                    "component": "text",
+                    "fontColor": "#ffffff",
+                    "fontName": "Helvetica",
+                    "fontSize": 18,
+                    "height": "fitContent",
+                    "id": "purchaseButtonButtonText",
+                    "linkColor": "#000000",
+                    "namiComponentType": "buttonText",
+                    "text": "Subscribe Now",
+                    "textType": "body",
+                    "title": "Purchase Button Button Text",
+                    "width": "100%"
+                  }
+                ],
+                "dropShadow": "0 0 0 rgba(0 0 0 / 0.2)",
+                "fillColor": "#1374de",
+                "height": "fitContent",
+                "id": "purchaseButton",
+                "leftPadding": 15,
+                "namiComponentType": "purchaseButton",
+                "onTap": {
+                  "function": "namiPurchaseSelectedSKU"
+                },
+                "rightPadding": 15,
+                "title": "Purchase Button",
+                "topPadding": 15
+              },
+              {
+                "alignment": "center",
+                "component": "text",
+                "fontColor": "#000000",
+                "fontName": "Helvetica",
+                "fontSize": 12,
+                "height": "fitContent",
+                "id": "footerLegalText",
+                "linkColor": "#0096FF",
+                "namiComponentType": "legalText",
+                "text": "[Terms and Conditions](https://www.namiml.com/legal/terms) Apply.",
+                "textType": "legal",
+                "title": "Footer Legal Text",
+                "width": "100%"
+              }
+            ],
+            "direction": "vertical",
+            "fillColor": "transparent",
+            "height": "fitContent",
+            "id": "footer",
+            "leftPadding": 20,
+            "namiComponentType": "footer",
+            "rightPadding": 20,
+            "roundBorders": [
+              "upperLeft",
+              "upperRight"
+            ],
+            "spacing": 15,
+            "title": "Footer",
+            "topPadding": 20,
+            "width": "100%"
+          }
+        ],
+        "header": [
+          {
+            "alignment": "right",
+            "bottomPadding": 0,
+            "component": "container",
+            "components": [
+              {
+                "alignment": "center",
+                "bottomPadding": 0,
+                "component": "button",
+                "components": [
+                  {
+                    "component": "symbol",
+                    "fontColor": "#000000",
+                    "fontSize": 20,
+                    "id": "closeButtonIcon",
+                    "name": "xmark",
+                    "namiComponentType": "icon",
+                    "title": "Close Button Icon"
+                  }
+                ],
+                "fillColor": "transparent",
+                "height": 50,
+                "id": "closeButton",
+                "leftPadding": 0,
+                "namiComponentType": "closeButton",
+                "onTap": {
+                  "function": "namiClosePaywall"
+                },
+                "rightPadding": 0,
+                "title": "Close Button",
+                "topPadding": 0,
+                "width": "fitContent"
+              }
+            ],
+            "direction": "horizontal",
+            "fillColor": "transparent",
+            "height": "fitContent",
+            "id": "header",
+            "leftPadding": 20,
+            "namiComponentType": "group",
+            "rightPadding": 20,
+            "spacing": 0,
+            "title": "Header",
+            "topPadding": "${state.safeAreaTop}",
+            "width": "100%"
+          }
+        ],
+        "name": "page1"
+      }
+    ],
+    "version": "1.2"
+  }
+}
