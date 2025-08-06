@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Nami'
-  s.version          = '3.2.10'
+  s.version          = '3.3.2.8'
   s.summary          = 'Easy Apple StoreKit subscriptions & in-app purchases, with powerful built-in paywalls and A/B testing.'
 
   s.description      = <<-DESC
@@ -32,9 +32,7 @@ See https://www.namiml.com for more details and to create a free account.
   s.author           = { 'Team Nami' => 'hello@namiml.com' }
   s.source           = { :git => "https://github.com/namiml/nami-apple.git", :tag => "#{s.version}" }
 
-  s.social_media_url = 'https://twitter.com/HelloNamiML'
-
-  s.ios.deployment_target = '14.0'
+  s.ios.deployment_target = '15.0'
   s.tvos.deployment_target = '15.0'
 
   s.ios.vendored_frameworks = 'NamiApple.xcframework'
