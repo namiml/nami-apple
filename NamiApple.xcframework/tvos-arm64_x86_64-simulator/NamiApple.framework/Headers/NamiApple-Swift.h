@@ -450,12 +450,18 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @interface NamiCampaignManager : NSObject
 - (void)registerWithAvailableCampaignsHandler:(void (^ _Nullable)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
-/// Unregisters any active entilement change handlers..
+/// Unregisters any available campaign change handlers.
 + (void)unregisterAvailableCampaignsHandler;
 /// Registers a callback that will be activated when campaigns are loaded from cache or fetched from the Nami service.
 /// \param availableCampaignsHandler A callback called when campaigns for this device are made available.
 ///
 + (void)registerAvailableCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
+/// Unregisters any available  server campaign change handlers.
++ (void)unregisterServerCampaignsHandler;
+/// Registers a callback that will be activated when campaigns are loaded from the Nami service.
+/// \param availableCampaignsHandler A callback called when campaigns for this device are made available.
+///
++ (void)registerServerCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
 /// Receive a list of all live campaigns sent to this device by the Nami service.
 + (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign with the supplied label is available on the device for launch
@@ -1904,12 +1910,18 @@ SWIFT_CLASS("_TtC9NamiApple12NamiCampaign")
 SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 @interface NamiCampaignManager : NSObject
 - (void)registerWithAvailableCampaignsHandler:(void (^ _Nullable)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
-/// Unregisters any active entilement change handlers..
+/// Unregisters any available campaign change handlers.
 + (void)unregisterAvailableCampaignsHandler;
 /// Registers a callback that will be activated when campaigns are loaded from cache or fetched from the Nami service.
 /// \param availableCampaignsHandler A callback called when campaigns for this device are made available.
 ///
 + (void)registerAvailableCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
+/// Unregisters any available  server campaign change handlers.
++ (void)unregisterServerCampaignsHandler;
+/// Registers a callback that will be activated when campaigns are loaded from the Nami service.
+/// \param availableCampaignsHandler A callback called when campaigns for this device are made available.
+///
++ (void)registerServerCampaignsHandler:(void (^ _Nonnull)(NSArray<NamiCampaign *> * _Nonnull))availableCampaignsHandler;
 /// Receive a list of all live campaigns sent to this device by the Nami service.
 + (NSArray<NamiCampaign *> * _Nonnull)allCampaigns SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign with the supplied label is available on the device for launch
