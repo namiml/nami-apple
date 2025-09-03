@@ -510,7 +510,7 @@ public typealias NamiConfigurationStateHandler = (_ sdkInitialized: Swift.Bool, 
   @objc public static func sdkConfigured() -> Swift.Bool
   @objc public static func sdkVersion() -> Swift.String
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc public static let shared: NamiApple.Nami
   @objc deinit
 }
@@ -609,10 +609,12 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
   @objc public static func productGroups(label: Swift.String? = .none, url: Foundation.URL?) -> [Swift.String]
   @objc dynamic public func raiseCampaign(campaign: NamiApple.NamiCampaign, presentFromVC: UIKit.UIViewController? = .none, context: NamiApple.PaywallLaunchContext?, _ launchHandler: NamiApple.CampaignLaunchHandler? = .none)
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class NamiCampaignManager : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc public func register(availableCampaignsHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
   @objc public static func unregisterAvailableCampaignsHandler()
   @objc public static func registerAvailableCampaignsHandler(_ availableCampaignsHandler: @escaping NamiApple.NamiAvailableCampaignsResponseHandler)
+  @objc public static func unregisterServerCampaignsHandler()
+  @objc public static func registerServerCampaignsHandler(_ availableCampaignsHandler: @escaping NamiApple.NamiAvailableCampaignsResponseHandler)
   @objc public static func allCampaigns() -> [NamiApple.NamiCampaign]
   @objc public static func isCampaignAvailable(label: Swift.String) -> Swift.Bool
   @objc public static func isCampaignAvailable(url: Foundation.URL) -> Swift.Bool
@@ -874,7 +876,7 @@ public typealias NamiLanguageCode = Swift.String
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable {
+@_hasMissingDesignatedInitializers @objc public class NamiSKU : ObjectiveC.NSObject, Swift.Codable, Swift.Identifiable, @unchecked Swift.Sendable {
   @objc public var id: Swift.String
   @objc public var skuId: Swift.String
   @objc public var name: Swift.String?
@@ -1047,7 +1049,7 @@ public enum ContentLoadingPolicy : Swift.Equatable {
   case eager
   public static func == (a: NamiApple.ContentLoadingPolicy, b: NamiApple.ContentLoadingPolicy) -> Swift.Bool
 }
-@objc public class NamiPurchase : ObjectiveC.NSObject, Swift.Codable {
+@objc public class NamiPurchase : ObjectiveC.NSObject, Swift.Codable, @unchecked Swift.Sendable {
   @objc final public let skuId: NamiApple.StoreId
   @objc final public let skuType: Swift.String?
   @objc public var originalTransactionId: Swift.String?
