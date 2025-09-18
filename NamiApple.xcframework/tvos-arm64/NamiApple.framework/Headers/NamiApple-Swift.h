@@ -411,6 +411,8 @@ enum NamiLogLevel : NSInteger;
 + (BOOL)sdkConfigured SWIFT_WARN_UNUSED_RESULT;
 /// Returns the current Nami SDK version
 + (NSString * _Nonnull)sdkVersion SWIFT_WARN_UNUSED_RESULT;
+/// Clear all data persisted by SDK
++ (void)reset;
 @end
 
 
