@@ -315,13 +315,6 @@ public enum NamiCampaignType : Swift.String, Swift.Codable {
     get
   }
 }
-@_hasMissingDesignatedInitializers public class NamiTestTemplate {
-  public static var fileName: Swift.String
-  public static func loadData<T>() -> T? where T : Swift.Decodable
-  @objc deinit
-}
-public func LogI(message: Swift.String, prefix: Swift.String = "====")
-public func LogD(message: Swift.String, prefix: Swift.String = "====")
 @_hasMissingDesignatedInitializers @objc public class NamiEntitlement : ObjectiveC.NSObject, Swift.Codable {
   @objc public var name: Swift.String?
   @objc public var desc: Swift.String?
@@ -496,6 +489,7 @@ public typealias NamiConfigurationStateHandler = (_ sdkInitialized: Swift.Bool, 
   @objc public static func isPurchaseManagementEnabled() -> Swift.Bool
   @objc public static func sdkConfigured() -> Swift.Bool
   @objc public static func sdkVersion() -> Swift.String
+  @objc public static func reset()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class Nami : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc public static let shared: NamiApple.Nami
@@ -605,6 +599,9 @@ public typealias NamiAvailableCampaignsResponseHandler = (_ availableCampaigns: 
   @objc public static func allCampaigns() -> [NamiApple.NamiCampaign]
   @objc public static func isCampaignAvailable(label: Swift.String) -> Swift.Bool
   @objc public static func isCampaignAvailable(url: Foundation.URL) -> Swift.Bool
+  @objc public static func isFlow(label: Swift.String) -> Swift.Bool
+  @objc public static func isFlow(url: Foundation.URL) -> Swift.Bool
+  @objc public static func isFlow(label: Swift.String? = nil, url: Foundation.URL? = nil) -> Swift.Bool
   @objc public static func refresh()
   @objc public static func refresh(_ refreshHandler: NamiApple.NamiAvailableCampaignsResponseHandler?)
   @objc deinit
@@ -628,6 +625,7 @@ public typealias NamiLoginLogoutCompleteHandler = (_ success: Swift.Bool, _ erro
   @objc public static func loggedInId() -> Swift.String?
   @objc public static func logout(logoutCompleteHandler: NamiApple.NamiLoginLogoutCompleteHandler? = nil)
   @objc public static func deviceId() -> Swift.String
+  @nonobjc public static func deviceSplitPosition() -> Swift.Double?
   @objc public static func setAnonymousMode(_ anonymousMode: Swift.Bool)
   @objc public static func inAnonymousMode() -> Swift.Bool
   @objc public static func anonymousModeCapability() -> Swift.Bool
@@ -958,6 +956,7 @@ public enum NamiResourceManager {
   public static func resolveResourceData(named name: Swift.String) -> Foundation.Data?
   public static func resourceExists(named name: Swift.String) -> Swift.Bool
   public static func resourceType(named name: Swift.String) -> Swift.String?
+  public static func clearAllResources()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class NamiResourceManagerObjC : ObjectiveC.NSObject {
   @objc public static func registerResource(name: Swift.String, data: Foundation.NSData)
