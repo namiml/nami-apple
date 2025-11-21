@@ -411,6 +411,8 @@ enum NamiLogLevel : NSInteger;
 + (BOOL)sdkConfigured SWIFT_WARN_UNUSED_RESULT;
 /// Returns the current Nami SDK version
 + (NSString * _Nonnull)sdkVersion SWIFT_WARN_UNUSED_RESULT;
+/// Clear all data persisted by SDK
++ (void)reset;
 @end
 
 
@@ -468,6 +470,29 @@ SWIFT_CLASS("_TtC9NamiApple19NamiCampaignManager")
 + (BOOL)isCampaignAvailableWithLabel:(NSString * _Nonnull)label SWIFT_WARN_UNUSED_RESULT;
 /// Return true if a campaign with the supplied label is available on the device for launch
 + (BOOL)isCampaignAvailableWithUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Check if a campaign is a Flow campaign.
+/// \param label Optional campaign label defined in Nami Control Center.
+///
+///
+/// returns:
+/// Boolean indicating if the campaign is a Flow campaign.
++ (BOOL)isFlowWithLabel:(NSString * _Nonnull)label SWIFT_WARN_UNUSED_RESULT;
+/// Check if a campaign is a Flow campaign.
+/// \param url Optional campaign URL defined in Nami Control Center.
+///
+///
+/// returns:
+/// Boolean indicating if the campaign is a Flow campaign.
++ (BOOL)isFlowWithUrl:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
+/// Check if a campaign is a Flow campaign.
+/// \param label Optional campaign label defined in Nami Control Center.
+///
+/// \param url Optional campaign URL defined in Nami Control Center.
+///
+///
+/// returns:
+/// Boolean indicating if the campaign is a Flow campaign.
++ (BOOL)isFlowWithLabel:(NSString * _Nullable)label url:(NSURL * _Nullable)url SWIFT_WARN_UNUSED_RESULT;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
 + (void)refresh;
 /// Asks Nami to update internal entitlements, if an action has been taken you feel might have affected entitlements recently and you would like to check.
@@ -1434,6 +1459,11 @@ SWIFT_CLASS("_TtC9NamiApple20PaywallLaunchContext")
 @interface PaywallLaunchContext : NSObject
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface PaywallLaunchContext (SWIFT_EXTENSION(NamiApple))
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 @end
 
 
