@@ -4,23 +4,20 @@
 
 ## What is Nami?
 
-Nami is on a mission to help you grow your app business using IAPs and subscriptions.
-Go beyond basic StoreKit infrastructure and focus on results with:
+Nami is on a mission to help you grow your Apple subscription business.
 
 * Growing library of smart paywall templates to choose from, implemented natively using UIKit and SwiftUI
-* No-code paywall builder so you can design your own native paywall from your browsre
-* Web-based CMS so you can make paywall changes instantly, without submitting an app update
-* Experimentation engine to run paywall A/B tests so you can improve your conversion rates
-* Built-in IAP & subscription management and analytics, so you don't need another solution
+* No-code paywall and onboarding flow builder so you can design your pages from your browser
+* Web-based CMS so you can make changes instantly, without submitting an app update
+* Experimentation engine to run A/B tests so you can improve your conversion rates
+* Optional: Built-in IAP & subscription management and analytics, so you don't need another solution
 
 Nami is simple adopt while giving you the tools you need to improve revenue. Our free tier is generous, and gives you everything you need to get started. [Sign up for a free account](https://app.namiml.com/join/)
-
-Get started by heading over to our [quick start guide](https://learn.namiml.com/public-docs/get-started/quickstart-guide)
 
 ## Getting the Nami Framework
 
 ### Requirements
-- iOS 14+, iPadOS 14+, tvOS 15+
+- iOS 15+, iPadOS 15+, tvOS 15+
 
 ### Using SPM
 
@@ -29,53 +26,9 @@ Get started by heading over to our [quick start guide](https://learn.namiml.com/
 3. Leave the default settings of **Up to Next Major** and current major version number, press **Next** button.
 4. After making sure the correct application target is selected, click the **Finish** button.
 
-### Using CocoaPods
-
-Add the following line to your Podfile.  See the example in this repo `Podfile.example`.
-
-```
-pod "Nami", "3.2.8"
-```
-
-Then run the command
-
-```
-pod install
-```
-
 ### Add Manually
-The Nami XCFramework is available via the Swift Package Manager or Cocoapods. You may also add the XCFramework manually to your project.
+The Nami XCFramework is available via the Swift Package Manager You may also add the XCFramework manually to your project.
 
 #### Note: Updating the Nami Framework Manually
 
 When a new version of the Nami framework is released, just drag it over your old Nami framework in your application project directory - make sure to select "replace" instead of "merge".  After the framework has been copied over the old one, make sure to select "Clean Build Folder" in Xcode so it properly refreshes the binary from the framework.
-
-## Configure the SDK
-
-In your application delegate, the Nami SDK is configured and passed your unique app ID,
-You can find the Nami App Platform ID under the Nami Control Center's [Integrations > Apple App Store](https://app.namiml.com/integrations/) section.
-
-```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-  // Configure Nami
-  let namiConfig = NamiConfiguration(appPlatformID: "YOUR_APP_PLATFORM_ID_GOES_HERE")
-
-  // optionally adjust the level of logging of the SDK
-  //    .debug, .info, .warn, .error, defaults to .warn
-  namiConfig.logLevel = .info
-
-  Nami.configure(namiConfig: namiConfig)
-  return true
-}
-```
-
-## Other Resources
-
-### Release Notes
-- [Stable](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Stable-Releases)
-- [Early Access](https://github.com/namiml/nami-apple/wiki/Nami-SDK-Early-Access-Releases)
-
-### Documentation
-- [Getting Started](https://learn.namiml.com/public-docs/get-started/quickstart-guide)
-- [SDK Reference](https://learn.namiml.com/public-docs/sdk-reference/get-started/quickstart-guide?fallback=true)
