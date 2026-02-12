@@ -83455,98 +83455,112 @@
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 31353,
+      "offset": 31330,
+      "length": 12,
+      "value": "\"sku_ref_id\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
+      "kind": "StringLiteral",
+      "offset": 31344,
+      "length": 19,
+      "value": "\"${sku.sku_ref_id}\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
+      "kind": "StringLiteral",
+      "offset": 31440,
       "length": 34,
       "value": "\"percentagePriceDifferenceFromSku\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 31446,
+      "offset": 31533,
       "length": 3,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "Array",
-      "offset": 31725,
+      "offset": 31812,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "IntegerLiteral",
-      "offset": 31760,
+      "offset": 31847,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 32282,
+      "offset": 32369,
       "length": 183,
       "value": "\"Could not find parameter for sku identifier (number or name) in percentagePriceDifferenceFromSku smart text variable. Form is: ${sku.percentagePriceDifferenceFromSku:skuIdentifier} \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 32561,
+      "offset": 32648,
       "length": 24,
       "value": "\"priceDifferenceFromSku\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 32651,
+      "offset": 32738,
       "length": 3,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "Array",
-      "offset": 32930,
+      "offset": 33017,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "IntegerLiteral",
-      "offset": 32965,
+      "offset": 33052,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 33477,
+      "offset": 33564,
       "length": 163,
       "value": "\"Could not find parameter for sku identifier (number or name) in priceDifferenceFromSku smart text variable. Form is: ${sku.priceDifferenceFromSku:skuIdentifier} \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 34662,
+      "offset": 34749,
       "length": 102,
       "value": "\"findValueForSku found a variable value that is not of string type which we are not handling \""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "StringLiteral",
-      "offset": 34763,
+      "offset": 34850,
       "length": 20,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "IntegerLiteral",
-      "offset": 35138,
+      "offset": 35225,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/omaha-sdk-ios\/omaha-sdk-ios\/source\/Nami\/Paywalls\/Component\/NamiSmartText.swift",
       "kind": "IntegerLiteral",
-      "offset": 35276,
+      "offset": 35363,
       "length": 1,
       "value": "1"
     },
