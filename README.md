@@ -1,8 +1,6 @@
 ![Nami SDK logo](https://cdn.namiml.com/brand/sdk/Nami-SDK@0.5x.png)
 
-# Nami SDK for Apple platforms
-
-## What is Nami?
+# Nami SDK for Apple
 
 Nami is the only no-code subscription platform purpose-built to optimize the full revenue funnel — from acquisition to retention — with the speed and intelligence modern growth teams demand.
 
@@ -13,8 +11,6 @@ Nami is the only no-code subscription platform purpose-built to optimize the ful
 * Built-in IAP & subscription management and analytics, so you don't need another solution
 
 [Get started with Nami](https://www.nami.ml/)
-
-## Nami SDK for Apple
 
 ### Requirements
 - iOS 15+, iPadOS 15+, tvOS 15+
