@@ -18,8 +18,8 @@ let package = Package(
         // Nami is a binary XCFramework
         .binaryTarget(
             name: "NamiApple",
-            url: "https://packages.namiml.com/NamiSDK/Apple/3.4.1/NamiApple.xcframework-3.4.1.zip",
-            checksum: "20ac959f4bc4282900df30e2422a86280502935fdf141b6f586ba1204818e380"
+            url: "https://packages.namiml.com/NamiSDK/Apple/3.4.2/NamiApple.xcframework-3.4.2-dev.202606032130.zip",
+            checksum: "a15f7be17d50421f88c0268591d85d130aa68efb944aa7118e521d815833a4ec"
         ),
     ]
 )
